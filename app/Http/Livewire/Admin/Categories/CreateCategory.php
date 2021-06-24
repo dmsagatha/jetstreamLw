@@ -11,13 +11,13 @@ class CreateCategory extends Component
   public $name, $description, $identificator;
 
   protected $rules = [
-    'name'        => 'required|string|min:6|unique:categories',
-    'description' => 'required|string|max:100',
+    'name'        => 'required|string|min:4|unique:categories',
+    'description' => 'required|string|min:4|max:100',
   ];
 
-  public function updated($propertyName)
+  public function updated($field)
   {
-    $this->validateOnly($propertyName);
+    $this->validateOnly($field);
   }
 
   public function render()
