@@ -1,4 +1,4 @@
-<div wire:init="loadPost">
+<div wire:init="loadRecord">
   <x-slot name="header">
     <h2 class="font-semibold text-xl text-gray-800 leading-tight">
       Listado de Categorias
@@ -27,6 +27,8 @@
 
         <!--<input type="text" wire:model="search" placeholder="Buscar registros">-->
         <x-jet-input class="flex-1 mr-4 mx-4" type="text" wire:model="search" placeholder="Buscar registros" />
+
+        @livewire('admin.categories.create-category')
       </div>
 
       @if (count($categories))
