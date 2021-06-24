@@ -91,5 +91,9 @@
   "Showing": "Mostrando del",
   "to": "al",
   "of": "de",
-  "results": "registros"
+  "results": "registros",
+
+  "Categories": "Categorias",
+  "Show": "Mostrar",
+  "There is no records": "No hay registros"
 }
