@@ -233,5 +233,5 @@
         @endif
       </div>
     </div>
-  </div>
+  </div><!-- Responsive Navigation Menu -->
 </nav>
