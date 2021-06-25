@@ -15,6 +15,9 @@ class Posts extends Component
   public $sortAsc   = false;
   public $perPage   = '10';
 
+  // Cuando escuche el evento 'render' ejecute el método render()
+  public $listeners = ['render' => 'render'];
+
   public function render()
   {
     $posts = Post::where('title', 'like', '%' . $this->search . '%')

@@ -8,7 +8,7 @@ use Livewire\Component;
 class Create extends Component
 {
   // Ventana Modal
-  public $isModalOpen = true;
+  public $isModalOpen = false;
 
   // Campos
   public $title, $content;
@@ -24,5 +24,15 @@ class Create extends Component
       'title'   => $this->title,
       'content' => $this->content,
     ]);
+    
+    $this->resetInputFields();
+
+    // Emitir un evento para que lo escuche el componente Posts
+    $this->emit('render');
+  }
+
+  private function resetInputFields()
+  {
+    $this->reset(['isModalOpen', 'title', 'content']);
   }
 }
