@@ -32,6 +32,8 @@
       <x-jet-danger-button wire:click="save()">
         Guardar
       </x-jet-danger-button>
+
+      <span wire:loading wire:target="save">Cargando ...</span>
     </x-slot>
   </x-jet-dialog-modal>
 </div>
