@@ -30,12 +30,16 @@ class Create extends Component
 
   public function save()
   {
-    $this->validate();
+    /* $this->validate();
 
     Post::create([
       'title'   => $this->title,
       'content' => $this->content,
-    ]);
+    ]); */
+
+    $validatedData = $this->validate();
+
+    Post::create($validatedData);
 
     $this->resetInputFields();
 
