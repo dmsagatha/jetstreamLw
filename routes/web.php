@@ -11,4 +11,5 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
+// Coders Free - https://codersfree.com/course-status/crea-aplicaciones-web-dinamicas-con-laravel-livewire
 Route::middleware(['auth:sanctum', 'verified'])->get('/posts', Posts::class)->name('posts');

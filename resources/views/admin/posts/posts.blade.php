@@ -33,6 +33,8 @@
             <i class="fa fa-eraser"></i>
           </button>
         @endif
+
+        @livewire('admin.posts.create')
       </div><!-- Paginador y Buscador -->
 
       @if ($posts->count())
