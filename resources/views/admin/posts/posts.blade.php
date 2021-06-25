@@ -1,4 +1,6 @@
 <div>
+  @section('title', 'Posts')
+
   <x-slot name="header">
     <h2 class="font-semibold text-xl text-gray-800 leading-tight">
       {{ __('Dashboard') }}
@@ -13,8 +15,8 @@
         <div class="flex items-center">
           <span>{{ __('Show') }}</span>
 
-          <select wire:model="amount" class="mx-2 form-control">
-            <option value="10">5</option>
+          <select wire:model="perPage" class="mx-2 form-control">
+            <option value="5">5</option>
             <option value="10">10</option>
             <option value="25">25</option>
             <option value="50">50</option>
@@ -31,57 +33,20 @@
             <i class="fa fa-eraser"></i>
           </button>
         @endif
-      </div>
+      </div><!-- Paginador y Buscador -->
 
       @if ($posts->count())
-        <table class="min-w-full divide-y divide-gray-200">
-          <thead class="bg-gray-50 text-center">
-            <tr>
-              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                ID
-              </th>
-              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Título
-              </th>
-              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Contentido
-              </th>
-              <th scope="col" class="relative px-6 py-3">
-                <span class="sr-only">Edit</span>
-              </th>
-            </tr> 
-          </thead>
-          <tbody class="bg-white divide-y divide-gray-200">
-            @foreach ($posts as $item)
-              <tr>
-                <td class="px-6 py-4">
-                  <div class="text-sm text-gray-900">
-                    {{ $item->id }}
-                  </div>
-                </td>
-                <td class="px-6 py-4">
-                  <div class="text-sm text-gray-900">
-                    {{ $item->title }}
-                  </div>
-                </td>
-                <td class="px-6 py-4">
-                  <div class="text-sm text-gray-900">
-                    {{ $item->content }}
-                  </div>
-                </td>
-                <td class="px-6 py-4 text-right text-sm font-medium">
-                  <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
-                </td>
-              </tr>
-            @endforeach
-
-            <!-- More people... -->
-          </tbody>
-        </table>
+        @include('admin.posts._table')
       @else
         <div class="px-6 py-4">
           No existen registros coincidentes
-        </div>          
+        </div>
+      @endif
+
+      @if ($posts->hasPages())
+        <div class="px-6 py-3">
+          {{ $posts->links() }}
+        </div>
       @endif
     </x-table>
   </div>
