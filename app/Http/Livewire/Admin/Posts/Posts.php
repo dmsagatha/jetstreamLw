@@ -16,7 +16,7 @@ class Posts extends Component
   public $perPage   = '10';
 
   // Cuando escuche el evento 'render' ejecute el método render()
-  public $listeners = ['render' => 'render'];
+  public $listeners = ['render'];
 
   public function render()
   {

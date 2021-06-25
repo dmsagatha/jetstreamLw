@@ -24,11 +24,15 @@ class Create extends Component
       'title'   => $this->title,
       'content' => $this->content,
     ]);
-    
+
     $this->resetInputFields();
 
     // Emitir un evento para que lo escuche el componente Posts
-    $this->emit('render');
+    // $this->emit('render');
+
+    // Emitir un evento para que solo lo escuche el componente Posts
+    $this->emitTo('admin.posts.posts', 'render');
+    $this->emit('alert', 'Post creado satisfactoriamente.');
   }
 
   private function resetInputFields()
