@@ -32,7 +32,9 @@ class Create extends Component
 
     // Emitir un evento para que solo lo escuche el componente Posts
     $this->emitTo('admin.posts.posts', 'render');
-    $this->emit('alert', 'Post creado satisfactoriamente.');
+
+    // Mensaje para ser ejecutado por Sweetalert2 - js/app.js
+    $this->emit('alertCreate', 'Post creado satisfactoriamente.');
   }
 
   private function resetInputFields()

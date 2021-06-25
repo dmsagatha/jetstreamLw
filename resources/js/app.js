@@ -12,9 +12,11 @@ window.Swal = require('sweetalert2');
   'Good job!',
   'You clicked the button!',
   'success') */
-Livewire.on('alert', function(message) {
+
+  /* Se ejecuta cada vez que se crea o actualiza un registro */
+Livewire.on('alertCreate', function(message) {
   Swal.fire(
-    'Good job!',
+    '',
     message,
     'success'
   )

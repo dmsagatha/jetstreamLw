@@ -4926,8 +4926,10 @@ window.Swal = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2
   'You clicked the button!',
   'success') */
 
-Livewire.on('alert', function (message) {
-  Swal.fire('Good job!', message, 'success');
+/* Se ejecuta cada vez que se crea o actualiza un registro */
+
+Livewire.on('alertCreate', function (message) {
+  Swal.fire('', message, 'success');
 });
 
 /***/ }),
