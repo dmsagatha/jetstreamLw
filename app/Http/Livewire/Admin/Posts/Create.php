@@ -13,6 +13,16 @@ class Create extends Component
   // Campos
   public $title, $content;
 
+  protected $rules = [
+    'title'   => 'required|min:3|max:100|unique:posts',
+    'content' => 'required|min:10',
+  ];
+
+  public function updated($propertyName)
+  {
+    $this->validateOnly($propertyName);
+  }
+
   public function render()
   {
     return view('admin.posts.create');
@@ -20,6 +30,8 @@ class Create extends Component
 
   public function save()
   {
+    $this->validate();
+
     Post::create([
       'title'   => $this->title,
       'content' => $this->content,

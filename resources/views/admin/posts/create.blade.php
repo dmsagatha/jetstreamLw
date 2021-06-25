@@ -11,12 +11,16 @@
     <x-slot name="content">
       <div class="mb-4">
         <x-jet-label value="Título" />
-        <x-jet-input type="text" wire:model.defer="title" class="w-full" />
+        <x-jet-input type="text" wire:model="title" class="w-full" />
+
+        <x-jet-input-error for="title" />
       </div>
 
       <div class="mb-4">
         <x-jet-label value="Contenido" />
-        <textarea wire:model.defer="content" class="w-full form-control" rows="6"></textarea>
+        <textarea wire:model="content" class="w-full form-control" rows="6"></textarea>
+
+        <x-jet-input-error for="content" />
       </div>
     </x-slot>
 
