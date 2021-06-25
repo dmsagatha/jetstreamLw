@@ -3,19 +3,29 @@
 namespace App\Http\Livewire\Admin\Posts;
 
 use App\Models\Post;
+use Livewire\WithFileUploads;
 use Livewire\Component;
 
 class Create extends Component
 {
+  use WithFileUploads;
+
   // Ventana Modal
   public $isModalOpen = false;
 
   // Campos
-  public $title, $content;
+  public $title, $content, $image, $identifier;
+
+  // Inicializar la propiedad $identifier (imagen) con un número al azar
+  public function mount()
+  {
+    $this->identifier = rand();
+  }
 
   protected $rules = [
     'title'   => 'required|min:3|max:100|unique:posts',
     'content' => 'required|min:10',
+    'image'   => 'required|image|max:2048',
   ];
 
   public function updated($propertyName)
@@ -30,16 +40,20 @@ class Create extends Component
 
   public function save()
   {
-    /* $this->validate();
+    $this->validate();
+
+    // Almacenar imagen
+    $image = $this->image->store('posts');
 
     Post::create([
       'title'   => $this->title,
       'content' => $this->content,
-    ]); */
+      'image'   => $image,
+    ]);
 
-    $validatedData = $this->validate();
+    /* $validatedData = $this->validate();
 
-    Post::create($validatedData);
+    Post::create($validatedData); */
 
     $this->resetInputFields();
 
@@ -55,6 +69,8 @@ class Create extends Component
 
   private function resetInputFields()
   {
-    $this->reset(['isModalOpen', 'title', 'content']);
+    $this->reset(['isModalOpen', 'title', 'content', 'image']);
+
+    $this->identifier = rand();
   }
 }
