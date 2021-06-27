@@ -1,4 +1,4 @@
-<div>
+<div wire:init="loadRecords">
   @section('title', 'Posts')
 
   <x-slot name="header">
@@ -37,17 +37,17 @@
         @livewire('admin.posts.create')
       </div><!-- Paginador y Buscador -->
 
-      @if ($posts->count())
+      @if (count($posts))
         @include('admin.posts._table')
+
+        @if ($posts->hasPages())
+          <div class="px-6 py-3">
+            {{ $posts->links() }}
+          </div>
+        @endif
       @else
         <div class="px-6 py-4">
           No existen registros coincidentes
-        </div>
-      @endif
-
-      @if ($posts->hasPages())
-        <div class="px-6 py-3">
-          {{ $posts->links() }}
         </div>
       @endif
     </x-table>

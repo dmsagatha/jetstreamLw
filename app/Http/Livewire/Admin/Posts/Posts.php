@@ -18,6 +18,7 @@ class Posts extends Component
   public $sortField = 'id';
   public $sortAsc   = 'desc';
   public $perPage   = '5';
+  public $readyToLoad = false;
 
   // Coders Free - 11 - Pasar parámetros de acción public function edit()
   public $post, $image, $identifier;
@@ -48,12 +49,25 @@ class Posts extends Component
 
   public function render()
   {
-    $posts = Post::where('title', 'like', '%' . $this->search . '%')
-                ->orWhere('content', 'like', '%' . $this->search . '%')
-                ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
-                ->paginate($this->perPage);
+    if ($this->readyToLoad) {
+      $posts = Post::where('title', 'like', '%' . $this->search . '%')
+                  ->orWhere('content', 'like', '%' . $this->search . '%')
+                  ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
+                  ->paginate($this->perPage);
+    } else {
+      $posts = [];
+    }    
 
     return view('admin.posts.posts', compact('posts'));
+  }
+
+  /**
+   * Este método se ejecuta cuando la carga de la página se haya completado
+   * Vista <div wire:init="loadRecords">
+   */
+  public function loadRecords()
+  {
+    $this->readyToLoad = true;
   }
 
   public function clearSearch()
