@@ -16,8 +16,9 @@ class Posts extends Component
 
   public $search    = '';
   public $sortField = 'id';
-  public $sortAsc   = false;
-  public $perPage   = '10';
+  public $sortAsc   = 'desc';
+  public $perPage   = '5';
+  public $readyToLoad = false;
 
   // Coders Free - 11 - Pasar parámetros de acción public function edit()
   public $post, $image, $identifier;
@@ -38,14 +39,35 @@ class Posts extends Component
   // Cuando escuche el evento 'render' ejecute el método render()
   public $listeners = ['render'];
 
+  // Página por la Url
+  protected $queryString = [
+    'search'    => ['except' => ''],
+    'perPage'   => ['except' => '5'],
+    'sortField' => ['except' => 'id'],
+    'sortAsc'   => ['except' => 'desc']
+  ];
+
   public function render()
   {
-    $posts = Post::where('title', 'like', '%' . $this->search . '%')
-                ->orWhere('content', 'like', '%' . $this->search . '%')
-                ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
-                ->paginate($this->perPage);
+    if ($this->readyToLoad) {
+      $posts = Post::where('title', 'like', '%' . $this->search . '%')
+                  ->orWhere('content', 'like', '%' . $this->search . '%')
+                  ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
+                  ->paginate($this->perPage);
+    } else {
+      $posts = [];
+    }    
 
     return view('admin.posts.posts', compact('posts'));
+  }
+
+  /**
+   * Este método se ejecuta cuando la carga de la página se haya completado
+   * Vista <div wire:init="loadRecords">
+   */
+  public function loadRecords()
+  {
+    $this->readyToLoad = true;
   }
 
   public function clearSearch()

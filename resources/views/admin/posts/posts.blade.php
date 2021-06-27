@@ -1,4 +1,4 @@
-<div>
+<div wire:init="loadRecords">
   @section('title', 'Posts')
 
   <x-slot name="header">
@@ -26,10 +26,10 @@
           <span>{{ __('results') }}</span>
         </div>
         
-        <x-jet-input class="flex-1 mr-4 mx-4" type="text" wire:model="search" placeholder="Buscar registros" />
+        <x-jet-input class="flex-1 mx-4" type="text" wire:model="search" placeholder="Buscar registros" />
 
         @if ($search !== '')
-          <button wire:click="clearSearch" class="ml-6">
+          <button wire:click="clearSearch" class="ml-2">
             <i class="fa fa-eraser"></i>
           </button>
         @endif
@@ -37,17 +37,17 @@
         @livewire('admin.posts.create')
       </div><!-- Paginador y Buscador -->
 
-      @if ($posts->count())
+      @if (count($posts))
         @include('admin.posts._table')
+
+        @if ($posts->hasPages())
+          <div class="px-6 py-3">
+            {{ $posts->links() }}
+          </div>
+        @endif
       @else
         <div class="px-6 py-4">
           No existen registros coincidentes
-        </div>
-      @endif
-
-      @if ($posts->hasPages())
-        <div class="px-6 py-3">
-          {{ $posts->links() }}
         </div>
       @endif
     </x-table>

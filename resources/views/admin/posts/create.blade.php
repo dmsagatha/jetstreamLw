@@ -1,5 +1,5 @@
 <div>
-  <x-jet-danger-button wire:click="$set('isModalOpen', true)">
+  <x-jet-danger-button wire:click="$set('isModalOpen', true)" class="ml-2">
     Crear Post
   </x-jet-danger-button>
 
