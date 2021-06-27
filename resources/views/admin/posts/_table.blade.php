@@ -37,7 +37,10 @@
           </div>
         </td>
         <td class="px-6 py-4 text-sm font-medium">
-          @livewire('admin.posts.edit', ['post' => $item], key($item->id))
+          {{-- @livewire('admin.posts.edit', ['post' => $item], key($item->id)) --}}
+          <a class="btn btn-green" wire:click="edit({{ $item }})">
+            <i class="fas fa-edit"></i>
+          </a>
         </td>
       </tr>
     @endforeach
