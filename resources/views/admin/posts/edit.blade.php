@@ -1,11 +1,11 @@
 <div>
-  <x-jet-danger-button wire:click="$set('isModalOpen', true)">
-    Crear Post
-  </x-jet-danger-button>
+  <a class="btn btn-green" wire:click="$set('isModalOpen', true)">
+    <i class="fas fa-edit"></i>
+  </a>
 
   <x-jet-dialog-modal wire:model="isModalOpen">
     <x-slot name="title">
-      Crear nuevo Post
+      Actualizar Post
     </x-slot>
 
     <x-slot name="content">
@@ -17,24 +17,26 @@
 
       @if ($image)
         <img src="{{ $image->temporaryUrl() }}" alt="" class="mb-4">
+      @else
+        <img src="{{ Storage::url($post->image) }}" alt="" class="mb-4">
       @endif
-      
+
       <div class="mb-4">
         <x-jet-label value="Título" />
-        <x-jet-input type="text" wire:model="title" class="w-full" />
+        <x-jet-input type="text" wire:model="post.title" class="w-full" />
 
         <x-jet-input-error for="title" />
       </div>
 
       <div class="mb-4">
         <x-jet-label value="Contenido" />
-        <textarea wire:model="content" class="w-full form-control" rows="6"></textarea>
+        <textarea wire:model="post.content" class="w-full form-control" rows="6"></textarea>
 
         <x-jet-input-error for="content" />
       </div>
 
       <div class="mb-4">
-        <x-jet-input type="file" wire:model="image" id="{{ $identifier }}" />
+        <x-jet-input type="file" wire:model="image" />
         <x-jet-input-error for="image" />
       </div>
     </x-slot>
@@ -43,14 +45,10 @@
       <x-jet-secondary-button wire:click="$set('isModalOpen', false)">
         Cancelar
       </x-jet-secondary-button>
-
-      {{-- <x-jet-danger-button wire:click="save" wire:loading.remove wire:target="save"> --}}
-      {{-- <x-jet-danger-button wire:click="save" wire:loading.class="bg-blue-500" wire:target="save"> --}}
+      
       <x-jet-danger-button wire:click="save" wire:loading.attr="disabled" wire:target="save, image" class="disabled:opacity-25">
-        Guardar
+        Actualizar
       </x-jet-danger-button>
-
-      {{-- <span wire:loading wire:target="save">Cargando ...</span> --}}
     </x-slot>
   </x-jet-dialog-modal>
 </div>
