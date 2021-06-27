@@ -1414,6 +1414,9 @@ select{
 .border-b{
 	border-bottom-width: 1px;
 }
+.border-r{
+	border-right-width: 1px;
+}
 .border-gray-300{
 	--tw-border-opacity: 1;
 	border-color: rgba(209, 213, 219, var(--tw-border-opacity));
@@ -1436,6 +1439,10 @@ select{
 .border-red-400{
 	--tw-border-opacity: 1;
 	border-color: rgba(248, 113, 113, var(--tw-border-opacity));
+}
+.border-gray-400{
+	--tw-border-opacity: 1;
+	border-color: rgba(156, 163, 175, var(--tw-border-opacity));
 }
 .bg-white{
 	--tw-bg-opacity: 1;

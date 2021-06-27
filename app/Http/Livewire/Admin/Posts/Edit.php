@@ -3,23 +3,27 @@
 namespace App\Http\Livewire\Admin\Posts;
 
 use App\Models\Post;
+use Livewire\WithFileUploads;
+use Storage;
 use Livewire\Component;
 
 class Edit extends Component
 {
+  use WithFileUploads;
+
   public $isModalOpen = false;  
-  public $post;
+  public $post, $image, $identifier;
 
   // Instancia del modelo Post
   public function mount(Post $post)
   {
     $this->post = $post;
+    $this->identifier = rand();
   }
 
   protected $rules = [
     'post.title'   => 'required|min:3|max:100',
     'post.content' => 'required|min:10',
-    // 'post.image'   => 'required|image|max:2048',
   ];
   
   public function render()
@@ -30,6 +34,12 @@ class Edit extends Component
   public function save()
   {
     $this->validate();
+
+    if ($this->image) {
+      Storage::delete([$this->post->image]);
+
+      $this->post->image = $this->image->store('posts');
+    }
 
     $this->post->save();
 
@@ -44,6 +54,8 @@ class Edit extends Component
 
   private function resetInputFields()
   {
-    $this->reset(['isModalOpen']);
+    $this->reset(['isModalOpen', 'image']);
+
+    $this->identifier = rand();
   }
 }

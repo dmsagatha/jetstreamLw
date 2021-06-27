@@ -9,7 +9,7 @@
     </x-slot>
 
     <x-slot name="content">
-      {{-- <div wire:loading wire:target="image" class="mb-4 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+      <div wire:loading wire:target="image" class="mb-4 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
         <strong class="font-bold">Imagen cargando!</strong>
         <span class="block sm:inline">Espere un momento hasta que la imagen se haya procesado.</span>
         </span>
@@ -17,7 +17,9 @@
 
       @if ($image)
         <img src="{{ $image->temporaryUrl() }}" alt="" class="mb-4">
-      @endif --}}
+      @else
+        <img src="{{ Storage::url($post->image) }}" alt="" class="mb-4">
+      @endif
 
       <div class="mb-4">
         <x-jet-label value="Título" />
@@ -34,8 +36,7 @@
       </div>
 
       <div class="mb-4">
-        <x-jet-input type="file" wire:model="post.image" />
-
+        <x-jet-input type="file" wire:model="image" />
         <x-jet-input-error for="image" />
       </div>
     </x-slot>
