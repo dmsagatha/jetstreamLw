@@ -16,8 +16,8 @@ class Posts extends Component
 
   public $search    = '';
   public $sortField = 'id';
-  public $sortAsc   = false;
-  public $perPage   = '10';
+  public $sortAsc   = 'desc';
+  public $perPage   = '5';
 
   // Coders Free - 11 - Pasar parámetros de acción public function edit()
   public $post, $image, $identifier;
@@ -37,6 +37,14 @@ class Posts extends Component
 
   // Cuando escuche el evento 'render' ejecute el método render()
   public $listeners = ['render'];
+
+  // Página por la Url
+  protected $queryString = [
+    'search'    => ['except' => ''],
+    'perPage'   => ['except' => '5'],
+    'sortField' => ['except' => 'id'],
+    'sortAsc'   => ['except' => 'desc']
+  ];
 
   public function render()
   {

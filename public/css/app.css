@@ -1057,6 +1057,10 @@ select{
 	margin-top: -0.5rem;
 	margin-bottom: -0.5rem;
 }
+.mx-3{
+	margin-left: 0.75rem;
+	margin-right: 0.75rem;
+}
 .ml-3{
 	margin-left: 0.75rem;
 }
@@ -1131,6 +1135,9 @@ select{
 }
 .-mt-px{
 	margin-top: -1px;
+}
+.ml-5{
+	margin-left: 1.25rem;
 }
 .block{
 	display: block;

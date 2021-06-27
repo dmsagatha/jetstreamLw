@@ -26,10 +26,10 @@
           <span>{{ __('results') }}</span>
         </div>
         
-        <x-jet-input class="flex-1 mr-4 mx-4" type="text" wire:model="search" placeholder="Buscar registros" />
+        <x-jet-input class="flex-1 mx-4" type="text" wire:model="search" placeholder="Buscar registros" />
 
         @if ($search !== '')
-          <button wire:click="clearSearch" class="ml-6">
+          <button wire:click="clearSearch" class="ml-2">
             <i class="fa fa-eraser"></i>
           </button>
         @endif
