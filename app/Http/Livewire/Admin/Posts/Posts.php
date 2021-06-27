@@ -3,17 +3,37 @@
 namespace App\Http\Livewire\Admin\Posts;
 
 use App\Models\Post;
-use Livewire\Component;
+use Storage;
+use Livewire\WithFileUploads;
 use Livewire\WithPagination;
+use Livewire\Component;
 
 class Posts extends Component
 {
-  use WithPagination;
+  use WithPagination, WithFileUploads;
+
+  public $isModalEdit = false;
 
   public $search    = '';
   public $sortField = 'id';
   public $sortAsc   = false;
   public $perPage   = '10';
+
+  // Coders Free - 11 - Pasar parámetros de acción public function edit()
+  public $post, $image, $identifier;
+
+  public function mount(Post $post)
+  {
+    $this->identifier = rand();
+
+    // Trying to get property 'image' of non-object
+    $this->post = new Post();
+  }
+
+  protected $rules = [
+    'post.title'   => 'required|min:3|max:100',
+    'post.content' => 'required|min:10',
+  ];
 
   // Cuando escuche el evento 'render' ejecute el método render()
   public $listeners = ['render'];
@@ -53,5 +73,36 @@ class Posts extends Component
     }
 
     $this->sortField = $field;
+  }
+
+  public function edit(Post $post)
+  {
+    $this->post = $post;
+    $this-> isModalEdit = true;
+  }
+
+  public function update()
+  {
+    $this->validate();
+
+    if ($this->image) {
+      Storage::delete([$this->post->image]);
+
+      $this->post->image = $this->image->store('posts');
+    }
+
+    $this->post->save();
+
+    $this->resetInputFields();
+
+    // Mensaje para ser ejecutado por Sweetalert2 - js/app.js
+    $this->emit('alertCreate', 'Post actualizado satisfactoriamente.');
+  }
+
+  private function resetInputFields()
+  {
+    $this->reset(['isModalEdit', 'image']);
+
+    $this->identifier = rand();
   }
 }
