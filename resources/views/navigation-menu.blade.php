@@ -16,7 +16,10 @@
             {{ __('Dashboard') }}
           </x-jet-nav-link>
           <x-jet-nav-link href="{{ route('posts') }}" :active="request()->routeIs('posts')">
-            {{ __('Posts') }}
+            Posts Coders Free
+          </x-jet-nav-link>
+          <x-jet-nav-link href="{{ route('post') }}" :active="request()->routeIs('post')">
+            Posts Jack of Traits
           </x-jet-nav-link>
         </div>
       </div>
@@ -157,7 +160,10 @@
         {{ __('Dashboard') }}
       </x-jet-responsive-nav-link>
       <x-jet-responsive-nav-link href="{{ route('posts') }}" :active="request()->routeIs('posts')">
-        {{ __('Posts') }}
+        Posts Coders Free
+      </x-jet-responsive-nav-link>
+      <x-jet-responsive-nav-link href="{{ route('post') }}" :active="request()->routeIs('post')">
+        Posts Jack of Traits
       </x-jet-responsive-nav-link>
     </div>
 

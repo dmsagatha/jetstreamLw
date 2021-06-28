@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Livewire\Admin\Posts\Posts;
-use App\Http\Livewire\Admin\Post\Post;
+use App\Http\Livewire\Admin\Post\Postjt;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -16,4 +16,4 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/posts', Posts::class)->name('posts');
 
 // Jack of Traits - https://www.youtube.com/watch?v=4muQp-nB0ZQ&list=PLSP81gW0XjNFP8RTBLMb1KL7Qbr8hUjr4&index=1
-// Route::middleware(['auth:sanctum', 'verified'])->get('/post', Post::class)->name('post');
+Route::middleware(['auth:sanctum', 'verified'])->get('/post', Postjt::class)->name('post');
