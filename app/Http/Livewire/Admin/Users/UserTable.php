@@ -11,18 +11,20 @@ class UserTable extends Component
   use WithPagination;
 
   public $search    = '';
-  public $perPage   = '5';
+  public $perPage   = '10';
   public $sortField = 'id';
   public $sortAsc   = 'desc';
+  public $userRole  = '';
 
   public function render()
   {
-    return view('admin.users.user-table', [
-      'users' => User::where('name', 'like', '%' . $this->search . '%')
+    $users = User::where('name', 'like', '%' . $this->search . '%')
                     ->orWhere('email', 'like', '%' . $this->search . '%')
                     ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
-                    ->paginate($this->perPage)
-    ]);
+                    ->role($this->userRole)
+                    ->paginate($this->perPage);
+
+    return view('admin.users.user-table', compact('users'));
   }
 
   /**
@@ -36,7 +38,7 @@ class UserTable extends Component
   public function clearSearch()
   {
     $this->search  = '';
-    $this->perPage = '5';
+    $this->perPage = '10';
   }
 
   public function sortBy($field)

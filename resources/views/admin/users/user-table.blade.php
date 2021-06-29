@@ -11,6 +11,13 @@
         </select>
         
         <input wire:model="search" type="text" class="form-input w-full text-gray-500 mx-6" placeholder="Ingrese el término de busquedad">
+        
+        <select wire:model="userRole" class="mx-2 form-control">
+          <option value="">Todos los Roles</option>
+          <option value="user">Usuario</option>
+          <option value="reviewer">Revisor</option>
+          <option value="admin">Administrador</option>
+        </select>
 
         @if ($search !== '')
           <button wire:click="clearSearch" class="ml-2">
@@ -39,6 +46,10 @@
               Correo Electrónico
               @include('includes._sort-icon', ['field' => 'email'])
             </th>
+            <th scope="col" class="px-6 py-3 text-gray-500 tracking-wider cursor-pointer">
+              Rol
+              @include('includes._sort-icon', ['field' => 'email'])
+            </th>
             <th scope="col" class="relative px-6 py-3">
               <span class="sr-only">Edit</span>
             </th>
@@ -60,6 +71,11 @@
               <td class="px-6 py-4">
                 <div class="text-sm text-gray-900">
                   {{ $item->email }}
+                </div>
+              </td>
+              <td class="px-6 py-4">
+                <div class="text-sm text-gray-900">
+                  {{ $item->role_full }}
                 </div>
               </td>
               <td class="px-6 py-4 text-sm font-medium">
