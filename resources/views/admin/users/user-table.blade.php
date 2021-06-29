@@ -1,5 +1,19 @@
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
   <x-table>
+    <div class="bg-white px-4 py-3 items-center justify-between border-t border-gray-200 sm:px-6">
+      <div class="flex text-gray-500">
+        <select wire:model="perPage" class="mx-2 form-control">
+          <option value="5">5</option>
+          <option value="10">10</option>
+          <option value="25">25</option>
+          <option value="50">50</option>
+          <option value="100">100</option>
+        </select>
+        
+        <input wire:model="search" type="text" class="form-input w-full text-gray-500 mx-6" placeholder="Ingrese el término de busquedad">
+      </div>
+    </div>
+
     @if (count($users))
       <table class="min-w-full divide-y divide-gray-200">
         <thead class="bg-gray-50 text-center text-base font-bold">
