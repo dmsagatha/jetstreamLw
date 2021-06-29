@@ -11,10 +11,12 @@ class UserTable extends Component
   use WithPagination;
 
   public $search    = '';
-  public $perPage   = '10';
+  public $perPage   = '5';
   public $sortField = 'id';
   public $sortAsc   = 'desc';
   public $userRole  = '';
+
+  public $showModal = 'hidden';
 
   public function render()
   {
@@ -35,16 +37,6 @@ class UserTable extends Component
     $this->resetPage();
   }
 
-  public function clearSearch()
-  {
-    /* $this->search     = '';
-    $this->perPage    = '10';
-    $this->sortField  = '';
-    $this->sortAsc    = ''; */
-
-    $this->reset();
-  }
-
   public function sortBy($field)
   {
     /* Si el campo esta activo, reversar el ordenamiento,
@@ -56,5 +48,20 @@ class UserTable extends Component
     }
 
     $this->sortField = $field;
+  }
+
+  public function clearSearch()
+  {
+    /* $this->search     = '';
+    $this->perPage    = '5';
+    $this->sortField  = '';
+    $this->sortAsc    = ''; */
+
+    $this->reset();
+  }
+
+  public function showModal(User $user)
+  {
+    $this->emit('showModal', $user);
   }
 }
