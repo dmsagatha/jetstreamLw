@@ -11,7 +11,7 @@ class UserTable extends Component
   use WithPagination;
 
   public $search    = '';
-  public $perPage   = '10';
+  public $perPage   = '5';
   public $sortField = 'id';
   public $sortAsc   = 'desc';
   public $userRole  = '';
@@ -53,7 +53,7 @@ class UserTable extends Component
   public function clearSearch()
   {
     /* $this->search     = '';
-    $this->perPage    = '10';
+    $this->perPage    = '5';
     $this->sortField  = '';
     $this->sortAsc    = ''; */
 
@@ -62,6 +62,6 @@ class UserTable extends Component
 
   public function showModal(User $user)
   {
-    dd($user);
+    $this->emit('showModal', $user);
   }
 }
