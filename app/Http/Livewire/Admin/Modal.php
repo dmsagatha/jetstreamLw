@@ -11,9 +11,7 @@ class Modal extends Component
   /**
    * Escuchar los métodos que se están ejecutando
    */
-  protected $listeners = [
-    'showModal' => 'openModal'
-  ];
+  protected $listeners = ['showModal' => 'openModal'];
   
   public function render()
   {
