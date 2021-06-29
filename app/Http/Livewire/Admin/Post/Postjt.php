@@ -15,6 +15,9 @@ class Postjt extends Component
   public $sortAsc   = 'desc';
   public $perPage   = '5';
   public $readyToLoad = false;
+  
+  public $action;
+  public $selectedItem;
 
   /* public $prompt;
   protected $listeners = ['refreshParent'];
@@ -38,9 +41,25 @@ class Postjt extends Component
     return view('admin.post.post', compact('posts'));
   }
 
-  public function delete($itemId)
+  /**
+   * Seleccionar el id y la acción a realizar (actualizar o eliminar)
+   */
+  public function selectItem($itemId, $action)
   {
-    Post::destroy($itemId);
+    $this->selectedItem = $itemId;
+    // $this->action = $action;
+        
+    if ($action == 'delete') {
+      // Mostrar el modal en el frontend
+      $this->dispatchBrowserEvent('openDeleteModal');
+    }
+    
+  }
+
+  public function delete()
+  {
+    Post::destroy($this->selectedItem);
+    $this->dispatchBrowserEvent('closeDeleteModal');
   }
 
   public function loadRecords()

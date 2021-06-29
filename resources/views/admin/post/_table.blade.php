@@ -38,11 +38,14 @@
         </td>
         <td class="px-6 py-4 text-sm font-medium text-center">
           {{-- @livewire('admin.post.post-form', ['post' => $item], key($item->id)) --}}
-          {{-- <a class="btn btn-green" wire:click="edit({{ $item }})">
+          <a wire:click="selectItem({{ $item->id }}, 'update')" class="btn btn-green" title="Editar">
             <i class="fas fa-edit"></i>
-          </a> --}}
+          </a>
 
-          <a wire:click.prevent="delete({{ $item->id }})" class="text-red-600 hover:text-red-900" title="Eliminar">
+          {{-- <a wire:click="selectItem({{ $item->id }}, 'delete')" class="text-red-600 hover:text-red-900" title="Eliminar">
+            <i class="fa fa-trash"></i>
+          </a> --}}
+          <a wire:click="delete" class="text-red-600 hover:text-red-900" title="Eliminar">
             <i class="fa fa-trash"></i>
           </a>
         </td>

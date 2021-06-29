@@ -37,6 +37,9 @@
         @livewire('admin.post.post-form')
       </div><!-- Paginador y Buscador -->
 
+      {{-- <p>Item seleccionado {{ $selectedItem }}</p>
+      <p>Acción {{ $action }}</p> --}}
+
       @if (count($posts))
         @include('admin.post._table')
 
@@ -52,4 +55,20 @@
       @endif
     </x-table>
   </div>
+
+  {{-- Modal para la eliminación de registros --}}
+  <x-modal>
+    <x-slot name="title">
+      Esta seguro?
+    </x-slot>
+
+    <x-slot name="body">
+      Si lo elimina, no podrá recuperar el registro.
+    </x-slot>
+
+    <x-slot name="footer">
+      <x-button id="foot" class="bg-red-400 hover:bg-red-500">Cancelar</x-button>
+      <x-button class="bg-blue-400 hover:bg-blue-500">Continuar</x-button>      
+    </x-slot>
+  </x-modal>
 </div>

@@ -54,5 +54,15 @@
         )
       });
     </script> --}}
+
+    <script>
+      window.addEventListener('openDeleteModal', event => {
+        $('#modalFormDelete').modal('show');
+      });
+
+      window.addEventListener('closeDeleteModal', event => {
+        $('#modalFormDelete').modal('hide');
+      });
+    </script>
   </body>
 </html>
