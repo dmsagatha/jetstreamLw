@@ -16,6 +16,8 @@ class UserTable extends Component
   public $sortAsc   = 'desc';
   public $userRole  = '';
 
+  public $showModal = 'hidden';
+
   public function render()
   {
     $users = User::where('name', 'like', '%' . $this->search . '%')
@@ -35,16 +37,6 @@ class UserTable extends Component
     $this->resetPage();
   }
 
-  public function clearSearch()
-  {
-    /* $this->search     = '';
-    $this->perPage    = '10';
-    $this->sortField  = '';
-    $this->sortAsc    = ''; */
-
-    $this->reset();
-  }
-
   public function sortBy($field)
   {
     /* Si el campo esta activo, reversar el ordenamiento,
@@ -56,5 +48,20 @@ class UserTable extends Component
     }
 
     $this->sortField = $field;
+  }
+
+  public function clearSearch()
+  {
+    /* $this->search     = '';
+    $this->perPage    = '10';
+    $this->sortField  = '';
+    $this->sortAsc    = ''; */
+
+    $this->reset();
+  }
+
+  public function showModal(User $user)
+  {
+    dd($user);
   }
 }
