@@ -7,27 +7,7 @@
     </h2>
   </x-slot>
 
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      
-    <div class="mb-4">
-      <x-jet-label value="Título" />
-      <x-jet-input type="text" wire:model="title" class="w-full" />
-
-      <x-jet-input-error for="title" />
-    </div>
-
-    <div class="mb-4">
-      <x-jet-label value="Contenido" />
-      <textarea wire:model="content" class="w-full form-control" rows="3"></textarea>
-
-      <x-jet-input-error for="content" />
-    </div>
-
-    <x-jet-danger-button wire:click="save">
-      Guardar
-    </x-jet-danger-button>
-
-
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">    
     <x-table>
       {{--$search--}}
       <div class="px-6 py-4 flex items-center">
@@ -45,7 +25,7 @@
 
           <span>{{ __('results') }}</span>
         </div>
-        
+
         <x-jet-input class="flex-1 mx-4" type="text" wire:model="search" placeholder="Buscar registros" />
 
         @if ($search !== '')
@@ -53,6 +33,8 @@
             <i class="fa fa-eraser"></i>
           </button>
         @endif
+
+        @livewire('admin.post.post-form')
       </div><!-- Paginador y Buscador -->
 
       @if (count($posts))

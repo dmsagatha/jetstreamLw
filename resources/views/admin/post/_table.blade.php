@@ -14,7 +14,7 @@
         @include('includes._sort-icon', ['field' => 'content'])
       </th>
       <th scope="col" class="relative px-6 py-3">
-        <span class="sr-only">Edit</span>
+        Acciones
       </th>
     </tr> 
   </thead>
@@ -36,10 +36,14 @@
             {{ $item->content }}
           </div>
         </td>
-        <td class="px-6 py-4 text-sm font-medium">
-          {{-- @livewire('admin.posts.edit', ['post' => $item], key($item->id)) --}}
-          <a class="btn btn-green" wire:click="edit({{ $item }})">
+        <td class="px-6 py-4 text-sm font-medium text-center">
+          {{-- @livewire('admin.post.post-form', ['post' => $item], key($item->id)) --}}
+          {{-- <a class="btn btn-green" wire:click="edit({{ $item }})">
             <i class="fas fa-edit"></i>
+          </a> --}}
+
+          <a wire:click.prevent="delete({{ $item->id }})" class="text-red-600 hover:text-red-900" title="Eliminar">
+            <i class="fa fa-trash"></i>
           </a>
         </td>
       </tr>

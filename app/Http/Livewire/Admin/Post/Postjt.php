@@ -16,14 +16,31 @@ class Postjt extends Component
   public $perPage   = '5';
   public $readyToLoad = false;
 
+  /* public $prompt;
+  protected $listeners = ['refreshParent'];
+  public function refreshParent()
+  {
+    $this->prompt = "El padre ha sido refrescado.";
+  } */
+  
+  protected $listeners = [
+    'refreshParent' => '$refresh',
+    'render'
+  ];
+
   public function render()
   {
     $posts = Post::where('title', 'like', '%' . $this->search . '%')
                 ->orWhere('content', 'like', '%' . $this->search . '%')
-                ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
+                ->orderBy($this->sortField, $this->sortAsc ? 'desc' : 'asc')
                 ->paginate($this->perPage);
 
     return view('admin.post.post', compact('posts'));
+  }
+
+  public function delete($itemId)
+  {
+    Post::destroy($itemId);
   }
 
   public function loadRecords()

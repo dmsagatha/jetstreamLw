@@ -1029,11 +1029,17 @@ select{
 .top-0{
 	top: 0px;
 }
+.bottom-0{
+	bottom: 0px;
+}
 .z-0{
 	z-index: 0;
 }
 .z-50{
 	z-index: 50;
+}
+.z-10{
+	z-index: 10;
 }
 .col-span-6{
 	grid-column: span 6 / span 6;
@@ -1129,6 +1135,9 @@ select{
 .-mt-px{
 	margin-top: -1px;
 }
+.ml-auto{
+	margin-left: auto;
+}
 .block{
 	display: block;
 }
@@ -1146,6 +1155,9 @@ select{
 }
 .grid{
 	display: grid;
+}
+.contents{
+	display: contents;
 }
 .hidden{
 	display: none;
@@ -1176,6 +1188,9 @@ select{
 }
 .h-20{
 	height: 5rem;
+}
+.h-full{
+	height: 100%;
 }
 .min-h-screen{
 	min-height: 100vh;
@@ -1224,6 +1239,9 @@ select{
 }
 .w-24{
 	width: 6rem;
+}
+.w-1\/2{
+	width: 50%;
 }
 .min-w-0{
 	min-width: 0px;
@@ -1302,6 +1320,12 @@ select{
 }
 .flex-wrap{
 	flex-wrap: wrap;
+}
+.items-start{
+	align-items: flex-start;
+}
+.items-end{
+	align-items: flex-end;
 }
 .items-center{
 	align-items: center;
@@ -1496,6 +1520,15 @@ select{
 .bg-opacity-25{
 	--tw-bg-opacity: 0.25;
 }
+.bg-opacity-75{
+	--tw-bg-opacity: 0.75;
+}
+.bg-opacity-90{
+	--tw-bg-opacity: 0.9;
+}
+.fill-current{
+	fill: currentColor;
+}
 .object-cover{
 	-o-object-fit: cover;
 	   object-fit: cover;
@@ -1505,6 +1538,9 @@ select{
 }
 .p-6{
 	padding: 1.5rem;
+}
+.p-4{
+	padding: 1rem;
 }
 .px-4{
 	padding-left: 1rem;
@@ -1595,6 +1631,15 @@ select{
 .pt-8{
 	padding-top: 2rem;
 }
+.pb-20{
+	padding-bottom: 5rem;
+}
+.pl-2{
+	padding-left: 0.5rem;
+}
+.text-left{
+	text-align: left;
+}
 .text-center{
 	text-align: center;
 }
@@ -1603,6 +1648,9 @@ select{
 }
 .align-middle{
 	vertical-align: middle;
+}
+.align-bottom{
+	vertical-align: bottom;
 }
 .font-sans{
 	font-family: Nunito, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -1657,6 +1705,9 @@ select{
 }
 .leading-4{
 	line-height: 1rem;
+}
+.leading-6{
+	line-height: 1.5rem;
 }
 .tracking-widest{
 	letter-spacing: 0.1em;
@@ -1740,6 +1791,10 @@ select{
 	--tw-text-opacity: 1;
 	color: rgba(209, 213, 219, var(--tw-text-opacity));
 }
+.text-red-300{
+	--tw-text-opacity: 1;
+	color: rgba(252, 165, 165, var(--tw-text-opacity));
+}
 .underline{
 	text-decoration: underline;
 }
@@ -1807,6 +1862,11 @@ select{
 }
 .transition-all{
 	transition-property: all;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	transition-duration: 150ms;
+}
+.transition-opacity{
+	transition-property: opacity;
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 	transition-duration: 150ms;
 }
@@ -6490,6 +6550,14 @@ readers do not read off random characters that represent icons */
 	--tw-bg-opacity: 1;
 	background-color: rgba(249, 250, 251, var(--tw-bg-opacity));
 }
+.hover\:bg-red-700:hover{
+	--tw-bg-opacity: 1;
+	background-color: rgba(185, 28, 28, var(--tw-bg-opacity));
+}
+.hover\:bg-blue-700:hover{
+	--tw-bg-opacity: 1;
+	background-color: rgba(29, 78, 216, var(--tw-bg-opacity));
+}
 .hover\:text-gray-500:hover{
 	--tw-text-opacity: 1;
 	color: rgba(107, 114, 128, var(--tw-text-opacity));
@@ -6509,6 +6577,10 @@ readers do not read off random characters that represent icons */
 .hover\:text-gray-900:hover{
 	--tw-text-opacity: 1;
 	color: rgba(17, 24, 39, var(--tw-text-opacity));
+}
+.hover\:text-red-900:hover{
+	--tw-text-opacity: 1;
+	color: rgba(127, 29, 29, var(--tw-text-opacity));
 }
 .focus\:z-10:focus{
 	z-index: 10;
@@ -6536,6 +6608,10 @@ readers do not read off random characters that represent icons */
 .focus\:border-gray-300:focus{
 	--tw-border-opacity: 1;
 	border-color: rgba(209, 213, 219, var(--tw-border-opacity));
+}
+.focus\:border-blue-400:focus{
+	--tw-border-opacity: 1;
+	border-color: rgba(96, 165, 250, var(--tw-border-opacity));
 }
 .focus\:bg-indigo-600:focus{
 	--tw-bg-opacity: 1;
@@ -6582,6 +6658,11 @@ readers do not read off random characters that represent icons */
 	--tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);
 	box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
 }
+.focus\:ring-2:focus{
+	--tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+	--tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+	box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+}
 .focus\:ring-gray-300:focus{
 	--tw-ring-opacity: 1;
 	--tw-ring-color: rgba(209, 213, 219, var(--tw-ring-opacity));
@@ -6598,8 +6679,19 @@ readers do not read off random characters that represent icons */
 	--tw-ring-opacity: 1;
 	--tw-ring-color: rgba(191, 219, 254, var(--tw-ring-opacity));
 }
+.focus\:ring-red-500:focus{
+	--tw-ring-opacity: 1;
+	--tw-ring-color: rgba(239, 68, 68, var(--tw-ring-opacity));
+}
+.focus\:ring-indigo-500:focus{
+	--tw-ring-opacity: 1;
+	--tw-ring-color: rgba(99, 102, 241, var(--tw-ring-opacity));
+}
 .focus\:ring-opacity-50:focus{
 	--tw-ring-opacity: 0.5;
+}
+.focus\:ring-offset-2:focus{
+	--tw-ring-offset-width: 2px;
 }
 .active\:bg-gray-100:active{
 	--tw-bg-opacity: 1;
@@ -6652,6 +6744,10 @@ readers do not read off random characters that represent icons */
 		margin-left: -1.5rem;
 		margin-right: -1.5rem;
 	}
+	.sm\:my-8{
+		margin-top: 2rem;
+		margin-bottom: 2rem;
+	}
 	.sm\:ml-3{
 		margin-left: 0.75rem;
 	}
@@ -6676,6 +6772,9 @@ readers do not read off random characters that represent icons */
 	.sm\:block{
 		display: block;
 	}
+	.sm\:inline-block{
+		display: inline-block;
+	}
 	.sm\:inline{
 		display: inline;
 	}
@@ -6691,11 +6790,17 @@ readers do not read off random characters that represent icons */
 	.sm\:h-20{
 		height: 5rem;
 	}
+	.sm\:h-screen{
+		height: 100vh;
+	}
 	.sm\:w-10{
 		width: 2.5rem;
 	}
 	.sm\:w-full{
 		width: 100%;
+	}
+	.sm\:w-auto{
+		width: auto;
 	}
 	.sm\:max-w-md{
 		max-width: 28rem;
@@ -6728,6 +6833,9 @@ readers do not read off random characters that represent icons */
 		--tw-scale-x: 1;
 		--tw-scale-y: 1;
 		transform: var(--tw-transform);
+	}
+	.sm\:flex-row-reverse{
+		flex-direction: row-reverse;
 	}
 	.sm\:items-start{
 		align-items: flex-start;
@@ -6765,6 +6873,9 @@ readers do not read off random characters that represent icons */
 	.sm\:p-6{
 		padding: 1.5rem;
 	}
+	.sm\:p-0{
+		padding: 0px;
+	}
 	.sm\:px-6{
 		padding-left: 1.5rem;
 		padding-right: 1.5rem;
@@ -6788,6 +6899,17 @@ readers do not read off random characters that represent icons */
 	}
 	.sm\:text-right{
 		text-align: right;
+	}
+	.sm\:align-middle{
+		vertical-align: middle;
+	}
+	.sm\:text-sm{
+		font-size: 0.875rem;
+		line-height: 1.25rem;
+	}
+	.sm\:text-base{
+		font-size: 1rem;
+		line-height: 1.5rem;
 	}
 }
 @media (min-width: 768px){
