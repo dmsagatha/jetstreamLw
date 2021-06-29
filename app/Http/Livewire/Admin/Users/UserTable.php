@@ -37,8 +37,12 @@ class UserTable extends Component
 
   public function clearSearch()
   {
-    $this->search  = '';
-    $this->perPage = '10';
+    /* $this->search     = '';
+    $this->perPage    = '10';
+    $this->sortField  = '';
+    $this->sortAsc    = ''; */
+
+    $this->reset();
   }
 
   public function sortBy($field)
