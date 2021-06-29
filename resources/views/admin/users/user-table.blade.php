@@ -11,24 +11,33 @@
         </select>
         
         <input wire:model="search" type="text" class="form-input w-full text-gray-500 mx-6" placeholder="Ingrese el término de busquedad">
+
+        @if ($search !== '')
+          <button wire:click="clearSearch" class="ml-2">
+            <i class="fa fa-eraser"></i>
+          </button>
+        @endif
       </div>
     </div>
 
     @if (count($users))
       <table class="min-w-full divide-y divide-gray-200">
-        <thead class="bg-gray-50 text-center text-base font-bold">
+        <thead class="bg-gray-50 text-center text-base font-bold align-middle">
           <tr>
-            <th scope="col"
+            <th scope="col" wire:click.prevent="sortBy('id')"
               class="w-24 px-6 py-3 text-gray-500 uppercase tracking-wider cursor-pointer">
               ID
+              @include('includes._sort-icon', ['field' => 'id'])
             </th>
-            <th scope="col"
+            <th scope="col" wire:click.prevent="sortBy('name')"
               class="px-6 py-3 text-gray-500 uppercase tracking-wider cursor-pointer">
               Nombre
+              @include('includes._sort-icon', ['field' => 'name'])
             </th>
-            <th scope="col"
+            <th scope="col" wire:click.prevent="sortBy('email')"
               class="px-6 py-3 text-gray-500 uppercase tracking-wider cursor-pointer">
               Correo Electrónico
+              @include('includes._sort-icon', ['field' => 'email'])
             </th>
             <th scope="col" class="relative px-6 py-3">
               <span class="sr-only">Edit</span>
