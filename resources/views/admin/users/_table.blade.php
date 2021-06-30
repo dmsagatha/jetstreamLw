@@ -6,6 +6,10 @@
         ID
         @include('includes._sort-icon', ['field' => 'id'])
       </th>
+      <th scope="col"
+        class="w-24 px-6 py-3 text-gray-500 uppercase tracking-wider cursor-pointer">
+        Imagen
+      </th>
       <th scope="col" wire:click.prevent="sortBy('name')"
         class="px-6 py-3 text-gray-500 uppercase tracking-wider cursor-pointer">
         Nombre
@@ -31,6 +35,11 @@
         <td class="px-6 py-4">
           <div class="text-sm text-gray-900">
             {{ $item->id }}
+          </div>
+        </td>
+        <td class="px-6 py-4">
+          <div class="text-sm text-gray-900 w-10 h-10">
+            <img class="rounded-full" src="{{ asset('storage/'.$item->profile_photo_path) }}" alt="{{ $item->name }}">
           </div>
         </td>
         <td class="px-6 py-4">
