@@ -6,7 +6,7 @@ use Livewire\Component;
 
 class Modal extends Component
 {
-  public $showModal = 'hidden';
+  public $showModal = '';
 
   /**
    * Escuchar los métodos que se están ejecutando
@@ -15,7 +15,7 @@ class Modal extends Component
   
   public function render()
   {
-    return view('admin.modal');
+    return view('admin.live-modal');
   }
 
   public function openModal($user)
