@@ -9,16 +9,17 @@ use Livewire\Component;
 class Create extends Component
 {
   public $showModal = 'hidden';
-  public $name;
-  public $email;
-  public $role;
+  public $name, $email, $role, $password, $password_confirmation;
   public $user = null;
+  public $action = '';
+  public $method;
 
   /**
    * Escuchar los métodos que se están ejecutando
    */
   protected $listeners = [
-    'showModal' => 'openModal'
+    'showModal' => 'openModal',
+    'showModalNewUser' => 'openModalNew',
   ];
   
   public function render()
@@ -30,21 +31,48 @@ class Create extends Component
   {
     $requestUser = new RequestCreateUpdateUser();
 
-    $values = $this->validate($requestUser->rules(), $requestUser->messages());
+    $values = $this->validate($requestUser->rules($this->user), $requestUser->messages());
 
     $this->user->update($values);
 
     $this->emit('usersListUpdate');
-    $this->reset();
+    $this->closeModal();
+  }
+
+  public function store()
+  {
+    $requestUser = new RequestCreateUpdateUser();
+
+    $values = $this->validate($requestUser->rules($this->user), $requestUser->messages());
+
+    $user = new User;
+    $user->fill($values);
+    $user->password = bcrypt($values['password']);
+    $user->save();
+    
+    $this->emit('usersListUpdate');
+    $this->closeModal();
   }
 
   public function openModal(User $user)
   {
-    // Poner de forma global
+    // $user Poner de forma global
     $this->user = $user;
     $this->name = $user->name;
     $this->email = $user->email;
     $this->role = $user->role;
+
+    $this->action = 'Actualizar';
+    $this->method = 'update';
+
+    $this->showModal = '';
+  }
+
+  public function openModalNew()
+  {
+    $this->user = null;
+    $this->action = 'Crear';
+    $this->method = 'store';
 
     $this->showModal = '';
   }
@@ -53,11 +81,13 @@ class Create extends Component
   {
     $requestUser = new RequestCreateUpdateUser();
 
-    $this->validateOnly($propertyName, $requestUser->rules(), $requestUser->messages());
+    $this->validateOnly($propertyName, $requestUser->rules($this->user), $requestUser->messages());
   }
 
   public function closeModal()
   {
+    $this->resetErrorBag();
+    $this->resetValidation();
     $this->reset();
   }
 }

@@ -13,7 +13,7 @@ class UserTable extends Component
   public $search    = '';
   public $perPage   = '5';
   public $sortField = 'id';
-  public $sortAsc   = 'desc';
+  public $sortAsc   = false;
   public $userRole  = '';
 
   public $showModal = 'hidden';
@@ -68,8 +68,15 @@ class UserTable extends Component
     $this->reset();
   }
 
+  /**
+   * Mostrar el modal para crear y actualizar los usuarios
+   */
   public function showModal(User $user)
   {
-    $this->emit('showModal', $user);
+    if ($user->name) {
+      $this->emit('showModal', $user);
+    } else {
+      $this->emit('showModalNewUser');
+    }
   }
 }
