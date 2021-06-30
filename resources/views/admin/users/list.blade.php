@@ -16,6 +16,7 @@
   </div>
 
   @push('modals')
-    @livewire('admin.modal')
+    {{-- @livewire('admin.modal') --}}
+    @livewire('admin.users.create')
   @endpush
 </x-app-layout>
