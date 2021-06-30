@@ -9,10 +9,7 @@ use Livewire\Component;
 class Create extends Component
 {
   public $showModal = 'hidden';
-  public $name;
-  public $email;
-  public $role;
-  public $password, $password_confirmation;
+  public $name, $email, $role, $password, $password_confirmation;
   public $user = null;
   public $action = '';
   public $method;
@@ -38,7 +35,7 @@ class Create extends Component
 
     $this->user->update($values);
 
-    $this->emit('usersListUpdate');    
+    $this->emit('usersListUpdate');
     $this->closeModal();
   }
 
@@ -53,6 +50,7 @@ class Create extends Component
     $user->password = bcrypt($values['password']);
     $user->save();
     
+    $this->emit('usersListUpdate');
     $this->closeModal();
   }
 
