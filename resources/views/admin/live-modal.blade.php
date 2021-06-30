@@ -13,7 +13,14 @@
             </div>
 
             <div class="flex">
-              <x-input label="Nombre" name="name" type="text" placeholder="Ingrese el nombre" />
+              <x-select
+                label="Roles" 
+                name="role" 
+                :options="[
+                  'user' => 'Usuario',
+                  'reviewer' => 'Revisor',
+                  'admin' => 'Administrador'
+                ]" />
             </div>
           </form>
         </p>
