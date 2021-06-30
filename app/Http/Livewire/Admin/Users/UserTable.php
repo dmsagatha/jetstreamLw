@@ -18,6 +18,14 @@ class UserTable extends Component
 
   public $showModal = 'hidden';
 
+  /**
+   * Escuchar el evento que va a actualizar la tabla
+   */
+  protected $listeners = [
+    // 'showModal' => 'openModal',
+    'usersListUpdate' => 'render',
+  ];
+
   public function render()
   {
     $users = User::where('name', 'like', '%' . $this->search . '%')
