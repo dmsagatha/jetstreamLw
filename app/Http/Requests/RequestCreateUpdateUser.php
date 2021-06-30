@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class RequestCreateUpdateUser extends FormRequest
@@ -13,10 +14,23 @@ class RequestCreateUpdateUser extends FormRequest
 
   public function rules($user)
   {
-    return [
+    $rules = [
       'name'  => 'required|min:3|max:30',
-      'email' => 'required|email',
+      'email' => [
+        'required', 'email', 
+        Rule::unique('users', 'email')->ignore($user)
+      ],
       'role'  => 'required|in:admin,user,reviewer'
     ];
+
+    if (!$user) {
+      $validation_password = [
+        'password' => 'required|confirmed'
+      ];
+
+      $rules = array_merge($rules, $validation_password);
+    }
+
+    return $rules;
   }
 }

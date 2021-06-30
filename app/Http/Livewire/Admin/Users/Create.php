@@ -12,6 +12,7 @@ class Create extends Component
   public $name;
   public $email;
   public $role;
+  public $password, $password_confirmation;
   public $user = null;
   public $action = '';
   public $method;
@@ -33,7 +34,7 @@ class Create extends Component
   {
     $requestUser = new RequestCreateUpdateUser();
 
-    $values = $this->validate($requestUser->rules(), $requestUser->messages());
+    $values = $this->validate($requestUser->rules($this->user), $requestUser->messages());
 
     $this->user->update($values);
 
@@ -45,11 +46,13 @@ class Create extends Component
   {
     $requestUser = new RequestCreateUpdateUser();
 
-    $values = $this->validate($requestUser->rules(), $requestUser->messages());
+    $values = $this->validate($requestUser->rules($this->user), $requestUser->messages());
 
-    $this->user->update($values);
-
-    $this->emit('usersListUpdate');    
+    $user = new User;
+    $user->fill($values);
+    $user->password = bcrypt($values['password']);
+    $user->save();
+    
     $this->closeModal();
   }
 
@@ -70,7 +73,7 @@ class Create extends Component
   public function openModalNew()
   {
     $this->user = null;
-    $this->action = 'Guardar';
+    $this->action = 'Crear';
     $this->method = 'store';
 
     $this->showModal = '';
@@ -80,7 +83,7 @@ class Create extends Component
   {
     $requestUser = new RequestCreateUpdateUser();
 
-    $this->validateOnly($propertyName, $requestUser->rules(), $requestUser->messages());
+    $this->validateOnly($propertyName, $requestUser->rules($this->user), $requestUser->messages());
   }
 
   public function closeModal()

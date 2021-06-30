@@ -3,7 +3,7 @@
     <x-modal :showModal="$showModal" :action="$action">
       <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
         <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">
-          Editar usuario
+          {{ $action }} usuario
         </h3>
         <div class="mt-2 text-sm text-gray-500">
           <div class="grid grid-cols-6 gap-4">
@@ -30,6 +30,22 @@
                     ]" />
               </div>
             </div>
+
+            @if ($action == 'Crear')
+              <div class="col-span-6 sm:col-span-3">
+                <div class="mb-4">
+                  <x-input label="Contraseña" name="password" type="password" placeholder="Ingrese su contraseña" />
+                </div>
+                <x-error for="password" />
+              </div>
+            
+              <div class="col-span-6 sm:col-span-3">
+                <div class="mb-4">
+                  <x-input label="Confirmar contraseña" name="password_confirmation" type="password" placeholder="Confirme su contraseña" />
+                </div>
+                <x-error for="password_confirmation" />
+              </div>              
+            @endif
           </div>
         </div>
       </div>
