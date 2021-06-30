@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Livewire\Admin;
+namespace App\Http\Livewire\Admin\Users;
 
 use Livewire\Component;
 
-class Modal extends Component
+class Create extends Component
 {
   public $showModal = '';
 
@@ -15,7 +15,7 @@ class Modal extends Component
   
   public function render()
   {
-    return view('admin.live-modal');
+    return view('admin.users.create');
   }
 
   public function openModal($user)
