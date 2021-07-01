@@ -41,8 +41,13 @@ class Create extends Component
 
     $values = $this->validate($requestUser->rules($this->user), $requestUser->messages());
 
-    $profile = ['profile_photo_path' => $this->loadImage($values['profile_photo_path'])];
-    $values = array_merge($values, $profile);
+    $this->removeImage($this->user->profile_photo_path);
+
+    if ($values['profile_photo_path']) {
+      $profile = ['profile_photo_path' => $this->loadImage($values['profile_photo_path'])];
+      $values = array_merge($values, $profile);
+    }
+
     
     $this->user->update($values);
 
@@ -58,7 +63,10 @@ class Create extends Component
     
     $user = new User;
     $user->fill($values);
-    $user->profile_photo_path = $this->loadImage($values['profile_photo_path']);
+
+    if ($values['profile_photo_path']) {
+      $user->profile_photo_path = $this->loadImage($values['profile_photo_path']);
+    }
     $user->password = bcrypt($values['password']);
     $user->save();
     
@@ -72,6 +80,17 @@ class Create extends Component
     $location  = Storage::disk('public')->put('images', $image);
 
     return $location;
+  }
+
+  private function removeImage($profile_photo_path)
+  {
+    if (!$profile_photo_path) {
+      return;
+    }
+
+    if (Storage::disk('public')->exists($profile_photo_path)) {
+      Storage::disk('public')->delete($profile_photo_path);
+    }
   }
 
   public function openModal(User $user)

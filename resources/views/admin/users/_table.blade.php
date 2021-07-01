@@ -39,7 +39,7 @@
         </td>
         <td class="px-6 py-4">
           <div class="text-sm text-gray-900 w-10 h-10">
-            <img class="rounded-full" src="{{ asset('storage/'.$item->profile_photo_path) }}" alt="{{ $item->name }}">
+            <img class="rounded-full" src="{{ asset('storage/'.$item->image_user) }}" alt="{{ $item->name }}">
           </div>
         </td>
         <td class="px-6 py-4">

@@ -1056,17 +1056,17 @@ select{
 	margin-left: 1.5rem;
 	margin-right: 1.5rem;
 }
-.mx-4{
-	margin-left: 1rem;
-	margin-right: 1rem;
+.mx-1{
+	margin-left: 0.25rem;
+	margin-right: 0.25rem;
 }
 .-my-2{
 	margin-top: -0.5rem;
 	margin-bottom: -0.5rem;
 }
-.mx-1{
-	margin-left: 0.25rem;
-	margin-right: 0.25rem;
+.mx-4{
+	margin-left: 1rem;
+	margin-right: 1rem;
 }
 .ml-3{
 	margin-left: 0.75rem;
@@ -1160,9 +1160,6 @@ select{
 }
 .grid{
 	display: grid;
-}
-.contents{
-	display: contents;
 }
 .hidden{
 	display: none;
@@ -1457,13 +1454,13 @@ select{
 	--tw-border-opacity: 1;
 	border-color: rgba(252, 165, 165, var(--tw-border-opacity));
 }
-.border-red-400{
-	--tw-border-opacity: 1;
-	border-color: rgba(248, 113, 113, var(--tw-border-opacity));
-}
 .border-gray-400{
 	--tw-border-opacity: 1;
 	border-color: rgba(156, 163, 175, var(--tw-border-opacity));
+}
+.border-red-400{
+	--tw-border-opacity: 1;
+	border-color: rgba(248, 113, 113, var(--tw-border-opacity));
 }
 .bg-white{
 	--tw-bg-opacity: 1;
@@ -1795,10 +1792,6 @@ select{
 .text-gray-300{
 	--tw-text-opacity: 1;
 	color: rgba(209, 213, 219, var(--tw-text-opacity));
-}
-.text-purple-600{
-	--tw-text-opacity: 1;
-	color: rgba(124, 58, 237, var(--tw-text-opacity));
 }
 .underline{
 	text-decoration: underline;
@@ -6559,10 +6552,6 @@ readers do not read off random characters that represent icons */
 	--tw-bg-opacity: 1;
 	background-color: rgba(254, 242, 242, var(--tw-bg-opacity));
 }
-.hover\:bg-red-700:hover{
-	--tw-bg-opacity: 1;
-	background-color: rgba(185, 28, 28, var(--tw-bg-opacity));
-}
 .hover\:bg-blue-700:hover{
 	--tw-bg-opacity: 1;
 	background-color: rgba(29, 78, 216, var(--tw-bg-opacity));
@@ -6692,10 +6681,6 @@ readers do not read off random characters that represent icons */
 	--tw-ring-opacity: 1;
 	--tw-ring-color: rgba(99, 102, 241, var(--tw-ring-opacity));
 }
-.focus\:ring-red-500:focus{
-	--tw-ring-opacity: 1;
-	--tw-ring-color: rgba(239, 68, 68, var(--tw-ring-opacity));
-}
 .focus\:ring-blue-500:focus{
 	--tw-ring-opacity: 1;
 	--tw-ring-color: rgba(59, 130, 246, var(--tw-ring-opacity));
@@ -6756,13 +6741,13 @@ readers do not read off random characters that represent icons */
 		margin-top: -1px;
 		margin-bottom: -1px;
 	}
-	.sm\:my-8{
-		margin-top: 2rem;
-		margin-bottom: 2rem;
-	}
 	.sm\:-mx-6{
 		margin-left: -1.5rem;
 		margin-right: -1.5rem;
+	}
+	.sm\:my-8{
+		margin-top: 2rem;
+		margin-bottom: 2rem;
 	}
 	.sm\:ml-3{
 		margin-left: 0.75rem;
