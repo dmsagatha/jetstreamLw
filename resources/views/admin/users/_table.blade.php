@@ -61,6 +61,12 @@
           <a href="#" class="text-indigo-600 hover:text-indigo-900" wire:click="showModal({{ $item->id }})">
             Editar
           </a>
+          {{-- <a href="javascript:void(0)" class="text-red-600 hover:text-red-900" wire:click="deleteUser({{ $item->id }})">
+            Eliminar
+          </a> --}}
+          <a href="javascript:void(0)" class="text-red-600 hover:text-red-900" onclick="borrarUsuario({{ $item->id }})">
+            Eliminar
+          </a>
         </td>
       </tr>
     @endforeach

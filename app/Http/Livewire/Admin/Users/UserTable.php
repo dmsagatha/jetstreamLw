@@ -22,8 +22,8 @@ class UserTable extends Component
    * Escuchar el evento que va a actualizar la tabla
    */
   protected $listeners = [
-    // 'showModal' => 'openModal',
     'usersListUpdate' => 'render',
+    'deleteUserList'  => 'deleteUser'
   ];
 
   public function render()
@@ -78,5 +78,12 @@ class UserTable extends Component
     } else {
       $this->emit('showModalNewUser');
     }
+  }
+
+  public function deleteUser(User $user)
+  {
+    $user->delete();
+
+    $this->emit('deleteUser', $user);
   }
 }
