@@ -12,7 +12,7 @@ class CreatePostsTable extends Migration
       $table->id();
       $table->string('title')->unique();
       $table->string('content');
-      $table->string('image');
+      $table->string('image', 2048)->nullable();
       $table->timestamps();
     });
   }

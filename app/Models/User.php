@@ -60,6 +60,11 @@ class User extends Authenticatable
     'profile_photo_url',
   ];
 
+  public function getImageUserAttribute()
+  {
+    return $this->profile_photo_path ?? 'images/default-user.png';
+  }
+
   /**
    * Accesor - Para mostrar en las vistas
    */
