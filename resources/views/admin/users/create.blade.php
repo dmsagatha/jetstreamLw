@@ -9,14 +9,14 @@
           <div class="grid grid-cols-6 gap-4">
             <div class="col-span-6 sm:col-span-3">
               <div class="mb-4">
-                <x-input label="Nombre" name="name" type="text" placeholder="Ingrese el nombre" />
+                <x-input type="text" label="Nombre" name="name" placeholder="Ingrese el nombre" />
               </div>
               <x-error for="name" />
             </div>
           
             <div class="col-span-6 sm:col-span-3">
               <div class="mb-4">
-                <x-input label="Correo Electrónico" name="email" type="email" placeholder="Ingrese el correo" />
+                <x-input type="email" label="Correo Electrónico" name="email" placeholder="Ingrese el correo" />
               </div>
               <x-error for="email" />
             </div>
@@ -31,17 +31,24 @@
               </div>
             </div>
 
+            <div class="col-span-6">
+              <div class="mb-4">
+                <x-input type="file" label="Imagen" name="profile_photo_path" placeholder="Subir imagen" />
+              </div>
+              <x-error for="profile_photo_path" />
+            </div>
+
             @if ($action == 'Crear')
               <div class="col-span-6 sm:col-span-3">
                 <div class="mb-4">
-                  <x-input label="Contraseña" name="password" type="password" placeholder="Ingrese su contraseña" />
+                  <x-input type="password" label="Contraseña" name="password" placeholder="Ingrese su contraseña" />
                 </div>
                 <x-error for="password" />
               </div>
             
               <div class="col-span-6 sm:col-span-3">
                 <div class="mb-4">
-                  <x-input label="Confirmar contraseña" name="password_confirmation" type="password" placeholder="Confirme su contraseña" />
+                  <x-input type="password" label="Confirmar contraseña" name="password_confirmation" placeholder="Confirme su contraseña" />
                 </div>
                 <x-error for="password_confirmation" />
               </div>              

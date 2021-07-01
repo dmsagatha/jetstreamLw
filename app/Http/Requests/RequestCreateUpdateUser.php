@@ -20,7 +20,8 @@ class RequestCreateUpdateUser extends FormRequest
         'required', 'email', 
         Rule::unique('users', 'email')->ignore($user)
       ],
-      'role'  => 'required|in:admin,user,reviewer'
+      'role'  => 'required|in:admin,user,reviewer',
+      'profile_photo_path' => 'image|max:2048'
     ];
 
     if (!$user) {

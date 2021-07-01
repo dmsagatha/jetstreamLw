@@ -27,6 +27,7 @@ class User extends Authenticatable
     'email',
     'role',
     'password',
+    'profile_photo_path',
   ];
 
   /**

@@ -3,14 +3,22 @@
 namespace App\Http\Livewire\Admin\Users;
 
 use App\Models\User;
-use App\Http\Requests\RequestCreateUpdateUser;
 use Livewire\Component;
+use Livewire\WithFileUploads;
+use Livewire\TemporaryUploadedFile;
+use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\RequestCreateUpdateUser;
 
 class Create extends Component
 {
+  use WithFileUploads;
+
   public $showModal = 'hidden';
-  public $name, $email, $role, $password, $password_confirmation;
+
   public $user = null;
+  public $name, $email, $role, $password, $password_confirmation;
+  public $profile_photo_path = null;
+
   public $action = '';
   public $method;
 
@@ -33,6 +41,9 @@ class Create extends Component
 
     $values = $this->validate($requestUser->rules($this->user), $requestUser->messages());
 
+    $profile = ['profile_photo_path' => $this->loadImage($values['profile_photo_path'])];
+    $values = array_merge($values, $profile);
+    
     $this->user->update($values);
 
     $this->emit('usersListUpdate');
@@ -44,14 +55,23 @@ class Create extends Component
     $requestUser = new RequestCreateUpdateUser();
 
     $values = $this->validate($requestUser->rules($this->user), $requestUser->messages());
-
+    
     $user = new User;
     $user->fill($values);
+    $user->profile_photo_path = $this->loadImage($values['profile_photo_path']);
     $user->password = bcrypt($values['password']);
     $user->save();
     
     $this->emit('usersListUpdate');
     $this->closeModal();
+  }
+
+  private function loadImage(TemporaryUploadedFile $image)
+  {
+    $extension = $image->getClientOriginalExtension();
+    $location  = Storage::disk('public')->put('images', $image);
+
+    return $location;
   }
 
   public function openModal(User $user)
