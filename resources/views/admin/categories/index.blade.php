@@ -31,5 +31,19 @@
         @endif
       </div>
     </div>
+
+    @if (count($categories))
+      @include('admin.categories._table')
+
+      @if ($categories->hasPages())
+        <div class="bg-white px-4 py-3 items-center justify-between border-t border-gray-200 sm:px-6">
+          {{ $categories->links() }}
+        </div>
+      @endif
+    @else
+      <div class="px-6 py-4">
+        No existen registros coincidentes
+      </div>
+    @endif
   </x-table>
 </div>
