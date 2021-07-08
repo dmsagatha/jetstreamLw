@@ -15,11 +15,13 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function ()
   return view('dashboard');
 })->name('dashboard');
 
-// Coders Free - https://codersfree.com/course-status/crea-aplicaciones-web-dinamicas-con-laravel-livewire
-Route::middleware(['auth:sanctum', 'verified'])->get('/posts', Posts::class)->name('posts');
+// Route::middleware(['auth:sanctum', 'verified'])->get('/posts', Posts::class)->name('posts');
 
 Route::group(['middleware' => 'auth:sanctum'], function ()
 {
+  // Coders Free - https://codersfree.com/course-status/crea-aplicaciones-web-dinamicas-con-laravel-livewire
+  Route::get('/posts', Posts::class)->name('posts');
+
   // lauchoIT - Datatable - https://www.youtube.com/watch?v=vVCk6WLhpls&list=PL6qvAWOEyjhobIhfl37npsBJKRBCKbYfF&index=2
   Route::get('/user/list', [UserController::class, 'list'])->name('user.list');
 
