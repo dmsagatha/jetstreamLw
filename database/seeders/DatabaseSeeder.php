@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
 use App\Models\Post;
-// use Illuminate\Support\Facades\Storage;
 use Storage;
+use App\Models\User;
+use App\Models\Category;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder
   public function run()
   {
     Storage::deleteDirectory('posts');
+    Category::query()->delete();
     User::query()->delete();
     Post::query()->delete();
 
@@ -28,5 +29,7 @@ class DatabaseSeeder extends Seeder
     ]);
 
     User::factory()->times(100)->create();
+
+    Category::factory()->times(30)->create();
   }
 }

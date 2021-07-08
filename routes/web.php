@@ -19,3 +19,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/posts', Posts::class)->na
 Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::get('/user/list', [UserController::class, 'list'])->name('user.list');
 });
+
+// http://www.ascsoftwares.com/technology/laravel-livewire-crud-pagination-using-tailwind-modal/
+Route::middleware(['auth:sanctum', 'verified'])->get('/items', function () {
+    return view('items');
+})->name('items');
