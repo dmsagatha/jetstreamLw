@@ -1,4 +1,6 @@
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+  @section('title', 'Usuarios')
+  
   <x-table>
     <div class="bg-white px-4 py-3 items-center justify-between border-t border-gray-200 sm:px-6">
       <!-- Paginador y Buscador -->
