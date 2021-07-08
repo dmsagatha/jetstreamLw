@@ -21,8 +21,9 @@
         </select>
 
         <span>registros</span>
-        
-        <input wire:model="search" type="text" class="form-input w-full text-gray-500 mx-6" placeholder="Ingrese el término de busquedad">
+
+        <input wire:model="search" type="text" class="form-input w-full text-gray-500 mx-6"
+          placeholder="Ingrese el término de busquedad">
 
         @if ($search !== '')
           <button wire:click="clearSearch" class="ml-2">
@@ -46,4 +47,35 @@
       </div>
     @endif
   </x-table>
+
+  <x-jet-dialog-modal wire:model="confirmingCategoryAdd">
+    <x-slot name="title">
+      {{ isset( $this->category->id) ? 'Editar Categoría' : 'Crear Categoría'}}
+    </x-slot>
+
+    <x-slot name="content">
+      <div class="col-span-6 sm:col-span-4">
+        <x-jet-label for="name" value="{{ __('Name') }}" />
+        <x-jet-input id="name" type="text" class="mt-1 block w-full" wire:model.defer="category.name" />
+        <x-jet-input-error for="category.name" class="mt-2" />
+      </div>
+
+      <div class="col-span-6 sm:col-span-4 mt-4">
+        <label class="flex items-center">
+          <input type="checkbox" wire:model.defer="category.status" class="form-checkbox" />
+          <span class="ml-2 text-sm text-gray-600">Active</span>
+        </label>
+      </div>
+    </x-slot>
+
+    <x-slot name="footer">
+      <x-jet-secondary-button wire:click="$set('confirmingCategoryAdd', false)" wire:loading.attr="disabled">
+        {{ __('Cancel') }}
+      </x-jet-secondary-button>
+
+      <x-jet-danger-button class="ml-2" wire:click="saveCategory()" wire:loading.attr="disabled">
+        {{ __('Save') }}
+      </x-jet-danger-button>
+    </x-slot>
+  </x-jet-dialog-modal>
 </div>

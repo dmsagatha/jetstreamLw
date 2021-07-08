@@ -25,10 +25,10 @@
     @foreach ($categories as $item)
       <tr>
         <td class="px-6 py-4">
-            {{ $item->id }}
+          {{ $item->id }}
         </td>
         <td class="px-6 py-4">
-            {{ $item->name }}
+          {{ $item->name }}
         </td>
         @if(!$active)
           <td class="px-6 py-4">
@@ -36,7 +36,10 @@
           </td>
         @endif
         <td class="px-6 py-4 text-sm font-medium text-center">
-          Editar | Eliminar
+          <x-jet-button wire:click="confirmCategoryEdit({{ $item->id }})" class="bg-orange-500 hover:bg-orange-700">
+            Editar
+          </x-jet-button>
+          Eliminar
         </td>
       </tr>
     @endforeach
