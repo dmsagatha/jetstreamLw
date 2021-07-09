@@ -23,8 +23,7 @@ class CreateUpdate extends Component
 
     if (isset($this->category->id)) {
       $this->category->save();
-
-      $this->emit('triggerRefresh');
+      
       $this->emit('alertCreate', 'Registro actualizado satisfactoriamente.');
     } else {
       Category::create([
@@ -49,5 +48,13 @@ class CreateUpdate extends Component
     $this->resetErrorBag();
     $this->resetValidation();
     $this->reset();
+  }
+
+  /**
+   * Mostrar las validaciones mientras se escribe
+   */
+  public function updated($propertyName)
+  {
+    $this->validateOnly($propertyName);
   }
 }
