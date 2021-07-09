@@ -10,12 +10,28 @@ class CreateUpdate extends Component
   // Coders Free - https://www.youtube.com/watch?v=Wcf4pbnt5lI&list=PLZ2ovOgdI-kWqCet33O0WezN14KShkwER&index=7
   public $isModalOpen = false;    //$confirmingCategoryAdd y $open
 
-  public $category, $name, $status;
+  public $category, $categoryId, $name, $status;
 
+  /**
+   * Instancia del modelo Category
+   */
+  public function mount(Category $category)
+  {
+    $this->category = $category;
+  }
+  
   protected $rules = [
-    'name'   => 'required|string|min:4|unique:categories',
-    'status' => 'boolean',
+    'category.name'   => 'required|string|min:4|unique:categories,name',
+    'category.status' => 'boolean',
   ];
+  
+  /* public function rules()
+  {
+    return [
+      'category.name'   => 'required|string|min:4|unique:categories,name,' . $this->categoryId,
+      'category.status' => 'boolean',
+    ];
+  } */
 
   public function save()
   {
@@ -26,9 +42,9 @@ class CreateUpdate extends Component
       
       $this->emit('alertCreate', 'Registro actualizado satisfactoriamente.');
     } else {
-      Category::create([
-        'name'   => $this->name,
-        'status' => $this->status    // Revisar
+      $this->category->create([
+        'name'   => $this->category['name'],
+        'status' => $this->category['status'] ?? 0,
       ]);
       $this->emit('alertCreate', 'Registro creado satisfactoriamente.');
     }

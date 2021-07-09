@@ -18,6 +18,7 @@ class Categories extends Component
 
   public $category;
   public $confirmingCategoryAdd = false;    //$open
+  public $isModalOpen = false;
 
   protected $listeners = [
     'triggerRefresh' => '$refresh'
@@ -35,19 +36,19 @@ class Categories extends Component
     return view('admin.categories.index', compact('categories'));
   }
 
-  protected $rules = [
+  /* protected $rules = [
     'category.name'   => 'required|string|min:4',
     'category.status' => 'boolean',
-  ];
+  ]; */
 
-  public function confirmCategoryEdit(Category $category)
+  /* public function confirmCategoryEdit(Category $category)
   {
     $this->resetErrorBag();
     $this->category = $category;
     $this->confirmingCategoryAdd = true;
-  }
+  } */
 
-  public function saveCategory()
+  /* public function saveCategory()
   {
     $this->validate();
 
@@ -63,7 +64,7 @@ class Categories extends Component
     }
 
     $this->confirmingCategoryAdd = false;
-  }
+  } */
 
   /**
    * Ejecutar solo cuando se cambie el valor de $search

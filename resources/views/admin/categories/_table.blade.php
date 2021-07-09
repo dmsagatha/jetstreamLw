@@ -35,10 +35,13 @@
             {{ $item->status ? 'Activo' : 'No Activo'}}
           </td>
         @endif
-        <td class="px-6 py-4 text-sm font-medium text-center">
-          <x-jet-button wire:click="confirmCategoryEdit({{ $item->id }})" class="bg-orange-500 hover:bg-orange-700">
-            Editar
-          </x-jet-button>
+        <td class="px-6 py-4 text-sm font-medium">
+          @livewire('admin.categories.create-update', ['category' => $item], key($item->id))
+
+          <a wire:click="confirmCategoryEdit({{ $item->id }})" href="#" class="text-indigo-600 hover:text-indigo-900" title="Editar">
+            <i class="fas fa-edit mr-2"></i>
+          </a>
+          
           Eliminar
         </td>
       </tr>
