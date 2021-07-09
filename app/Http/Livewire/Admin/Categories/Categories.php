@@ -3,8 +3,8 @@
 namespace App\Http\Livewire\Admin\Categories;
 
 use App\Models\Category;
-use Livewire\Component;
 use Livewire\WithPagination;
+use Livewire\Component;
 
 class Categories extends Component
 {
@@ -17,7 +17,11 @@ class Categories extends Component
   public $active;
 
   public $category;
-  public $confirmingCategoryAdd = false;
+  public $confirmingCategoryAdd = false;    //$open
+
+  protected $listeners = [
+    'triggerRefresh' => '$refresh'
+  ];
 
   public function render()
   {

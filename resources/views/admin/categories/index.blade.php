@@ -30,6 +30,10 @@
             <i class="fa fa-eraser"></i>
           </button>
         @endif
+
+        <div class="px-2 py-4 flex items-center">          
+          @livewire('admin.categories.create-update')
+        </div>
       </div>
     </div>
 
@@ -50,7 +54,7 @@
 
   <x-jet-dialog-modal wire:model="confirmingCategoryAdd">
     <x-slot name="title">
-      {{ isset( $this->category->id) ? 'Editar Categoría' : 'Crear Categoría'}}
+      {{ isset( $this->category->id) ? 'Editar Categoría' : 'Crearrrr Categoría'}}
     </x-slot>
 
     <x-slot name="content">
