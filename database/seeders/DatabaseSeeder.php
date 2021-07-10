@@ -30,6 +30,6 @@ class DatabaseSeeder extends Seeder
 
     User::factory()->times(100)->create();
 
-    Category::factory()->times(30)->create();
+    Category::factory()->times(10)->create();
   }
 }

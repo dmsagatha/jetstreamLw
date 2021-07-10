@@ -14,11 +14,9 @@ class Categories extends Component
   public $perPage   = '5';
   public $sortField = 'id';
   public $sortAsc   = false;
-  public $active;
+  public $readyToLoad = false;
 
-  public $category;
-  public $confirmingCategoryAdd = false;    //$open
-  public $isModalOpen = false;
+  public $category, $active;
 
   protected $listeners = [
     'triggerRefresh' => '$refresh'
@@ -35,6 +33,58 @@ class Categories extends Component
 
     return view('admin.categories.index', compact('categories'));
   }
+
+  public function showModal(Category $category)
+  {
+    // $this->emit('create');
+    if ($category->id) {
+      $this->emit('edit', $category);
+    } else {
+      $this->emit('create');
+    }
+  }
+
+  /**
+   * Este método se ejecuta cuando la carga de la página se haya completado
+   * Vista <div wire:init="loadRecords">
+   */
+  public function loadRecords()
+  {
+    $this->readyToLoad = true;
+  }
+
+  /**
+   * Ejecutar solo cuando se cambie el valor de $search
+   */
+  public function updatingSearch()
+  {
+    $this->resetPage();
+  }
+
+  public function sortBy($field)
+  {
+    /* Si el campo esta activo, reversar el ordenamiento,
+    de lo contrario configurar la dirección a 'true' */
+    if ($this->sortField === $field) {
+      $this->sortAsc = !$this->sortAsc;
+    } else {
+      $this->sortAsc = true;
+    }
+
+    $this->sortField = $field;
+  }
+
+  public function clearPage()
+  {
+    $this->reset();
+  }
+
+
+
+
+
+  /* public $confirmingCategoryAdd = false;    //$open
+  public $isModalOpen = false; */
 
   /* protected $rules = [
     'category.name'   => 'required|string|min:4',
@@ -65,30 +115,4 @@ class Categories extends Component
 
     $this->confirmingCategoryAdd = false;
   } */
-
-  /**
-   * Ejecutar solo cuando se cambie el valor de $search
-   */
-  public function updatingSearch()
-  {
-    $this->resetPage();
-  }
-
-  public function sortBy($field)
-  {
-    /* Si el campo esta activo, reversar el ordenamiento,
-    de lo contrario configurar la dirección a 'true' */
-    if ($this->sortField === $field) {
-      $this->sortAsc = !$this->sortAsc;
-    } else {
-      $this->sortAsc = true;
-    }
-
-    $this->sortField = $field;
-  }
-
-  public function clearSearch()
-  {
-    $this->reset();
-  }
 }
