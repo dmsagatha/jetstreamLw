@@ -78,41 +78,4 @@ class Categories extends Component
   {
     $this->reset();
   }
-
-
-
-
-
-  /* public $confirmingCategoryAdd = false;    //$open
-  public $isModalOpen = false; */
-
-  /* protected $rules = [
-    'category.name'   => 'required|string|min:4',
-    'category.status' => 'boolean',
-  ]; */
-
-  /* public function confirmCategoryEdit(Category $category)
-  {
-    $this->resetErrorBag();
-    $this->category = $category;
-    $this->confirmingCategoryAdd = true;
-  } */
-
-  /* public function saveCategory()
-  {
-    $this->validate();
-
-    if (isset($this->category->id)) {
-      $this->category->save();
-      session()->flash('message', 'Category Saved Successfully');
-    } else {
-      $this->category->create([
-        'name'   => $this->category['name'],
-        'status' => $this->category['status'] ?? 0,
-      ]);
-      session()->flash('message', 'Category Added Successfully');
-    }
-
-    $this->confirmingCategoryAdd = false;
-  } */
 }

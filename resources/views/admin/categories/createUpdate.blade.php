@@ -6,14 +6,14 @@
   <x-slot name="content">
     <div class="mb-4">
       <x-jet-label value="Nombre" />
-      <x-jet-input type="text" wire:model="name" class="w-full" />
+      <x-jet-input type="text" wire:model="category.name" class="w-full" />
 
-      <x-jet-input-error for="name" />
+      <x-jet-input-error for="category.name" />
     </div>
 
     <div class="mb-4">
       <label class="flex items-center">
-        <input type="checkbox" wire:model="status" class="form-checkbox" />
+        <input type="checkbox" wire:model="category.status" class="form-checkbox" />
         <span class="ml-2 text-sm text-gray-600">Active</span>
       </label>
     </div>

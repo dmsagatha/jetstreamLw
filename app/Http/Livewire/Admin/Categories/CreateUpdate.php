@@ -22,8 +22,8 @@ class CreateUpdate extends Component
   public function rules()
   {
     return [
-      'name'   => 'required|string|min:4|unique:categories,name,' . $this->categoryId,
-      'status' => 'boolean',
+      'category.name'   => 'required|string|min:4|unique:categories,name,' . $this->categoryId,
+      'category.status' => 'boolean',
     ];
   }
 
@@ -47,28 +47,20 @@ class CreateUpdate extends Component
 
   public function save()
   {
+    // Opción 1
     $this->validate();
 
     if (!is_null($this->categoryId)) {
       $this->category->save();
-    } else {
-      Category::create($this->category);
-    }
-
-    /* if (isset($this->category->id)) {
-      $this->category->save();
       
       $this->emit('alertCreate', 'Registro actualizado satisfactoriamente.');
     } else {
-      $this->category->create([
-        'name'   => $this->name,
-        'status' => $this->status,
-      ]);
+      Category::create($this->category);
+
       $this->emit('alertCreate', 'Registro creado satisfactoriamente.');
-    } */
+    }
 
-
-    // Opción 1 Funciona - REVISAR CAMPO status -> inactive (0)
+    // Opción 2 - REVISAR CAMPO status -> inactive (0)
     /* $validated = $this->validate([
       'name'   => 'required|string|min:4|unique:categories,name,' . $this->categoryId,
       'status' => 'boolean',
@@ -101,34 +93,4 @@ class CreateUpdate extends Component
   {
     $this->validateOnly($propertyName);
   }
-
-
-
-
-
-
-
-
-
-
-  /**
-   * Instancia del modelo Category
-   */
-  /* public function mount(Category $category)
-  {
-    $this->category = $category;
-  }
-  
-  protected $rules = [
-    'category.name'   => 'required|string|min:4|unique:categories,name',
-    'category.status' => 'boolean',
-  ]; */
-  
-  /* public function rules()
-  {
-    return [
-      'category.name'   => 'required|string|min:4|unique:categories,name,' . $this->categoryId,
-      'category.status' => 'boolean',
-    ];
-  } */
 }
