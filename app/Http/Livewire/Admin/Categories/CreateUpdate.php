@@ -19,13 +19,17 @@ class CreateUpdate extends Component
     return view('admin.categories.createUpdate');
   }
 
+  public function rules()
+  {
+    return [
+      'name'   => 'required|string|min:4|unique:categories,name,' . $this->categoryId,
+      'status' => 'boolean',
+    ];
+  }
+
   public function create()
   {
     $this->category = null; //Para las validaciones
-
-    // Textos dinámicos para los títulos y botones
-    /* $this->action = 'Crear';
-    $this->method = 'save()'; */
 
     $this->closeModal();
     $this->isModalOpen = true;
@@ -38,47 +42,17 @@ class CreateUpdate extends Component
     $this->name       = $category->name;
     $this->status     = $category->status;
 
-    // Textos dinámicos para los títulos y botones
-    /* $this->action = 'Actualizar';
-    $this->method = 'save()'; */
-
     $this->isModalOpen = true;
   }
 
   public function save()
   {
-    /* $this->validate();
+    $this->validate();
 
-    if (isset($this->category->id)) {
+    if (!is_null($this->categoryId)) {
       $this->category->save();
-      
-      $this->emit('alertCreate', 'Registro actualizado satisfactoriamente.');
     } else {
-      $this->category->create([
-        'name'   => $this->category['name'],
-        'status' => $this->category['status'] ?? 0,
-      ]);
-      $this->emit('alertCreate', 'Registro creado satisfactoriamente.');
-    } */
-
-    $validated = $this->validate([
-      'name'   => 'required|string|min:4|unique:categories,name,' . $this->categoryId,
-      'status' => 'boolean',
-    ]);
-    /* $this->validate([
-      'category.name'   => 'required|string|min:4|unique:categories,name,' . $this->categoryId,
-      'category.status' => 'boolean',
-    ]); */
-    if ($this->categoryId) {
-      Category::find($this->categoryId)
-        ->update([
-          /* 'name'   => $this->name,
-          'status' => $this->status, */
-          'name'   => $this->category['name'],
-          'status' => $this->category['status'] ?? 0,
-        ]);
-    } else {
-      Category::create($validated);
+      Category::create($this->category);
     }
 
     /* if (isset($this->category->id)) {
@@ -87,17 +61,30 @@ class CreateUpdate extends Component
       $this->emit('alertCreate', 'Registro actualizado satisfactoriamente.');
     } else {
       $this->category->create([
-        'name'   => $this->category['name'],
-        'status' => $this->category['status'] ?? 0,
-        /* 'name'   => $this->name,
+        'name'   => $this->name,
         'status' => $this->status,
-      ]); */
-      // $this->emit('alertCreate', 'Registro creado satisfactoriamente.');
-    // } */
+      ]);
+      $this->emit('alertCreate', 'Registro creado satisfactoriamente.');
+    } */
+
+
+    // Opción 1 Funciona - REVISAR CAMPO status -> inactive (0)
+    /* $validated = $this->validate([
+      'name'   => 'required|string|min:4|unique:categories,name,' . $this->categoryId,
+      'status' => 'boolean',
+    ]);
+    if ($this->categoryId) {
+      Category::find($this->categoryId)
+        ->update([
+          'name'   => $this->name,
+          'status' => $this->status,
+        ]);
+    } else {
+      Category::create($validated);
+    } */
 
     $this->closeModal();
-    $this->emit('triggerRefresh');
-    // $this->emitTo('admin.categories.categories', 'render');
+    $this->emit('triggerRefresh');  // $this->emitTo('admin.categories.categories', 'render');
   }
 
   public function closeModal()
@@ -110,10 +97,10 @@ class CreateUpdate extends Component
   /**
    * Mostrar las validaciones mientras se escribe
    */
-  /* public function updated($propertyName)
+  public function updated($propertyName)
   {
     $this->validateOnly($propertyName);
-  } */
+  }
 
 
 

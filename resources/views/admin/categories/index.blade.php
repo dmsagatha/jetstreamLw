@@ -32,7 +32,6 @@
         @endif
 
         <div class="px-2 py-4 flex items-center">
-          {{-- @livewire('admin.categories.create-update')  --}}
           <x-jet-danger-button wire:click="showModal()">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
@@ -56,37 +55,6 @@
       </div>
     @endif
   </x-table>
-
-  {{-- <x-jet-dialog-modal wire:model="confirmingCategoryAdd">
-    <x-slot name="title">
-      {{ isset( $this->category->id) ? 'Editar Categoría' : 'Crearrrr Categoría'}}
-    </x-slot>
-
-    <x-slot name="content">
-      <div class="col-span-6 sm:col-span-4">
-        <x-jet-label for="name" value="{{ __('Name') }}" />
-        <x-jet-input id="name" type="text" class="mt-1 block w-full" wire:model.defer="category.name" />
-        <x-jet-input-error for="category.name" class="mt-2" />
-      </div>
-
-      <div class="col-span-6 sm:col-span-4 mt-4">
-        <label class="flex items-center">
-          <input type="checkbox" wire:model.defer="category.status" class="form-checkbox" />
-          <span class="ml-2 text-sm text-gray-600">Active</span>
-        </label>
-      </div>
-    </x-slot>
-
-    <x-slot name="footer">
-      <x-jet-secondary-button wire:click="$set('confirmingCategoryAdd', false)" wire:loading.attr="disabled">
-        {{ __('Cancel') }}
-      </x-jet-secondary-button>
-
-      <x-jet-danger-button class="ml-2" wire:click="saveCategory()" wire:loading.attr="disabled">
-        {{ __('Save') }}
-      </x-jet-danger-button>
-    </x-slot>
-  </x-jet-dialog-modal> --}}
 </div>
 
 @push('modals')

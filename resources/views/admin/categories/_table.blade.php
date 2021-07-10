@@ -35,13 +35,11 @@
             {{ $item->status ? 'Activo' : 'No Activo'}}
           </td>
         @endif
-        <td class="px-6 py-4 text-sm font-medium">
-          @livewire('admin.categories.create-update', ['category' => $item], key($item->id))
-          
-          Eliminar | 
+        <td class="px-6 py-4 text-sm font-medium"> 
           <a wire:click="showModal({{ $item->id }})" class="text-indigo-600 hover:text-indigo-900" title="Editar">
             <i class="fas fa-edit mr-2"></i>
           </a>
+          | Eliminar
         </td>
       </tr>
     @endforeach
