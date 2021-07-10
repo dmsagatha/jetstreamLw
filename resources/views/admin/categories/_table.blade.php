@@ -39,7 +39,9 @@
           <a wire:click="showModal({{ $item->id }})" class="text-indigo-600 hover:text-indigo-900" title="Editar">
             <i class="fas fa-edit mr-2"></i>
           </a>
-          | Eliminar
+          <a href="javascript:void(0)" class="text-red-600 hover:text-red-900" onclick="destroyRegister({{ $item->id }})">
+            Eliminar
+          </a>
         </td>
       </tr>
     @endforeach

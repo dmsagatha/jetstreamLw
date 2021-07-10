@@ -60,3 +60,18 @@
 @push('modals')
   @livewire('admin.categories.create-update')
 @endpush
+  
+@push('scripts')
+  <script>
+    function destroyRegister(category) {
+      if(confirm('Esta seguro de eliminar la Categoría?')) {
+        Livewire.emit('deleteRegisterList', category)
+      } else {
+        alert('No se eliminó la Categoría.')
+      }
+    }
+    Livewire.on('deleteRegister', (category) => {
+      alert(`La Categoría ${category.name} se eliminó correctamente!`);
+    });
+  </script>
+@endpush
