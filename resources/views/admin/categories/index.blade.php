@@ -1,4 +1,4 @@
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+<div wire:init="loadRecords" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
   @section('title', 'Categorias')
 
   <x-slot name="header">
@@ -21,14 +21,23 @@
         </select>
 
         <span>registros</span>
-        
-        <input wire:model="search" type="text" class="form-input w-full text-gray-500 mx-6" placeholder="Ingrese el término de busquedad">
+
+        <input wire:model="search" type="text" class="form-input w-full text-gray-500 mx-6"
+          placeholder="Ingrese el término de busquedad">
 
         @if ($search !== '')
-          <button wire:click="clearSearch" class="ml-2">
+          <button wire:click="clearPage" class="ml-2">
             <i class="fa fa-eraser"></i>
           </button>
         @endif
+
+        <div class="px-2 py-4 flex items-center">
+          <x-jet-danger-button wire:click="showModal()">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+            </svg>
+          </x-jet-danger-button>
+        </div>
       </div>
     </div>
 
@@ -47,3 +56,7 @@
     @endif
   </x-table>
 </div>
+
+@push('modals')
+  @livewire('admin.categories.create-update')
+@endpush

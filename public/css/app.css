@@ -6584,6 +6584,10 @@ readers do not read off random characters that represent icons */
 	--tw-text-opacity: 1;
 	color: rgba(127, 29, 29, var(--tw-text-opacity));
 }
+.hover\:text-green-900:hover{
+	--tw-text-opacity: 1;
+	color: rgba(6, 78, 59, var(--tw-text-opacity));
+}
 .focus\:z-10:focus{
 	z-index: 10;
 }
