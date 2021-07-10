@@ -19,7 +19,8 @@ class Categories extends Component
   public $category, $active;
 
   protected $listeners = [
-    'triggerRefresh' => '$refresh'
+    'triggerRefresh'     => '$refresh',
+    'deleteRegisterList' => 'deleteRegister'
   ];
 
   public function render()
@@ -42,6 +43,16 @@ class Categories extends Component
     } else {
       $this->emit('create');
     }
+  }
+
+  /**
+   * Eliminar registro con confirmación (script)
+   */
+  public function deleteRegister(Category $category)
+  {
+    $category->delete();
+
+    $this->emit('deleteRegister', $category);
   }
 
   /**

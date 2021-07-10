@@ -56,6 +56,7 @@
       </div>
     @endif
   </x-table>
+</div>
   
   @push('scripts')
     <script>
