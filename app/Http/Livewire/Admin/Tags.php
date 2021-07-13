@@ -18,7 +18,6 @@ class Tags extends Component
   public $tagId, $name;
 
   protected $listeners = [
-    'triggerRefresh'     => '$refresh',
     'deleteRegisterList' => 'deleteRegister'
   ];
 
