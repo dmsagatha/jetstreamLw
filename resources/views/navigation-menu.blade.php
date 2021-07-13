@@ -24,6 +24,9 @@
           <x-jet-nav-link href="{{ route('categories') }}" :active="request()->routeIs('categories')">
             Categorías
           </x-jet-nav-link>
+          <x-jet-nav-link href="{{ route('tags') }}" :active="request()->routeIs('tags')">
+            Etiquetas
+          </x-jet-nav-link>
         </div>
       </div>
 
@@ -170,6 +173,9 @@
       </x-jet-responsive-nav-link>
       <x-jet-responsive-nav-link href="{{ route('categories') }}" :active="request()->routeIs('categories')">
         Categorías
+      </x-jet-responsive-nav-link>
+      <x-jet-responsive-nav-link href="{{ route('tags') }}" :active="request()->routeIs('tags')">
+        Etiquetas
       </x-jet-responsive-nav-link>
     </div>
 

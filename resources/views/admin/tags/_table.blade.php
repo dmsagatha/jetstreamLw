@@ -11,18 +11,13 @@
         Nombre
         @include('includes._sort-icon', ['field' => 'name'])
       </th>
-      @if(!$active)
-        <th scope="col" class="uppercase">
-          Estatus
-        </th>
-      @endif
       <th scope="col" class="relative px-6 py-3">
         Acciones
       </th>
     </tr>
   </thead>
   <tbody class="bg-white divide-y divide-gray-200">
-    @foreach ($categories as $item)
+    @foreach ($tags as $item)
       <tr>
         <td class="px-6 py-4">
           {{ $item->id }}
@@ -30,17 +25,12 @@
         <td class="px-6 py-4">
           {{ $item->name }}
         </td>
-        @if(!$active)
-          <td class="px-6 py-4">
-            {{ $item->status ? 'Activo' : 'No Activo'}}
-          </td>
-        @endif
-        <td class="px-6 py-4 text-sm font-medium"> 
-          <a wire:click="showModal({{ $item->id }})" class="text-indigo-600 hover:text-indigo-900" title="Editar">
+        <td class="px-6 py-4 text-sm font-medium text-center">
+          <a wire:click="edit({{ $item->id }})" href="#" class="text-indigo-600 hover:text-indigo-900" title="Editar">
             <i class="fas fa-edit mr-2"></i>
           </a>
           <a href="javascript:void(0)" class="text-red-600 hover:text-red-900" onclick="destroyRegister({{ $item->id }})" title="Eliminar">
-            <i class="fas fa-trash mr-2"></i>
+            <i class="fas fa-times mr-2"></i>
           </a>
         </td>
       </tr>

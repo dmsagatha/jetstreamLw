@@ -3,9 +3,9 @@
 namespace Database\Seeders;
 
 use App\Models\Post;
-use Storage;
 use App\Models\User;
 use App\Models\Category;
+use Storage;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
