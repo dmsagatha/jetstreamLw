@@ -30,7 +30,7 @@
           <i class="fas fa-edit mr-2"></i>
         </a>
         <a href="javascript:void(0)" class="text-red-600 hover:text-red-900" onclick="destroyRegister({{ $item->id }})" title="Eliminar">
-          <i class="fas fa-trash mr-2"></i>
+          <i class="fas fa-times mr-2"></i>
         </a>
       </td>
     </tr>

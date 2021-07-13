@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\Tag;
+use Illuminate\Validation\Rule;
 use Livewire\WithPagination;
 use Livewire\Component;
 
@@ -15,7 +16,7 @@ class Tags extends Component
   public $sortField = 'id';
   public $sortAsc   = false;
 
-  public $tagId, $name;
+  public $tag, $tagId, $name;
 
   protected $listeners = [
     'deleteRegisterList' => 'deleteRegister'
@@ -24,7 +25,10 @@ class Tags extends Component
   public function rules()
   {
     return [
-      'name' => 'required|string|min:4|unique:tags,name,' . $this->tagId
+      'name' => [
+        'required', 'string', 'min:4',
+        Rule::unique('tags')->ignore($this->tagId)],
+      // 'name' => 'required|string|min:4|unique:tags,name,' . $this->tagId
     ];
   }
   
@@ -44,6 +48,7 @@ class Tags extends Component
     Tag::create([
       'name' => $this->name,
     ]);
+    // $this->tag->save();
 
     $this->clearPage();
   }
@@ -57,6 +62,7 @@ class Tags extends Component
 
   public function updated($propertyName)
   {
+    // wire:model.debounce.50 - Bitfumes - 8 Laravel Livewire Real Time Validatio
     $this->validateOnly($propertyName);
   }
 

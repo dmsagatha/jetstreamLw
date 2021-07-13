@@ -15,7 +15,7 @@
             <div class="grid grid-cols-6 gap-6">
               <div class="col-span-6">
                 <label for="name" class="block text-sm font-medium text-gray-700">Nombre</label>
-                <input type="text" wire:model="name" autocomplete="name"
+                <input type="text" wire:model.debounce.50="name" autocomplete="name"
                   class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
 
                   <x-jet-input-error for="name" />
