@@ -57,10 +57,11 @@ class Tags extends Component
   {
     $tag = Tag::findOrFail($tagId);
     $this->tagId = $tag->id;
-    $this->name = $tag->name;
+    $this->name  = $tag->name;
 
     $this->saveMethod = 'update';
   }
+
   public function update()
   {
     Tag::findOrFail($this->tagId)->update([
@@ -89,7 +90,7 @@ class Tags extends Component
     $this->resetErrorBag();
     $this->resetValidation();
     $this->reset();
-    
+
     $this->saveMethod = 'save';
   }
 
