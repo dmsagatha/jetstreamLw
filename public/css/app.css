@@ -1143,6 +1143,9 @@ select{
 .-mt-px{
 	margin-top: -1px;
 }
+.mb-2{
+	margin-bottom: 0.5rem;
+}
 .block{
 	display: block;
 }
@@ -6548,6 +6551,10 @@ readers do not read off random characters that represent icons */
 	--tw-bg-opacity: 1;
 	background-color: rgba(249, 250, 251, var(--tw-bg-opacity));
 }
+.hover\:bg-indigo-700:hover{
+	--tw-bg-opacity: 1;
+	background-color: rgba(67, 56, 202, var(--tw-bg-opacity));
+}
 .hover\:bg-red-50:hover{
 	--tw-bg-opacity: 1;
 	background-color: rgba(254, 242, 242, var(--tw-bg-opacity));
@@ -6555,10 +6562,6 @@ readers do not read off random characters that represent icons */
 .hover\:bg-blue-700:hover{
 	--tw-bg-opacity: 1;
 	background-color: rgba(29, 78, 216, var(--tw-bg-opacity));
-}
-.hover\:bg-indigo-700:hover{
-	--tw-bg-opacity: 1;
-	background-color: rgba(67, 56, 202, var(--tw-bg-opacity));
 }
 .hover\:text-gray-500:hover{
 	--tw-text-opacity: 1;

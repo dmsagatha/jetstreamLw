@@ -17,9 +17,10 @@ class Tags extends Component
   public $sortAsc   = false;
 
   public $tag, $tagId, $name;
+  public $saveMethod = 'save';
 
   protected $listeners = [
-    'deleteRegisterList' => 'deleteRegister'
+    'deleteRegisterList' => 'deleteRegister',
   ];
 
   public function rules()
@@ -28,16 +29,15 @@ class Tags extends Component
       'name' => [
         'required', 'string', 'min:4',
         Rule::unique('tags')->ignore($this->tagId)],
-      // 'name' => 'required|string|min:4|unique:tags,name,' . $this->tagId
     ];
   }
-  
+
   public function render()
   {
     $tags = Tag::where('name', 'like', '%' . $this->search . '%')
               ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
               ->paginate($this->perPage);
-    
+
     return view('admin.tags.tags-crud', compact('tags'));
   }
 
@@ -48,8 +48,26 @@ class Tags extends Component
     Tag::create([
       'name' => $this->name,
     ]);
-    // $this->tag->save();
 
+    $this->emit('alertCreate', 'Registro creado satisfactoriamente.');
+    $this->clearPage();
+  }
+
+  public function edit($tagId)
+  {
+    $tag = Tag::findOrFail($tagId);
+    $this->tagId = $tag->id;
+    $this->name = $tag->name;
+
+    $this->saveMethod = 'update';
+  }
+  public function update()
+  {
+    Tag::findOrFail($this->tagId)->update([
+      'name' => $this->name,
+    ]);
+
+    $this->emit('alertCreate', 'Registro actualizado satisfactoriamente.');
     $this->clearPage();
   }
 
@@ -71,6 +89,8 @@ class Tags extends Component
     $this->resetErrorBag();
     $this->resetValidation();
     $this->reset();
+    
+    $this->saveMethod = 'save';
   }
 
   /**
@@ -83,8 +103,6 @@ class Tags extends Component
 
   public function sortBy($field)
   {
-    /* Si el campo esta activo, reversar el ordenamiento,
-    de lo contrario configurar la dirección a 'true' */
     if ($this->sortField === $field) {
       $this->sortAsc = !$this->sortAsc;
     } else {

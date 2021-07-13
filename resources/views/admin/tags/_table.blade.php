@@ -18,22 +18,22 @@
   </thead>
   <tbody class="bg-white divide-y divide-gray-200">
     @foreach ($tags as $item)
-    <tr>
-      <td class="px-6 py-4">
-        {{ $item->id }}
-      </td>
-      <td class="px-6 py-4">
-        {{ $item->name }}
-      </td>
-      <td class="px-6 py-4 text-sm font-medium">
-        <a class="text-indigo-600 hover:text-indigo-900" title="Editar">
-          <i class="fas fa-edit mr-2"></i>
-        </a>
-        <a href="javascript:void(0)" class="text-red-600 hover:text-red-900" onclick="destroyRegister({{ $item->id }})" title="Eliminar">
-          <i class="fas fa-times mr-2"></i>
-        </a>
-      </td>
-    </tr>
+      <tr>
+        <td class="px-6 py-4">
+          {{ $item->id }}
+        </td>
+        <td class="px-6 py-4">
+          {{ $item->name }}
+        </td>
+        <td class="px-6 py-4 text-sm font-medium text-center">
+          <a wire:click="edit({{ $item->id }})" href="#" class="text-indigo-600 hover:text-indigo-900" title="Editar">
+            <i class="fas fa-edit mr-2"></i>
+          </a>
+          <a href="javascript:void(0)" class="text-red-600 hover:text-red-900" onclick="destroyRegister({{ $item->id }})" title="Eliminar">
+            <i class="fas fa-times mr-2"></i>
+          </a>
+        </td>
+      </tr>
     @endforeach
   </tbody>
 </table>
