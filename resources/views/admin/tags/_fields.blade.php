@@ -11,21 +11,15 @@
         </div>
       </div>
     </div>
-
-    <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+    
+    <div class="px-4 py-3 bg-gray-50 text-center sm:px-6">
       @if ($saveMethod == "save")
-        <x-button-success>
-          Guardar
-        </x-button-success>
+        <x-button-success>Guardar</x-button-success>
       @else
-        <x-button-success>
-          Actualizar
-        </x-button-success>
+        <x-button-success>Actualizar</x-button-success>
       @endif
 
-      <x-jet-danger-button wire:click="clearPage()">
-        Cancelar
-      </x-jet-danger-button>
+      <x-jet-danger-button wire:click="clearPage()">Cancelar</x-jet-danger-button>
     </div>
   </div>
 </form>

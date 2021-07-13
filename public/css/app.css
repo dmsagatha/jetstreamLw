@@ -1029,6 +1029,12 @@ select{
 .top-0{
 	top: 0px;
 }
+.left-3{
+	left: 0.75rem;
+}
+.top-1\/2{
+	top: 50%;
+}
 .z-0{
 	z-index: 0;
 }
@@ -1067,6 +1073,10 @@ select{
 .-my-2{
 	margin-top: -0.5rem;
 	margin-bottom: -0.5rem;
+}
+.my-5{
+	margin-top: 1.25rem;
+	margin-bottom: 1.25rem;
 }
 .ml-3{
 	margin-left: 0.75rem;
@@ -1281,6 +1291,10 @@ select{
 }
 .translate-y-0{
 	--tw-translate-y: 0px;
+	transform: var(--tw-transform);
+}
+.-translate-y-1\/2{
+	--tw-translate-y: -50%;
 	transform: var(--tw-transform);
 }
 .scale-95{
@@ -1658,6 +1672,9 @@ select{
 .pb-20{
 	padding-bottom: 5rem;
 }
+.pl-8{
+	padding-left: 2rem;
+}
 .text-left{
 	text-align: left;
 }
@@ -1812,12 +1829,28 @@ select{
 	--tw-text-opacity: 1;
 	color: rgba(209, 213, 219, var(--tw-text-opacity));
 }
+.text-black{
+	--tw-text-opacity: 1;
+	color: rgba(0, 0, 0, var(--tw-text-opacity));
+}
 .underline{
 	text-decoration: underline;
 }
 .antialiased{
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+}
+.placeholder-gray-500::-moz-placeholder{
+	--tw-placeholder-opacity: 1;
+	color: rgba(107, 114, 128, var(--tw-placeholder-opacity));
+}
+.placeholder-gray-500:-ms-input-placeholder{
+	--tw-placeholder-opacity: 1;
+	color: rgba(107, 114, 128, var(--tw-placeholder-opacity));
+}
+.placeholder-gray-500::placeholder{
+	--tw-placeholder-opacity: 1;
+	color: rgba(107, 114, 128, var(--tw-placeholder-opacity));
 }
 .opacity-0{
 	opacity: 0;
@@ -6704,6 +6737,11 @@ readers do not read off random characters that represent icons */
 	--tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
 	box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
 }
+.focus\:ring-1:focus{
+	--tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+	--tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+	box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+}
 .focus\:ring-gray-300:focus{
 	--tw-ring-opacity: 1;
 	--tw-ring-color: rgba(209, 213, 219, var(--tw-ring-opacity));
@@ -6911,6 +6949,9 @@ readers do not read off random characters that represent icons */
 	}
 	.sm\:justify-between{
 		justify-content: space-between;
+	}
+	.sm\:overflow-hidden{
+		overflow: hidden;
 	}
 	.sm\:rounded-lg{
 		border-radius: 0.5rem;

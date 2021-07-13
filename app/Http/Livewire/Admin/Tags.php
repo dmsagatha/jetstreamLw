@@ -93,10 +93,7 @@ class Tags extends Component
 
     $this->saveMethod = 'save';
   }
-
-  /**
-   * Ejecutar solo cuando se cambie el valor de $search
-   */
+  
   public function updatingSearch()
   {
     $this->resetPage();

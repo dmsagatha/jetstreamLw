@@ -30,6 +30,7 @@ Route::group(['middleware' => 'auth:sanctum'], function ()
   Route::get('/categorias', Categories::class)->name('categories');
 
   // Sin Modal
+  // toniel/crud-livewire - https://github.com/toniel/crud-livewire
   // Laraveller - Laravel Livewire Tutorial #5 Create Read Delete Data on Database - https://www.youtube.com/watch?v=VlT48yRlIN4&list=PL6tf8fRbavl2LBvhQnxLBdNANEJTwA5an&index=5
   Route::get('/etiquetas', Tags::class)->name('tags');
 });
