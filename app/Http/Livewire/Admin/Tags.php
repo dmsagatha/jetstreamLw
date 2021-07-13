@@ -50,6 +50,7 @@ class Tags extends Component
     ]);
 
     $this->emit('alertCreate', 'Registro creado satisfactoriamente.');
+
     $this->clearPage();
   }
 
@@ -69,6 +70,7 @@ class Tags extends Component
     ]);
 
     $this->emit('alertCreate', 'Registro actualizado satisfactoriamente.');
+    
     $this->clearPage();
   }
 

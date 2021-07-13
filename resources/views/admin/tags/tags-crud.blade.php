@@ -60,7 +60,7 @@
         <h2 class="text-gray-900 text-center text-2xl font-bold py-3">
           {{ isset($this->tag->id) ? 'Editar Etiqueta' : 'Crear Etiqueta'}}
         </h2>
-
+        
         <div class="px-4 py-3 space-y-6 sm:p-6">
           @include('admin.tags._fields')
         </div>
