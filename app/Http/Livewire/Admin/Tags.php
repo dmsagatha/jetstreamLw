@@ -12,7 +12,7 @@ class Tags extends Component
   use WithPagination;
 
   public $search    = '';
-  public $perPage   = '5';
+  public $perPage   = '10';
   public $sortField = 'id';
   public $sortAsc   = false;
 
