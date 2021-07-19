@@ -1,18 +1,15 @@
 <form wire:submit.prevent="{{ $saveMethod == "save" ? "store" : "update" }}">
   <div class="shadow overflow-hidden sm:rounded-md">
     <div class="px-4 py-5 bg-white sm:p-6">
-      <div class="grid grid-cols-6 gap-6">
-        <div class="col-span-6">
-          <label for="name" class="block text-sm font-medium text-gray-700">Nombre</label>
-          <input type="text" wire:model.debounce.50="name" autocomplete="name"
-            class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+      <div class="relative">
+        <input id="name" wire:model.debounce.50="name" type="text" class="peer h-10 w-full border-b-2 border-gray-300 text-gray-900 placeholder-transparent focus:outline-none focus:border-rose-600" placeholder="john@doe.com" />
+        <label for="name" class="absolute left-0 -top-3.5 text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">Nombre</label>
             
-            <x-jet-input-error for="name" />
-        </div>
+        <x-jet-input-error for="name" />
       </div>
     </div>
 
-    <div class="px-4 py-3 bg-gray-50 text-center sm:px-6">
+    <div class="px-2 py-3 bg-gray-50 text-center sm:px-3">
       @if ($saveMethod == "save")
         <x-button-success>Guardar</x-button-success>
       @else
