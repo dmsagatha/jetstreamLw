@@ -9,19 +9,20 @@
         </h2>
 
         <!-- Paginador y Buscador -->
-        <div class="items-center justify-between px-4 py-3 sm:px-6">
+        <div class="items-center justify-between px-4 py-3 sm:px-6 text-sm">
           <div class="flex text-gray-500">
             <div class="flex items-center">
-              <span>Mostrar</span>
-              <select wire:model="perPage" class="mx-2 form-control">
+              <span class="mr-1">Mostrar</span>
+
+              <select wire:model="perPage" class="mt-1 form-control">
                 <option value="5">5</option>
                 <option value="10">10</option>
                 <option value="25">25</option>
                 <option value="50">50</option>
                 <option value="100">100</option>
               </select>
-      
-              <span class="mr-2">registros</span>
+              
+              <span class="mx-1">registros</span>
             </div><!-- select -->
 
             <x-search name="search" label="Escribir el término de busquedad" />
