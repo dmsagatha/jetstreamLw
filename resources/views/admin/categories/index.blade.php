@@ -10,20 +10,27 @@
   <x-table>
     <div class="bg-white px-4 py-3 items-center justify-between border-t border-gray-200 sm:px-6">
       <!-- Paginador y Buscador -->
-      <div class="flex items-center text-gray-500">
-        <span>Mostrar</span>
-        <select wire:model="perPage" class="mx-2 form-control">
-          <option value="5">5</option>
-          <option value="10">10</option>
-          <option value="25">25</option>
-          <option value="50">50</option>
-          <option value="100">100</option>
-        </select>
+      <div class="flex text-gray-500">
+        <div class="flex items-center">
+          <span>Mostrar</span>
+          <select wire:model="perPage" class="mx-2 form-control">
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="25">25</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+          </select>
+  
+          <span class="mr-2">registros</span>
+        </div><!-- select -->
 
-        <span>registros</span>
-
-        <input wire:model="search" type="text" class="form-input w-full text-gray-500 mx-6"
-          placeholder="Ingrese el término de busquedad">
+        <div class="relative flex-1">
+          <input wire:model="search" type="text" class="peer h-10 w-full border border-1.5 rounded-md border-gray-300 text-sm text-gray-900 placeholder-transparent focus:outline-none focus:border-light-blue-500 focus:border-2 p-3" placeholder="search..." />
+          <label for="search" class="absolute left-2 px-1 -top-2.5 bg-white text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-900 peer-placeholder-shown:top-2 peer-focus:-top-2.5 peer-focus:text-gray-600 peer-focus:text-sm">Escribir el término de busquedad</label>
+          <div class="absolute right-0 top-0 mt-2 mr-2">
+            <i class="fa fa-search h-6 w-6 text-gray-400"></i>
+          </div>
+        </div>
 
         @if ($search !== '')
           <button wire:click="clearPage" class="ml-2">
