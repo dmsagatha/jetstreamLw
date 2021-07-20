@@ -8,21 +8,19 @@
   </x-slot>
 
   <x-table>
-    <div class="bg-white px-4 py-3 items-center justify-between border-t border-gray-200 sm:px-6">
+    <div class="items-center justify-between bg-white px-4 py-3 border-t border-gray-200 sm:px-6">
       <!-- Paginador y Buscador -->
-      <div class="flex text-gray-500">
-        <div class="flex items-center">
-          <span>Mostrar</span>
-          <select wire:model="perPage" class="mx-2 form-control">
-            <option value="5">5</option>
-            <option value="10">10</option>
-            <option value="25">25</option>
-            <option value="50">50</option>
-            <option value="100">100</option>
-          </select>
-  
-          <span class="mr-2">registros</span>
-        </div><!-- select -->
+      <div class="flex items-center text-gray-500">
+        <span>Mostrar</span>
+        <select wire:model="perPage" class="mx-2 form-control">
+          <option value="5">5</option>
+          <option value="10">10</option>
+          <option value="25">25</option>
+          <option value="50">50</option>
+          <option value="100">100</option>
+        </select>
+
+        <span class="mr-2">registros</span>
 
         <div class="relative flex-1">
           <input wire:model="search" type="text" class="peer h-10 w-full border border-1.5 rounded-md border-gray-300 text-sm text-gray-900 placeholder-transparent focus:outline-none focus:border-light-blue-500 focus:border-2 p-3" placeholder="search..." />
@@ -45,8 +43,8 @@
             </svg>
           </x-jet-danger-button>
         </div>
-      </div>
-    </div>
+      </div><!-- Paginador y Buscador -->
+    </div><!-- items-center justify-between -->
 
     @if (count($categories))
       @include('admin.categories._table')
