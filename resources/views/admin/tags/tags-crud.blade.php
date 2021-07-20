@@ -9,27 +9,23 @@
         </h2>
 
         <!-- Paginador y Buscador -->
-        <div class="items-center justify-between px-4 py-3 sm:px-6">
+        <div class="items-center justify-between px-4 py-3 sm:px-6 text-sm">
           <div class="flex text-gray-500">
             <div class="flex items-center">
               <span>Mostrar</span>
-              <select wire:model="perPage" class="mx-2 form-control">
+
+              <select wire:model="perPage" class="mx-1 form-control">
                 <option value="5">5</option>
                 <option value="10">10</option>
                 <option value="25">25</option>
                 <option value="50">50</option>
                 <option value="100">100</option>
               </select>
-      
-              <span class="mr-2">registros</span>
+              
+              <span>registros</span>
             </div><!-- select -->
 
-            <div class="relative w-full">
-              <i class="fa fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
-              <input wire:model="search" type="text"
-                class="w-full focus:border-light-blue-500 focus:ring-1 focus:ring-light-blue-500 focus:outline-none text-sm text-black placeholder-gray-500 border border-gray-200 rounded-md py-2 pl-8"
-                aria-label="Escribir el término..." placeholder="Escribir el término a buscar..." />
-            </div>
+            <x-search name="search" label="Escribir el término de busquedad" />
   
             @if ($search !== '')
               <button wire:click="clearPage" class="ml-2">
@@ -61,7 +57,7 @@
           {{ isset($this->tag->id) ? 'Editar Etiqueta' : 'Crear Etiqueta'}}
         </h2>
         
-        <div class="px-4 py-3 space-y-6 sm:p-6">
+        <div class="px-4 py-3 space-y-6 sm:p-4">
           @include('admin.tags._fields')
         </div>
       </div>

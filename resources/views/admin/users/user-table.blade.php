@@ -2,10 +2,11 @@
   @section('title', 'Usuarios')
   
   <x-table>
-    <div class="bg-white px-4 py-3 items-center justify-between border-t border-gray-200 sm:px-6">
+    <div class="items-center justify-between bg-white px-4 py-3  border-t border-gray-200 sm:px-6">
       <!-- Paginador y Buscador -->
-      <div class="flex items-center text-gray-500">
+      <div class="flex items-center text-gray-500 text-sm">
         <span>Mostrar</span>
+
         <select wire:model="perPage" class="mx-2 form-control">
           <option value="5">5</option>
           <option value="10">10</option>
@@ -13,12 +14,12 @@
           <option value="50">50</option>
           <option value="100">100</option>
         </select>
-
+        
         <span>registros</span>
-        
-        <input wire:model="search" type="text" class="form-input w-full text-gray-500 mx-6" placeholder="Ingrese el término de busquedad">
-        
-        <select wire:model="userRole" class="mx-1 form-control">
+
+        <x-search name="search" label="Escribir el término de busquedad" />
+
+        <select wire:model="userRole" class="mt-1 form-control">
           <option value="">Todos los Roles</option>
           <option value="user">Usuario</option>
           <option value="reviewer">Revisor</option>
@@ -39,8 +40,8 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
           </svg>
         </button>
-      </div>
-    </div>
+      </div><!-- Paginador y Buscador -->
+    </div><!-- items-center justify-between -->
 
     @if (count($users))
       @include('admin.users._table')

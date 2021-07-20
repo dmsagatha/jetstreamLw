@@ -10,7 +10,7 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <x-table>
       {{--$search--}}
-      <div class="px-6 py-4 flex items-center">
+      <div class="px-6 py-4 flex items-center text-sm">
         {{-- Show by list --}}
         <div class="flex items-center">
           <span>{{ __('Show') }}</span>
@@ -25,8 +25,8 @@
 
           <span>{{ __('results') }}</span>
         </div>
-        
-        <x-jet-input class="flex-1 mx-4" type="text" wire:model="search" placeholder="Buscar registros" />
+
+        <x-search name="search" label="Escribir el término de busquedad" />
 
         @if ($search !== '')
           <button wire:click="clearSearch" class="ml-2">

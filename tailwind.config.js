@@ -1,30 +1,34 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
+const colors = require('tailwindcss/colors')
 
 module.exports = {
-    mode: 'jit',
-    purge: [
-        './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
-        './vendor/laravel/jetstream/**/*.blade.php',
-        './storage/framework/views/*.php',
-        './resources/views/**/*.blade.php',
-    ],
+  mode: 'jit',
+  purge: [
+    './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
+    './vendor/laravel/jetstream/**/*.blade.php',
+    './storage/framework/views/*.php',
+    './resources/views/**/*.blade.php',
+  ],
 
-    theme: {
-        extend: {
-            fontFamily: {
-                sans: ['Nunito', ...defaultTheme.fontFamily.sans],
-            },
-        },
+  theme: {
+    extend: {
+      colors: {
+        rose: colors.rose,
+      },
+      fontFamily: {
+        sans: ['Poppins', ...defaultTheme.fontFamily.sans],
+      },
     },
+  },
 
-    variants: {
-        extend: {
-            opacity: ['disabled'],
-        },
+  variants: {
+    extend: {
+      opacity: ['disabled'],
     },
+  },
 
-    plugins: [
-        require('@tailwindcss/forms'), 
-        require('@tailwindcss/typography')
-    ],
+  plugins: [
+    // require('@tailwindcss/forms'),
+    require('@tailwindcss/typography')
+  ],
 };

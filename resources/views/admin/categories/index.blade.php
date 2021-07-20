@@ -8,9 +8,9 @@
   </x-slot>
 
   <x-table>
-    <div class="bg-white px-4 py-3 items-center justify-between border-t border-gray-200 sm:px-6">
+    <div class="items-center justify-between bg-white px-4 py-3 border-t border-gray-200 sm:px-6">
       <!-- Paginador y Buscador -->
-      <div class="flex items-center text-gray-500">
+      <div class="flex items-center text-gray-500 text-sm">
         <span>Mostrar</span>
         <select wire:model="perPage" class="mx-2 form-control">
           <option value="5">5</option>
@@ -22,8 +22,7 @@
 
         <span>registros</span>
 
-        <input wire:model="search" type="text" class="form-input w-full text-gray-500 mx-6"
-          placeholder="Ingrese el término de busquedad">
+        <x-search name="search" label="Escribir el término de busquedad" />
 
         @if ($search !== '')
           <button wire:click="clearPage" class="ml-2">
@@ -38,8 +37,8 @@
             </svg>
           </x-jet-danger-button>
         </div>
-      </div>
-    </div>
+      </div><!-- Paginador y Buscador -->
+    </div><!-- items-center justify-between -->
 
     @if (count($categories))
       @include('admin.categories._table')
