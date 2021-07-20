@@ -18,15 +18,13 @@
       @if ($image)
         <img src="{{ $image->temporaryUrl() }}" alt="" class="mb-4">
       @endif
-      
-      <div class="mb-4">
-        <x-jet-label value="Título" />
-        <x-jet-input type="text" wire:model="title" class="w-full" />
 
-        <x-jet-input-error for="title" />
+      <div class="relative mt-2">
+        <x-input type="text" name="title" label="Título" />
+        <x-error for="title" />
       </div>
 
-      <div class="mb-4">
+      <div class="relative mt-12">
         <x-jet-label value="Contenido" />
         <textarea wire:model="content" class="w-full form-control" rows="6"></textarea>
 
@@ -43,14 +41,10 @@
       <x-jet-secondary-button wire:click="$set('isModalOpen', false)">
         Cancelar
       </x-jet-secondary-button>
-
-      {{-- <x-jet-danger-button wire:click="save" wire:loading.remove wire:target="save"> --}}
-      {{-- <x-jet-danger-button wire:click="save" wire:loading.class="bg-blue-500" wire:target="save"> --}}
+      
       <x-jet-danger-button wire:click="save" wire:loading.attr="disabled" wire:target="save, image" class="disabled:opacity-25">
         Guardar
       </x-jet-danger-button>
-
-      {{-- <span wire:loading wire:target="save">Cargando ...</span> --}}
     </x-slot>
   </x-jet-dialog-modal>
 </div>

@@ -8,21 +8,21 @@
         <div class="mt-2 text-sm text-gray-500">
           <div class="grid grid-cols-6 gap-4">
             <div class="col-span-6 sm:col-span-3">
-              <div class="mb-4">
-                <x-input type="text" label="Nombre" name="name" placeholder="Ingrese el nombre" />
+              <div class="relative mt-4">
+                <x-input type="text" name="name" label="Nombre" />
+                <x-error for="name" />
               </div>
-              <x-error for="name" />
             </div>
           
             <div class="col-span-6 sm:col-span-3">
-              <div class="mb-4">
-                <x-input type="email" label="Correo Electrónico" name="email" placeholder="Ingrese el correo" />
+              <div class="relative mt-4">
+                <x-input type="email" name="email" label="Correo Electrónico" />
+                <x-error for="email" />
               </div>
-              <x-error for="email" />
             </div>
 
             <div class="col-span-6">
-              <div class="mb-4 w-50">
+              <div class="relative w-50">
                 <x-select label="Roles" name="role" :options="[
                       'user' => 'Usuario',
                       'reviewer' => 'Revisor',
@@ -32,25 +32,25 @@
             </div>
 
             <div class="col-span-6">
-              <div class="mb-4">
-                <x-input type="file" label="Imagen" name="profile_photo_path" placeholder="Subir imagen" />
+              <div class="relative mt-8">
+                <x-input type="file" name="profile_photo_path" label="Subir Imagen" />
+                <x-error for="profile_photo_path" />
               </div>
-              <x-error for="profile_photo_path" />
             </div>
 
             @if ($action == 'Crear')
               <div class="col-span-6 sm:col-span-3">
-                <div class="mb-4">
-                  <x-input type="password" label="Contraseña" name="password" placeholder="Ingrese su contraseña" />
+                <div class="relative mt-6">
+                  <x-input type="password" name="password" label="Contraseña" />
                 </div>
                 <x-error for="password" />
               </div>
             
               <div class="col-span-6 sm:col-span-3">
-                <div class="mb-4">
-                  <x-input type="password" label="Confirmar contraseña" name="password_confirmation" placeholder="Confirme su contraseña" />
+                <div class="relative mt-6">
+                  <x-input type="password" name="password_confirmation" label="Confirmar contraseña" />
+                  <x-error for="password_confirmation" />
                 </div>
-                <x-error for="password_confirmation" />
               </div>              
             @endif
           </div>

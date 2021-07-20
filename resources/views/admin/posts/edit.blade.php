@@ -21,14 +21,12 @@
         <img src="{{ Storage::url($post->image) }}" alt="" class="mb-4">
       @endif
 
-      <div class="mb-4">
-        <x-jet-label value="Título" />
-        <x-jet-input type="text" wire:model="post.title" class="w-full" />
-
-        <x-jet-input-error for="title" />
+      <div class="relative mt-2">
+        <x-input type="text" name="post.title" label="Título" />
+        <x-error for="title" />
       </div>
 
-      <div class="mb-4">
+      <div class="relative mt-12">
         <x-jet-label value="Contenido" />
         <textarea wire:model="post.content" class="w-full form-control" rows="6"></textarea>
 
