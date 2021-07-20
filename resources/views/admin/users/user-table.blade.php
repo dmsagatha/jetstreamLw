@@ -5,20 +5,21 @@
     <div class="items-center justify-between bg-white px-4 py-3  border-t border-gray-200 sm:px-6">
       <!-- Paginador y Buscador -->
       <div class="flex items-center text-gray-500">
-        <span>Mostrar</span>
-        <select wire:model="perPage" class="mx-2 form-control">
+        <span class="mr-1">Mostrar</span>
+
+        <select wire:model="perPage" class="mt-1 form-control">
           <option value="5">5</option>
           <option value="10">10</option>
           <option value="25">25</option>
           <option value="50">50</option>
           <option value="100">100</option>
         </select>
-
-        <span class="mr-2">registros</span>
+        
+        <span class="mx-1">registros</span>
 
         <x-search name="search" label="Escribir el término de busquedad" />
-        
-        <select wire:model="userRole" class="mx-1 form-control">
+
+        <select wire:model="userRole" class="mt-1 form-control">
           <option value="">Todos los Roles</option>
           <option value="user">Usuario</option>
           <option value="reviewer">Revisor</option>
