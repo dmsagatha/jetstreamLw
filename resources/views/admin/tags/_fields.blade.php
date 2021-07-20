@@ -2,7 +2,7 @@
   <div class="shadow overflow-hidden sm:rounded-md">
     <div class="px-4 py-5 bg-white sm:p-6">
       <div class="relative">
-        <x-input type="text" name="name" label="Nombre" />
+        <x-form type="text" name="name" label="Nombre" />
         <x-error for="name" />
       </div>
     </div>

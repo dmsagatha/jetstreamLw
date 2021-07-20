@@ -20,7 +20,7 @@
       @endif
 
       <div class="relative mt-2">
-        <x-input type="text" name="title" label="Título" />
+        <x-form type="text" name="title" label="Título" />
         <x-error for="title" />
       </div>
 

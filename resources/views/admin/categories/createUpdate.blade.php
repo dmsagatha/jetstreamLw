@@ -5,7 +5,7 @@
 
   <x-slot name="content">
     <div class="relative mt-6">
-      <x-input type="text" name="category.name" label="Nombre" />
+      <x-form type="text" name="category.name" label="Nombre" />
       <x-error for="category.name" />
     </div>
 
