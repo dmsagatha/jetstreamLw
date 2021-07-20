@@ -14,9 +14,15 @@
           <option value="100">100</option>
         </select>
 
-        <span>registros</span>
-        
-        <input wire:model="search" type="text" class="form-input w-full text-gray-500 mx-6" placeholder="Ingrese el término de busquedad">
+        <span class="mr-2">registros</span>
+
+        <div class="relative flex-1">
+          <input wire:model="search" type="text" class="peer h-10 w-full border border-1.5 rounded-md border-gray-300 text-sm text-gray-900 placeholder-transparent focus:outline-none focus:border-light-blue-500 focus:border-2 p-3" placeholder="search..." />
+          <label for="search" class="absolute left-2 px-1 -top-2.5 bg-white text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-900 peer-placeholder-shown:top-2 peer-focus:-top-2.5 peer-focus:text-gray-600 peer-focus:text-sm">Escribir el término de busquedad</label>
+          <div class="absolute right-0 top-0 mt-2 mr-2">
+            <i class="fa fa-search h-6 w-6 text-gray-400"></i>
+          </div>
+        </div>
         
         <select wire:model="userRole" class="mx-1 form-control">
           <option value="">Todos los Roles</option>

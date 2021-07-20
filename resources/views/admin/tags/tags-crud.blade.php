@@ -24,11 +24,12 @@
               <span class="mr-2">registros</span>
             </div><!-- select -->
 
-            <div class="relative w-full">
-              <i class="fa fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
-              <input wire:model="search" type="text"
-                class="w-full focus:border-light-blue-500 focus:ring-1 focus:ring-light-blue-500 focus:outline-none text-sm text-black placeholder-gray-500 border border-gray-200 rounded-md py-2 pl-8"
-                aria-label="Escribir el término..." placeholder="Escribir el término a buscar..." />
+            <div class="relative flex-1">
+              <input wire:model="search" type="text" class="peer h-10 w-full border border-1.5 rounded-md border-gray-300 text-sm text-gray-900 placeholder-transparent focus:outline-none focus:border-light-blue-500 focus:border-2 p-3" placeholder="search..." />
+              <label for="search" class="absolute left-2 px-1 -top-2.5 bg-white text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-900 peer-placeholder-shown:top-2 peer-focus:-top-2.5 peer-focus:text-gray-600 peer-focus:text-sm">Escribir el término de busquedad</label>
+              <div class="absolute right-0 top-0 mt-2 mr-2">
+                <i class="fa fa-search h-6 w-6 text-gray-400"></i>
+              </div>
             </div>
   
             @if ($search !== '')
