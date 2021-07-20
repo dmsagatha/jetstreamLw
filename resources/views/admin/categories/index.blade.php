@@ -10,7 +10,7 @@
   <x-table>
     <div class="items-center justify-between bg-white px-4 py-3 border-t border-gray-200 sm:px-6">
       <!-- Paginador y Buscador -->
-      <div class="flex items-center text-gray-500">
+      <div class="flex items-center text-gray-500 text-sm">
         <span>Mostrar</span>
         <select wire:model="perPage" class="mx-2 form-control">
           <option value="5">5</option>
@@ -20,7 +20,7 @@
           <option value="100">100</option>
         </select>
 
-        <span class="mr-2">registros</span>
+        <span>registros</span>
 
         <x-search name="search" label="Escribir el término de busquedad" />
 

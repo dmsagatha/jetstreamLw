@@ -10,7 +10,7 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <x-table>
       {{--$search--}}
-      <div class="px-6 py-4 flex items-center">
+      <div class="px-6 py-4 flex items-center text-sm">
         {{-- Show by list --}}
         <div class="flex items-center">
           <span>{{ __('Show') }}</span>
@@ -23,7 +23,7 @@
             <option value="100">100</option>
           </select>
 
-          <span class="mr-2">{{ __('results') }}</span>
+          <span>{{ __('results') }}</span>
         </div>
 
         <x-search name="search" label="Escribir el término de busquedad" />
