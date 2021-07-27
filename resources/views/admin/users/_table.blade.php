@@ -4,7 +4,7 @@
       <th scope="col" wire:click.prevent="sortBy('id')"
         class="w-24 px-6 py-3 text-gray-500 uppercase tracking-wider cursor-pointer">
         ID
-        @include('includes._sort-icon', ['field' => 'id'])
+        @include('shared._sort-icon', ['field' => 'id'])
       </th>
       <th scope="col"
         class="w-24 px-6 py-3 text-gray-500 uppercase tracking-wider cursor-pointer">
@@ -13,16 +13,16 @@
       <th scope="col" wire:click.prevent="sortBy('name')"
         class="px-6 py-3 text-gray-500 uppercase tracking-wider cursor-pointer">
         Nombre
-        @include('includes._sort-icon', ['field' => 'name'])
+        @include('shared._sort-icon', ['field' => 'name'])
       </th>
       <th scope="col" wire:click.prevent="sortBy('email')"
         class="px-6 py-3 text-gray-500 uppercase tracking-wider cursor-pointer">
         Correo Electrónico
-        @include('includes._sort-icon', ['field' => 'email'])
+        @include('shared._sort-icon', ['field' => 'email'])
       </th>
       <th scope="col" class="px-6 py-3 text-gray-500 uppercase tracking-wider cursor-pointer">
         Rol
-        @include('includes._sort-icon', ['field' => 'email'])
+        @include('shared._sort-icon', ['field' => 'email'])
       </th>
       <th scope="col" class="relative px-6 py-3">
         <span class="sr-only">Edit</span>
