@@ -7,7 +7,7 @@
     </h2>
   </x-slot>
 
-  @include('shared._messages')
+  <div class="py-2">@include('shared._messages')</div>
 
   <x-table>
     <div class="items-center justify-between bg-white px-4 py-3 border-t border-gray-200 sm:px-6">
