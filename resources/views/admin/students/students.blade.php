@@ -35,7 +35,7 @@
           <select class="mx-2 form-control">
             <option value="">Todas las Clases</option>
             @foreach ($lessons as $item)
-              <option value="{{ $item->id }}">{{ $item->name }}</option>
+            <option value="{{ $item->id }}">{{ $item->name }}</option>
             @endforeach
           </select>
         </div>
@@ -47,14 +47,26 @@
           </select>
         </div>
 
-        <div class="px-2 py-4 flex items-center">
-          <button type="submit" class="inline-flex items-center px-4 py-2 bg-green-700 border border-transparent rounded-md font-semibold text-xs text-white tracking-widest hover:bg-green-600 active:bg-green-900 focus:outline-none focus:border-green-900 focus:ring focus:ring-green-300 disabled:opacity-25 transition"]) }}>
-            Eliminar seleccionados
-          </button>
-        </div>
-        </div>
+        @if ($checked)
+          <div x-data="{ open: false }" class="relative">
+            <!-- Dropdown toggle button -->
+            <button @click="open = true" class="flex w-44 items-center p-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+              <span class="mr-4">Eliminar seleccionados ({{ count($checked) }})</span>
+              <i class="fas fa-angle-down"></i>
+            </button>
+            <!-- Dropdown List -->
+            <div x-show="open" @click.away="open = false"
+              class="absolute w-44 right-0 px-4 py-2 mt-2 bg-white divide-y divide-gray-600 rounded-md shadow-xl text-sm text-gray-700 hover:bg-gray-400 hover:text-white">
+              <i class="far fa-trash-alt text-red-600 mr-2"></i>Eliminar
+            </div>
+          </div>
+        @endif
       </div><!-- Paginador y Buscador -->
     </div><!-- items-center justify-between -->
+
+    {{-- @foreach ($checked as $item)
+      {{ $item }}
+    @endforeach --}}
 
     @if (count($students))
       @include('admin.students._table')
