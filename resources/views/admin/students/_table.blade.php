@@ -42,7 +42,7 @@
       <td class="px-6 py-4">{{ $item->address}}</td>
       <td class="px-6 py-4">{{ $item->phone_number }}</td>
       <td class="px-6 py-4 text-sm font-medium">
-        <a href="#" class="text-red-600 hover:text-red-900" title="Eliminar">
+        <a href="#" class="text-red-600 hover:text-red-900" onclick="confirm('Esta seguro de eliminar el registro?') || event.stopImmediatePropagation()" wire:click="deleteSingleRecord({{ $item->id }})" title="Eliminar">
           <i class="fas fa-trash mr-2"></i>
         </a>
       </td>
