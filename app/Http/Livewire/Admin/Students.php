@@ -15,8 +15,7 @@ class Students extends Component
   public function render()
   {
     return view('admin.students.students', [
-      'students' => Student::paginate($this->perPage),
-      'lessons'  => Lesson::all(),
+      'students' => Student::with(['lesson', 'section'])->paginate($this->perPage),
       'lessons'  => Lesson::all(),
     ]);
   }
