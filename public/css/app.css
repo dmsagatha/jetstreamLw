@@ -928,6 +928,9 @@ video {
 .float-right{
 	float: right;
 }
+.m-2{
+	margin: 0.5rem;
+}
 .mx-auto{
 	margin-left: auto;
 	margin-right: auto;

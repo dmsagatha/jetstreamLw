@@ -54,10 +54,11 @@
               <span class="mr-4">Eliminar seleccionados ({{ count($checked) }})</span>
               <i class="fas fa-angle-down"></i>
             </button>
-            <!-- Dropdown List -->
-            <div x-show="open" @click.away="open = false"
-              class="absolute w-44 right-0 px-4 py-2 mt-2 bg-white divide-y divide-gray-600 rounded-md shadow-xl text-sm text-gray-700 hover:bg-gray-400 hover:text-white">
-              <i class="far fa-trash-alt text-red-600 mr-2"></i>Eliminar
+            <!-- Dropdown List -->            
+            <div x-show="open" @click.away="open = false" class="absolute w-44 right-0 py-2 mt-2 bg-white divide-y divide-gray-600 rounded-md shadow-xl">
+              <a href="#" type="button" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-400 hover:text-white" onclick="confirm('Esta seguro de eliminar los registros seleccionados?') || event.stopImmediatePropagation()" wire:click="deleteRecords()">
+                <i class="far fa-trash-alt text-red-600 mr-2"></i>Eliminar
+              </a>
             </div>
           </div>
         @endif

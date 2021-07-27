@@ -22,4 +22,13 @@ class Students extends Component
       'lessons'  => Lesson::all(),
     ]);
   }
+
+  /** Eliminar todos los registros seleccionados */
+  public function deleteRecords()
+  {
+    $students = Student::whereKey($this->checked)->delete();
+    $this->checked = [];
+
+    session()->flash('info', 'Los registros seleccionados fueron eliminados con éxito');
+  }
 }
