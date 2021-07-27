@@ -7,6 +7,8 @@
     </h2>
   </x-slot>
 
+  @include('shared._messages')
+
   <x-table>
     <div class="items-center justify-between bg-white px-4 py-3 border-t border-gray-200 sm:px-6">
       <!-- Paginador y Buscador -->
