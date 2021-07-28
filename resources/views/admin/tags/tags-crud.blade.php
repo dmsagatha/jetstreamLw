@@ -25,7 +25,7 @@
               <span>registros</span>
             </div><!-- select -->
 
-            <x-search name="search" label="Escribir el término de busquedad" />
+            <x-search name="search" label="Término de búsqueda" />
   
             @if ($search !== '')
               <button wire:click="clearPage" class="ml-2">

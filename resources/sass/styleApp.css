@@ -17,7 +17,3 @@
 .btn-green {
   @apply bg-green-600 hover:bg-green-500;
 }
-
-/* .form-control {
-  @apply border-red-900 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm;
-} */

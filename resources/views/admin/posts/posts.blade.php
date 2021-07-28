@@ -26,7 +26,7 @@
           <span>{{ __('results') }}</span>
         </div>
 
-        <x-search name="search" label="Escribir el término de busquedad" />
+        <x-search name="search" label="Término de búsqueda" />
 
         @if ($search !== '')
           <button wire:click="clearSearch" class="ml-2">

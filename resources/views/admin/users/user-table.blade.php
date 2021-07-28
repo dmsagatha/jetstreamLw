@@ -17,7 +17,7 @@
         
         <span>registros</span>
 
-        <x-search name="search" label="Escribir el término de busquedad" />
+        <x-search name="search" label="Término de búsqueda" />
 
         <select wire:model="userRole" class="mt-1 form-control">
           <option value="">Todos los Roles</option>

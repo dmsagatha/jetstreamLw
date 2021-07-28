@@ -1,24 +1,24 @@
 <table class="min-w-full divide-y divide-gray-200">
-  <thead class="bg-gray-50 text-center text-base font-bold">
+  <thead class="bg-gray-50 text-center text-sm font-bold">
     <tr>
       <th scope="col" wire:click.prevent="sortBy('id')" class="w-24 px-6 py-3 text-gray-500 uppercase tracking-wider cursor-pointer">
         ID
-        @include('includes._sort-icon', ['field' => 'id'])
+        @include('shared._sort-icon', ['field' => 'id'])
       </th>
       <th scope="col" wire:click.prevent="sortBy('title')" class="px-6 py-3 text-gray-500 uppercase tracking-wider cursor-pointer">
         Título
-        @include('includes._sort-icon', ['field' => 'title'])
+        @include('shared._sort-icon', ['field' => 'title'])
       </th>
       <th scope="col" wire:click.prevent="sortBy('content')" class="px-6 py-3 text-gray-500 uppercase tracking-wider cursor-pointer">
         Contentido
-        @include('includes._sort-icon', ['field' => 'content'])
+        @include('shared._sort-icon', ['field' => 'content'])
       </th>
       <th scope="col" class="relative px-6 py-3">
         <span class="sr-only">Edit</span>
       </th>
     </tr> 
   </thead>
-  <tbody class="bg-white divide-y divide-gray-200">
+  <tbody class="bg-white divide-y divide-gray-200 text-sm">
     @foreach ($posts as $item)
       <tr>
         <td class="px-6 py-4">
