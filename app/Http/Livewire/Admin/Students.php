@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\Lesson;
+use App\Models\Section;
 use App\Models\Student;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -21,6 +22,8 @@ class Students extends Component
 
   // Filtros
   public $selectedLesson = null;
+  public $sections = null;
+  public $selectedSection = null;
 
   public function render()
   {
@@ -28,6 +31,9 @@ class Students extends Component
       'students' => Student::with(['lesson', 'section'])
           ->when($this->selectedLesson, function ($query) {
             $query->where('lesson_id', $this->selectedLesson);
+          })
+          ->when($this->selectedSection, function ($query) {
+            $query->where('section_id', $this->selectedSection);
           })
           ->search(trim($this->search))
           ->paginate($this->perPage),
@@ -61,6 +67,14 @@ class Students extends Component
   public function isChecked($studentId)
   {
     return in_array($studentId, $this->checked);
+  }
+
+  /**
+   * Si se selecciona una Lección automáticamente se filtran las Secciones
+   */
+  public function updatedSelectedClass($classId)
+  {
+    $this->sections = Section::where('class_id', $classId)->get();
   }
 
   public function clearPage()

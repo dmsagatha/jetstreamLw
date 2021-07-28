@@ -9,8 +9,6 @@ class Section extends Model
 {
   use HasFactory;
 
-  protected $fillable = ['name', 'lesson_id'];
-
   public function lessons()
   {
     return $this->belongsTo(lesson::class);
