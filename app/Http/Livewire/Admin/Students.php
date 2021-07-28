@@ -15,7 +15,7 @@ class Students extends Component
   public $search  = '';
   public $perPage = '10';
 
-  public $studentId ;
+  public $studentId, $classId;
 
   // Almacenar todos los ID's que se van seleccionando para eliminar
   public $checked = [];
