@@ -19,10 +19,16 @@ class Students extends Component
   // Almacenar todos los ID's que se van seleccionando para eliminar
   public $checked = [];
 
+  // Filtros
+  public $selectedLesson = null;
+
   public function render()
   {
     return view('admin.students.students', [
       'students' => Student::with(['lesson', 'section'])
+          ->when($this->selectedLesson, function ($query) {
+            $query->where('lesson_id', $this->selectedLesson);
+          })
           ->search(trim($this->search))
           ->paginate($this->perPage),
       'lessons'  => Lesson::all(),

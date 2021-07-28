@@ -34,7 +34,7 @@
 
         <div class="px-2 py-4 flex items-center">
           <label for="perPage">Filtrar por Clases</label>
-          <select class="mx-2 form-control">
+          <select class="mx-2 form-control" wire:model="selectedLesson">
             <option value="">Todas las Clases</option>
             @foreach ($lessons as $item)
             <option value="{{ $item->id }}">{{ $item->name }}</option>
