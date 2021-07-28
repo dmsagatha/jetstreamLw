@@ -56,4 +56,9 @@ class Students extends Component
   {
     return in_array($studentId, $this->checked);
   }
+
+  public function clearPage()
+  {
+    $this->reset();
+  }
 }
