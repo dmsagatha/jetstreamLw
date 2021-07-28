@@ -2,9 +2,9 @@
 
 namespace App\Http\Livewire\Admin;
 
+use App\Models\Student;
 use App\Models\Lesson;
 use App\Models\Section;
-use App\Models\Student;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -14,8 +14,6 @@ class Students extends Component
 
   public $search  = '';
   public $perPage = '10';
-
-  public $studentId, $classId;
 
   // Almacenar todos los ID's que se van seleccionando para eliminar
   public $checked = [];
@@ -72,9 +70,9 @@ class Students extends Component
   /**
    * Si se selecciona una Lección automáticamente se filtran las Secciones
    */
-  public function updatedSelectedClass($classId)
+  public function updatedSelectedLesson($lessonId)
   {
-    $this->sections = Section::where('class_id', $classId)->get();
+    $this->sections = Section::where('lesson_id', $lessonId)->get();
   }
 
   public function clearPage()
