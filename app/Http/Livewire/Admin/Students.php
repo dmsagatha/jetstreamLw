@@ -10,6 +10,8 @@ use Livewire\WithPagination;
 class Students extends Component
 {
   use WithPagination;
+
+  public $search  = '';
   public $perPage = '10';
 
   public $studentId ;
@@ -20,7 +22,9 @@ class Students extends Component
   public function render()
   {
     return view('admin.students.students', [
-      'students' => Student::with(['lesson', 'section'])->paginate($this->perPage),
+      'students' => Student::with(['lesson', 'section'])
+          ->search(trim($this->search))
+          ->paginate($this->perPage),
       'lessons'  => Lesson::all(),
     ]);
   }

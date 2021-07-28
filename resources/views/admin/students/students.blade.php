@@ -24,13 +24,13 @@
 
         <span>registros</span>
 
-        {{-- <x-search name="search" label="Escribir el término de busquedad" />
+        <x-search name="search" label="Término de búsqueda" />
 
         @if ($search !== '')
           <button wire:click="clearPage" class="ml-2">
             <i class="fa fa-eraser"></i>
           </button>
-        @endif --}}
+        @endif
 
         <div class="px-2 py-4 flex items-center">
           <label for="perPage">Filtrar por Clases</label>
