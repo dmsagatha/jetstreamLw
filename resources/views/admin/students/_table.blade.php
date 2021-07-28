@@ -31,7 +31,9 @@
   </thead>
   <tbody class="bg-white divide-y divide-gray-200 text-sm">
     @foreach ($students as $item)
-    <tr>
+    <tr class="@if ($this->isChecked($item->id))
+      bg-gray-300
+    @endif">
       <td class="px-6 py-4">
         <input type="checkbox" value="{{ $item->id }}" wire:model="checked" />
       </td>

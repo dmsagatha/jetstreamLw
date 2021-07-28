@@ -34,12 +34,22 @@ class Students extends Component
     session()->flash('info', 'Los registros seleccionados fueron eliminados con éxito');
   }
 
-  /** Eliminar todos los registros seleccionados */
+  /**
+   * Eliminar todos los registros seleccionados
+   */
   public function deleteSingleRecord($studentId)
   {
     $students = Student::findOrFail($studentId);
     $students->delete();
 
     session()->flash('info', 'El registro fue eliminado con éxito');
+  }
+
+  /**
+   * Resaltar el color de la fila de los registros seleccionados para eliminar (tr)
+   */
+  public function isChecked($studentId)
+  {
+    return in_array($studentId, $this->checked);
   }
 }
