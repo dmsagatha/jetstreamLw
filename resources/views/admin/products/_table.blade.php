@@ -1,57 +1,37 @@
 <table class="min-w-full divide-y divide-gray-200">
   <thead class="bg-gray-50 text-center text-sm font-bold align-middle">
     <tr>
-      <th scope="col" wire:click.prevent="sortByColumn('id')"
+      <th scope="col" wire:click.prevent="sortBy('id')"
         class="w-24 px-6 py-3 text-gray-500 uppercase tracking-wider cursor-pointer">
         ID
-        @if ($sortColumn == 'id')
-            <i class="fa fa-fw fa-sort-{{ $sortDirection }}"></i>
-        @else
-            <i class="fa fa-fw fa-sort" style="color:#DCDCDC"></i>
-        @endif
+        @include('shared._sort-icon', ['field' => 'id'])
       </th>
-      <th scope="col" wire:click.prevent="sortByColumn('name')"
+      <th scope="col" wire:click.prevent="sortBy('name')"
         class="px-6 py-3 text-gray-500 uppercase tracking-wider cursor-pointer">
         Nombre
-        @if ($sortColumn == 'name')
-            <i class="fa fa-fw fa-sort-{{ $sortDirection }}"></i>
-        @else
-            <i class="fa fa-fw fa-sort" style="color:#DCDCDC"></i>
-        @endif
+        @include('shared._sort-icon', ['field' => 'name'])
       </th>
-      <th scope="col" wire:click.prevent="sortByColumn('price')"
+      <th scope="col" wire:click.prevent="sortBy('price')"
         class="px-6 py-3 text-gray-500 uppercase tracking-wider cursor-pointer">
         Precio
-        @if ($sortColumn == 'price')
-            <i class="fa fa-fw fa-sort-{{ $sortDirection }}"></i>
-        @else
-            <i class="fa fa-fw fa-sort" style="color:#DCDCDC"></i>
-        @endif
+        @include('shared._sort-icon', ['field' => 'price'])
       </th>
-      <th scope="col" wire:click.prevent="sortByColumn('description')"
+      <th scope="col" wire:click.prevent="sortBy('description')"
         class="px-6 py-3 text-gray-500 uppercase tracking-wider cursor-pointer">
         Descripción
-        @if ($sortColumn == 'description')
-            <i class="fa fa-fw fa-sort-{{ $sortDirection }}"></i>
-        @else
-            <i class="fa fa-fw fa-sort" style="color:#DCDCDC"></i>
-        @endif
+        @include('shared._sort-icon', ['field' => 'description'])
       </th>
-      <th scope="col" wire:click.prevent="sortByColumn('category_name')"
+      <th scope="col" wire:click.prevent="sortBy('category_name')"
         class="px-6 py-3 text-gray-500 uppercase tracking-wider cursor-pointer">
         Categorías
-        @if ($sortColumn == 'category_name')
-            <i class="fa fa-fw fa-sort-{{ $sortDirection }}"></i>
-        @else
-            <i class="fa fa-fw fa-sort" style="color:#DCDCDC"></i>
-        @endif
+        @include('shared._sort-icon', ['field' => 'category_name'])
       </th>
     </tr>
   </thead>
   <tbody class="bg-white divide-y divide-gray-200 text-sm">
     @foreach ($products as $item)
     <tr>
-      <td class="px-6 py-4">
+      <td class="px-6 py-4 text-center">
         {{ $item->id }}
       </td>
       <td class="px-6 py-4">
