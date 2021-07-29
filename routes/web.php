@@ -1,11 +1,12 @@
 <?php
 
 use App\Http\Livewire\Admin\Tags;
+use App\Http\Livewire\Admin\Products;
 use App\Http\Livewire\Admin\Students;
+use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Admin\Posts\Posts;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Livewire\Admin\Categories\Categories;
-use Illuminate\Support\Facades\Route;
 
 Route::get('/', function ()
 {
@@ -39,4 +40,7 @@ Route::group(['middleware' => 'auth:sanctum'], function ()
   // Filtros y buscadores entre varias tablas
   // https://www.youtube.com/watch?v=3EpOGcKOXK0&list=PLBCuZqyXqWkxqz4BGJV4x_T4Xqu1dF8jX&index=1
   Route::get('/estudiantes', Students::class)->name('students');
+
+  // Daily Laravel | Kit Livewire
+  Route::get('/productos', Products::class)->name('products');
 });
