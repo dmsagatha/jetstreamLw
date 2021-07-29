@@ -12,8 +12,6 @@ class Products extends Component
   use WithPagination;
 
   public $perPage   = '5';
-  /* public $sortColumn = 'name';
-  public $sortDirection = 'asc'; */
   public $sortField = 'id';
   public $sortAsc   = false;
 
@@ -65,20 +63,12 @@ class Products extends Component
     ]);
   }
 
-  /* public function sortByColumn($column)
-  {
-    if ($this->sortColumn == $column) {
-        $this->sortDirection = $this->sortDirection == 'asc' ? 'desc' : 'asc';
-    } else {
-        $this->reset('sortDirection');
-        $this->sortColumn = $column;
-    }
-  } */
-
+  /**
+   * Si el campo esta activo (ordenado), reversar el ordenamiento,
+   * de lo contrario configurar la dirección a 'true'
+   */
   public function sortBy($field)
   {
-    /* Si el campo esta activo, reversar el ordenamiento,
-    de lo contrario configurar la dirección a 'true' */
     if ($this->sortField === $field) {
       $this->sortAsc = !$this->sortAsc;
     } else {
