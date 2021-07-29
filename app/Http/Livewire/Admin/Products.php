@@ -23,8 +23,8 @@ class Products extends Component
   public function render()
   {
     $products = Product::select([
-      'products.name',
-      'products.id', 
+      'products.id',
+      'products.name', 
       'price',
       'description',
       'categories.name as category_name',
