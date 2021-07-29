@@ -11,9 +11,11 @@ class Products extends Component
 {
   use WithPagination;
 
-  public $categories = [];
+  public $perPage   = '5';
   public $sortColumn = 'name';
   public $sortDirection = 'asc';
+
+  public $categories = [];
 
   public function mount()
   {
@@ -57,7 +59,7 @@ class Products extends Component
     $products->orderBy($this->sortColumn, $this->sortDirection);
 
     return view('admin.products.index', [
-      'products' => $products->paginate(5),
+      'products' => $products->paginate($this->perPage),
     ]);
   }
 
