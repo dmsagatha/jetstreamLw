@@ -3,7 +3,7 @@
 
   <x-slot name="header">
     <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-      Productos | Datatables con Buscador y Filtros
+      Productos | Datatables con Buscador y Filtros en Tablas Relacionadas
     </h2>
   </x-slot>
 
@@ -21,6 +21,15 @@
         </select>
 
         <span>registros</span>
+
+        <x-search name="search" label="Término de búsqueda" />
+
+        @if ($search !== '')
+          <button wire:click="clearPage" class="ml-2">
+            <i class="fa fa-eraser"></i>
+          </button>
+        @endif
+
       </div><!-- Paginador y Buscador -->
     </div><!-- items-center justify-between -->
     

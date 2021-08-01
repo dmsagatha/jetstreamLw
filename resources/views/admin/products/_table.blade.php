@@ -44,7 +44,7 @@
         {{ Str::limit($item->description, 50) }}
       </td>
       <td class="px-6 py-4">
-        {{ $item->category->name ?? '' }}
+        {{ $item->category_name ?? '' }}
       </td>
     </tr>
     @endforeach

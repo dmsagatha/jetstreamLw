@@ -15,4 +15,13 @@ class Category extends Model
   {
     return $query->where('status', 1);
   }
+
+  /**
+   * Relación Uno a Muchos
+   * Una Categoría puede tener 1 o varios Productos
+   */
+  public function products()
+  {
+    return $this->hasMany(Product::class);
+  }
 }

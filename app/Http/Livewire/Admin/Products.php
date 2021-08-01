@@ -3,14 +3,15 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\Product;
+use Livewire\Component;
 use App\Models\Category;
 use Livewire\WithPagination;
-use Livewire\Component;
 
 class Products extends Component
 {
   use WithPagination;
 
+  public $search    = '';
   public $perPage   = '5';
   public $sortField = 'id';
   public $sortAsc   = false;
@@ -24,42 +25,17 @@ class Products extends Component
 
   public function render()
   {
-    $products = Product::select([
-      'products.id',
-      'products.name', 
-      'price',
-      'description',
-      'categories.name as category_name',
-      'category_id',
-    ])
-      ->leftJoin('categories',
-        'products.category_id', '=', 'categories.id');
-
-    /* foreach ($this->searchColumns as $column => $value)
-    {
-      if (!empty($value))
-      {
-        if ($column == 'price') {
-          if (is_numeric($value[0])) {
-            $products->where($column, '>', $value[0]);
-          }
-          if (is_numeric($value[1])) {
-            $products->where($column, '<', $value[1]);
-          }
-        }
-        else if ($column == 'category_id') {
-          $products->where($column, $value);
-        }
-        else {
-          $products->where('products.' . $column, 'LIKE', '%' . $value . '%');
-        }
-      }
-    } */
-
-    $products->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc');
-
     return view('admin.products.index', [
-      'products' => $products->paginate($this->perPage),
+      'products' => Product::search($this->search)
+          ->leftJoin('categories', 'products.category_id', '=', 'categories.id')
+          ->select(
+              'products.id',
+              'products.name',
+              'products.price',
+              'products.description',
+              'categories.name AS category_name'
+          )->orderBy($this->sortField, $this->sortAsc ? 'desc' : 'asc')
+          ->paginate($this->perPage)
     ]);
   }
 
@@ -76,5 +52,10 @@ class Products extends Component
     }
 
     $this->sortField = $field;
+  }
+
+  public function clearPage()
+  {
+    $this->reset();
   }
 }
