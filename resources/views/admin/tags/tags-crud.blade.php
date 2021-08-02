@@ -1,4 +1,4 @@
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
   @section('title', 'Etiquetas')
 
   <div class="md:grid md:grid-cols-3 md:gap-6">
@@ -51,7 +51,7 @@
       </div><!-- shadow -->
     </div><!-- table -->
 
-    <div class="md:col-span-1 my-5 rounded-lg">
+    <div class="md:col-span-1 my-1 rounded-lg">
       <div class="bg-white shadow sm:rounded-md sm:overflow-hidden">
         <h2 class="text-gray-900 text-center text-2xl font-bold py-3">
           {{ isset($this->tag->id) ? 'Editar Etiqueta' : 'Crear Etiqueta'}}

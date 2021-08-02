@@ -59,17 +59,17 @@
   </x-table>
 </div>
   
-  @push('scripts')
-    <script>
-      function borrarUsuario(user) {
-        if(confirm('Esta seguro de eliminar el usuario?')) {
-          Livewire.emit('deleteUserList', user)
-        } else {
-          alert('No se eliminó el usuario.')
-        }
+@push('scripts')
+  <script>
+    function borrarUsuario(user) {
+      if(confirm('Esta seguro de eliminar el usuario?')) {
+        Livewire.emit('deleteUserList', user)
+      } else {
+        alert('No se eliminó el usuario.')
       }
-      Livewire.on('deleteUser', (user) => {
-        alert(`El usuario ${user.name} se eliminó correctamente!`);
-      });
-    </script>
-  @endpush
+    }
+    Livewire.on('deleteUser', (user) => {
+      alert(`El usuario ${user.name} se eliminó correctamente!`);
+    });
+  </script>
+@endpush

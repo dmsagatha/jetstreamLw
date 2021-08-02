@@ -1,4 +1,4 @@
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
   @section('title', 'Productos')
 
   <x-slot name="header">
@@ -8,10 +8,9 @@
   </x-slot>
 
   <x-table>
-    <div class="items-center justify-between bg-white px-4 py-3 border-t border-gray-200 sm:px-6">
-      <!-- Paginador y Buscador -->
-      <div class="flex items-center text-gray-500 text-sm">
-        <span>Mostrar</span>
+    <div class="flex items-center justify-center text-sm bg-white px-4 py-3 gap-x-2 border-t border-gray-200 sm:px-6">
+      <div class="flex flex-wrap items-center">
+        <label for="perPage">Mostrar</label>
         <select wire:model="perPage" class="mx-2 form-control">
           <option value="5">5</option>
           <option value="10">10</option>
@@ -21,26 +20,30 @@
         </select>
 
         <span>registros</span>
+      </div>
 
+      <div class="relative flex-1 mx-4">
         <x-search name="search" label="Término de búsqueda" />
-
-        @if ($search !== '')
-          <button wire:click="clearPage" class="ml-2">
-            <i class="fa fa-eraser"></i>
-          </button>
-        @endif
-
-        <div>
-          <label for="perPage" class="block text-black-500 mt-3">Categorías</label>
-          <select class="mx-2 form-control" wire:model="byCategory">
-            <option value="">Filtrar</option>
-            @foreach ($categories as $item)
-              <option value="{{ $item->id }}">{{ $item->name }}</option>
-            @endforeach
-          </select>
+        <div class="absolute right-0 top-0 mt-2 mr-2">
+          @if ($search !== '')
+            <button wire:click="clearPage">
+              <i class="fa fa-eraser"></i>
+            </button>
+          @else
+            <i class="fa fa-search h-6 w-6 text-gray-400"></i>
+          @endif
         </div>
+      </div>
 
-      </div><!-- Paginador y Buscador -->
+      <div class="self-center">
+        <label for="perPage" class="py-3">Filtrar Categorías</label>
+        <select class="mx-2 form-control" wire:model="byCategory">
+          <option value="">Seleccionar</option>
+          @foreach ($categories as $item)
+            <option value="{{ $item->id }}">{{ $item->name }}</option>
+          @endforeach
+        </select>
+      </div>
     </div><!-- items-center justify-between -->
     
     @if (count($products))
