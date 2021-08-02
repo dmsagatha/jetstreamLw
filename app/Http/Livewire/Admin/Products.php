@@ -30,6 +30,7 @@ class Products extends Component
    */
   public bool $bulkDisabled = true; 
   public $selectedRecords   = [];
+  
   /**
    * Datos a mostrar en el Select de Categorías
    */
