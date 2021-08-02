@@ -16,17 +16,22 @@ class Products extends Component
   public $sortField = 'id';
   public $sortAsc   = false;
 
+  public $byCategory = null;
+
   public $categories = [];
 
-  public function mount()
+  /* public function mount()
   {
     $this->categories = Category::pluck('name', 'id');
-  }
+  } */
 
   public function render()
   {
     return view('admin.products.index', [
       'products' => Product::search($this->search)
+          ->when($this->byCategory, function($query) {
+                $query->where('category_id', $this->byCategory);
+            })
           ->leftJoin('categories', 'products.category_id', '=', 'categories.id')
           ->select(
               'products.id',
@@ -34,8 +39,9 @@ class Products extends Component
               'products.price',
               'products.description',
               'categories.name AS category_name'
-          )->orderBy($this->sortField, $this->sortAsc ? 'desc' : 'asc')
-          ->paginate($this->perPage)
+            )
+          ->orderBy($this->sortField, $this->sortAsc ? 'desc' : 'asc')
+          ->paginate($this->perPage),
     ]);
   }
 

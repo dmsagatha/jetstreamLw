@@ -30,6 +30,16 @@
           </button>
         @endif
 
+        <div>
+          <label for="perPage" class="block text-black-500 mt-3">Categorías</label>
+          <select class="mx-2 form-control" wire:model="byCategory">
+            <option value="">Filtrar</option>
+            @foreach ($categories as $item)
+              <option value="{{ $item->id }}">{{ $item->name }}</option>
+            @endforeach
+          </select>
+        </div>
+
       </div><!-- Paginador y Buscador -->
     </div><!-- items-center justify-between -->
     
