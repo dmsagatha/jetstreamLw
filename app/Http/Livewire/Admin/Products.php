@@ -14,7 +14,7 @@ class Products extends Component
   public $search    = '';
   public $perPage   = '5';
   public $sortField = 'id';
-  public $sortAsc   = false;
+  public $sortAsc   = true;
 
   /**
    * Filtrar por Categorías - https://www.youtube.com/watch?v=9GpFU99q0w4
@@ -22,6 +22,14 @@ class Products extends Component
   public $byCategory = null;
   public $categories = [];
 
+  /**
+   * Eliminación masiva de registros - Kit Livewire
+   * $bulkDisabled - Masivo deshabilitado
+   * $selectedRecords - Almacenar todos los ID's que se van seleccionando 
+   * para eliminar
+   */
+  public bool $bulkDisabled = true; 
+  public $selectedRecords   = [];
   /**
    * Datos a mostrar en el Select de Categorías
    */
@@ -32,6 +40,8 @@ class Products extends Component
 
   public function render()
   {
+    $this->bulkDisabled = count($this->selectedRecords) < 1;
+
     return view('admin.products.index', [
       'products' => Product::search(trim($this->search))
           ->when($this->byCategory, function ($query) {
@@ -49,6 +59,28 @@ class Products extends Component
           ->paginate($this->perPage),
       'categories' => Category::all(),
     ]);
+  }
+
+  /**
+   * Eliminación masiva de registros - Kit Livewire
+   */
+  public function deleteSelected()
+  {
+    Product::query()
+        ->whereIn('id', $this->selectedRecords)
+        ->delete();
+    
+    $this->selectedRecords = [];
+
+    session()->flash('danger', 'Los registros seleccionados fueron eliminados con éxito');
+  }
+
+  /**
+   * Resaltar el color de la fila de los registros seleccionados para eliminar (tr)
+   */
+  public function isChecked($productId)
+  {
+    return in_array($productId, $this->selectedRecords);
   }
 
   /**
