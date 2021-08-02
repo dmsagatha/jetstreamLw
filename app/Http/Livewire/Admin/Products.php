@@ -16,22 +16,27 @@ class Products extends Component
   public $sortField = 'id';
   public $sortAsc   = false;
 
+  /**
+   * Filtrar por Categorías - https://www.youtube.com/watch?v=9GpFU99q0w4
+   */
   public $byCategory = null;
-
   public $categories = [];
 
-  /* public function mount()
+  /**
+   * Datos a mostrar en el Select de Categorías
+   */
+  public function mount()
   {
     $this->categories = Category::pluck('name', 'id');
-  } */
+  }
 
   public function render()
   {
     return view('admin.products.index', [
-      'products' => Product::search($this->search)
-          ->when($this->byCategory, function($query) {
-                $query->where('category_id', $this->byCategory);
-            })
+      'products' => Product::search(trim($this->search))
+          ->when($this->byCategory, function ($query) {
+            $query->where('category_id', $this->byCategory);
+          })
           ->leftJoin('categories', 'products.category_id', '=', 'categories.id')
           ->select(
               'products.id',
@@ -42,6 +47,7 @@ class Products extends Component
             )
           ->orderBy($this->sortField, $this->sortAsc ? 'desc' : 'asc')
           ->paginate($this->perPage),
+      'categories' => Category::all(),
     ]);
   }
 
@@ -62,6 +68,7 @@ class Products extends Component
 
   public function clearPage()
   {
+    $this->resetPage();
     $this->reset();
   }
 }

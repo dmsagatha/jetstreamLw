@@ -35,8 +35,7 @@ class Product extends Model
   {
     $term = "%$term%";
 
-    $query->where(function ($query) use ($term)
-    {
+    $query->where(function ($query) use ($term) {
       $query->where('name', 'like', $term)
         ->orWhere('price', 'like', $term)
         ->orWhere('description', 'like', $term)

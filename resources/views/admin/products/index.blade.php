@@ -39,8 +39,8 @@
         <label for="perPage" class="py-3">Filtrar Categorías</label>
         <select class="mx-2 form-control" wire:model="byCategory">
           <option value="">Seleccionar</option>
-          @foreach ($categories as $item)
-            <option value="{{ $item->id }}">{{ $item->name }}</option>
+          @foreach ($categories as $id => $item)
+            <option value="{{ $id }}">{{ $item }}</option>
           @endforeach
         </select>
       </div>
