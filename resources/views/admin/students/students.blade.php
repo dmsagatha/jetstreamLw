@@ -75,11 +75,7 @@
         </div>
       @endif
     </div><!-- Paginador, Buscador y Filtros -->
-
-    {{-- @foreach ($checked as $item)
-      {{ $item }}
-    @endforeach --}}
-
+    
     @if (count($students))
       @include('admin.students._table')
 
