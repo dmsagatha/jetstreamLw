@@ -13,7 +13,7 @@ class Students extends Component
   use WithPagination;
 
   public $search  = '';
-  public $perPage = '10';
+  public $perPage = '5';
 
   // Almacenar todos los ID's que se van seleccionando para eliminar
   public $checked = [];

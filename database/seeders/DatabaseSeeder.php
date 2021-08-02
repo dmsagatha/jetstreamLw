@@ -6,6 +6,7 @@ use Storage;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Lesson;
+use App\Models\Product;
 use App\Models\Section;
 use App\Models\Student;
 use App\Models\Category;
@@ -15,6 +16,7 @@ class DatabaseSeeder extends Seeder
 {
   public function run()
   {
+    Product::query()->delete();
     Student::query()->delete();
     Section::query()->delete();
     Lesson::query()->delete();
@@ -36,8 +38,7 @@ class DatabaseSeeder extends Seeder
 
     User::factory()->times(100)->create();
 
-    Category::factory()->times(10)->create();
-
+    // Estudiantes
     $lessons = Lesson::factory()->times(5)->create();
     $lessons->each(function ($lesson) {
       Section::factory()->times(2)->create([
@@ -45,5 +46,14 @@ class DatabaseSeeder extends Seeder
       ]);
     });
     Student::factory()->times(30)->create();
+
+    // Productos
+    // Category::factory()->times(10)->create();
+    $categories = Category::factory()->times(5)->create();
+    $categories->each(function ($category) {
+      Product::factory()->times(3)->create([
+        'category_id' => $category->id,
+      ]);
+    });
   }
 }

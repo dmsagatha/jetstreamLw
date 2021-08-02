@@ -16,7 +16,7 @@
           Estatus
         </th>
       @endif
-      <th scope="col" class="relative px-6 py-3">
+      <th scope="col" class="relative px-6 py-3 uppercase ">
         Acciones
       </th>
     </tr>
@@ -24,7 +24,7 @@
   <tbody class="bg-white divide-y divide-gray-200 text-sm">
     @foreach ($categories as $item)
       <tr>
-        <td class="px-6 py-4">
+        <td class="px-6 py-4 text-center">
           {{ $item->id }}
         </td>
         <td class="px-6 py-4">
