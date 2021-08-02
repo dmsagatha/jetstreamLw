@@ -2,11 +2,9 @@
   @section('title', 'Usuarios')
   
   <x-table>
-    <div class="items-center justify-between bg-white px-4 py-3  border-t border-gray-200 sm:px-6">
-      <!-- Paginador y Buscador -->
-      <div class="flex items-center text-gray-500 text-sm">
-        <span>Mostrar</span>
-
+    <div class="flex items-center justify-center text-sm text-gray-500 bg-white px-4 py-6 gap-x-2 border-t border-gray-200 sm:px-6">
+      <div class="flex flex-wrap items-center">
+        <label for="perPage">Mostrar</label>
         <select wire:model="perPage" class="mx-2 form-control">
           <option value="5">5</option>
           <option value="10">10</option>
@@ -14,24 +12,35 @@
           <option value="50">50</option>
           <option value="100">100</option>
         </select>
-        
-        <span>registros</span>
 
+        <span>registros</span>
+      </div>
+
+      <div class="relative flex-1">
         <x-search name="search" label="Término de búsqueda" />
 
+        <div class="absolute right-0 top-0 mt-2 mr-2">
+          @if ($search !== '')
+            <button wire:click="clearPage">
+              <i class="fa fa-eraser"></i>
+            </button>
+          @else
+            <i class="fa fa-search h-6 w-6 text-gray-400"></i>
+          @endif
+        </div>
+      </div>
+
+      <div class="self-end">
+        <label for="perPage">Filtrar Categorías</label>
         <select wire:model="userRole" class="mt-1 form-control">
           <option value="">Todos los Roles</option>
           <option value="user">Usuario</option>
           <option value="reviewer">Revisor</option>
           <option value="admin">Administrador</option>
         </select>
+      </div>
 
-        @if ($search !== '')
-          <button wire:click="clearSearch" class="ml-2">
-            <i class="fa fa-eraser"></i>
-          </button>
-        @endif
-
+      <div class="flex items-center">
         <button  
           type="button" 
           wire:click="showModal"
@@ -40,8 +49,8 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
           </svg>
         </button>
-      </div><!-- Paginador y Buscador -->
-    </div><!-- items-center justify-between -->
+      </div>
+    </div><!-- Paginador, Buscador y Filtros -->
 
     @if (count($users))
       @include('admin.users._table')

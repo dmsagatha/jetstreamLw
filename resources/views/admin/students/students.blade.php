@@ -10,7 +10,7 @@
   <div class="py-2">@include('shared._messages')</div>
 
   <x-table>
-    <div class="flex items-center justify-center text-sm bg-white px-4 py-6 gap-x-2 border-t border-gray-200 sm:px-6">
+    <div class="flex items-center justify-center text-sm text-gray-500 bg-white px-4 py-6 gap-x-2 border-t border-gray-200 sm:px-6">
       <div class="flex flex-wrap items-center mt-3">
         <label for="perPage">Mostrar</label>
         <select wire:model="perPage" class="mx-2 form-control">

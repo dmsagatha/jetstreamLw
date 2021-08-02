@@ -9,7 +9,7 @@
         </h2>
 
         <!-- Paginador y Buscador -->
-        <div class="flex items-center justify-between px-4 py-3 sm:px-6 text-sm">
+        <div class="flex items-center justify-between px-4 py-3 sm:px-6 text-sm text-gray-500">
           <div class="flex flex-wrap items-center">
             <label for="perPage">Mostrar</label>
             <select wire:model="perPage" class="mx-2 form-control">
