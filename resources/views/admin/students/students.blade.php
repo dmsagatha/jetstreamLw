@@ -58,23 +58,25 @@
           </select>
         </div>
       @endif
+    </div><!-- Paginador, Buscador y Filtros -->
 
       @if ($checked)
-        <div x-data="{ open: false }" class="relative">
-          <!-- Dropdown toggle button -->
-          <button @click="open = true" class="flex w-44 items-center p-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-            <span class="mr-4">Eliminar seleccionados ({{ count($checked) }})</span>
-            <i class="fas fa-angle-down"></i>
-          </button>
-          <!-- Dropdown List -->            
-          <div x-show="open" @click.away="open = false" class="absolute w-44 right-0 py-2 mt-1 bg-white divide-y divide-gray-600 rounded-md shadow-xl">
-            <a href="#" type="button" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-400 hover:text-white" onclick="confirm('Esta seguro de eliminar los registros seleccionados?') || event.stopImmediatePropagation()" wire:click="deleteRecords()">
-              <i class="far fa-trash-alt text-red-600 mr-2"></i>Eliminar
-            </a>
+        <div class="flex items-center justify-center text-sm text-gray-500 bg-white px-4 py-3 gap-x-2 border-t border-gray-200 sm:px-6">
+          <div x-data="{ open: false }" class="relative">
+            <!-- Dropdown toggle button -->
+            <button @click="open = true" class="flex w-44 items-center p-2 bg-red-600 text-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+              <span class="mr-4">Eliminar seleccionados ({{ count($checked) }})</span>
+              <i class="fas fa-angle-down"></i>
+            </button>
+            <!-- Dropdown List -->            
+            <div x-show="open" @click.away="open = false" class="absolute w-44 right-0 py-2 mt-1 bg-white divide-y divide-gray-600 rounded-md shadow-xl">
+              <a href="#" type="button" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-400 hover:text-white" onclick="confirm('Esta seguro de eliminar los registros seleccionados?') || event.stopImmediatePropagation()" wire:click="deleteRecords()">
+                <i class="far fa-trash-alt text-red-600 mr-2"></i>Eliminar
+              </a>
+            </div>
           </div>
-        </div>
+        </div><!-- Eliminación masiva -->
       @endif
-    </div><!-- Paginador, Buscador y Filtros -->
     
     @if (count($students))
       @include('admin.students._table')
