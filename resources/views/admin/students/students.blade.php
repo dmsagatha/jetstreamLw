@@ -3,8 +3,11 @@
 
   <x-slot name="header">
     <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-      Estudiantes
+      Estudiantes | Datatables
     </h2>
+    <h3>
+      Buscador | Filtros en Tablas Relacionadas | Eliminación Masiva de Rregistros
+    </h3>
   </x-slot>
 
   <div class="py-2">@include('shared._messages')</div>
