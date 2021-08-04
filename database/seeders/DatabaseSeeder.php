@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use Storage;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Lesson;
@@ -10,6 +9,7 @@ use App\Models\Product;
 use App\Models\Section;
 use App\Models\Student;
 use App\Models\Category;
+use Storage;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -33,6 +33,7 @@ class DatabaseSeeder extends Seeder
       'name'     => 'Super Admin',
       'role'     => 'admin',
       'email'    => 'superadmin@admin.net',
+      'active'   => '1',
       'password' => bcrypt('superadmin'),
     ]);
 

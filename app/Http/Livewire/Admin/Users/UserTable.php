@@ -13,7 +13,7 @@ class UserTable extends Component
   public $search    = '';
   public $perPage   = '5';
   public $sortField = 'id';
-  public $sortAsc   = false;
+  public $sortAsc   = true;
   public $userRole  = '';
 
   public $showModal = 'hidden';
@@ -60,11 +60,6 @@ class UserTable extends Component
 
   public function clearPage()
   {
-    /* $this->search     = '';
-    $this->perPage    = '5';
-    $this->sortField  = '';
-    $this->sortAsc    = ''; */
-
     $this->reset();
   }
 
