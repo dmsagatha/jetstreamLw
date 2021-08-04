@@ -60,11 +60,6 @@ class UserTable extends Component
 
   public function clearPage()
   {
-    /* $this->search     = '';
-    $this->perPage    = '5';
-    $this->sortField  = '';
-    $this->sortAsc    = ''; */
-
     $this->reset();
   }
 

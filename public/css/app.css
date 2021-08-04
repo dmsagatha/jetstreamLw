@@ -63,6 +63,7 @@
   --tw-bg-opacity: 1;
   background-color: rgba(16, 185, 129, var(--tw-bg-opacity));
 }
+/* Component Toggle Button Active (Bool) */
 @layer base {
   .toggle-label {
       position: relative;
@@ -101,7 +102,7 @@
       background-color: #9ae6b4;
   }
 }
-/*! tailwindcss v2.2.4 | MIT License | https://tailwindcss.com */
+/* ! tailwindcss v2.2.4 | MIT License | https://tailwindcss.com */
 /*! modern-normalize v1.1.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
 /*
 Document
