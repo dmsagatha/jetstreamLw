@@ -7,6 +7,10 @@ use Livewire\Component;
 
 class ToggleButton extends Component
 {
+  /**
+   * AngelJay Academy - Create Livewire toggle switch | Part 18
+   * https://www.youtube.com/watch?v=-Ktuh1_xxww&list=PL1JpS8jP1wgC8Uud_DKhL3jAtcPzeQ9pn&index=18
+   */
   public Model $model;
 	public bool $isActive;
   public string $field;
