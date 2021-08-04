@@ -54,15 +54,15 @@
           <div class="text-sm text-gray-900">
             {{-- <livewire:buttons.active :model="$item" :field="'active'" :key="'active'.$item->id" /> --}}
 
-            {{-- <livewire:toggle-button
+            <livewire:toggle-button
               :model="$item"
               field="active"
-              key="{{ $item->id }}" /> --}}
+              key="{{ $item->id }}" />
 
-            @livewire('toggle-button', [
+            {{-- @livewire('toggle-button', [
                 'model' => $item,
                 'field' => 'active',
-            ])
+            ]) --}}
           </div>
         </td>
         <td class="px-6 py-4">

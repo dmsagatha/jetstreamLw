@@ -13,7 +13,7 @@ class UserTable extends Component
   public $search    = '';
   public $perPage   = '5';
   public $sortField = 'id';
-  public $sortAsc   = true;
+  public $sortAsc   = false;
   public $userRole  = '';
 
   public $showModal = 'hidden';
@@ -22,7 +22,7 @@ class UserTable extends Component
    * Escuchar el evento que va a actualizar la tabla
    */
   protected $listeners = [
-    'usersListUpdate' => 'render',
+    // 'usersListUpdate' => 'render',
     'deleteUserList'  => 'deleteUser'
   ];
 
