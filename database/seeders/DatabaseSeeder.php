@@ -33,6 +33,7 @@ class DatabaseSeeder extends Seeder
       'name'     => 'Super Admin',
       'role'     => 'admin',
       'email'    => 'superadmin@admin.net',
+      'active'   => '1',
       'password' => bcrypt('superadmin'),
     ]);
 

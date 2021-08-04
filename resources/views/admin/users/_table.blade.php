@@ -15,6 +15,9 @@
         Nombre
         @include('shared._sort-icon', ['field' => 'name'])
       </th>
+      <th scope="col"
+        class="px-6 py-3 text-gray-500 uppercase tracking-wider cursor-pointer">
+        Estatus
       <th scope="col" wire:click.prevent="sortBy('email')"
         class="px-6 py-3 text-gray-500 uppercase tracking-wider cursor-pointer">
         Correo Electrónico
@@ -47,6 +50,21 @@
             {{ $item->name }}
           </div>
         </td>
+        <td class="px-6 py-4 text-center">
+          <div class="text-sm text-gray-900">
+            {{-- <livewire:buttons.active :model="$item" :field="'active'" :key="'active'.$item->id" /> --}}
+
+            {{-- <livewire:toggle-button
+              :model="$item"
+              field="active"
+              key="{{ $item->id }}" /> --}}
+
+            @livewire('toggle-button', [
+                'model' => $item,
+                'field' => 'active',
+            ])
+          </div>
+        </td>
         <td class="px-6 py-4">
           <div class="text-sm text-gray-900">
             {{ $item->email }}
@@ -61,9 +79,6 @@
           <a href="#" class="text-indigo-600 hover:text-indigo-900" wire:click="showModal({{ $item->id }})">
             Editar
           </a>
-          {{-- <a href="javascript:void(0)" class="text-red-600 hover:text-red-900" wire:click="deleteUser({{ $item->id }})">
-            Eliminar
-          </a> --}}
           <a href="javascript:void(0)" class="text-red-600 hover:text-red-900" onclick="borrarUsuario({{ $item->id }})">
             Eliminar
           </a>

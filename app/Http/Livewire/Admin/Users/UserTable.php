@@ -13,7 +13,7 @@ class UserTable extends Component
   public $search    = '';
   public $perPage   = '5';
   public $sortField = 'id';
-  public $sortAsc   = false;
+  public $sortAsc   = true;
   public $userRole  = '';
 
   public $showModal = 'hidden';
