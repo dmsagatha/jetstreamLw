@@ -1,5 +1,11 @@
 @if (session()->has('success'))
-  <div x-data="{ show: true }" x-show="show" 
+  <div
+    x-data="{ isVisible: true}" 
+    x-init="
+      setTimeout(() => {
+          isVisible = false
+      }, 5000)" 
+    x-show.transition.duration.1000ms="isVisible"
     class="flex w-30 items-center bg-white shadow rounded-md px-2 mx-8">
     <div class="mr-6 bg-green-500 rounded px-4 py-2  text-center -ml-3">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -18,7 +24,13 @@
 @endif
 
 @if (session()->has('info'))
-  <div x-data="{ show: true }" x-show="show" 
+  <div
+    x-data="{ isVisible: true}" 
+    x-init="
+      setTimeout(() => {
+          isVisible = false
+      }, 5000)" 
+    x-show.transition.duration.1000ms="isVisible" 
     class="flex w-30 items-center bg-white shadow rounded-md px-2 mx-8">
     <div class="mr-6 bg-blue-500 rounded px-4 py-2  text-center -ml-3">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -37,7 +49,13 @@
 @endif
 
 @if (session()->has('warning'))
-  <div x-data="{ show: true }" x-show="show" 
+  <div
+    x-data="{ isVisible: true}" 
+    x-init="
+      setTimeout(() => {
+          isVisible = false
+      }, 5000)" 
+    x-show.transition.duration.1000ms="isVisible" 
     class="flex w-30 items-center bg-white shadow rounded-md px-2 mx-8">
     <div class="mr-6 bg-red-500 rounded px-4 py-2  text-center -ml-3">      
       <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -56,7 +74,13 @@
 @endif
 
 @if (session()->has('error'))
-  <div x-data="{ show: true }" x-show="show" 
+  <div
+    x-data="{ isVisible: true}" 
+    x-init="
+      setTimeout(() => {
+          isVisible = false
+      }, 5000)" 
+    x-show.transition.duration.1000ms="isVisible" 
     class="flex w-30 items-center bg-white shadow rounded-md px-2 mx-8">
     <div class="mr-6 bg-yellow-500 rounded px-4 py-2  text-center -ml-3">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -75,7 +99,13 @@
 @endif
 
 @if (session()->has('danger'))
-  <div x-data="{ show: true }" x-show="show"
+  <div
+    x-data="{ isVisible: true}" 
+    x-init="
+      setTimeout(() => {
+          isVisible = false
+      }, 5000)" 
+    x-show.transition.duration.1000ms="isVisible"
     class="w-11/12 md:w-3/5 my-2 rounded-r-md px-6 border-l-4 -ml-4 border-gray-100 bg-red-400">
     <div class="flex items-center py-4">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -88,6 +118,32 @@
         <button type="button" @click="show = false" class="text-red-100">
           <span class="text-2xl text-gray-800">&times;</span>
         </button>
+      </div>
+    </div>
+  </div>
+@endif
+
+@if (session('message'))
+  <div
+    x-data="{ isVisible: true}" 
+    x-init="
+      setTimeout(() => {
+          isVisible = false
+      }, 5000)" 
+    x-show.transition.duration.1000ms="isVisible" 
+    class="rounded-md bg-green-50 p-4 mt-2 mb-4">
+    <div class="flex">
+      <div class="flex-shrink-0">
+        <svg class="h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd"
+            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+            clip-rule="evenodd" />
+        </svg>
+      </div>
+      <div class="ml-3">
+        <p class="text-sm leading-5 font-medium text-green-800">
+          {{ session('message') }}
+        </p>
       </div>
     </div>
   </div>
