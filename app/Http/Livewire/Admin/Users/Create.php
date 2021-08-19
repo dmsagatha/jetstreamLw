@@ -47,7 +47,6 @@ class Create extends Component
       $profile = ['profile_photo_path' => $this->loadImage($values['profile_photo_path'])];
       $values = array_merge($values, $profile);
     }
-
     
     $this->user->update($values);
 
@@ -70,6 +69,8 @@ class Create extends Component
     }
     $user->password = bcrypt($values['password']);
     $user->save();
+
+    sleep(2);
     
     // $this->emit('usersListUpdate');
     $this->emitTo('admin.users.user-table', 'render');

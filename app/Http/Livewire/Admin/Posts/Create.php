@@ -28,11 +28,6 @@ class Create extends Component
     'image'   => 'required|image|max:2048',
   ];
 
-  public function updated($propertyName)
-  {
-    $this->validateOnly($propertyName);
-  }
-
   public function render()
   {
     return view('admin.posts.create');
@@ -72,5 +67,10 @@ class Create extends Component
     $this->reset(['isModalOpen', 'title', 'content', 'image']);
 
     $this->identifier = rand();
+  }
+
+  public function updated($propertyName)
+  {
+    $this->validateOnly($propertyName);
   }
 }
