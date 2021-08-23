@@ -25,7 +25,7 @@ module.exports = {
     extend: {
       opacity: ['disabled'],
       display: ['group-hover'],
-      visibility: ['group-hover'],
+      visibility: ['group-hover']
     },
   },
 
