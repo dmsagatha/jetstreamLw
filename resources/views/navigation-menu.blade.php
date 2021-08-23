@@ -26,13 +26,13 @@
             <a class="flex items-center px-4 py-3 hover:bg-gray-100 transition" href="{{ route('products') }}">
               <i class="fab fa-product-hunt text-gray-600 text-sm mr-1"></i>Productos
             </a>
-            <a class="flex items-center px-4 py-3 hover:bg-gray-100 transition" href="{{ route('tags') }}">
+            <a class="flex items-center px-4 py-3 hover:bg-gray-100 transition" href="{{ route('posts') }}">
               <i class="fas fa-tags text-gray-600 text-sm mr-1"></i>{{ __('Posts') }}
             </a>
-            <a class="flex items-center px-4 py-3 hover:bg-gray-100 transition" href="{{ route('tags') }}">
+            <a class="flex items-center px-4 py-3 hover:bg-gray-100 transition" href="{{ route('user.list') }}">
               <i class="fas fa-tags text-gray-600 text-sm mr-1"></i>{{ __('Users') }}
             </a>
-            <a class="flex items-center px-4 py-3 hover:bg-gray-100 transition" href="{{ route('tags') }}">
+            <a class="flex items-center px-4 py-3 hover:bg-gray-100 transition" href="{{ route('categories') }}">
               <i class="fas fa-tags text-gray-600 text-sm mr-1"></i>{{ __('Categorías') }}
             </a>
           </div>

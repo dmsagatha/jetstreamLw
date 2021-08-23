@@ -1,4 +1,4 @@
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 mt-10">
   @section('title', 'Etiquetas')
 
   <div class="md:grid md:grid-cols-3 md:gap-6">
