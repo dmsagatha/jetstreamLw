@@ -7407,8 +7407,14 @@ readers do not read off random characters that represent icons */
 	.lg\:flex-grow{
 		flex-grow: 1;
 	}
+	.lg\:transform-none{
+		transform: none;
+	}
 	.lg\:px-8{
 		padding-left: 2rem;
 		padding-right: 2rem;
+	}
+	.lg\:opacity-100{
+		opacity: 1;
 	}
 }
