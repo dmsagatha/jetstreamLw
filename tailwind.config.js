@@ -13,10 +13,26 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        transparent: "transparent",
+        current: "currentColor",
+
+        amber: colors.amber,
+        blue: colors.blue,
+        cyan: colors.cyan,
+        emerald: colors.emerald,
+        fuchsia: colors.fuchsia,
+        indigo: colors.indigo,
+        lime: colors.lime,
+        orange: colors.orange,
+        pink: colors.pink,
         rose: colors.rose,
+        sky: colors.sky,
+        teal: colors.teal,
       },
       fontFamily: {
-        sans: ['Poppins', ...defaultTheme.fontFamily.sans],
+        sans: ['Poppins', 'sans-serif'],
+        display: ['Poppins', 'sans-serif'],
+        body: ['Poppins', 'sans-serif']
       },
     },
   },
