@@ -73,7 +73,7 @@
         </ul>
       </nav> --}}
 
-      @include('layouts.includes.sidebar')
+      @include('layouts.includes.sidebar-1')
 
       {{-- Navbar - Barra de navegación --}}
       <div class="relative z-0 lg:flex-grow">
@@ -87,7 +87,7 @@
           </button>
           <span class="block text-white font-semibold text-2xl sm:text-3xl p-4">Jetstream</span>
         </header> --}}
-        @include('layouts.includes.navbar')
+        @include('layouts.includes.navbar-1')
       
         <!-- Page Heading -->
         @if (isset($header))

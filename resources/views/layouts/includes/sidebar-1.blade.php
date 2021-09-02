@@ -1,17 +1,18 @@
-<div :class="sidebarOpen ? 'translate-x-0 ease-out' : '-translate-x-full ease-in'"
-  class="sidebar overflow-y-auto xxl:translate-x-0 xxl:static xxl:inset-0">
-  <!-- Logo - Título -->
-  <a href="#" class="flex flex-col items-center justify-center text-xl py-4 shadow-sm font-bold text-gray-600">
-    <div>
-      <i class="fas fa-tachometer-alt text-2xl text-pink-400 md:mr-2"></i>
-      <span class="hidden md:inline-flex">Sidebar</span>
-    </div>
-    <div class="hidden md:inline-flex text-sm font-normal">Admin Template</div>
-  </a>
-
-  <!-- Enlaces y Pie de página del sidebar -->
-  <nav class="flex flex-col flex-grow overflow-hidden">
-    <!-- Menú principal -->
+<nav 
+  {{-- :class="{'translate-x-0 ease-in opacity-100':open === true, '-translate-x-full ease-out opacity-0':open ===false}"  --}}
+  :class="open ? 'translate-x-0 ease-in opacity-100' : '-translate-x-full ease-in opacity-0'"
+  class="absolute inset-0 transform lg:transform-none lg:opacity-100 duration-200 lg:relative z-50 w-48 bg-gray-100 h-screen p-3">
+  <!-- Sidebar - Título y Botón Sidebar -->
+  <div class="flex justify-between">
+    <span class="block text-md sm:text-2xl font-semibold p-4">Sidebar</span>
+    <button @click="open = false"
+      class="p-1 focus:outline-none focus:bg-indigo-800 hover:bg-indigo-800 rounded-md lg:hidden">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+    </button>
+  </div>
+  
+  <!-- Sidebar - Menú de navegación -->
+  <div class="flex flex-col flex-grow overflow-hidden">
     <div class="h-full overflow-y-auto scrollbar-thin scrollbar-track-gray-100 scrollbar-thumb-gray-300">
       <ul class="flex-grow p-2">
         <li>
@@ -50,5 +51,5 @@
         </a>
       </li>
     </ul>
-  </nav>
-</div>
+  </div>
+</nav>

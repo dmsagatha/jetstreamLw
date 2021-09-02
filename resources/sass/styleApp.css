@@ -18,6 +18,18 @@
   @apply bg-green-600 hover:bg-green-500;
 }
 
+.sidebar {
+  @apply fixed flex flex-col inset-y-0 bg-white transition-all w-16 md:w-56 z-30 left-0 duration-300 transform text-white;
+}
+
+.sidebar-menu-link {
+  @apply flex items-center justify-center px-2 py-3 text-gray-600 hover:bg-pink-50 hover:text-pink-800 md:justify-start border-l-4 border-transparent hover:border-fuchsia-300;
+}
+
+.sidebar-menu-link-icon {
+  @apply h-4 w-4 text-2xl inline-flex items-center justify-center md:mr-2;
+}
+
 /* Component Toggle Button Active (Bool) */
 @layer base {
   .toggle-label {

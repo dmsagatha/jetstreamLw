@@ -20,30 +20,23 @@
     <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}" defer></script>
   </head>
-  <body class="min-h-screen font-sans antialiased relative lg:flex bg-gray-100">
-    <div x-data="{ open: false }">
-      <div class="flex h-screen bg-gray-100">
-        <div :class="open ? 'block' : 'hidden'" @click="open = false"
-          class="fixed z-20 inset-0 bg-black opacity-50 xxl:hidden"></div>
-        
-        <x-jet-banner />
+  <body class="h-screen overflow-hidden flex items-center justify-center bg-indigo-50 text-gray-800">
+    <div class="w-full">
+      <div x-data="{ sidebarOpen: false }">
+        <div class="flex h-screen bg-gray-100 font-roboto">
+          <div :class="sidebarOpen ? 'block' : 'hidden'" @click="sidebarOpen = false"
+            class="fixed z-20 inset-0 bg-black opacity-50 xxl:hidden"></div>
 
+          <!-- Sidebar -->
           @include('layouts.includes.sidebar')
-
-          <!-- Navbar - Barra de navegación -->
-          <div class="relative z-0 lg:flex-grow">
-            {{-- <header class="flex bg-gray-700 text-white items-center">
-              <!-- Botón Sidebar -->
-              <button @click="open = true"
-                class="p-2 focus:outline-none focus:bg-gray-600 hover:bg-gray-600 rounded-md lg:hidden">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" />
-                </svg>
-              </button>
-              <span class="block text-white font-semibold text-2xl sm:text-3xl p-4">Jetstream</span>
-            </header> --}}
-            @include('layouts.includes.navbar')
           
+          <!-- Sidebar -->
+
+          <!-- Navbar, Contenido y Pie de página -->
+          <div class="relative w-full flex flex-col h-screen overflow-x-hidden">
+            <!-- Navbar -->
+            @include('layouts.includes.navbar')
+      
             <!-- Page Heading -->
             @if (isset($header))
               <header class="bg-white shadow mt-14">
@@ -52,19 +45,20 @@
                 </div>
               </header>
             @endif
-
+    
             <!-- Page Content -->
             <main>
               {{ $slot }}
             </main>
+
+            <!-- Pie de página -->
+            <footer class="w-full bg-white text-center text-xl sm:text-2xl p-4">
+              Built by <a target="_blank" href="https://davidgrzyb.com" class="underline">David Grzyb</a>.
+            </footer>
           </div>
-        </div>
-      </div>
-
-    @stack('modals')
-
-    @livewireScripts
-    
-    @stack('scripts')
+          <!-- Navbar, Contenido y Pie de página -->
+        </div><!-- flex h-screen -->
+      </div><!-- sidebarOpen -->
+    </div>
   </body>
 </html>
