@@ -1568,6 +1568,10 @@ video {
 	--tw-border-opacity: 1;
 	border-color: rgba(156, 163, 175, var(--tw-border-opacity));
 }
+.border-white{
+	--tw-border-opacity: 1;
+	border-color: rgba(255, 255, 255, var(--tw-border-opacity));
+}
 .bg-white{
 	--tw-bg-opacity: 1;
 	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
@@ -1667,6 +1671,18 @@ video {
 .bg-gray-700{
 	--tw-bg-opacity: 1;
 	background-color: rgba(55, 65, 81, var(--tw-bg-opacity));
+}
+.bg-indigo-200{
+	--tw-bg-opacity: 1;
+	background-color: rgba(199, 210, 254, var(--tw-bg-opacity));
+}
+.bg-indigo-400{
+	--tw-bg-opacity: 1;
+	background-color: rgba(129, 140, 248, var(--tw-bg-opacity));
+}
+.bg-gray-400{
+	--tw-bg-opacity: 1;
+	background-color: rgba(156, 163, 175, var(--tw-bg-opacity));
 }
 .bg-opacity-25{
 	--tw-bg-opacity: 0.25;
@@ -1796,6 +1812,12 @@ video {
 }
 .pb-20{
 	padding-bottom: 5rem;
+}
+.pl-1{
+	padding-left: 0.25rem;
+}
+.pb-10{
+	padding-bottom: 2.5rem;
 }
 .text-left{
 	text-align: left;
@@ -6742,6 +6764,10 @@ readers do not read off random characters that represent icons */
 	--tw-border-opacity: 1;
 	border-color: rgba(209, 213, 219, var(--tw-border-opacity));
 }
+.hover\:border-green-600:hover{
+	--tw-border-opacity: 1;
+	border-color: rgba(5, 150, 105, var(--tw-border-opacity));
+}
 .hover\:bg-indigo-600:hover{
 	--tw-bg-opacity: 1;
 	background-color: rgba(79, 70, 229, var(--tw-bg-opacity));
@@ -6832,6 +6858,18 @@ readers do not read off random characters that represent icons */
 .hover\:text-indigo-900:hover{
 	--tw-text-opacity: 1;
 	color: rgba(49, 46, 129, var(--tw-text-opacity));
+}
+.hover\:text-lime-600:hover{
+	--tw-text-opacity: 1;
+	color: rgba(101, 163, 13, var(--tw-text-opacity));
+}
+.hover\:text-lime-500:hover{
+	--tw-text-opacity: 1;
+	color: rgba(132, 204, 22, var(--tw-text-opacity));
+}
+.hover\:text-lime-700:hover{
+	--tw-text-opacity: 1;
+	color: rgba(77, 124, 15, var(--tw-text-opacity));
 }
 .focus\:z-10:focus{
 	z-index: 10;
@@ -7280,6 +7318,10 @@ readers do not read off random characters that represent icons */
 		font-size: 1.875rem;
 		line-height: 2.25rem;
 	}
+	.sm\:text-lg{
+		font-size: 1.125rem;
+		line-height: 1.75rem;
+	}
 }
 @media (min-width: 768px){
 	.md\:col-span-2{
@@ -7287,6 +7329,10 @@ readers do not read off random characters that represent icons */
 	}
 	.md\:col-span-1{
 		grid-column: span 1 / span 1;
+	}
+	.md\:my-0{
+		margin-top: 0px;
+		margin-bottom: 0px;
 	}
 	.md\:mt-0{
 		margin-top: 0px;
@@ -7302,6 +7348,9 @@ readers do not read off random characters that represent icons */
 	}
 	.md\:grid{
 		display: grid;
+	}
+	.md\:hidden{
+		display: none;
 	}
 	.md\:w-auto{
 		width: auto;
@@ -7326,6 +7375,10 @@ readers do not read off random characters that represent icons */
 	}
 	.md\:border-l{
 		border-left-width: 1px;
+	}
+	.md\:py-3{
+		padding-top: 0.75rem;
+		padding-bottom: 0.75rem;
 	}
 	.md\:pt-0{
 		padding-top: 0px;

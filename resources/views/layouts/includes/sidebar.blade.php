@@ -1,4 +1,4 @@
-<div :class="sidebarOpen ? 'translate-x-0 ease-out' : '-translate-x-full ease-in'"
+<div :class="isOpen ? 'translate-x-0 ease-out' : '-translate-x-full ease-in'"
   class="sidebar overflow-y-auto xxl:translate-x-0 xxl:static xxl:inset-0">
   <!-- Logo - Título -->
   <a href="#" class="flex flex-col items-center justify-center text-xl py-4 shadow-sm font-bold">
@@ -42,7 +42,7 @@
     </div>
 
     <!-- Pie de página del sidebar -->
-    <ul class="p-2 mt-auto">
+    <ul class="mt-auto pb-10">
       <li>
         <a href="#" class="sidebar-menu-link">
           <i class="fas fa-sign-out-alt sidebar-menu-link-icon"></i>

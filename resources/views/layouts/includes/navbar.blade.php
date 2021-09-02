@@ -1,8 +1,9 @@
-<header
+<header x-data="{ openNavbar: false }"
   class="flex fixed w-full items-center justify-between flex-wrap bg-white p-3 z-10 top-0 inset-x-0 py-3">
   <!-- Icono Sidebar y Logotipo -->
   <div class="flex items-center space-x-4 xxl:space-x-0">
-    <div @click="sidebarOpen = true"
+    <!-- Icono Menú Sidebar -->
+    <div @click="isOpen = true"
       class="flex items-center justify-center px-2 cursor-pointer rounded-full hover:ml-0.5 h-10 w-10 hover:bg-lime-300 hover:bg-opacity-20 sm-threshold text-lime-700 xxl:hidden">
       <svg class="stroke-current h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg">
@@ -21,27 +22,40 @@
   </div>
   <!-- Icono Sidebar y Logotipo -->
 
+  <!-- Botón Menú Navbar -->
+  <div class="block md:hidden">
+    <button @click="openNavbar = !openNavbar" x-on:click.away="openNavbar = false" 
+      class="flex items-center px-3 py-2 rounded-lg hover:text-lime-600 focus:outline-none focus:shadow-outline">
+      <svg fill="currentColor" viewBox="0 0 20 20" class="w-8 h-8">
+        <path x-show="!openNavbar" fill-rule="evenodd"
+          d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"
+          clip-rule="evenodd"></path>
+        <path x-show="openNavbar" fill-rule="evenodd"
+          d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+          clip-rule="evenodd"></path>
+      </svg>
+    </button>
+  </div>
+
   <!-- Iconos y Enlaces de la Barra de navegación -->
-  <div class="w-full flex-grow hidden md:flex md:items-center md:w-auto pt-6 md:pt-0">
-    <ul class="list-reset md:flex justify-end flex-1 items-center font-semibold">
-      <li class="mr-6">
-        <a class="inline-block py-2 px-2 no-underline hover:text-blue-300" href="#">Home</a>
+  <nav :class="{'flex': openNavbar, 'hidden': !openNavbar}"
+    class="w-full flex-grow hidden md:flex md:items-center md:w-auto pt-6 md:pt-0">
+    <ul class="md:flex justify-end flex-1 items-center">
+      <li class="mr-4 my-2 md:my-0">
+        <a href="#!" class="block py-1 md:py-3 pl-1 align-middle border-b-2 border-white hover:border-green-600 hover:text-lime-700">Inicio</a>
       </li>
-      <li class="mr-6">
-        <a class="inline-block py-2 px-2 no-underline hover:text-blue-300" href="#">About</a>
+      <li class="mr-4 my-2 md:my-0">
+        <a href="#!" class="block py-1 md:py-3 pl-1 align-middle border-b-2 border-white hover:border-green-600 hover:text-lime-700">Acerca</a>
       </li>
-      <li class="mr-6">
-        <a class="inline-block py-2 px-2 no-underline hover:text-blue-300" href="#">Services</a>
+      <li class="mr-4 my-2 md:my-0">
+        <a href="#!" class="block py-1 md:py-3 pl-1 align-middle border-b-2 border-white hover:border-green-600 hover:text-lime-700">Servicios</a>
       </li>
-      <li class="mr-6">
-        <a class="inline-block py-2 px-2 no-underline hover:text-blue-300" href="#">Contact</a>
+      <li class="mr-4 my-2 md:my-0">
+        <a href="#!" class="block py-1 md:py-3 pl-1 align-middle border-b-2 border-white hover:border-green-600 hover:text-lime-700">Contacto</a>
       </li>
-      <li class="mr-6">
-        <a class="inline-block py-2 px-2 no-underline hover:text-blue-300" href="#">Login</a>
-      </li>
-      <li class="mr-6">
-        <a class="inline-block py-2 px-2 no-underline hover:text-blue-300" href="#">Register</a>
+      <li class="mr-4 my-2 md:my-0">
+        <a href="#!" class="block py-1 md:py-3 pl-1 align-middle border-b-2 border-white hover:border-green-600 hover:text-lime-700">Usuarios</a>
       </li>
     </ul>
-  </div>  
+  </nav>
 </header>

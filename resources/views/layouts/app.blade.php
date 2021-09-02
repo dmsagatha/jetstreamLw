@@ -20,11 +20,11 @@
     <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}" defer></script>
   </head>
-  <body class="h-screen overflow-hidden flex items-center justify-center bg-indigo-50 text-lime-900">
+  <body class="h-screen overflow-hidden flex items-center justify-center bg-indigo-50 text-gray-700">
     <div class="w-full">
-      <div x-data="{ sidebarOpen: false }">
+      <div x-data="{ isOpen: false }">
         <div class="flex h-screen bg-gray-100 font-sans">
-          <div :class="sidebarOpen ? 'block' : 'hidden'" @click="sidebarOpen = false"
+          <div :class="isOpen ? 'block' : 'hidden'" @click="isOpen = false"
             class="fixed z-20 inset-0 bg-black opacity-50 xxl:hidden"></div>
 
           <!-- Sidebar -->
@@ -37,26 +37,28 @@
       
             <!-- Page Heading -->
             @if (isset($header))
-              <header class="bg-indigo-50 shadow mt-14">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 text-lime-900">
+              <header class="bg-gray-300 shadow mt-14">
+                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 text-gray-700">
                   {{ $header }}
                 </div>
               </header>
             @endif
     
             <!-- Page Content -->
-            <main>
+            <main class="flex-grow">
               {{ $slot }}
             </main>
 
             <!-- Pie de página -->
-            <footer class="w-full bg-white text-center text-xl sm:text-2xl p-4">
-              Built by <a target="_blank" href="https://davidgrzyb.com" class="underline">David Grzyb</a>.
+            <footer class="w-full bg-white text-center text-md sm:text-lg p-4">
+              <a target="_blank" href="https://laravel.com/" class="underline">Laravel</a>,  
+              <a target="_blank" href="https://tailwindcss.com/docs" class="underline">Tailwind CSS</a> y 
+              <a target="_blank" href="https://alpinejs.dev/" class="underline">Alpine Js</a>
             </footer>
           </div>
           <!-- Navbar, Contenido y Pie de página -->
         </div><!-- flex h-screen -->
-      </div><!-- sidebarOpen -->
+      </div><!-- isOpen -->
     </div><!-- w-full -->
 
     @stack('modals')
