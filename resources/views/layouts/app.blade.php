@@ -58,5 +58,11 @@
         </div><!-- flex h-screen -->
       </div><!-- sidebarOpen -->
     </div><!-- w-full -->
+
+    @stack('modals')
+
+    @livewireScripts
+    
+    @stack('scripts')
   </body>
 </html>

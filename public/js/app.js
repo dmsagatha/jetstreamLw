@@ -1692,17 +1692,12 @@ function directives(el, attributes, originalAttributeOverride) {
   });
 }
 var isDeferringHandlers = false;
-var directiveHandlerStacks = new Map();
-var currentHandlerStackKey = Symbol();
+var directiveHandlerStack = [];
 function deferHandlingDirectives(callback) {
   isDeferringHandlers = true;
-  let key = Symbol();
-  currentHandlerStackKey = key;
-  directiveHandlerStacks.set(key, []);
   let flushHandlers = () => {
-    while (directiveHandlerStacks.get(key).length)
-      directiveHandlerStacks.get(key).shift()();
-    directiveHandlerStacks.delete(key);
+    while (directiveHandlerStack.length)
+      directiveHandlerStack.shift()();
   };
   let stopDeferring = () => {
     isDeferringHandlers = false;
@@ -1733,7 +1728,7 @@ function getDirectiveHandler(el, directive2) {
       return;
     handler3.inline && handler3.inline(el, directive2, utilities);
     handler3 = handler3.bind(handler3, el, directive2, utilities);
-    isDeferringHandlers ? directiveHandlerStacks.get(currentHandlerStackKey).push(handler3) : handler3();
+    isDeferringHandlers ? directiveHandlerStack.push(handler3) : handler3();
   };
   fullHandler.runCleanups = doCleanup;
   return fullHandler;
@@ -1862,29 +1857,20 @@ function start() {
   onAttributesAdded((el, attrs) => {
     directives(el, attrs).forEach((handle) => handle());
   });
-  let outNestedComponents = (el) => !closestRoot(el.parentElement);
-  Array.from(document.querySelectorAll(allSelectors())).filter(outNestedComponents).forEach((el) => {
+  let outNestedComponents = (el) => !closestRoot(el.parentNode || closestRoot(el));
+  Array.from(document.querySelectorAll(rootSelectors())).filter(outNestedComponents).forEach((el) => {
     initTree(el);
   });
   dispatch(document, "alpine:initialized");
 }
 var rootSelectorCallbacks = [];
-var initSelectorCallbacks = [];
 function rootSelectors() {
   return rootSelectorCallbacks.map((fn) => fn());
-}
-function allSelectors() {
-  return rootSelectorCallbacks.concat(initSelectorCallbacks).map((fn) => fn());
 }
 function addRootSelector(selectorCallback) {
   rootSelectorCallbacks.push(selectorCallback);
 }
-function addInitSelector(selectorCallback) {
-  initSelectorCallbacks.push(selectorCallback);
-}
 function closestRoot(el) {
-  if (!el)
-    return;
   if (rootSelectors().some((selector) => el.matches(selector)))
     return el;
   if (!el.parentElement)
@@ -1973,18 +1959,8 @@ var datas = {};
 function data(name, callback) {
   datas[name] = callback;
 }
-function injectDataProviders(obj, context) {
-  Object.entries(datas).forEach(([name, callback]) => {
-    Object.defineProperty(obj, name, {
-      get() {
-        return (...args) => {
-          return callback.bind(context)(...args);
-        };
-      },
-      enumerable: false
-    });
-  });
-  return obj;
+function getNamedDataProvider(name) {
+  return datas[name];
 }
 
 // packages/alpinejs/src/alpine.js
@@ -2001,7 +1977,7 @@ var Alpine = {
   get raw() {
     return raw;
   },
-  version: "3.2.4",
+  version: "3.1.0",
   disableEffectScheduling,
   setReactivityEngine,
   addRootSelector,
@@ -2013,7 +1989,6 @@ var Alpine = {
   mutateDom,
   directive,
   evaluate,
-  initTree,
   nextTick,
   prefix: setPrefix,
   plugin,
@@ -2042,14 +2017,9 @@ magic("watch", (el) => (key, callback) => {
   effect(() => evaluate2((value) => {
     let div = document.createElement("div");
     div.dataset.throwAway = value;
-    if (!firstTime) {
-      queueMicrotask(() => {
-        callback(value, oldValue);
-        oldValue = value;
-      });
-    } else {
-      oldValue = value;
-    }
+    if (!firstTime)
+      callback(value, oldValue);
+    oldValue = value;
     firstTime = false;
   }));
 });
@@ -2069,8 +2039,6 @@ function setClasses(el, value) {
     return setClassesFromString(el, value.join(" "));
   } else if (typeof value === "object" && value !== null) {
     return setClassesFromObject(el, value);
-  } else if (typeof value === "function") {
-    return setClasses(el, value());
   }
   return setClassesFromString(el, value);
 }
@@ -2121,7 +2089,7 @@ function setStylesFromObject(el, value) {
   let previousStyles = {};
   Object.entries(value).forEach(([key, value2]) => {
     previousStyles[key] = el.style[key];
-    el.style.setProperty(kebabCase(key), value2);
+    el.style[key] = value2;
   });
   setTimeout(() => {
     if (el.style.length === 0) {
@@ -2139,9 +2107,6 @@ function setStylesFromString(el, value) {
     el.setAttribute("style", cache);
   };
 }
-function kebabCase(subject) {
-  return subject.replace(/([a-z])([A-Z])/g, "$1-$2").toLowerCase();
-}
 
 // packages/alpinejs/src/utils/once.js
 function once(callback, fallback = () => {
@@ -2158,9 +2123,7 @@ function once(callback, fallback = () => {
 }
 
 // packages/alpinejs/src/directives/x-transition.js
-directive("transition", (el, {value, modifiers, expression}, {evaluate: evaluate2}) => {
-  if (typeof expression === "function")
-    expression = evaluate2(expression);
+directive("transition", (el, {value, modifiers, expression}) => {
   if (!expression) {
     registerTransitionsFromHelper(el, modifiers, value);
   } else {
@@ -2571,8 +2534,6 @@ function on(el, event, modifiers, callback) {
   let handler3 = (e) => callback(e);
   let options = {};
   let wrapHandler = (callback2, wrapper) => (e) => wrapper(callback2, e);
-  if (modifiers.includes("dot"))
-    event = dotSyntax(event);
   if (modifiers.includes("camel"))
     event = camelCase2(event);
   if (modifiers.includes("passive"))
@@ -2634,9 +2595,6 @@ function on(el, event, modifiers, callback) {
     listenerTarget.removeEventListener(event, handler3, options);
   };
 }
-function dotSyntax(subject) {
-  return subject.replace(/-/g, ".");
-}
 function camelCase2(subject) {
   return subject.toLowerCase().replace(/-(\w)/g, (match, char) => char.toUpperCase());
 }
@@ -2666,7 +2624,7 @@ function throttle(func, limit) {
 function isNumeric(subject) {
   return !Array.isArray(subject) && !isNaN(subject);
 }
-function kebabCase2(subject) {
+function kebabCase(subject) {
   return subject.replace(/([a-z])([A-Z])/g, "$1-$2").replace(/[_\s]/, "-").toLowerCase();
 }
 function isKeyEvent(event) {
@@ -2682,7 +2640,7 @@ function isListeningForASpecificKeyThatHasntBeenPressed(e, modifiers) {
   }
   if (keyModifiers.length === 0)
     return false;
-  if (keyModifiers.length === 1 && keyToModifiers(e.key).includes(keyModifiers[0]))
+  if (keyModifiers.length === 1 && keyModifiers[0] === keyToModifier(e.key))
     return false;
   const systemKeyModifiers = ["ctrl", "shift", "alt", "meta", "cmd", "super"];
   const selectedSystemKeyModifiers = systemKeyModifiers.filter((modifier) => keyModifiers.includes(modifier));
@@ -2694,33 +2652,22 @@ function isListeningForASpecificKeyThatHasntBeenPressed(e, modifiers) {
       return e[`${modifier}Key`];
     });
     if (activelyPressedKeyModifiers.length === selectedSystemKeyModifiers.length) {
-      if (keyToModifiers(e.key).includes(keyModifiers[0]))
+      if (keyModifiers[0] === keyToModifier(e.key))
         return false;
     }
   }
   return true;
 }
-function keyToModifiers(key) {
-  if (!key)
-    return [];
-  key = kebabCase2(key);
-  let modifierToKeyMap = {
-    ctrl: "control",
-    slash: "/",
-    space: "-",
-    spacebar: "-",
-    cmd: "meta",
-    esc: "escape",
-    up: "arrow-up",
-    down: "arrow-down",
-    left: "arrow-left",
-    right: "arrow-right"
-  };
-  modifierToKeyMap[key] = key;
-  return Object.keys(modifierToKeyMap).map((modifier) => {
-    if (modifierToKeyMap[modifier] === key)
-      return modifier;
-  }).filter((modifier) => modifier);
+function keyToModifier(key) {
+  switch (key) {
+    case "/":
+      return "slash";
+    case " ":
+    case "Spacebar":
+      return "space";
+    default:
+      return key && kebabCase(key);
+  }
 }
 
 // packages/alpinejs/src/directives/x-model.js
@@ -2763,7 +2710,7 @@ function generateAssignmentFunction(el, modifiers, expression) {
   return (event, currentValue) => {
     return mutateDom(() => {
       if (event instanceof CustomEvent && event.detail !== void 0) {
-        return event.detail || event.target.value;
+        return event.detail;
       } else if (el.type === "checkbox") {
         if (Array.isArray(currentValue)) {
           let newValue = modifiers.includes("number") ? safeParseNumber(event.target.value) : event.target.value;
@@ -2800,7 +2747,7 @@ function isNumeric2(subject) {
 directive("cloak", (el) => queueMicrotask(() => mutateDom(() => el.removeAttribute(prefix("cloak")))));
 
 // packages/alpinejs/src/directives/x-init.js
-addInitSelector(() => `[${prefix("init")}]`);
+addRootSelector(() => `[${prefix("init")}]`);
 directive("init", skipDuringClone((el, {expression}) => evaluate(el, expression, {}, false)));
 
 // packages/alpinejs/src/directives/x-text.js
@@ -2820,7 +2767,9 @@ directive("html", (el, {expression}, {effect: effect3, evaluateLater: evaluateLa
   let evaluate2 = evaluateLater2(expression);
   effect3(() => {
     evaluate2((value) => {
-      el.innerHTML = value;
+      mutateDom(() => {
+        el.innerHTML = value;
+      });
     });
   });
 });
@@ -2862,19 +2811,23 @@ function storeKeyForXFor(el, expression) {
 addRootSelector(() => `[${prefix("data")}]`);
 directive("data", skipDuringClone((el, {expression}, {cleanup}) => {
   expression = expression === "" ? "{}" : expression;
-  let magicContext = {};
-  injectMagics(magicContext, el);
-  let dataProviderContext = {};
-  injectDataProviders(dataProviderContext, magicContext);
-  let data2 = evaluate(el, expression, {scope: dataProviderContext});
+  let dataProvider = getNamedDataProvider(expression);
+  let data2 = {};
+  if (dataProvider) {
+    let magics2 = injectMagics({}, el);
+    data2 = dataProvider.bind(magics2)();
+  } else {
+    data2 = evaluate(el, expression);
+  }
   injectMagics(data2, el);
   let reactiveData = reactive(data2);
   initInterceptors(reactiveData);
   let undo = addScopeToNode(el, reactiveData);
-  reactiveData["init"] && evaluate(el, reactiveData["init"]);
+  if (reactiveData["init"])
+    reactiveData["init"]();
   cleanup(() => {
     undo();
-    reactiveData["destroy"] && evaluate(el, reactiveData["destroy"]);
+    reactiveData["destroy"] && reactiveData["destroy"]();
   });
 }));
 
@@ -2935,8 +2888,6 @@ function loop(el, iteratorNames, evaluateItems, evaluateKey) {
     if (isNumeric3(items) && items >= 0) {
       items = Array.from(Array(items).keys(), (i) => i + 1);
     }
-    if (items === void 0)
-      items = [];
     let lookup = el._x_lookup;
     let prevKeys = el._x_prevKeys;
     let scopes = [];
@@ -3008,13 +2959,10 @@ function loop(el, iteratorNames, evaluateItems, evaluateKey) {
       let key = keys[index];
       let clone2 = document.importNode(templateEl.content, true).firstElementChild;
       addScopeToNode(clone2, reactive(scope), templateEl);
+      initTree(clone2);
       mutateDom(() => {
         lastEl.after(clone2);
-        initTree(clone2);
       });
-      if (typeof key === "object") {
-        warn("x-for key cannot be an object, it must be a string or an integer", templateEl);
-      }
       lookup[key] = clone2;
     }
     for (let i = 0; i < sames.length; i++) {
@@ -3085,10 +3033,8 @@ directive("if", (el, {expression}, {effect: effect3, cleanup}) => {
       return el._x_currentIfEl;
     let clone2 = el.content.cloneNode(true).firstElementChild;
     addScopeToNode(clone2, {}, el);
-    mutateDom(() => {
-      el.after(clone2);
-      initTree(clone2);
-    });
+    initTree(clone2);
+    mutateDom(() => el.after(clone2));
     el._x_currentIfEl = clone2;
     el._x_undoIf = () => {
       clone2.remove();
@@ -3096,12 +3042,7 @@ directive("if", (el, {expression}, {effect: effect3, cleanup}) => {
     };
     return clone2;
   };
-  let hide = () => {
-    if (!el._x_undoIf)
-      return;
-    el._x_undoIf();
-    delete el._x_undoIf;
-  };
+  let hide = () => el._x_undoIf?.() || delete el._x_undoIf;
   effect3(() => evaluate2((value) => {
     value ? show() : hide();
   }));
