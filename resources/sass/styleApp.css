@@ -27,7 +27,7 @@
 }
 
 .sidebar-menu-link-icon {
-  @apply h-4 w-4 text-2xl inline-flex items-center justify-center md:mr-2;
+  @apply h-4 w-4 text-lg inline-flex items-center justify-center md:mr-3;
 }
 
 /* Component Toggle Button Active (Bool) */
