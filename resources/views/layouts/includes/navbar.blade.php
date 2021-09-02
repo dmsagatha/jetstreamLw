@@ -1,5 +1,5 @@
 <header
-  class="fixed top-0 inset-x-0 w-full text-gray-600 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800 py-3">
+  class="flex fixed w-full items-center justify-between flex-wrap bg-white p-3 z-10 top-0 inset-x-0 text-gray-600 py-3">
   <!-- Icono Sidebar y Logotipo -->
   <div class="flex items-center space-x-4 xxl:space-x-0">
     <div @click="sidebarOpen = true"
@@ -18,10 +18,37 @@
         Navbar
       </a>
     </div>
-  </div><!-- Icono Sidebar y Logotipo -->
+  </div>
+  <!-- Icono Sidebar y Logotipo -->
 
   <!-- Iconos y Enlaces de la Barra de navegación -->
-  <div x-data="{ open: false }"
+  <div class="w-full flex-grow hidden md:flex md:items-center md:w-auto pt-6 md:pt-0">
+    <ul class="list-reset md:flex justify-end flex-1 items-center text-gray-800">
+      <li class="mr-6">
+        <a class="inline-block py-2 px-2 no-underline hover:text-blue-300" href="#">Home</a>
+      </li>
+      <li class="mr-6">
+        <a class="inline-block py-2 px-2 no-underline hover:text-blue-300" href="#">About</a>
+      </li>
+      <li class="mr-6">
+        <a class="inline-block py-2 px-2 no-underline hover:text-blue-300" href="#">Services</a>
+      </li>
+      <li class="mr-6">
+        <a class="inline-block py-2 px-2 no-underline hover:text-blue-300" href="#">Contact</a>
+      </li>
+      <li class="mr-6">
+        <a class="inline-block py-2 px-2 no-underline hover:text-blue-300" href="#">Login</a>
+      </li>
+      <li class="mr-6">
+        <a class="inline-block py-2 px-2 no-underline hover:text-blue-300" href="#">Register</a>
+      </li>
+    </ul>
+  </div>
+
+
+
+
+  {{-- <div x-data="{ open: false }"
     class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8 -mt-6">
     <div class="flex flex-row items-center justify-end">
       <!-- Iconos Menú Navbar -->
@@ -128,5 +155,6 @@
       </div>
       <!-- Menú desplegable 3 -->
     </nav>
-  </div>
+  </div> --}}
+  
 </header>
