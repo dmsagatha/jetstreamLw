@@ -1,7 +1,7 @@
 <div :class="sidebarOpen ? 'translate-x-0 ease-out' : '-translate-x-full ease-in'"
   class="sidebar overflow-y-auto xxl:translate-x-0 xxl:static xxl:inset-0">
   <!-- Logo - Título -->
-  <a href="#" class="flex flex-col items-center justify-center text-xl py-4 shadow-sm font-bold text-gray-600">
+  <a href="#" class="flex flex-col items-center justify-center text-xl py-4 shadow-sm font-bold">
     <div>
       <i class="fas fa-tachometer-alt text-2xl text-pink-400 md:mr-2"></i>
       <span class="hidden md:inline-flex">Sidebar</span>

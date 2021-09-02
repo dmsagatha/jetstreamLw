@@ -23,7 +23,7 @@
 }
 
 .sidebar-menu-link {
-  @apply flex items-center justify-center px-2 py-3 text-gray-600 hover:bg-pink-50 hover:text-pink-800 md:justify-start border-l-4 border-transparent hover:border-fuchsia-300;
+  @apply flex items-center justify-center px-2 py-3 font-semibold hover:bg-pink-50 hover:text-pink-800 md:justify-start border-l-4 border-transparent hover:border-fuchsia-300;
 }
 
 .sidebar-menu-link-icon {

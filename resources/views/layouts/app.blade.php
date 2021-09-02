@@ -20,7 +20,7 @@
     <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}" defer></script>
   </head>
-  <body class="h-screen overflow-hidden flex items-center justify-center bg-indigo-50 text-gray-800">
+  <body class="h-screen overflow-hidden flex items-center justify-center bg-indigo-50 text-lime-900">
     <div class="w-full">
       <div x-data="{ sidebarOpen: false }">
         <div class="flex h-screen bg-gray-100 font-sans">
