@@ -2,7 +2,7 @@
   @section('title', 'Productos')
 
   <x-slot name="header">
-    <h2 class="font-semibold text-xl text-gray-800 leading-tight">Productos | Datatables</h2>
+    <h2 class="font-semibold text-xl leading-tight">Productos | Datatables</h2>
     <h3>
       Buscador | Filtros en Tablas Relacionadas | Eliminación Masiva de Rregistros
     </h3>
