@@ -23,14 +23,12 @@
   <body class="h-screen overflow-hidden flex items-center justify-center bg-indigo-50 text-gray-800">
     <div class="w-full">
       <div x-data="{ sidebarOpen: false }">
-        <div class="flex h-screen bg-gray-100 font-roboto">
+        <div class="flex h-screen bg-gray-100 font-sans">
           <div :class="sidebarOpen ? 'block' : 'hidden'" @click="sidebarOpen = false"
             class="fixed z-20 inset-0 bg-black opacity-50 xxl:hidden"></div>
 
           <!-- Sidebar -->
           @include('layouts.includes.sidebar')
-          
-          <!-- Sidebar -->
 
           <!-- Navbar, Contenido y Pie de página -->
           <div class="relative w-full flex flex-col h-screen overflow-x-hidden">
@@ -59,6 +57,6 @@
           <!-- Navbar, Contenido y Pie de página -->
         </div><!-- flex h-screen -->
       </div><!-- sidebarOpen -->
-    </div>
+    </div><!-- w-full -->
   </body>
 </html>

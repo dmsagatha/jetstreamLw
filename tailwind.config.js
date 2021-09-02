@@ -11,6 +11,11 @@ module.exports = {
   ],
 
   theme: {
+    fontFamily: {
+      sans: ['Poppins', 'sans-serif'],
+      display: ['Poppins', 'sans-serif'],
+      body: ['Poppins', 'sans-serif']
+    },
     extend: {
       colors: {
         transparent: "transparent",
@@ -28,11 +33,6 @@ module.exports = {
         rose: colors.rose,
         sky: colors.sky,
         teal: colors.teal,
-      },
-      fontFamily: {
-        sans: ['Poppins', 'sans-serif'],
-        display: ['Poppins', 'sans-serif'],
-        body: ['Poppins', 'sans-serif']
       },
     },
   },
