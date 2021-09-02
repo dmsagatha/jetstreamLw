@@ -20,8 +20,7 @@
   <x-slot name="footer">
     <x-jet-secondary-button wire:click="closeModal()">
       Cancelar
-    </x-jet-secondary-button>
-    
+    </x-jet-secondary-button>    
     
     <x-jet-danger-button wire:click="save">
       {{ isset($this->category->id) ? 'Actualizar' : 'Guardar'}}
