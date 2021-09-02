@@ -1,6 +1,7 @@
 <nav 
-  class="absolute inset-0 transform lg:transform-none lg:opacity-100 duration-200 lg:relative z-10 w-48 bg-indigo-900 text-white h-screen p-3"
-  :class="{'translate-x-0 ease-in opacity-100':open === true, '-translate-x-full ease-out opacity-0':open ===false}">
+  {{-- :class="{'translate-x-0 ease-in opacity-100':open === true, '-translate-x-full ease-out opacity-0':open ===false}"  --}}
+  :class="open ? 'translate-x-0 ease-in opacity-100' : '-translate-x-full ease-in opacity-0'"
+  class="absolute inset-0 transform lg:transform-none lg:opacity-100 duration-200 lg:relative z-50 w-48 bg-indigo-900 text-white h-screen p-3">
   <!-- Sidebar - Título y Botón Sidebar -->
   <div class="flex justify-between">
     <span class="block text-md sm:text-2xl font-semibold text-white p-4">Sidebar</span>
