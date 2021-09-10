@@ -8,7 +8,9 @@
   </x-slot>
 
   <x-table>
-    <div class="flex items-center justify-center text-sm text-gray-500 bg-white px-4 py-6 gap-x-2 border-t border-gray-200 sm:px-6">
+    <!-- Paginar, Buscar y Filtros -->
+    <div class="flex items-center justify-center text-sm text-gray-500 bg-white px-4 py-6 gap-x-2 border-t border-gray-200 sm:px-6 z-10">
+      <!-- Paginar -->
       <div class="flex flex-wrap items-center">
         <label for="perPage">Mostrar</label>
         <select wire:model="perPage" class="mx-2 form-control">
@@ -22,19 +24,23 @@
         <span>registros</span>
       </div>
 
-      <div class="relative flex-1 mx-4">
-        <x-search name="search" label="Término de búsqueda" />
-        <div class="absolute right-0 top-0 mt-2 mr-2">
-          @if ($search !== '')
-            <button wire:click="clearPage">
-              <i class="fa fa-eraser"></i>
-            </button>
-          @else
-            <i class="fa fa-search h-6 w-6 text-gray-400"></i>
-          @endif
+      <!-- Buscar -->
+      <div class="flex-grow items-center px-1">
+        <div class="inline-flex w-full">
+          <x-search name="search" label="Término de búsqueda" />
+          <div class="right-0 top-0 mt-2 mr-2">
+            @if ($search !== '')
+              <button wire:click="clearPage">
+                <i class="fa fa-eraser h-6 w-6 text-red-600"></i>
+              </button>
+            @else
+              <i class="fa fa-search h-6 w-6 text-gray-700"></i>
+            @endif
+          </div>
         </div>
       </div>
-
+      
+      <!-- Crear con modal -->
       <div class="flex items-center">
         <x-jet-danger-button wire:click="showModal()">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -42,7 +48,8 @@
           </svg>
         </x-jet-danger-button>
       </div>
-    </div><!-- Paginador, Buscador y Filtros -->
+    </div>
+    <!-- Paginar, Buscar y Crear con modal -->
 
     @if (count($categories))
       @include('admin.categories._table')

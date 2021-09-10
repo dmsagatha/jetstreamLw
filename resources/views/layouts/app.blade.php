@@ -45,7 +45,7 @@
             @endif
     
             <!-- Page Content -->
-            <main class="flex-grow">
+            <main class="flex-grow p-6">
               {{ $slot }}
             </main>
 

@@ -16,20 +16,23 @@
         <span>registros</span>
       </div>
 
-      <div class="relative flex-1">
-        <x-search name="search" label="Término de búsqueda" />
-
-        <div class="absolute right-0 top-0 mt-2 mr-2">
-          @if ($search !== '')
-            <button wire:click="clearPage">
-              <i class="fa fa-eraser"></i>
-            </button>
-          @else
-            <i class="fa fa-search h-6 w-6 text-gray-400"></i>
-          @endif
+      <!-- Buscar -->
+      <div class="flex-grow items-center px-1">
+        <div class="inline-flex w-full">
+          <x-search name="search" label="Término de búsqueda" />
+          <div class="right-0 top-0 mt-2 mr-2">
+            @if ($search !== '')
+              <button wire:click="clearPage">
+                <i class="fa fa-eraser h-6 w-6 text-red-600"></i>
+              </button>
+            @else
+              <i class="fa fa-search h-6 w-6 text-gray-700"></i>
+            @endif
+          </div>
         </div>
       </div>
 
+      <!-- Filtros -->
       <div class="self-end">
         <label for="perPage">Filtrar Categorías</label>
         <select wire:model="userRole" class="mt-1 form-control">
@@ -50,7 +53,8 @@
           </svg>
         </button>
       </div>
-    </div><!-- Paginador, Buscador y Filtros -->
+    </div>
+    <!-- Paginar, Buscar y Crear con modal -->
 
     @if (count($users))
       @include('admin.users._table')

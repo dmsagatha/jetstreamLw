@@ -26,6 +26,7 @@ class Categories extends Component
   public function render()
   {
     $categories = Category::where('name', 'like', '%' . $this->search . '%')
+                    ->orWhere('status', 'like', '%' . $this->search . '%')
                     ->when($this->active, function ($query) {
                       return $query->active();
                     })

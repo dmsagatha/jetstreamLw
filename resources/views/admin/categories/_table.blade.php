@@ -16,7 +16,7 @@
           Estatus
         </th>
       @endif
-      <th scope="col" class="relative px-6 py-3 uppercase ">
+      <th scope="col" class="px-6 py-3 uppercase ">
         Acciones
       </th>
     </tr>
