@@ -9,7 +9,7 @@
 
   <x-table>
     <!-- Paginar, Buscar y Filtros -->
-    <div class="flex items-center justify-center text-sm text-gray-500 bg-white px-4 py-6 gap-x-2 border-t border-gray-200 sm:px-6 z-10">
+    <div class="flex items-center justify-center text-sm text-gray-500 bg-white px-4 py-6 gap-x-2 border-t border-gray-200 sm:px-6 z-50">
       <!-- Paginar -->
       <div class="flex flex-wrap items-center">
         <label for="perPage">Mostrar</label>
@@ -24,8 +24,21 @@
         <span>registros</span>
       </div>
 
+      <div class="relative flex-1 mx-4">
+        <x-search name="search" label="Buscar término" />
+        <div class="absolute right-0 top-0 mt-2 mr-2">
+          @if ($search !== '')
+            <button wire:click="clearPage">
+              <i class="fa fa-eraser"></i>
+            </button>
+          @else
+            <i class="fa fa-search h-6 w-6 text-gray-400"></i>
+          @endif
+        </div>
+      </div>
+
       <!-- Buscar -->
-      <div class="flex-grow items-center px-1">
+      {{-- <div class="flex-grow items-center px-1">
         <div class="inline-flex w-full">
           <x-search name="search" label="Término de búsqueda" />
           <div class="right-0 top-0 mt-2 mr-2">
@@ -38,7 +51,7 @@
             @endif
           </div>
         </div>
-      </div>
+      </div> --}}
       
       <!-- Crear con modal -->
       <div class="flex items-center">
