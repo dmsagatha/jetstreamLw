@@ -15,39 +15,60 @@
     <div class="h-full overflow-y-auto scrollbar-thin scrollbar-track-gray-100 scrollbar-thumb-gray-300">
       <ul class="flex-grow p-2">
         <li>
-          <a href="#!" class="sidebar-menu-link">
+          <a href="{{ route('dashboard') }}" class="sidebar-menu-link">
             <i class="fas fa-tachometer-alt sidebar-menu-link-icon"></i>
             <span class="hidden md:inline-flex">Dashboard</span>
           </a>
         </li>
         <li>
-          <a href="#!" class="sidebar-menu-link">
+          <a href="{{ route('tags') }}" class="sidebar-menu-link">
             <i class="fas fa-hands-helping sidebar-menu-link-icon"></i>
-            <span class="hidden md:inline-flex">Proveedores</span>
+            <span class="hidden md:inline-flex">Etiquetas</span>
           </a>
         </li>
         <li>
-          <a href="#!" class="sidebar-menu-link">
+          <a href="{{ route('students') }}" class="sidebar-menu-link">
             <i class="fas fa-shopping-cart sidebar-menu-link-icon"></i>
-            <span class="hidden md:inline-flex">Compradores</span>
+            <span class="hidden md:inline-flex">Estudiantes</span>
           </a>
         </li>
         <li>
-          <a href="#!" class="sidebar-menu-link">
+          <a href="{{ route('products') }}" class="sidebar-menu-link">
             <i class="fas fa-file-invoice-dollar sidebar-menu-link-icon"></i>
-            <span class="hidden md:inline-flex">Pedidos</span>
+            <span class="hidden md:inline-flex">Productos</span>
+          </a>
+        </li>
+        <li>
+          <a href="{{ route('posts') }}" class="sidebar-menu-link">
+            <i class="fas fa-file-invoice-dollar sidebar-menu-link-icon"></i>
+            <span class="hidden md:inline-flex">Publicaciones</span>
+          </a>
+        </li>
+        <li>
+          <a href="{{ route('user.list') }}" class="sidebar-menu-link">
+            <i class="fas fa-file-invoice-dollar sidebar-menu-link-icon"></i>
+            <span class="hidden md:inline-flex">Usuarios</span>
+          </a>
+        </li>
+        <li>
+          <a href="{{ route('categories') }}" class="sidebar-menu-link">
+            <i class="fas fa-file-invoice-dollar sidebar-menu-link-icon"></i>
+            <span class="hidden md:inline-flex">Categorías</span>
           </a>
         </li>
       </ul>
     </div>
 
     <!-- Pie de página del sidebar -->
-    <ul class="mt-auto pb-10">
+    <ul class="mt-auto pb-20">
       <li>
-        <a href="#" class="sidebar-menu-link">
-          <i class="fas fa-sign-out-alt sidebar-menu-link-icon"></i>
-          <span class="hidden md:inline-flex">Cerrar sesión</span>
-        </a>
+        <form method="POST" action="{{ route('logout') }}">
+          @csrf
+
+          <a href="{{ route('logout') }}"onclick="event.preventDefault(); this.closest('form').submit();" class="sidebar-menu-link">
+            <i class="fa fa-sign-out-alt text-red-400 mr-2 hidden md:inline-flex"></i>{{ __('Log Out') }}
+          </a>
+        </form>
       </li>
     </ul>
   </nav>
