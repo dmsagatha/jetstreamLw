@@ -1034,6 +1034,9 @@ video {
 .top-full{
 	top: 100%;
 }
+.right-1{
+	right: 0.25rem;
+}
 .z-0{
 	z-index: 0;
 }
@@ -1190,6 +1193,9 @@ video {
 .inline-block{
 	display: inline-block;
 }
+.inline{
+	display: inline;
+}
 .flex{
 	display: flex;
 }
@@ -1301,6 +1307,9 @@ video {
 .w-9{
 	width: 2.25rem;
 }
+.w-40{
+	width: 10rem;
+}
 .min-w-0{
 	min-width: 0px;
 }
@@ -1354,6 +1363,22 @@ video {
 }
 .-translate-x-full{
 	--tw-translate-x: -100%;
+	transform: var(--tw-transform);
+}
+.-translate-y-2{
+	--tw-translate-y: -0.5rem;
+	transform: var(--tw-transform);
+}
+.-translate-y-3{
+	--tw-translate-y: -0.75rem;
+	transform: var(--tw-transform);
+}
+.rotate-180{
+	--tw-rotate: 180deg;
+	transform: var(--tw-transform);
+}
+.rotate-0{
+	--tw-rotate: 0deg;
 	transform: var(--tw-transform);
 }
 .scale-95{
@@ -1460,6 +1485,11 @@ video {
 	margin-right: calc(0.5rem * var(--tw-space-x-reverse));
 	margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
 }
+.space-y-2 > :not([hidden]) ~ :not([hidden]){
+	--tw-space-y-reverse: 0;
+	margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
+	margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
+}
 .divide-y > :not([hidden]) ~ :not([hidden]){
 	--tw-divide-y-reverse: 0;
 	border-top-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
@@ -1479,6 +1509,10 @@ video {
 .divide-gray-300 > :not([hidden]) ~ :not([hidden]){
 	--tw-divide-opacity: 1;
 	border-color: rgba(209, 213, 219, var(--tw-divide-opacity));
+}
+.divide-gray-100 > :not([hidden]) ~ :not([hidden]){
+	--tw-divide-opacity: 1;
+	border-color: rgba(243, 244, 246, var(--tw-divide-opacity));
 }
 .self-end{
 	align-self: flex-end;
@@ -1593,6 +1627,18 @@ video {
 .border-purple-500{
 	--tw-border-opacity: 1;
 	border-color: rgba(139, 92, 246, var(--tw-border-opacity));
+}
+.border-blue-500{
+	--tw-border-opacity: 1;
+	border-color: rgba(59, 130, 246, var(--tw-border-opacity));
+}
+.border-gray-500{
+	--tw-border-opacity: 1;
+	border-color: rgba(107, 114, 128, var(--tw-border-opacity));
+}
+.border-gray-50{
+	--tw-border-opacity: 1;
+	border-color: rgba(249, 250, 251, var(--tw-border-opacity));
 }
 .bg-white{
 	--tw-bg-opacity: 1;
@@ -2029,6 +2075,10 @@ video {
 	--tw-text-opacity: 1;
 	color: rgba(248, 113, 113, var(--tw-text-opacity));
 }
+.text-indigo-50{
+	--tw-text-opacity: 1;
+	color: rgba(238, 242, 255, var(--tw-text-opacity));
+}
 .underline{
 	text-decoration: underline;
 }
@@ -2117,6 +2167,11 @@ video {
 }
 .transition-opacity{
 	transition-property: opacity;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	transition-duration: 150ms;
+}
+.transition-transform{
+	transition-property: transform;
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 	transition-duration: 150ms;
 }
@@ -6845,6 +6900,18 @@ readers do not read off random characters that represent icons */
 	--tw-bg-opacity: 1;
 	background-color: rgba(124, 58, 237, var(--tw-bg-opacity));
 }
+.hover\:bg-blue-800:hover{
+	--tw-bg-opacity: 1;
+	background-color: rgba(30, 64, 175, var(--tw-bg-opacity));
+}
+.hover\:bg-blue-500:hover{
+	--tw-bg-opacity: 1;
+	background-color: rgba(59, 130, 246, var(--tw-bg-opacity));
+}
+.hover\:bg-lime-50:hover{
+	--tw-bg-opacity: 1;
+	background-color: rgba(247, 254, 231, var(--tw-bg-opacity));
+}
 .hover\:bg-opacity-20:hover{
 	--tw-bg-opacity: 0.2;
 }
@@ -6887,6 +6954,10 @@ readers do not read off random characters that represent icons */
 .hover\:text-lime-600:hover{
 	--tw-text-opacity: 1;
 	color: rgba(101, 163, 13, var(--tw-text-opacity));
+}
+.hover\:text-indigo-200:hover{
+	--tw-text-opacity: 1;
+	color: rgba(199, 210, 254, var(--tw-text-opacity));
 }
 .focus\:z-10:focus{
 	z-index: 10;
@@ -7023,6 +7094,10 @@ readers do not read off random characters that represent icons */
 .focus\:ring-blue-500:focus{
 	--tw-ring-opacity: 1;
 	--tw-ring-color: rgba(59, 130, 246, var(--tw-ring-opacity));
+}
+.focus\:ring-gray-100:focus{
+	--tw-ring-opacity: 1;
+	--tw-ring-color: rgba(243, 244, 246, var(--tw-ring-opacity));
 }
 .focus\:ring-opacity-50:focus{
 	--tw-ring-opacity: 0.5;
@@ -7337,6 +7412,10 @@ readers do not read off random characters that represent icons */
 		padding-left: 0.75rem;
 		padding-right: 0.75rem;
 	}
+	.sm\:py-4{
+		padding-top: 1rem;
+		padding-bottom: 1rem;
+	}
 	.sm\:pt-0{
 		padding-top: 0px;
 	}
@@ -7373,6 +7452,9 @@ readers do not read off random characters that represent icons */
 	}
 }
 @media (min-width: 768px){
+	.md\:absolute{
+		position: absolute;
+	}
 	.md\:relative{
 		position: relative;
 	}
@@ -7395,6 +7477,12 @@ readers do not read off random characters that represent icons */
 	.md\:mr-2{
 		margin-right: 0.5rem;
 	}
+	.md\:ml-4{
+		margin-left: 1rem;
+	}
+	.md\:-mt-1{
+		margin-top: -0.25rem;
+	}
 	.md\:flex{
 		display: flex;
 	}
@@ -7412,6 +7500,24 @@ readers do not read off random characters that represent icons */
 	}
 	.md\:w-auto{
 		width: auto;
+	}
+	.md\:w-36{
+		width: 9rem;
+	}
+	.md\:w-44{
+		width: 11rem;
+	}
+	.md\:w-48{
+		width: 12rem;
+	}
+	.md\:w-60{
+		width: 15rem;
+	}
+	.md\:w-4{
+		width: 1rem;
+	}
+	.md\:w-40{
+		width: 10rem;
 	}
 	.md\:grid-cols-3{
 		grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -7438,6 +7544,10 @@ readers do not read off random characters that represent icons */
 	.md\:px-0{
 		padding-left: 0px;
 		padding-right: 0px;
+	}
+	.md\:py-4{
+		padding-top: 1rem;
+		padding-bottom: 1rem;
 	}
 	.md\:pt-0{
 		padding-top: 0px;
