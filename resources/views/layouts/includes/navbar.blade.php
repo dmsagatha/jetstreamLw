@@ -1,4 +1,4 @@
-<nav x-data="{ openNavbar: false }" class="bg-gray-800">
+<nav x-data="{ openNavbar: false }" class="fixed w-full z-10 bg-gray-800">
   <div class="w-full mx-auto px-2 sm:px-6 lg:px-8">
     <div class="relative flex items-center justify-between h-16">
       <!-- Botón de Menú Izquierdo -->

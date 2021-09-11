@@ -24,6 +24,7 @@
         <span>registros</span>
       </div>
 
+      <!-- Buscar -->
       <div class="relative flex-1 mx-4">
         <x-search name="search" label="Buscar término" />
         <div class="absolute right-0 top-0 mt-2 mr-2">
