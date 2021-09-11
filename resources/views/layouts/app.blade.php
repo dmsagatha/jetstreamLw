@@ -25,7 +25,8 @@
       <div x-data="{ isOpen: false }">
         <div class="flex h-screen bg-gray-100 font-sans">
           <div :class="isOpen ? 'block' : 'hidden'" @click="isOpen = false"
-            class="fixed z-20 inset-0 bg-black opacity-50 xxl:hidden"></div>
+            class="fixed z-20 inset-0 bg-black opacity-50 xxl:hidden">
+          </div>
 
           <!-- Sidebar -->
           @include('layouts.includes.sidebar')
@@ -66,5 +67,17 @@
     @livewireScripts
     
     @stack('scripts')
+
+    <script>
+      function openMenu() {
+        let menu = document.getElementById('menu');
+
+        if (menu.classList.contains('hidden')) {
+          menu.classList.remove('hidden');
+        } else {
+          menu.classList.add('hidden');
+        }
+      }
+    </script>
   </body>
 </html>

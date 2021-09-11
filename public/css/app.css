@@ -1046,6 +1046,9 @@ video {
 .top-1{
 	top: 0.25rem;
 }
+.right-10{
+	right: 2.5rem;
+}
 .z-0{
 	z-index: 0;
 }
@@ -1492,6 +1495,11 @@ video {
 	--tw-space-x-reverse: 0;
 	margin-right: calc(0.5rem * var(--tw-space-x-reverse));
 	margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
+}
+.space-x-1 > :not([hidden]) ~ :not([hidden]){
+	--tw-space-x-reverse: 0;
+	margin-right: calc(0.25rem * var(--tw-space-x-reverse));
+	margin-left: calc(0.25rem * calc(1 - var(--tw-space-x-reverse)));
 }
 .divide-y > :not([hidden]) ~ :not([hidden]){
 	--tw-divide-y-reverse: 0;
@@ -7492,6 +7500,9 @@ readers do not read off random characters that represent icons */
 	}
 	.md\:grid-cols-2{
 		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+	.md\:flex-row{
+		flex-direction: row;
 	}
 	.md\:items-center{
 		align-items: center;
