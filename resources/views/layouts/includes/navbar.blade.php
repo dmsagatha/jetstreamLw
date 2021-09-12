@@ -32,27 +32,27 @@
           <div class="absolute w-44 left-0 top-full bg-white shadow-md invisible opacity-0 group-hover:opacity-100 group-hover:visible transition duration-300 z-50 divide-y divide-gray-300 divide-dashed overflow-hidden">
             <a href="{{ route('tags') }}"
             class="flex items-center px-4 py-3 hover:bg-gray-100 text-gray-600 hover:text-semibold transition">
-            <i class="fas fa-tags text-gray-600 text-sm mr-1"></i>Etiquetas
+            <i class="fas fa-tags text-gray-600 mr-1"></i>Etiquetas
           </a>
           <a href="{{ route('students') }}"
             class="flex items-center px-4 py-3 hover:bg-gray-100 text-gray-600 hover:text-semibold transition">
-            <i class="fas fa-users text-gray-600 text-sm mr-1"></i>Estudiantes
+            <i class="fas fa-users text-gray-600 mr-1"></i>Estudiantes
           </a>
           <a href="{{ route('products') }}"
             class="flex items-center px-4 py-3 hover:bg-gray-100 text-gray-600 hover:text-semibold transition">
-            <i class="fab fa-product-hunt text-gray-600 text-sm mr-1"></i>Productos
+            <i class="fab fa-product-hunt text-gray-600 mr-1"></i>Productos
           </a>
           <a href="{{ route('posts') }}"
             class="flex items-center px-4 py-3 hover:bg-gray-100 text-gray-600 hover:text-semibold transition">
-            <i class="fas fa-tags text-gray-600 text-sm mr-1"></i>Publicaciones
+            <i class="fas fa-tags text-gray-600 mr-1"></i>Publicaciones
           </a>
           <a href="{{ route('user.list') }}"
             class="flex items-center px-4 py-3 hover:bg-gray-100 text-gray-600 hover:text-semibold transition">
-            <i class="fas fa-tags text-gray-600 text-sm mr-1"></i>Usuaros
+            <i class="fas fa-tags text-gray-600 mr-1"></i>Usuaros
           </a>
           <a href="{{ route('categories') }}"
             class="flex items-center px-4 py-3 hover:bg-gray-100 text-gray-600 hover:text-semibold transition">
-            <i class="fas fa-tags text-gray-600 text-sm mr-1"></i>Categorías
+            <i class="fas fa-tags text-gray-600 mr-1"></i>Categorías
           </a>
           </div>
         </div><!-- Menú desplegable -->
@@ -99,7 +99,7 @@
         <!-- Menú de Navegación con Dropdown -->
         <div class="inline-flex relative float-right">
           <!-- Desplegable Usuario -->
-          <div x-data="{ openDropdown: false }" class="relative text-sm">
+          <div x-data="{ openDropdown: false }" class="relative">
             <button x-on:click="openDropdown = true" class="flex items-center focus:outline-none mr-1">
               <img class="w-8 h-8 rounded-full mr-4" src="{{ Auth::user()->profile_photo_url }}" alt="Avatar of User">
               <span class="hidden md:inline-block hover:text-white">{{ Auth::user()->name }}</span>
@@ -113,13 +113,13 @@
               x-transition:leave="transition ease-in duration-300"
               x-transition:leave-end="opacity-0 transform -translate-y-3"
               x-transition:leave-start="transform opacity-100 scale-100">
-              <a href="{{ route('profile.show') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-600 hover:text-white">
+              <a href="{{ route('profile.show') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-600 hover:text-white">
                 <i class="fa fa-user mr-2"></i>{{ __('Profile') }}</a>
               </a>
-              <a href="" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-600 hover:text-white">
+              <a href="" class="block px-4 py-2 text-gray-700 hover:bg-gray-600 hover:text-white">
                 Publicaciones
               </a>
-              <a href="" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-600 hover:text-white">
+              <a href="" class="block px-4 py-2 text-gray-700 hover:bg-gray-600 hover:text-white">
                 Configuraciones
               </a>
               <hr class="border-t border-gray-400">
@@ -127,7 +127,7 @@
               <form method="POST" action="{{ route('logout') }}">
                 @csrf
 
-                <a href="{{ route('logout') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-600 hover:text-white" onclick="event.preventDefault(); this.closest('form').submit();">
+                <a href="{{ route('logout') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-600 hover:text-white" onclick="event.preventDefault(); this.closest('form').submit();">
                   <i class="fa fa-sign-out-alt text-red-600 mr-2"></i>{{ __('Log Out') }}
                 </a>
               </form>
