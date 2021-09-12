@@ -2,7 +2,7 @@
   @section('title', 'Productos')
 
   <x-slot name="header">
-    <h2 class="font-semibold text-xl text-gray-800 leading-tight">Productos | Datatables</h2>
+    <h2 class="font-semibold text-xl leading-tight">Productos | Datatables</h2>
     <h3>
       Buscador | Filtros en Tablas Relacionadas | Eliminación Masiva de Rregistros
     </h3>
@@ -25,8 +25,9 @@
         <span>registros</span>
       </div>
 
+      <!-- Buscar -->
       <div class="relative flex-1 mx-4">
-        <x-search name="search" label="Término de búsqueda" />
+        <x-search name="search" label="Buscar término" />
         <div class="absolute right-0 top-0 mt-2 mr-2">
           @if ($search !== '')
             <button wire:click="clearPage">
@@ -47,7 +48,8 @@
           @endforeach
         </select>
       </div>
-    </div><!-- Listar, buscar y filtrar -->
+    </div>
+    <!-- Paginar, Buscar y Filtros -->
 
     @if (!$bulkDisabled)
       <div class="flex items-center justify-center text-sm text-gray-500 bg-white px-4 py-3 gap-x-2 border-t border-gray-200 sm:px-6">

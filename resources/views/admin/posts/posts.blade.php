@@ -2,7 +2,7 @@
   @section('title', 'Posts')
 
   <x-slot name="header">
-    <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+    <h2 class="font-semibold text-xl leading-tight">
       Posts
     </h2>
   </x-slot>
@@ -22,11 +22,12 @@
         <span>registros</span>
       </div>
 
+      <!-- Buscar -->
       <div class="relative flex-1 mx-4">
-        <x-search name="search" label="Término de búsqueda" />
+        <x-search name="search" label="Buscar término" />
         <div class="absolute right-0 top-0 mt-2 mr-2">
           @if ($search !== '')
-            <button wire:click="clearSearch">
+            <button wire:click="clearPage">
               <i class="fa fa-eraser"></i>
             </button>
           @else
@@ -36,7 +37,8 @@
       </div>
 
       @livewire('admin.posts.create')
-    </div><!-- Paginador, Buscador y Filtros -->
+    </div>
+    <!-- Paginar, Buscar y Filtros -->
 
     @if (count($posts))
       @include('admin.posts._table')

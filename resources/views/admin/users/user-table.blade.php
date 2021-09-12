@@ -16,9 +16,9 @@
         <span>registros</span>
       </div>
 
-      <div class="relative flex-1">
-        <x-search name="search" label="Término de búsqueda" />
-
+      <!-- Buscar -->
+      <div class="relative flex-1 mx-4">
+        <x-search name="search" label="Buscar término" />
         <div class="absolute right-0 top-0 mt-2 mr-2">
           @if ($search !== '')
             <button wire:click="clearPage">
@@ -30,6 +30,7 @@
         </div>
       </div>
 
+      <!-- Filtros -->
       <div class="self-end">
         <label for="perPage">Filtrar Categorías</label>
         <select wire:model="userRole" class="mt-1 form-control">
@@ -50,7 +51,8 @@
           </svg>
         </button>
       </div>
-    </div><!-- Paginador, Buscador y Filtros -->
+    </div>
+    <!-- Paginar, Buscar y Crear con modal -->
 
     @if (count($users))
       @include('admin.users._table')
