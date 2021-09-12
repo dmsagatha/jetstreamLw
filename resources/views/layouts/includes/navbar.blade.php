@@ -70,7 +70,7 @@
           items-center: alinear verticalmente
           sm:w-auto: si que quiere central el nav
         -->
-        <nav :class="openNavbar ? 'show' : 'hidden'" class="absolute sm:relative sm:flex flex-grow items-center justify-end sm:flex-1 lg:w-0 sm:top-0 top-16 left-0 w-full py-2 px-2">
+        <nav :class="openNavbar ? 'show' : 'hidden'" class="absolute sm:relative sm:flex flex-grow items-center justify-end sm:flex-1 lg:w-0 sm:top-0 top-16 left-0 bg-gray-800 w-full py-2 px-2">
           <!--
             flex-col: en pequeño este en formato vertical
             sm:flex-row: en grande este en formato horizontal

@@ -65,8 +65,9 @@
         <form method="POST" action="{{ route('logout') }}">
           @csrf
 
-          <a href="{{ route('logout') }}"onclick="event.preventDefault(); this.closest('form').submit();" class="sidebar-menu-link">
-            <i class="fa fa-sign-out-alt text-red-400 mr-2 hidden md:inline-flex"></i>{{ __('Log Out') }}
+          <a href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();" class="sidebar-menu-link">
+            <i class="fa fa-sign-out-alt text-red-400  sidebar-menu-link-icon"></i>
+            <span class="hidden md:inline-flex">{{ __('Log Out') }}</span>
           </a>
         </form>
       </li>
