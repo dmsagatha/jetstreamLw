@@ -1,4 +1,4 @@
-<header class="fixed w-full bg-gray-800 text-gray-300 text-md z-10">
+<header class="fixed w-full bg-gray-800 text-gray-300 text-sm z-10">
   <div x-data="{ openNavbar: false }" class="relative w-full mx-auto px-2 sm:px-4 lg:px-8">
     <div class="flex items-center justify-between h-16 md:justify-start py-3 md:space-x-10">
       <!-- Items Lado Izquierdo - flex items-center justify-start -->
