@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Appointment;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Lesson;
@@ -10,12 +11,14 @@ use App\Models\Section;
 use App\Models\Student;
 use App\Models\Category;
 use Storage;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
   public function run()
   {
+    Appointment::query()->delete();
     Product::query()->delete();
     Student::query()->delete();
     Section::query()->delete();
@@ -56,5 +59,13 @@ class DatabaseSeeder extends Seeder
         'category_id' => $category->id,
       ]);
     });
+
+    DB::table('appointments')->insert([
+      ['name' => 'Equipo A', 'description' => 'Descripción A'],
+      ['name' => 'Equipo B', 'description' => 'Descripción B'],
+      ['name' => 'Equipo C', 'description' => 'Descripción C'],
+      ['name' => 'Equipo D', 'description' => 'Descripción D'],
+      ['name' => 'Equipo E', 'description' => 'Descripción E'],
+    ]);
   }
 }
