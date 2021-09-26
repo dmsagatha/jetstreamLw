@@ -3,11 +3,12 @@
 use App\Http\Livewire\Admin\Tags;
 use App\Http\Livewire\Admin\Products;
 use App\Http\Livewire\Admin\Students;
-use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Admin\Posts\Posts;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Livewire\Admin\Categories\Categories;
 use App\Http\Livewire\Admin\Appointments\Appointments;
+use App\Http\Livewire\Admin\Appointments\CreateUpdate;
+use Illuminate\Support\Facades\Route;
 
 Route::get('/', function ()
 {
@@ -47,4 +48,5 @@ Route::group(['middleware' => 'auth:sanctum'], function ()
 
   // Clvon - https://www.youtube.com/watch?v=Kdu6i42rT5U&list=PLGg3vnFos8GMxYSWRBce3LH_SREan7my8&index=11
   Route::get('/equipos', Appointments::class)->name('appointments');
+  Route::get('equipos/crear', CreateUpdate::class)->name('appointments.create');
 });
