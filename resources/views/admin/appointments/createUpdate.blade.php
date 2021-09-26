@@ -20,14 +20,19 @@
 
               <div class="relative mt-8">
                 <x-label value="Fecha" />
-                <input type="text" class="flatpickr input bg-transparent border border-gray-400 rounded p-2 text-xs w-full" />
+                <x-input type="text" class="flatpickr" />
+                <x-error for="date" />
+              </div>
+
+              <div class="relative mt-8">
+                <x-date-picker value="Fecha 2" type="text" class="flatpickr" />
                 <x-error for="date" />
               </div>
             </div>
 
             <div class="relative mt-12">
-              <x-jet-label value="Descripción" />
-              <textarea wire:model="description" class="w-full form-control" rows="4"></textarea>      
+              <x-label value="Descripción" />
+              <textarea wire:model="description" class="w-full form-control" rows="4"></textarea>
               <x-jet-input-error for="description" />
             </div>
         
