@@ -28,6 +28,7 @@
         "tailwindcss": "^2.2.9"
     },
     "dependencies": {
+        "flatpickr": "^4.6.9",
         "sweetalert2": "^11.0.18"
     }
 }
