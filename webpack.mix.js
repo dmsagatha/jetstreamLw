@@ -1,4 +1,5 @@
 const mix = require('laravel-mix');
+const flatpickr = require("flatpickr");
 
 mix
   .js('resources/js/app.js', 'public/js')
