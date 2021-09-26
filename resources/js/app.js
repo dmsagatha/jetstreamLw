@@ -23,3 +23,8 @@ Livewire.on('alertCreate', function(message) {
     'success'
   )
 });
+
+// Date Picker Flatpickr
+flatpickr(".flatpickr", {
+  dateFormat: "Y-m-d"
+});

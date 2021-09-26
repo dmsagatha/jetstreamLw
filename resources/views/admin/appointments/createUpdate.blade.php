@@ -19,7 +19,8 @@
               </div>
 
               <div class="relative mt-8">
-                <x-form type="text" name="date" label="Fecha" />
+                <x-label value="Fecha" />
+                <input type="text" class="flatpickr input bg-transparent border border-gray-400 rounded p-2 text-xs w-full" />
                 <x-error for="date" />
               </div>
             </div>

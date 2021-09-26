@@ -4991,6 +4991,10 @@ window.Swal = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2
 
 Livewire.on('alertCreate', function (message) {
   Swal.fire('', message, 'success');
+}); // Date Picker Flatpickr
+
+(0,flatpickr__WEBPACK_IMPORTED_MODULE_1__.default)(".flatpickr", {
+  dateFormat: "Y-m-d"
 });
 
 /***/ }),
