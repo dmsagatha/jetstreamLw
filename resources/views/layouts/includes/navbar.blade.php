@@ -90,8 +90,12 @@
               Posts
             </a>
             <a href="{{ route('user.list') }}"
-              class="text-gray-300 hover:text-white py-1 sm:py-3 sm:mx-1 lg:mx-3 pl-1 align-middle border-b-2 border-gray-400 hover:border-gray-300">
+              class="text-gray-300 hover:text-white py-1 sm:py-3 sm:mx-1 lg:mx-3 pl-1 align-middle border-b-2 border-gray-400 hover:border-gray-300 {{ request()->is('usuarios/listado') ? 'active' : '' }}">
               Usuarios
+            </a>
+            <a href="{{ route('appointments') }}"
+              class="text-gray-300 hover:text-white py-1 sm:py-3 sm:mx-1 lg:mx-3 pl-1 align-middle border-b-2 border-gray-400 hover:border-gray-300 {{ request()->is('appointments') ? 'active' : '' }}">
+              Equipos
             </a>
           </div>
         </nav>

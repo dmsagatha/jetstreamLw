@@ -10,4 +10,11 @@ class Appointment extends Model
   use HasFactory;
 
   public $fillable = ['name', 'description'];
+
+  public static function search($query)
+  {
+    return empty($query) ? static::query()
+      : static::where('appointments.name', 'like', '%' . $query . '%')
+        ->orWhere('appointments.description', 'like', '%' . $query . '%');
+  }
 }
