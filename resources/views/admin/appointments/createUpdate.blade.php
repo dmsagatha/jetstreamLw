@@ -17,12 +17,16 @@
                 <x-form type="text" name="name" label="Nombre" />
                 <x-error for="name" />
               </div>
+
+              <div class="relative mt-8">
+                <x-form type="text" name="date" label="Fecha" />
+                <x-error for="date" />
+              </div>
             </div>
 
             <div class="relative mt-12">
               <x-jet-label value="Descripción" />
-              <textarea wire:model="description" class="w-full form-control" rows="4"></textarea>
-      
+              <textarea wire:model="description" class="w-full form-control" rows="4"></textarea>      
               <x-jet-input-error for="description" />
             </div>
         

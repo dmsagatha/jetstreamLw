@@ -21,3 +21,8 @@ Livewire.on('alertCreate', function(message) {
     'success'
   )
 });
+
+
+const flatpickr = require("flatpickr");
+
+import flatpickr from "flatpickr";
