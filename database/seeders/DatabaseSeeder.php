@@ -50,7 +50,7 @@ class DatabaseSeeder extends Seeder
       ]);
     });
     Student::factory()->times(30)->create();
-
+    
     // Productos
     // Category::factory()->times(10)->create();
     $categories = Category::factory()->times(5)->create();

@@ -15,7 +15,7 @@ class CreateAppointmentsTable extends Migration
       $table->timestamps();
     });
   }
-
+  
   public function down()
   {
     Schema::dropIfExists('appointments');
