@@ -1,8 +1,8 @@
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-  @section('title', 'Productos')
+  @section('title', 'Equipos')
 
   <x-slot name="header">
-    <h2 class="font-semibold text-xl leading-tight">Productos</h2>
+    <h2 class="font-semibold text-xl leading-tight">Equipos</h2>
     <h3>
       <a href="https://www.youtube.com/watch?v=Kdu6i42rT5U&list=PLGg3vnFos8GMxYSWRBce3LH_SREan7my8&index=11" target="_blank">Clovon</a> 
     </h3>
