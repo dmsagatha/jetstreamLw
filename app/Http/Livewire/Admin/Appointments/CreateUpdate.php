@@ -7,7 +7,7 @@ use Livewire\Component;
 
 class CreateUpdate extends Component
 {
-  public $date;
+  public $name, $description, $date;
 
   public function render()
   {
