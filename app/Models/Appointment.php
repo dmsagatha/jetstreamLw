@@ -9,7 +9,7 @@ class Appointment extends Model
 {
   use HasFactory;
 
-  public $fillable = ['name', 'description', 'date'];
+  protected $fillable = ['name', 'description', 'date'];
 
   public static function search($query)
   {

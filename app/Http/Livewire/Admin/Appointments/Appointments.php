@@ -2,9 +2,9 @@
 
 namespace App\Http\Livewire\Admin\Appointments;
 
-use Livewire\Component;
 use App\Models\Appointment;
 use Livewire\WithPagination;
+use Livewire\Component;
 
 class Appointments extends Component
 {
