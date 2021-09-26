@@ -77,6 +77,10 @@
             m-auto p-2 mx-2 mr-4 my-2 sm:my-0
           -->
           <div class="flex flex-col sm:flex-row">
+            <a href="{{ route('categories') }}"
+              class="text-gray-300 hover:text-white py-1 sm:py-3 sm:mx-1 lg:mx-3 pl-1 align-middle border-b-2 border-gray-400 hover:border-gray-300">
+              Categorías
+            </a>
             <a href="{{ route('tags') }}"
               class="text-gray-300 hover:text-white py-1 sm:py-3 sm:mx-1 lg:mx-3 pl-1 align-middle border-b-2 border-gray-400 hover:border-gray-300">
               Etiquetas
