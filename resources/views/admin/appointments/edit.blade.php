@@ -8,7 +8,7 @@
   <x-table>
     <div class="bg-white shadow sm:rounded-md sm:overflow-hidden">
       <div class="px-4 py-3 space-y-6 sm:p-4">
-        <livewire:admin.appointments.create-update action="update" :appointmentsId="request()->appointmentsId" />
+        <livewire:admin.appointments.create-update action="update" :appointmentId="request()->appointmentId" />
       </div>
     </div>
   </x-table>

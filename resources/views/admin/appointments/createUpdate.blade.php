@@ -2,19 +2,22 @@
   <div class="shadow overflow-hidden sm:rounded-md">
     <div class="px-4 py-5 bg-white sm:p-6">
       <div class="relative">
-        <x-form type="text" name="name" label="Nombre" />
-        <x-error for="name" />
+        {{-- <x-form type="text" name="appointment.name" label="Nombre" /> --}}
+        <x-jet-label for="name" value="{{ __('Nombre') }}" />
+        <x-jet-input id="name" type="text" class="mt-1 block w-full form-control shadow-none"
+          wire:model.defer="appointment.name" />
+        <x-error for="appointment.name" />
       </div>
 
       <div class="relative mt-8">
-        <x-date-picker wire:model="date" value="Fecha" type="text" class="flatpickr" />
-        <x-error for="date" />
+        <x-date-picker wire:model="appointment.date" value="Fecha" type="text" class="flatpickr" />
+        <x-error for="appointment.date" />
       </div>
 
       <div class="relative mt-8" x-data="{ count: 0 }" x-init="count = $refs.countme.value.length">
-        <textarea wire:model='description' class="w-full form-control" rows="2" maxlength="100" x-ref="countme" x-on:keyup="count = $refs.countme.value.length"></textarea>
+        <textarea wire:model='appointment.description' class="w-full form-control" rows="2" maxlength="100" x-ref="countme" x-on:keyup="count = $refs.countme.value.length"></textarea>
         <x-label for="description" value="Descripción" />
-        <x-error for="description" />
+        <x-error for="appointment.description" />
         <span></span>
         <div class="absolute px-2 py-1 text-xs text-white bg-blue-500 rounded right-2 bottom-2"">
           <span x-html="count"></span> / <span x-html="$refs.countme.maxLength"></span>

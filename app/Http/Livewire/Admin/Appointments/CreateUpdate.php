@@ -8,7 +8,11 @@ use Livewire\Component;
 
 class CreateUpdate extends Component
 {
-  public $appointmentsId, $name, $description, $date;
+  // public $appointment, $appointmentId, $name, $description, $date;
+  public $appointment, $appointmentId;
+
+  public $action;
+  public $button;
 
   public function render()
   {
@@ -18,9 +22,9 @@ class CreateUpdate extends Component
   public function rules()
   {
     return [
-      'name' => 'required|string|min:4|unique:appointments,name,' . $this->appointmentsId,
-      'date' => 'required',
-      'description' => 'required',
+      'appointment.name' => 'required|string|min:4|unique:appointments,name,' . $this->appointmentId,
+      'appointment.date' => 'required',
+      'appointment.description' => 'required',
     ];
   }
 
@@ -28,18 +32,50 @@ class CreateUpdate extends Component
   {
     $this->validate();
 
-    Appointment::create([
+    /* Appointment::create([
       'name' => $this->name,
-      'description' => $this->description,
       'date' => $this->date,
-    ]);
+      'description' => $this->description,
+    ]); */
+    Appointment::create($this->appointment);
+
+    sleep(2);
+    $this->reset('appointment');
+      
+    $this->emit('alertCreate', 'Registro actualizado satisfactoriamente.');
+
+    return redirect()->route('appointments');
+  }
+
+  public function mount($appointment)
+  {
+		$this->appointment = $appointment;
+  }
+
+  public function update()
+  {
+    /* $this->validate();
+    $this->appointment->update( $this->book->toArray() ); */
+
+
+
+
+
+    $this->resetErrorBag();
+    $this->validate();
+
+    Appointment::query()
+      ->where('id', $this->appointmentId)
+      ->update([
+        'name' => $this->appointment->name,
+        'date' => $this->appointment->date,
+        'description' => $this->appointment->description,
+      ]);
 
     sleep(2);
     $this->reset();
       
     $this->emit('alertCreate', 'Registro actualizado satisfactoriamente.');
-
-    return redirect()->route('appointments');
   }
 
   public function updated($propertyName)
