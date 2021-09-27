@@ -47,21 +47,36 @@ class CreateUpdate extends Component
     return redirect()->route('appointments');
   }
 
-  public function mount($appointment)
+  /* public function mount($appointment)
   {
 		$this->appointment = $appointment;
+  } */
+
+  public function mount()
+  {
+    if (!$this->appointment && $this->appointmentId) {
+      $this->appointment = Appointment::find($this->appointmentId);
+    }
+
+    // $this->button = create_button($this->action, "User");
   }
 
   public function update()
   {
-    /* $this->validate();
-    $this->appointment->update( $this->book->toArray() ); */
+    $this->validate();
+    $this->appointment->update($this->appointment->toArray());
+
+    sleep(2);
+    $this->reset();
+      
+    $this->emit('alertCreate', 'Registro actualizado satisfactoriamente.');
+    return redirect()->route('appointments');
 
 
 
 
 
-    $this->resetErrorBag();
+    /* $this->resetErrorBag();
     $this->validate();
 
     Appointment::query()
@@ -75,7 +90,7 @@ class CreateUpdate extends Component
     sleep(2);
     $this->reset();
       
-    $this->emit('alertCreate', 'Registro actualizado satisfactoriamente.');
+    $this->emit('alertCreate', 'Registro actualizado satisfactoriamente.'); */
   }
 
   public function updated($propertyName)
