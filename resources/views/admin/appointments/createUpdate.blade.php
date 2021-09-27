@@ -10,7 +10,7 @@
   <x-table>
     <div class="bg-white shadow sm:rounded-md sm:overflow-hidden">
       <div class="px-4 py-3 space-y-6 sm:p-4">
-        <form wire:submit.prevent="save" autocomplete="off">
+        <form wire:submit.prevent="save">
           <div class="shadow overflow-hidden sm:rounded-md">
             <div class="px-4 py-5 bg-white sm:p-6">
               <div class="relative">

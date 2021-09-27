@@ -1043,9 +1043,6 @@ video {
 .-top-2{
 	top: -0.5rem;
 }
-.top-10{
-	top: 2.5rem;
-}
 .z-0{
 	z-index: 0;
 }
@@ -1188,6 +1185,9 @@ video {
 .ml-5{
 	margin-left: 1.25rem;
 }
+.-ml-1{
+	margin-left: -0.25rem;
+}
 .-mt-px{
 	margin-top: -1px;
 }
@@ -1202,9 +1202,6 @@ video {
 }
 .mt-20{
 	margin-top: 5rem;
-}
-.-ml-1{
-	margin-left: -0.25rem;
 }
 .block{
 	display: block;
@@ -7524,6 +7521,10 @@ span.flatpickr-weekday {
 .focus\:border-green-900:focus{
 	--tw-border-opacity: 1;
 	border-color: rgba(6, 78, 59, var(--tw-border-opacity));
+}
+.focus\:border-black:focus{
+	--tw-border-opacity: 1;
+	border-color: rgba(0, 0, 0, var(--tw-border-opacity));
 }
 .focus\:border-blue-500:focus{
 	--tw-border-opacity: 1;
