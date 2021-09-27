@@ -42,7 +42,7 @@
           {{ Str::limit($item->description, 50) }}
         </td>
         <td class="px-6 py-4 text-sm font-medium"> 
-          <a href="" class="text-indigo-600 hover:text-indigo-900" title="Editar">
+          <a href="/equipos/editar/{{ $item->id }}" class="text-indigo-600 hover:text-indigo-900" title="Editar">
             <i class="fas fa-edit mr-2"></i>
           </a>
           <a href="" class="text-red-600 hover:text-red-900" title="Eliminar">

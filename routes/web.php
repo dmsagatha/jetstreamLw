@@ -48,5 +48,7 @@ Route::group(['middleware' => 'auth:sanctum'], function ()
 
   // Clvon - https://www.youtube.com/watch?v=Kdu6i42rT5U&list=PLGg3vnFos8GMxYSWRBce3LH_SREan7my8&index=11
   Route::get('/equipos', Appointments::class)->name('appointments');
-  Route::get('equipos/crear', CreateUpdate::class)->name('appointments.create');
+  // Route::get('equipos/crear', CreateUpdate::class)->name('appointments.create');
+  Route::view('equipos/crear', 'admin.appointments.create')->name('appointments.create');
+  Route::view('equipos/editar/{appointmentsId}', 'admin.appointments.edit')->name('appointments.edit');
 });
