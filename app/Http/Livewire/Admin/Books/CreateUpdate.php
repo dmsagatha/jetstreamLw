@@ -33,7 +33,15 @@ class CreateUpdate extends Component
   {
     $this->validate();
 
-    Book::create($this->book->toArray());
+    if (!is_null($this->bookId)) {
+      $this->book->update($this->book->toArray());
+      
+      $this->emit('alertCreate', 'Registro actualizado satisfactoriamente.');
+    } else {
+      Book::create($this->book->toArray());
+
+      $this->emit('alertCreate', 'Registro creado satisfactoriamente.');
+    }
 
     $this->emit('alertCreate', 'Registro actualizado satisfactoriamente.');
     
