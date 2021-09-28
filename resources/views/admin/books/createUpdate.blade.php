@@ -1,8 +1,8 @@
-<div class="mt-20">
+<div>
   <form wire:submit.prevent="save" class="w-full">
     <div class="w-full px-3 mb-6 md:mb-0">
       <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="name">
-        Nombre
+        Name
       </label>
       <input wire:model="book.name" autofocus
         class="appearance-none block w-full bg-gray-100 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
@@ -15,7 +15,7 @@
     </div>
     <div class="w-full px-3 mb-6 md:mb-0">
       <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="pages">
-        N° de Páginas
+        Number of Pages
       </label>
       <input wire:model="book.pages"
         class="appearance-none block w-full bg-gray-100 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
@@ -28,20 +28,19 @@
     </div>
     <div class="w-full px-3 mb-6 md:mb-0">
       <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="author">
-        Autor
+        Author
       </label>
       <input wire:model="book.author"
         class="appearance-none block w-full bg-gray-100 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
         type="text" id="author" />
       @if($errors->has('book.author'))
-        <p class="text-red-500 text-xs italic">
-          {{ $errors->first('book.author') }}
-        </p>
+      <p class="text-red-500 text-xs italic">
+        {{ $errors->first('book.author') }}
+      </p>
       @endif
     </div>
-    
     <button class="px-3 ml-3 py-2 bg-green-400" type="submit">
-      Guardar
+      Submit
     </button>
   </form>
 </div>

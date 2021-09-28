@@ -1000,10 +1000,6 @@ video {
 	left: 0px;
 	right: 0px;
 }
-.inset-y-0{
-	top: 0px;
-	bottom: 0px;
-}
 .left-0{
 	left: 0px;
 }
@@ -1042,9 +1038,6 @@ video {
 }
 .-top-2{
 	top: -0.5rem;
-}
-.right-10{
-	right: 2.5rem;
 }
 .z-0{
 	z-index: 0;
@@ -1176,6 +1169,15 @@ video {
 .mr-4{
 	margin-right: 1rem;
 }
+.mt-20{
+	margin-top: 5rem;
+}
+.mb-2{
+	margin-bottom: 0.5rem;
+}
+.mb-3{
+	margin-bottom: 0.75rem;
+}
 .mr-6{
 	margin-right: 1.5rem;
 }
@@ -1203,17 +1205,8 @@ video {
 .mt-auto{
 	margin-top: auto;
 }
-.mt-20{
-	margin-top: 5rem;
-}
-.ml-10{
-	margin-left: 2.5rem;
-}
-.mb-2{
-	margin-bottom: 0.5rem;
-}
-.mb-3{
-	margin-bottom: 0.75rem;
+.ml-0{
+	margin-left: 0px;
 }
 .block{
 	display: block;
@@ -1275,9 +1268,6 @@ video {
 .h-3{
 	height: 0.75rem;
 }
-.max-h-7{
-	max-height: 1.75rem;
-}
 .min-h-screen{
 	min-height: 100vh;
 }
@@ -1332,15 +1322,6 @@ video {
 .w-11\/12{
 	width: 91.666667%;
 }
-.w-7{
-	width: 1.75rem;
-}
-.w-9{
-	width: 2.25rem;
-}
-.w-40{
-	width: 10rem;
-}
 .w-3{
 	width: 0.75rem;
 }
@@ -1364,6 +1345,9 @@ video {
 }
 .max-w-6xl{
 	max-width: 72rem;
+}
+.max-w-5xl{
+	max-width: 64rem;
 }
 .flex-1{
 	flex: 1 1 0%;
@@ -1509,16 +1493,6 @@ video {
 	margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
 	margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
 }
-.space-x-4 > :not([hidden]) ~ :not([hidden]){
-	--tw-space-x-reverse: 0;
-	margin-right: calc(1rem * var(--tw-space-x-reverse));
-	margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
-}
-.space-x-2 > :not([hidden]) ~ :not([hidden]){
-	--tw-space-x-reverse: 0;
-	margin-right: calc(0.5rem * var(--tw-space-x-reverse));
-	margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
-}
 .divide-y > :not([hidden]) ~ :not([hidden]){
 	--tw-divide-y-reverse: 0;
 	border-top-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
@@ -1531,13 +1505,13 @@ video {
 	--tw-divide-opacity: 1;
 	border-color: rgba(209, 213, 219, var(--tw-divide-opacity));
 }
-.divide-gray-600 > :not([hidden]) ~ :not([hidden]){
-	--tw-divide-opacity: 1;
-	border-color: rgba(75, 85, 99, var(--tw-divide-opacity));
-}
 .divide-gray-200 > :not([hidden]) ~ :not([hidden]){
 	--tw-divide-opacity: 1;
 	border-color: rgba(229, 231, 235, var(--tw-divide-opacity));
+}
+.divide-gray-600 > :not([hidden]) ~ :not([hidden]){
+	--tw-divide-opacity: 1;
+	border-color: rgba(75, 85, 99, var(--tw-divide-opacity));
 }
 .self-end{
 	align-self: flex-end;
@@ -1651,14 +1625,6 @@ video {
 	--tw-border-opacity: 1;
 	border-color: rgba(248, 113, 113, var(--tw-border-opacity));
 }
-.border-white{
-	--tw-border-opacity: 1;
-	border-color: rgba(255, 255, 255, var(--tw-border-opacity));
-}
-.border-purple-500{
-	--tw-border-opacity: 1;
-	border-color: rgba(139, 92, 246, var(--tw-border-opacity));
-}
 .border-blue-700{
 	--tw-border-opacity: 1;
 	border-color: rgba(29, 78, 216, var(--tw-border-opacity));
@@ -1711,6 +1677,10 @@ video {
 	--tw-bg-opacity: 1;
 	background-color: rgba(229, 231, 235, var(--tw-bg-opacity));
 }
+.bg-green-400{
+	--tw-bg-opacity: 1;
+	background-color: rgba(52, 211, 153, var(--tw-bg-opacity));
+}
 .bg-blue-500{
 	--tw-bg-opacity: 1;
 	background-color: rgba(59, 130, 246, var(--tw-bg-opacity));
@@ -1755,22 +1725,6 @@ video {
 	--tw-bg-opacity: 1;
 	background-color: rgba(96, 165, 250, var(--tw-bg-opacity));
 }
-.bg-indigo-900{
-	--tw-bg-opacity: 1;
-	background-color: rgba(49, 46, 129, var(--tw-bg-opacity));
-}
-.bg-gray-700{
-	--tw-bg-opacity: 1;
-	background-color: rgba(55, 65, 81, var(--tw-bg-opacity));
-}
-.bg-gray-900{
-	--tw-bg-opacity: 1;
-	background-color: rgba(17, 24, 39, var(--tw-bg-opacity));
-}
-.bg-green-400{
-	--tw-bg-opacity: 1;
-	background-color: rgba(52, 211, 153, var(--tw-bg-opacity));
-}
 .bg-opacity-25{
 	--tw-bg-opacity: 0.25;
 }
@@ -1804,9 +1758,6 @@ video {
 }
 .p-3{
 	padding: 0.75rem;
-}
-.p-1{
-	padding: 0.25rem;
 }
 .px-4{
 	padding-left: 1rem;
@@ -1910,9 +1861,6 @@ video {
 }
 .pb-20{
 	padding-bottom: 5rem;
-}
-.pr-2{
-	padding-right: 0.5rem;
 }
 .text-left{
 	text-align: left;
@@ -2109,14 +2057,6 @@ video {
 	--tw-text-opacity: 1;
 	color: rgba(248, 113, 113, var(--tw-text-opacity));
 }
-.text-lime-700{
-	--tw-text-opacity: 1;
-	color: rgba(77, 124, 15, var(--tw-text-opacity));
-}
-.text-indigo-50{
-	--tw-text-opacity: 1;
-	color: rgba(238, 242, 255, var(--tw-text-opacity));
-}
 .underline{
 	text-decoration: underline;
 }
@@ -2212,11 +2152,6 @@ video {
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 	transition-duration: 150ms;
 }
-.transition-transform{
-	transition-property: transform;
-	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-	transition-duration: 150ms;
-}
 .duration-150{
 	transition-duration: 150ms;
 }
@@ -2228,9 +2163,6 @@ video {
 }
 .duration-300{
 	transition-duration: 300ms;
-}
-.duration-100{
-	transition-duration: 100ms;
 }
 .ease-in-out{
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -6882,10 +6814,6 @@ readers do not read off random characters that represent icons */
 	--tw-border-opacity: 1;
 	border-color: rgba(209, 213, 219, var(--tw-border-opacity));
 }
-.hover\:border-green-600:hover{
-	--tw-border-opacity: 1;
-	border-color: rgba(5, 150, 105, var(--tw-border-opacity));
-}
 .hover\:border-blue-500:hover{
 	--tw-border-opacity: 1;
 	border-color: rgba(59, 130, 246, var(--tw-border-opacity));
@@ -6938,14 +6866,6 @@ readers do not read off random characters that represent icons */
 	--tw-bg-opacity: 1;
 	background-color: rgba(5, 150, 105, var(--tw-bg-opacity));
 }
-.hover\:bg-indigo-800:hover{
-	--tw-bg-opacity: 1;
-	background-color: rgba(55, 48, 163, var(--tw-bg-opacity));
-}
-.hover\:bg-purple-600:hover{
-	--tw-bg-opacity: 1;
-	background-color: rgba(124, 58, 237, var(--tw-bg-opacity));
-}
 .hover\:bg-blue-400:hover{
 	--tw-bg-opacity: 1;
 	background-color: rgba(96, 165, 250, var(--tw-bg-opacity));
@@ -6984,18 +6904,6 @@ readers do not read off random characters that represent icons */
 .hover\:text-indigo-900:hover{
 	--tw-text-opacity: 1;
 	color: rgba(49, 46, 129, var(--tw-text-opacity));
-}
-.hover\:text-lime-700:hover{
-	--tw-text-opacity: 1;
-	color: rgba(77, 124, 15, var(--tw-text-opacity));
-}
-.hover\:text-lime-600:hover{
-	--tw-text-opacity: 1;
-	color: rgba(101, 163, 13, var(--tw-text-opacity));
-}
-.hover\:text-indigo-200:hover{
-	--tw-text-opacity: 1;
-	color: rgba(199, 210, 254, var(--tw-text-opacity));
 }
 .hover\:shadow-lg:hover{
 	--tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
@@ -7071,14 +6979,6 @@ readers do not read off random characters that represent icons */
 	--tw-bg-opacity: 1;
 	background-color: rgba(249, 250, 251, var(--tw-bg-opacity));
 }
-.focus\:bg-indigo-800:focus{
-	--tw-bg-opacity: 1;
-	background-color: rgba(55, 48, 163, var(--tw-bg-opacity));
-}
-.focus\:bg-gray-600:focus{
-	--tw-bg-opacity: 1;
-	background-color: rgba(75, 85, 99, var(--tw-bg-opacity));
-}
 .focus\:bg-white:focus{
 	--tw-bg-opacity: 1;
 	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
@@ -7141,18 +7041,11 @@ readers do not read off random characters that represent icons */
 	--tw-ring-opacity: 1;
 	--tw-ring-color: rgba(59, 130, 246, var(--tw-ring-opacity));
 }
-.focus\:ring-white:focus{
-	--tw-ring-opacity: 1;
-	--tw-ring-color: rgba(255, 255, 255, var(--tw-ring-opacity));
-}
 .focus\:ring-opacity-50:focus{
 	--tw-ring-opacity: 0.5;
 }
 .focus\:ring-offset-2:focus{
 	--tw-ring-offset-width: 2px;
-}
-.focus\:ring-offset-gray-800:focus{
-	--tw-ring-offset-color: #1f2937;
 }
 .active\:bg-gray-100:active{
 	--tw-bg-opacity: 1;
@@ -7264,17 +7157,8 @@ readers do not read off random characters that represent icons */
 	color: rgba(75, 85, 99, var(--tw-text-opacity));
 }
 @media (min-width: 640px){
-	.sm\:static{
-		position: static;
-	}
 	.sm\:relative{
 		position: relative;
-	}
-	.sm\:inset-auto{
-		top: auto;
-		right: auto;
-		bottom: auto;
-		left: auto;
 	}
 	.sm\:top-0{
 		top: 0px;
@@ -7411,9 +7295,6 @@ readers do not read off random characters that represent icons */
 	.sm\:items-center{
 		align-items: center;
 	}
-	.sm\:items-stretch{
-		align-items: stretch;
-	}
 	.sm\:justify-start{
 		justify-content: flex-start;
 	}
@@ -7477,18 +7358,11 @@ readers do not read off random characters that represent icons */
 		padding-top: 0.75rem;
 		padding-bottom: 0.75rem;
 	}
-	.sm\:py-4{
-		padding-top: 1rem;
-		padding-bottom: 1rem;
-	}
 	.sm\:pt-0{
 		padding-top: 0px;
 	}
 	.sm\:pb-4{
 		padding-bottom: 1rem;
-	}
-	.sm\:pr-0{
-		padding-right: 0px;
 	}
 	.sm\:text-left{
 		text-align: left;
@@ -7507,21 +7381,10 @@ readers do not read off random characters that represent icons */
 		font-size: 1.125rem;
 		line-height: 1.75rem;
 	}
-	.sm\:text-2xl{
-		font-size: 1.5rem;
-		line-height: 2rem;
-	}
-	.sm\:text-3xl{
-		font-size: 1.875rem;
-		line-height: 2.25rem;
-	}
 }
 @media (min-width: 768px){
 	.md\:relative{
 		position: relative;
-	}
-	.md\:top-0{
-		top: 0px;
 	}
 	.md\:col-span-2{
 		grid-column: span 2 / span 2;
@@ -7529,24 +7392,17 @@ readers do not read off random characters that represent icons */
 	.md\:col-span-1{
 		grid-column: span 1 / span 1;
 	}
-	.md\:my-0{
-		margin-top: 0px;
-		margin-bottom: 0px;
-	}
 	.md\:mt-0{
 		margin-top: 0px;
-	}
-	.md\:mr-2{
-		margin-right: 0.5rem;
 	}
 	.md\:mb-0{
 		margin-bottom: 0px;
 	}
+	.md\:mr-2{
+		margin-right: 0.5rem;
+	}
 	.md\:inline-block{
 		display: inline-block;
-	}
-	.md\:flex{
-		display: flex;
 	}
 	.md\:inline-flex{
 		display: inline-flex;
@@ -7554,23 +7410,14 @@ readers do not read off random characters that represent icons */
 	.md\:grid{
 		display: grid;
 	}
-	.md\:hidden{
-		display: none;
-	}
 	.md\:w-3\/5{
 		width: 60%;
-	}
-	.md\:w-auto{
-		width: auto;
 	}
 	.md\:grid-cols-3{
 		grid-template-columns: repeat(3, minmax(0, 1fr));
 	}
 	.md\:grid-cols-2{
 		grid-template-columns: repeat(2, minmax(0, 1fr));
-	}
-	.md\:items-center{
-		align-items: center;
 	}
 	.md\:justify-start{
 		justify-content: flex-start;
@@ -7589,22 +7436,8 @@ readers do not read off random characters that represent icons */
 	.md\:border-l{
 		border-left-width: 1px;
 	}
-	.md\:py-3{
-		padding-top: 0.75rem;
-		padding-bottom: 0.75rem;
-	}
-	.md\:px-0{
-		padding-left: 0px;
-		padding-right: 0px;
-	}
-	.md\:pt-0{
-		padding-top: 0px;
-	}
 }
 @media (min-width: 1024px){
-	.lg\:relative{
-		position: relative;
-	}
 	.lg\:col-span-4{
 		grid-column: span 4 / span 4;
 	}
@@ -7616,32 +7449,14 @@ readers do not read off random characters that represent icons */
 		margin-left: -2rem;
 		margin-right: -2rem;
 	}
-	.lg\:block{
-		display: block;
-	}
-	.lg\:flex{
-		display: flex;
-	}
-	.lg\:hidden{
-		display: none;
-	}
 	.lg\:w-0{
 		width: 0px;
 	}
 	.lg\:flex-1{
 		flex: 1 1 0%;
 	}
-	.lg\:flex-grow{
-		flex-grow: 1;
-	}
-	.lg\:transform-none{
-		transform: none;
-	}
 	.lg\:px-8{
 		padding-left: 2rem;
 		padding-right: 2rem;
-	}
-	.lg\:opacity-100{
-		opacity: 1;
 	}
 }
