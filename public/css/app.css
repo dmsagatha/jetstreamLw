@@ -1272,6 +1272,9 @@ video {
 .h-full{
 	height: 100%;
 }
+.h-3{
+	height: 0.75rem;
+}
 .max-h-7{
 	max-height: 1.75rem;
 }
@@ -1337,6 +1340,9 @@ video {
 }
 .w-40{
 	width: 10rem;
+}
+.w-3{
+	width: 0.75rem;
 }
 .min-w-0{
 	min-width: 0px;
@@ -1857,6 +1863,14 @@ video {
 .py-10{
 	padding-top: 2.5rem;
 	padding-bottom: 2.5rem;
+}
+.py-2\.5{
+	padding-top: 0.625rem;
+	padding-bottom: 0.625rem;
+}
+.px-5{
+	padding-left: 1.25rem;
+	padding-right: 1.25rem;
 }
 .pt-6{
 	padding-top: 1.5rem;
@@ -6982,6 +6996,10 @@ readers do not read off random characters that represent icons */
 .hover\:text-indigo-200:hover{
 	--tw-text-opacity: 1;
 	color: rgba(199, 210, 254, var(--tw-text-opacity));
+}
+.hover\:shadow-lg:hover{
+	--tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 .focus\:z-10:focus{
 	z-index: 10;
