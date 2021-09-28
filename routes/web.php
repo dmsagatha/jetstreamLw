@@ -6,6 +6,7 @@ use App\Http\Livewire\Admin\Students;
 use App\Http\Livewire\Admin\Posts\Posts;
 use App\Http\Livewire\Admin\Categories\Categories;
 use App\Http\Livewire\Admin\Books\Books;
+use App\Http\Livewire\Admin\Books\CreateUpdate;
 use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -46,4 +47,5 @@ Route::group(['middleware' => 'auth:sanctum'], function ()
   Route::get('/productos', Products::class)->name('products');
   
   Route::get('/libros', Books::class)->name('books.index');
+  Route::get('/libros/crear', CreateUpdate::class)->name('books.create');
 });
