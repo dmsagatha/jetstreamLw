@@ -40,7 +40,7 @@ class DatabaseSeeder extends Seeder
       'password' => bcrypt('superadmin'),
     ]);
 
-    User::factory()->times(100)->create();
+    User::factory()->times(20)->create();
 
     // Estudiantes
     $lessons = Lesson::factory()->times(5)->create();
@@ -60,12 +60,12 @@ class DatabaseSeeder extends Seeder
       ]);
     });
 
-    DB::table('appointments')->insert([
+    /* DB::table('appointments')->insert([
       ['name' => 'Equipo A', 'description' => 'Descripción A', 'date' => '2021-01-26'],
       ['name' => 'Equipo B', 'description' => 'Descripción B', 'date' => '2021-03-26'],
       ['name' => 'Equipo C', 'description' => 'Descripción C', 'date' => '2021-05-26'],
       ['name' => 'Equipo D', 'description' => 'Descripción D', 'date' => '2021-07-26'],
       ['name' => 'Equipo E', 'description' => 'Descripción E', 'date' => '2021-09-26'],
-    ]);
+    ]); */
   }
 }
