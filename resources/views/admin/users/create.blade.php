@@ -30,7 +30,7 @@
                     ]" />
               </div>
             </div>
-
+            
             <div class="col-span-6">
               <x-jet-input type="file" wire:model="profile_photo_path" />
               <x-jet-input-error for="profile_photo_path" />
