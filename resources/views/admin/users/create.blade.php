@@ -23,7 +23,7 @@
 
             <div class="col-span-6">
               <div class="relative w-50">
-                <x-select label="Roles" name="role" :options="[
+                <x-select-options label="Roles" name="role" :options="[
                       'user' => 'Usuario',
                       'reviewer' => 'Revisor',
                       'admin' => 'Administrador'
