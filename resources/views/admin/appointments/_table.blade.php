@@ -40,7 +40,7 @@
         <td class="px-6 py-4">
           {{ $item->name }}
         </td>
-        <td class="px-6 py-4">
+        <td class="px-6 py-4 text-center">
           {{ $item->date }}
         </td>
         <td class="px-6 py-4">
