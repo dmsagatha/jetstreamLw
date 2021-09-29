@@ -9,7 +9,7 @@
 <select wire:model.defer="{{ $name }}" class="select--control">
   <option value="">Seleccionar</option>
   @foreach ($options as $key => $option)
-  <option value="{{ $key }}">{{ $option }}</option>
+    <option value="{{ $key }}">{{ $option }}</option>
   @endforeach
 </select>
 
