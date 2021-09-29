@@ -10,8 +10,17 @@
         <x-jet-input-error for="name" class="mt-2" />
       </div>
 
-      <div class="relative w-50">
-        <x-select name="state.user_id" label="Cliente" :options="[$users->name]" option="name" />
+      <div class="relative mt-8 w-50">
+        <x-select name="state.user_id" label="Cliente">
+          @foreach($clients as $user)
+            <option value="{{ $user->id }}" class="uppercase">{{ $user->name }}</option>
+          @endforeach
+        </x-select>
+      </div>
+
+      <div class="relative mt-8">
+        <x-date-picker wire:model="state.date" value="Fecha" type="text" class="flatpickr" />
+        <x-error for="state.date" />
       </div>
 
 

@@ -7,14 +7,12 @@ use Livewire\Component;
 
 class CreateForm extends Component
 {
-  public $name, $users;
-
   public function render()
   {
-    $users = User::all();
+    $clients = User::all();
 
     return view('admin.appointments.create-form', [
-      'users' => $users,
+      'clients' => $clients,
     ]);
   }
 }
