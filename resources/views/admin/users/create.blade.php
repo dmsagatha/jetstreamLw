@@ -23,14 +23,14 @@
 
             <div class="col-span-6">
               <div class="relative w-50">
-                <x-select label="Roles" name="role" :options="[
+                <x-select-options label="Roles" name="role" :options="[
                       'user' => 'Usuario',
                       'reviewer' => 'Revisor',
                       'admin' => 'Administrador'
                     ]" />
               </div>
             </div>
-
+            
             <div class="col-span-6">
               <x-jet-input type="file" wire:model="profile_photo_path" />
               <x-jet-input-error for="profile_photo_path" />

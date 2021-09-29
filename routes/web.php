@@ -3,10 +3,12 @@
 use App\Http\Livewire\Admin\Tags;
 use App\Http\Livewire\Admin\Products;
 use App\Http\Livewire\Admin\Students;
-use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Admin\Posts\Posts;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Livewire\Admin\Categories\Categories;
+use App\Http\Livewire\Admin\Appointments\Appointments;
+use App\Http\Livewire\Admin\Appointments\CreateForm;
+use Illuminate\Support\Facades\Route;
 
 Route::get('/', function ()
 {
@@ -43,4 +45,8 @@ Route::group(['middleware' => 'auth:sanctum'], function ()
 
   // Daily Laravel | Kit Livewire
   Route::get('/productos', Products::class)->name('products');
+
+  // Clovon - https://www.youtube.com/watch?v=Kdu6i42rT5U&list=PLGg3vnFos8GMxYSWRBce3LH_SREan7my8&index=11
+  Route::get('/citas', Appointments::class)->name('appointments');
+  Route::get('citas/crear', CreateForm::class)->name('appointments.create');
 });

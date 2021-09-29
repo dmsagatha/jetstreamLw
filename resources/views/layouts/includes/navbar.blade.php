@@ -77,21 +77,29 @@
             m-auto p-2 mx-2 mr-4 my-2 sm:my-0
           -->
           <div class="flex flex-col sm:flex-row">
+            {{-- <a href="{{ route('categories') }}"
+              class="text-gray-300 hover:text-white py-1 sm:py-3 sm:mx-1 lg:mx-3 pl-1 align-middle border-b-2 border-gray-400 hover:border-gray-300 text-center">
+              Categorías
+            </a> --}}
             <a href="{{ route('tags') }}"
-              class="text-gray-300 hover:text-white py-1 sm:py-3 sm:mx-1 lg:mx-3 pl-1 align-middle border-b-2 border-gray-400 hover:border-gray-300">
+              class="text-gray-300 hover:text-white py-1 sm:py-3 sm:mx-1 lg:mx-3 pl-1 align-middle border-b-2 border-gray-400 hover:border-gray-300 text-center">
               Etiquetas
             </a>
             <a href="{{ route('products') }}"
-              class="text-gray-300 hover:text-white py-1 sm:py-3 sm:mx-1 lg:mx-3 pl-1 align-middle border-b-2 border-gray-400 hover:border-gray-300">
+              class="text-gray-300 hover:text-white py-1 sm:py-3 sm:mx-1 lg:mx-3 pl-1 align-middle border-b-2 border-gray-400 hover:border-gray-300 text-center">
               Productos
             </a>
             <a href="{{ route('posts') }}"
-              class="text-gray-300 hover:text-white py-1 sm:py-3 sm:mx-1 lg:mx-3 pl-1 align-middle border-b-2 border-gray-400 hover:border-gray-300">
+              class="text-gray-300 hover:text-white py-1 sm:py-3 sm:mx-1 lg:mx-3 pl-1 align-middle border-b-2 border-gray-400 hover:border-gray-300 text-center">
               Posts
             </a>
             <a href="{{ route('user.list') }}"
-              class="text-gray-300 hover:text-white py-1 sm:py-3 sm:mx-1 lg:mx-3 pl-1 align-middle border-b-2 border-gray-400 hover:border-gray-300">
+              class="text-gray-300 hover:text-white py-1 sm:py-3 sm:mx-1 lg:mx-3 pl-1 align-middle border-b-2 border-gray-400 hover:border-gray-300 text-center {{ request()->is('usuarios/listado') ? 'active' : '' }}">
               Usuarios
+            </a>
+            <a href="{{ route('appointments') }}"
+              class="text-gray-300 hover:text-white py-1 sm:py-3 sm:mx-1 lg:mx-3 pl-1 align-middle border-b-2 border-gray-400 hover:border-gray-300 text-center {{ request()->is('appointments') ? 'active' : '' }}">
+              Programar Citas
             </a>
           </div>
         </nav>

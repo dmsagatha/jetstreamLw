@@ -17,18 +17,6 @@
 
     @livewireStyles
 
-    <style>
-      .hijo {
-        width: 50px;
-        /* height: 50px; */
-        background-color: transparent;
-        /* centrado vertical */
-        position: absolute;
-        top: 50%;
-        margin-top: -25px; /* (- menos) la mitad del valor de la altura del elemento hijo */
-      }
-    </style>
-
     <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}" defer></script>
   </head>

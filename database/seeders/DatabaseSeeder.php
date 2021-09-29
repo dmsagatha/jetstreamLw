@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Appointment;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Lesson;
@@ -10,12 +11,14 @@ use App\Models\Section;
 use App\Models\Student;
 use App\Models\Category;
 use Storage;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
   public function run()
   {
+    Appointment::query()->delete();
     Product::query()->delete();
     Student::query()->delete();
     Section::query()->delete();
@@ -37,7 +40,7 @@ class DatabaseSeeder extends Seeder
       'password' => bcrypt('superadmin'),
     ]);
 
-    User::factory()->times(100)->create();
+    User::factory()->times(20)->create();
 
     // Estudiantes
     $lessons = Lesson::factory()->times(5)->create();
@@ -47,7 +50,7 @@ class DatabaseSeeder extends Seeder
       ]);
     });
     Student::factory()->times(30)->create();
-
+    
     // Productos
     // Category::factory()->times(10)->create();
     $categories = Category::factory()->times(5)->create();
@@ -56,5 +59,13 @@ class DatabaseSeeder extends Seeder
         'category_id' => $category->id,
       ]);
     });
+
+    /* DB::table('appointments')->insert([
+      ['name' => 'Equipo A', 'description' => 'Descripción A', 'date' => '2021-01-26'],
+      ['name' => 'Equipo B', 'description' => 'Descripción B', 'date' => '2021-03-26'],
+      ['name' => 'Equipo C', 'description' => 'Descripción C', 'date' => '2021-05-26'],
+      ['name' => 'Equipo D', 'description' => 'Descripción D', 'date' => '2021-07-26'],
+      ['name' => 'Equipo E', 'description' => 'Descripción E', 'date' => '2021-09-26'],
+    ]); */
   }
 }

@@ -2,6 +2,8 @@ require('./bootstrap');
 
 import Alpine from 'alpinejs';
 
+import flatpickr from "flatpickr";
+
 window.Alpine = Alpine;
 
 Alpine.start();
@@ -20,4 +22,9 @@ Livewire.on('alertCreate', function(message) {
     message,
     'success'
   )
+});
+
+// Date Picker Flatpickr
+flatpickr(".flatpickr", {
+  dateFormat: "Y-m-d"
 });
