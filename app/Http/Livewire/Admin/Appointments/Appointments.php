@@ -19,6 +19,7 @@ class Appointments extends Component
   {
     return view('admin.appointments.index', [
       'appointments' => Appointment::search(trim($this->search))
+          ->with('user')
           ->orderBy($this->sortField, $this->sortAsc ? 'desc' : 'asc')
           ->paginate($this->perPage)
     ]);
