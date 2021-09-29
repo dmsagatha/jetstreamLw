@@ -9,7 +9,7 @@
         <div class="col-span-6 sm:col-span-3 mt-8">
           <div class="relative">
             <x-form type="text" name="state.name" label="Nombre" />
-            <x-error for="state.name" />
+            <x-error for="name" />
             {{-- <x-jet-label for="name" value="{{ __('Name') }}" />
             <x-jet-input id="name" type="text" class="mt-1 block w-full form-control shadow-none" wire:model.defer="state.name" autocomplete="name" />
             <x-jet-input-error for="name" class="mt-2" /> --}}
@@ -23,21 +23,35 @@
                 <option value="{{ $user->id }}">{{ $user->name }}</option>
               @endforeach
             </x-select>
+            <x-error for="user_id" />
           </div>
         </div>
 
         <div class="col-span-6 sm:col-span-3 mt-8">
           <div class="relative">
             <x-date-picker wire:model.defer="state.date" value="Fecha" type="text" class="flatpickr" />
-            <x-error for="state.date" />
+            <x-error for="date" />
           </div>
         </div>
 
         <div class="col-span-6 sm:col-span-3 mt-8">
           <div class="relative">
+            {{-- <x-label value="Estatus" /> --}}
+            <label for="state.status" class="block text-sm font-medium text-gray-700 py-2">Estatus</label>
+            <select wire.model.defer="state.status" class="select--control">
+              <option value="">Seleccionar</option>
+              <option value="Scheduled">Scheduled</option>
+              <option value="Closed">Cerrado</option>
+            </select>
+            <x-error for="status" />
+          </div>
+        </div>
+
+        <div class="col-span-6 mt-8">
+          <div class="relative">
             <x-label value="Descripción" />
             <textarea wire:model.defer="state.description" class="w-full form-control" rows="2"></textarea>
-            <x-error for="state.description" />
+            <x-error for="description" />
           </div>
         </div>
       </div>

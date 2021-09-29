@@ -12,6 +12,7 @@ class CreateAppointmentsTable extends Migration
       $table->id();
       $table->foreignId('user_id')->constrained();
       $table->string('name')->unique();
+      $table->string('status');
       $table->date('date');
       $table->text('description');
       $table->timestamps();
