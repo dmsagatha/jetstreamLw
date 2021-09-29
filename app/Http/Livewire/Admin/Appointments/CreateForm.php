@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Admin\Appointments;
 use App\Models\Appointment;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 use Livewire\Component;
 
 class CreateForm extends Component
@@ -12,6 +13,8 @@ class CreateForm extends Component
   public $state = [
     'status' => 'Scheduled',
   ];
+
+  public $appointmentId;
 
   public function render()
   {
@@ -22,15 +25,32 @@ class CreateForm extends Component
     ]);
   }
 
+  public function rules()
+  {
+    return [
+      'state.name' => [
+        'required', 'string', 'min:4',
+        Rule::unique('appointments')->ignore($this->appointmentId)
+      ],
+      'state.user_id'     => 'required',
+      'state.date'        => 'required',
+      'state.description' => 'required',
+      'state.status'      => 'required|in:Scheduled,Closed',
+    ];
+  }
+
   public function createAppointment()
   {
     // dd($this->state);
     
-    Validator::make(
+    /* Validator::make(
       $this->state,
       [
+        'name' => [
+          'required', 'string', 'min:4',
+          Rule::unique('appointments')->ignore($this->appointmentId)
+        ],
         'user_id'     => 'required',
-        'name'        => 'required',
         'date'        => 'required',
         'description' => 'required',
         'status'      => 'required|in:Scheduled,Closed',
@@ -38,12 +58,20 @@ class CreateForm extends Component
       [
         'user_id.required' => 'El usuario es requerido.'
       ]
-    )->validate();
+    )->validate(); */
+
+    $this->validate();
 
     Appointment::create($this->state);
 
     $this->emit('alertCreate', 'Registro creado satisfactoriamente.');
 
     return redirect()->route('appointments');
+  }
+
+  public function updated($propertyName)
+  {
+    // wire:model.debounce.50 - Bitfumes - 8 Laravel Livewire Real Time Validatio
+    $this->validateOnly($propertyName);
   }
 }
