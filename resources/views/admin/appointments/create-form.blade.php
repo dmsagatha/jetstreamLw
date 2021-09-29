@@ -20,7 +20,7 @@
           <div class="relative">
             <x-select name="state.user_id" label="Cliente">
               @foreach($clients as $user)
-                <option value="{{ $user->id }}" class="uppercase">{{ $user->name }}</option>
+                <option value="{{ $user->id }}">{{ $user->name }}</option>
               @endforeach
             </x-select>
           </div>
@@ -28,7 +28,7 @@
 
         <div class="col-span-6 sm:col-span-3 mt-8">
           <div class="relative">
-            <x-date-picker wire:model="state.date" value="Fecha" type="text" class="flatpickr" />
+            <x-date-picker wire:model.defer="state.date" value="Fecha" type="text" class="flatpickr" />
             <x-error for="state.date" />
           </div>
         </div>
@@ -36,7 +36,7 @@
         <div class="col-span-6 sm:col-span-3 mt-8">
           <div class="relative">
             <x-label value="Descripción" />
-            <textarea wire:model="state.description" class="w-full form-control" rows="2"></textarea>
+            <textarea wire:model.defer="state.description" class="w-full form-control" rows="2"></textarea>
             <x-error for="state.description" />
           </div>
         </div>
