@@ -34,4 +34,11 @@ class RequestCreateUpdateUser extends FormRequest
 
     return $rules;
   }
+
+  public function messages()
+  {
+    return [
+      'name.required' => 'El campo nombre es obligatorio'
+    ];
+  }
 }

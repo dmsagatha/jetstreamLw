@@ -28,16 +28,21 @@ class CreateForm extends Component
   public function rules()
   {
     return [
-      'state.name' => [
-        'required', 'string', 'min:4',
-        Rule::unique('appointments')->ignore($this->appointmentId)
-      ],
+      'state.name'  => 'required|string|min:4|unique:appointments,name,' . $this->appointmentId,
       'state.user_id'     => 'required',
       'state.date'        => 'required',
       'state.description' => 'required',
       'state.status'      => 'required|in:Scheduled,Closed',
     ];
   }
+
+  protected $messages = [
+    'state.name.required'        => 'El campo nombre es obligatorio',
+    'state.user_id.required'     => 'El campo usuario es obligatorio.',
+    'state.date.required'        => 'El campo fecha es obligatorio.',
+    'state.description.required' => 'El campo descripción es obligatorio.',
+    'state.status.required'      => 'El campo estado es obligatorio.',
+  ];
 
   public function createAppointment()
   {

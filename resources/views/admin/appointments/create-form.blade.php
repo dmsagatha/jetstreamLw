@@ -20,14 +20,13 @@
                 <option value="{{ $user->id }}">{{ $user->name }}</option>
               @endforeach
             </x-select>
-            <x-error for="user_id" />
           </div>
         </div>
 
         <div class="col-span-6 sm:col-span-3 mt-8">
           <div class="relative">
             <x-date-picker wire:model.defer="state.date" value="Fecha" type="text" class="flatpickr" />
-            <x-error for="date" />
+            <x-error for="state.date" />
           </div>
         </div>
 
@@ -43,7 +42,6 @@
               <option value="Scheduled">Programado</option>
               <option value="Closed">Cerrado</option>
             </x-select>
-            <x-error for="status" />
           </div>
         </div>
 
@@ -51,7 +49,7 @@
           <div class="relative">
             <x-label value="Descripción" />
             <textarea wire:model.defer="state.description" class="w-full form-control" rows="2"></textarea>
-            <x-error for="description" />
+            <x-error for="state.description" />
           </div>
         </div>
       </div>
