@@ -1,6 +1,6 @@
 <div class="shadow overflow-hidden sm:rounded-md mt-20">
   <h2 class="text-gray-900 text-2xl font-semibold py-3">
-    Crear Equipo
+    Programar Cita
   </h2>
 
   <div class="px-4 py-5 bg-white sm:p-6">
@@ -38,9 +38,9 @@
           <div class="relative">
             {{-- <x-label value="Estatus" /> --}}
             <label for="state.status" class="block text-sm font-medium text-gray-700 py-2">Estatus</label>
-            <select wire.model.defer="state.status" class="select--control">
+            <select wire:model.defer="state.status" class="select--control">
               <option value="">Seleccionar</option>
-              <option value="Scheduled">Scheduled</option>
+              <option value="Scheduled">Programado</option>
               <option value="Closed">Cerrado</option>
             </select>
             <x-error for="status" />

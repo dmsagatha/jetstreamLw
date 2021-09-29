@@ -47,10 +47,10 @@ Route::group(['middleware' => 'auth:sanctum'], function ()
   Route::get('/productos', Products::class)->name('products');
 
   // Clvon - https://www.youtube.com/watch?v=Kdu6i42rT5U&list=PLGg3vnFos8GMxYSWRBce3LH_SREan7my8&index=11
-  Route::get('/equipos', Appointments::class)->name('appointments');
-  Route::get('equipos/crear', CreateForm::class)->name('appointments.create');
+  Route::get('/citas', Appointments::class)->name('appointments');
+  Route::get('citas/crear', CreateForm::class)->name('appointments.create');
 
   
-  /* Route::view('equipos/crear', 'admin.appointments.create')->name('appointments.create');
-  Route::view('equipos/editar/{appointmentsId}', 'admin.appointments.edit')->name('appointments.edit'); */
+  /* Route::view('citas/crear', 'admin.appointments.create')->name('appointments.create');
+  Route::view('citas/editar/{appointmentsId}', 'admin.appointments.edit')->name('appointments.edit'); */
 });

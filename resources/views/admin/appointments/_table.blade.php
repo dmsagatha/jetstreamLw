@@ -16,6 +16,11 @@
         Fecha
         @include('shared._sort-icon', ['field' => 'date'])
       </th>
+      <th scope="col" wire:click.prevent="sortBy('status')"
+        class="px-6 py-3 text-gray-500 uppercase tracking-wider cursor-pointer">
+        Estado
+        @include('shared._sort-icon', ['field' => 'status'])
+      </th>
       <th scope="col" wire:click.prevent="sortBy('description')"
         class="px-6 py-3 text-gray-500 uppercase tracking-wider cursor-pointer">
         Descripción
@@ -37,6 +42,9 @@
         </td>
         <td class="px-6 py-4">
           {{ $item->date }}
+        </td>
+        <td class="px-6 py-4">
+          {{ $item->status }}
         </td>
         <td class="px-6 py-4">
           {{ Str::limit($item->description, 50) }}

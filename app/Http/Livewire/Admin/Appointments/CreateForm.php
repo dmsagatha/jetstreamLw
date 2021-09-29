@@ -10,8 +10,7 @@ use Livewire\Component;
 class CreateForm extends Component
 {
   public $state = [
-    'status' => 'Programado',
-    'order_position' => 0,
+    'status' => 'Scheduled',
   ];
 
   public function render()
@@ -34,7 +33,7 @@ class CreateForm extends Component
         'name'        => 'required',
         'date'        => 'required',
         'description' => 'required',
-        'status'      => 'required|in:Programado,Cerrado',
+        'status'      => 'required|in:Scheduled,Closed',
       ],
       [
         'user_id.required' => 'El usuario es requerido.'
