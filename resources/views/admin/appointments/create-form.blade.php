@@ -35,7 +35,7 @@
 
         <div class="col-span-6 sm:col-span-3 mt-8">
           <div class="relative">
-            <x-jet-label value="Descripción" />
+            <x-label value="Descripción" />
             <textarea wire:model="state.description" class="w-full form-control" rows="2"></textarea>
             <x-error for="state.description" />
           </div>
