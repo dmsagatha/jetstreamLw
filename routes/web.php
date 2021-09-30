@@ -9,6 +9,7 @@ use App\Http\Livewire\Admin\Categories\Categories;
 use App\Http\Livewire\Admin\Appointments\Appointments;
 use App\Http\Livewire\Admin\Appointments\CreateForm;
 use App\Http\Livewire\Admin\Appointments\UpdateForm;
+use App\Http\Livewire\Admin\Books\Books;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function ()
@@ -51,4 +52,6 @@ Route::group(['middleware' => 'auth:sanctum'], function ()
   Route::get('/citas', Appointments::class)->name('appointments');
   Route::get('citas/crear', CreateForm::class)->name('appointments.create');
   Route::get('citas/editar/{appointment}', UpdateForm::class)->name('appointments.edit');
+
+  Route::get('/libros', Books::class)->name('books.index');
 });
