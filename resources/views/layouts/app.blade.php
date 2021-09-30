@@ -94,7 +94,7 @@
           confirmButtonText: 'Si, eliminarlo!'
         }).then((result) => {
           if (result.isConfirmed) {
-            Livewire.email('deleteConfirmed')
+            Livewire.emit('deleteConfirmed')
           }
         })
       })
