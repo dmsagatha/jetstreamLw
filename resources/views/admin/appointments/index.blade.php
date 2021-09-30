@@ -38,6 +38,8 @@
           @endif
         </div>
       </div>
+      <div class="relative flex-1 mx-4">
+      </div>
       
       <!-- Botón Crear -->
       <div class="flex items-center">
