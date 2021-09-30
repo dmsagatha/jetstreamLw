@@ -28,6 +28,10 @@
       <!-- Buscar -->
       <div class="relative flex-1 mx-4">
         <x-search name="search" label="Buscar término" />
+        <div class="la-ball-clip-rotate la-dark la-sm">
+          <div></div>
+        </div>
+
         <div class="absolute right-0 top-0 mt-2 mr-2">
           @if ($search !== '')
             <button wire:click="clearPage">
@@ -38,8 +42,9 @@
           @endif
         </div>
       </div>
-      <div class="relative flex-1 mx-4">
-      </div>
+      {{-- <div class="relative flex-1 mx-4">
+        <input wire:model="searchTerm" type="text" class="peer h-10 w-full border border-1.5 rounded-md border-gray-300 text-sm text-gray-900 placeholder-transparent focus:outline-none focus:border-light-blue-500 focus:border-2 p-3" placeholder="Buscar...">
+      </div> --}}
       
       <!-- Botón Crear -->
       <div class="flex items-center">
@@ -60,9 +65,10 @@
         </div>
       @endif
     @else
-      <div class="px-6 py-4">
-        No existen registros coincidentes
-      </div>
+    <div class="hero container max-w-screen-lg mx-auto py-10">
+      <img class="mx-auto object-none object-center " src="{{ asset('images/empty.svg') }}" alt="No existen registros" >
+      <p class="mt-2 text-center">No existen registros coincidentes</p>
+    </div>
     @endif
   </x-table>
 
