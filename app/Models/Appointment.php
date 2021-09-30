@@ -21,7 +21,7 @@ class Appointment extends Model
   {
     $badges = [
       'Scheduled' => 'red',
-      'Closed'    => 'green',
+      'Closed'    => 'red',
     ];
 
     return $badges[$this->status];

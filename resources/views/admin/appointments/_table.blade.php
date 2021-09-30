@@ -49,7 +49,7 @@
         <td class="px-6 py-4">{{ $item->name }}</td>
         <td class="px-6 py-4 text-center">{{ $item->date }}</td>
         <td class="px-6 py-4 text-center">
-          <span class="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-red-100 bg-{{ $item->status_badge }}-600 rounded-full">
+          <span class="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-white bg-{{ $item->status_badge }}-600 rounded-full">
             {{ $item->status }}
           </span>
         </td>
