@@ -63,4 +63,7 @@
       </div>
     @endif
   </x-table>
+  
+
+  <x-confirmation-alert />
 </div>

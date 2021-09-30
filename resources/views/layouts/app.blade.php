@@ -63,6 +63,7 @@
     </div><!-- w-full -->
 
     @stack('modals')
+    
 
     @livewireScripts
     
