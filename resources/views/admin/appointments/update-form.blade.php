@@ -38,9 +38,17 @@
               <option value="Scheduled">Programado</option>
               <option value="Closed">Cerrado</option>
             </select> --}}
-            <x-select name="state.status" label="Estado">
+            {{-- <x-select name="state.status" label="Estado">
               <option value="Scheduled">Programado</option>
               <option value="Closed">Cerrado</option>
+            </x-select> --}}
+            
+            <x-select name="state.status" label="Estado">
+              @foreach (App\Models\Appointment::STATUS_SELECT as $key => $label)
+                <option value="{{ $key }}" {{ old('status', '') === (string) $key ? 'selected' : '' }}>
+                  {{ $label }}
+                </option>
+              @endforeach
             </x-select>
           </div>
         </div>

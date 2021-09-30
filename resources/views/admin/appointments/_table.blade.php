@@ -50,7 +50,7 @@
         <td class="px-6 py-4 text-center">{{ $item->date }}</td>
         <td class="px-6 py-4 text-center">
           <span class="inline-flex items-center justify-center px-2 py-0.5 text-xs font-semibold text-gray-700 bg-{{ $item->status_badge }}-400 rounded-full">
-            {{ $item->status }}
+            {{ App\Models\Appointment::STATUS_SELECT[$item->status] ?? '' }}
           </span>
         </td>
         <td class="px-6 py-4">{{ Str::limit($item->description, 50) }}</td>
