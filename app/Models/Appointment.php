@@ -20,8 +20,10 @@ class Appointment extends Model
   public function getStatusBadgeAttribute()
   {
     $badges = [
-      'Scheduled' => 'red',
+      'Scheduled' => 'green',
       'Closed'    => 'red',
+      /* 'Scheduled' => 'yellow',
+      'Closed'    => 'blue', */
     ];
 
     return $badges[$this->status];
