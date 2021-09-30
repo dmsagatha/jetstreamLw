@@ -19,7 +19,6 @@
 
     <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}" defer></script>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </head>
   <body class="h-screen overflow-hidden flex items-center justify-center bg-indigo-50 text-gray-700">
     <div class="w-full">
@@ -79,33 +78,6 @@
           menu.classList.add('hidden');
         }
       }
-    </script>
-
-    <script>
-      window.addEventListener('show-delete-confirmation', event => {
-        Swal.fire({
-          title: 'Esta seguro?',
-          text: "¡No podrás revertir esto!",
-          icon: 'warning',
-          showCancelButton: true,
-          confirmButtonColor: '#3085d6',
-          cancelButtonColor: '#d33',
-          cancelButtonText: 'Cancelar',
-          confirmButtonText: 'Si, eliminarlo!'
-        }).then((result) => {
-          if (result.isConfirmed) {
-            Livewire.emit('deleteConfirmed')
-          }
-        })
-      })
-
-      window.addEventListener('deleted', event => {
-        Swal.fire(
-          'Eliminado!',
-          event.detail.message,
-          'success'
-        )
-      })
     </script>
   </body>
 </html>
