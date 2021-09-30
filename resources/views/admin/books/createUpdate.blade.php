@@ -6,6 +6,24 @@
   <div class="px-4 py-5 bg-white sm:p-6">
     <form wire:submit.prevent="save" class="w-full">
       <div class="w-full px-3 mb-6 md:mb-0">
+        <div class="relative">
+          <x-form type="text" name="book.name" label="Título" />
+          <x-error for="book.name" />
+        </div>
+
+        <div class="relative mt-8 w-44">
+          <x-form type="number" name="book.pages" label="N° de Páginas" />
+          <x-error for="book.pages" />
+        </div>
+
+        <div class="relative mt-8">
+          <x-form type="text" name="book.author" label="Autor(es)" />
+          <x-error for="book.author" />
+        </div>
+      </div>
+
+
+      {{-- <div class="w-full px-3 mb-6 md:mb-0">
         <label class="block tracking-wide text-gray-700 text-xs font-bold mb-2" for="name">
           Título
         </label>
@@ -17,8 +35,8 @@
           {{ $errors->first('book.name') }}
         </p>
         @endif
-      </div>
-      <div class="w-full px-3 mb-6 md:mb-0">
+      </div> --}}
+      {{-- <div class="w-full px-3 mb-6 md:mb-0">
         <label class="block tracking-wide text-gray-700 text-xs font-bold mb-2" for="pages">
           N° de Páginas
         </label>
@@ -43,7 +61,7 @@
           {{ $errors->first('book.author') }}
         </p>
         @endif
-      </div>
+      </div> --}}
       <button class="px-3 ml-3 py-2 bg-green-400" type="submit">
         Guardar
       </button>
