@@ -46,6 +46,10 @@
             <i class="fa fa-edit text-blue-600 mr-2"></i>
           </a> --}}
           Editar | Eliminar
+
+          <a href="" wire:click.prevent="confirmRemoval({{ $item->id }})" class="text-red-600 hover:text-red-900" title="Eliminar">
+            <i class="fas fa-trash mr-2"></i>
+          </a>
         </td>
       </tr>
     @endforeach

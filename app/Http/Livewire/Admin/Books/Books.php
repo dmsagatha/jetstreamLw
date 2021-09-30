@@ -16,6 +16,12 @@ class Books extends Component
   public $sortAsc   = true;
   public $readyToLoad = false;
 
+  protected $listeners = [
+    'deleteConfirmed' => 'deleteRegister',
+  ];
+
+  public $idBeingRemoved = null;
+
   public function render()
   {
     return view('admin.books.index', [
@@ -25,11 +31,20 @@ class Books extends Component
     ]);
   }
 
-  public function deleteRegister(Book $book)
+  public function confirmRemoval($bookId)
   {
+    $this->idBeingRemoved = $bookId;
+
+    $this->dispatchBrowserEvent('show-delete-confirmation');
+  }
+
+  public function deleteRegister()
+  {
+    $book = Book::findOrFail($this->idBeingRemoved);
+
     $book->delete();
 
-    $this->emit('deleteRegister', $book);
+    $this->dispatchBrowserEvent('deleted', ['message' => 'Registro eliminado satisfactoriamente!']);
   }
   
   public function loadRecords()
