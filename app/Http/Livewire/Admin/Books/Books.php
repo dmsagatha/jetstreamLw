@@ -37,6 +37,12 @@ class Books extends Component
     $this->readyToLoad = true;
   }
 
+  public function clearPage()
+  {
+    $this->resetPage();
+    $this->reset();
+  }
+
   public function sortBy($field)
   {
     if ($this->sortField === $field) {
@@ -46,11 +52,5 @@ class Books extends Component
     }
 
     $this->sortField = $field;
-  }
-
-  public function clearPage()
-  {
-    $this->resetPage();
-    $this->reset();
   }
 }

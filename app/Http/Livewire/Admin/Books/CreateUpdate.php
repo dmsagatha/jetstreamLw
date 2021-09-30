@@ -7,6 +7,11 @@ use Livewire\Component;
 
 class CreateUpdate extends Component
 {
+
+
+
+
+  
   public Book $book;
   public $bookId;
 
