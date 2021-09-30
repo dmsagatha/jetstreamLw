@@ -15,6 +15,12 @@ class Appointments extends Component
   public $sortField = 'id';
   public $sortAsc   = true;
 
+  protected $listeners = [
+    'deleteConfirmed' => 'deleteRegister',
+  ];
+
+  public $idBeingRemoved = null;
+
   public function render()
   {
     return view('admin.appointments.index', [
@@ -23,6 +29,22 @@ class Appointments extends Component
           ->orderBy($this->sortField, $this->sortAsc ? 'desc' : 'asc')
           ->paginate($this->perPage)
     ]);
+  }
+  
+  public function confirmRemoval($appointmentId)
+  {
+    $this->idBeingRemoved = $appointmentId;
+
+    $this->dispatchBrowserEvent('show-delete-confirmation');
+  }
+
+  public function deleteRegister()
+  {
+    $appointment = Appointment::findOrFail($this->idBeingRemoved);
+
+    $appointment->delete();
+
+    $this->dispatchBrowserEvent('deleted', ['message' => 'Registro eliminado satisfactoriamente!']);
   }
 
   public function clearPage()
