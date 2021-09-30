@@ -10,7 +10,7 @@ use App\Models\Product;
 use App\Models\Section;
 use App\Models\Student;
 use App\Models\Category;
-use Storage;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
 
@@ -23,11 +23,11 @@ class DatabaseSeeder extends Seeder
     Student::query()->delete();
     Section::query()->delete();
     Lesson::query()->delete();
-    Storage::deleteDirectory('posts');
     Category::query()->delete();
     User::query()->delete();
     Post::query()->delete();
 
+    Storage::deleteDirectory('posts');
     Storage::makeDirectory('posts');
 
     Post::factory()->times(30)->create();
@@ -67,5 +67,6 @@ class DatabaseSeeder extends Seeder
       ['name' => 'Equipo D', 'description' => 'Descripción D', 'date' => '2021-07-26'],
       ['name' => 'Equipo E', 'description' => 'Descripción E', 'date' => '2021-09-26'],
     ]); */
+    Appointment::factory()->times(300)->create();
   }
 }

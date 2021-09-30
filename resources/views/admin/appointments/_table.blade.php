@@ -49,16 +49,17 @@
         <td class="px-6 py-4">{{ $item->name }}</td>
         <td class="px-6 py-4 text-center">{{ $item->date }}</td>
         <td class="px-6 py-4 text-center">
-          <span class="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-red-100 bg-{{ $item->status_badge }}-600 rounded-full">
-            {{ $item->status }}
+          <span class="inline-flex items-center justify-center px-2 py-0.5 text-xs font-semibold text-gray-700 bg-{{ $item->status_badge }}-400 rounded-full">
+            {{ App\Models\Appointment::STATUS_SELECT[$item->status] ?? '' }}
           </span>
         </td>
         <td class="px-6 py-4">{{ Str::limit($item->description, 50) }}</td>
-        <td class="px-6 py-4 text-sm font-medium"> 
-          <a href="/equipos/editar/{{ $item->id }}" class="text-indigo-600 hover:text-indigo-900" title="Editar">
+        <td class="px-6 py-4 text-sm font-medium">
+          <a href="{{ route('appointments.edit', $item) }}" class="text-indigo-600 hover:text-indigo-900" title="Editar">
             <i class="fas fa-edit mr-2"></i>
           </a>
-          <a href="" class="text-red-600 hover:text-red-900" title="Eliminar">
+
+          <a href="" wire:click.prevent="confirmRemoval({{ $item->id }})" class="text-red-600 hover:text-red-900" title="Eliminar">
             <i class="fas fa-trash mr-2"></i>
           </a>
         </td>

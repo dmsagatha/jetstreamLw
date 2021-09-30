@@ -17,11 +17,16 @@ class Appointment extends Model
     return $this->belongsTo(User::class);
   }
 
+  const STATUS_SELECT = [
+    'Scheduled' => 'Programado',
+    'Closed'    => 'Cerrado',
+  ];
+
   public function getStatusBadgeAttribute()
   {
     $badges = [
-      'Scheduled' => 'red',
-      'Closed'    => 'green',
+      'Scheduled' => 'green',
+      'Closed'    => 'red',
     ];
 
     return $badges[$this->status];

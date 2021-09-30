@@ -58,9 +58,12 @@
         </div>
       @endif
     @else
-      <div class="px-6 py-4">
-        No existen registros coincidentes
-      </div>
+    <div class="hero container max-w-screen-lg mx-auto py-10">
+      <img class="mx-auto object-none object-center " src="{{ asset('images/empty.svg') }}" alt="No existen registros" >
+      <p class="mt-2 text-center">No existen registros coincidentes</p>
+    </div>
     @endif
   </x-table>
+
+  <x-confirmation-alert />
 </div>
