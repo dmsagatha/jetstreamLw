@@ -24,6 +24,11 @@ class Appointments extends Component
           ->paginate($this->perPage)
     ]);
   }
+
+  public function clearPage()
+  {
+    $this->reset();
+  }
   
   public function sortBy($field)
   {

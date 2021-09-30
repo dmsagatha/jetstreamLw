@@ -55,7 +55,6 @@ class UpdateForm extends Component
     
 		$this->appointment->update($this->state);
 
-
     $this->emit('alertCreate', 'Registro actualizado satisfactoriamente.');
 
     return redirect()->route('appointments');
