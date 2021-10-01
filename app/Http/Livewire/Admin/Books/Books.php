@@ -11,7 +11,7 @@ class Books extends Component
   use WithPagination;
 
   public $search    = '';
-  public $perPage   = '5';
+  public $perPage   = '25';
   public $sortField = 'id';
   public $sortAsc   = true;
   public $readyToLoad = false;

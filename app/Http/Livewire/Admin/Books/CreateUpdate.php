@@ -9,16 +9,11 @@ class CreateUpdate extends Component
 {
   public $book, $bookId;
 
-  public $action;
-  public $button;
-
   public function mount()
   {
     if (!$this->book && $this->bookId) {
       $this->book = Book::find($this->bookId);
     }
-
-    // $this->button = create_button($this->action, "User");
   }
 
   public function render()
