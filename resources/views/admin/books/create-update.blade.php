@@ -1,20 +1,20 @@
-<div class="shadow overflow-hidden sm:rounded-md mt-20">
-  <h2 class="text-gray-900 text-2xl font-semibold py-3">
-    {{ $bookId ? 'Actualizar Libro' : 'Crear Libro' }}
-  </h2>
+<div class="shadow overflow-hidden sm:rounded-md mt-4">
+  <x-slot name="header">
+    <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+      {{ $bookId ? 'Actualizar Libro' : 'Crear Libro' }}
+    </h2>
+  </x-slot>
 
   <div class="px-4 py-5 bg-white sm:p-6">
-    {{-- <form wire:submit.prevent="createBook"> --}}
     <form wire:submit.prevent="save">
-    {{-- <form :submit="$action"> --}}
       @include('admin.books._fields')
 
       <div class="px-2 py-3 bg-gray-50 text-center sm:px-3">
-        <x-jet-danger-button>
+        <x-button-danger>
           <a href="{{ route('books.index') }}">
             <i class="fa fa-times mr-1"></i>Cancelar
           </a>
-        </x-jet-danger-button>
+        </x-button-danger>
 
         <x-button class="ml-3 mt-4">
           <svg wire:loading wire:target="save" class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
