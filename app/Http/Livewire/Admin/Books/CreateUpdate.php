@@ -7,7 +7,6 @@ use Livewire\Component;
 
 class CreateUpdate extends Component
 {
-  // public $state = [];
   public $book, $bookId;
 
   public $action;
