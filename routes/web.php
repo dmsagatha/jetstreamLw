@@ -56,8 +56,8 @@ Route::group(['middleware' => 'auth:sanctum'], function ()
 
   Route::get('/libros', Books::class)->name('books.index');
   // Route::get('/libros/crear', CreateUpdate::class)->name('books.create');
-  Route::view('/libros/editar/{book}', 'admin.books.create-update')->name('books.edit');
 
 
   Route::view('/libros/crear', 'admin.books.create')->name('books.create');
+  Route::view('/libros/editar/{bookId}', 'admin.books.edit')->name('books.edit');
 });

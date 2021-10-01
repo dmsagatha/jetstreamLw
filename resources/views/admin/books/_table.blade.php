@@ -42,9 +42,13 @@
           {{ $item->author }}
         </td>
         <td class="px-6 py-4 text-sm font-medium">
-          <a href="{{ route('books.edit', $item) }}" class="text-indigo-600 hover:text-indigo-900" title="Editar">
-            <i class="fas fa-edit mr-2"></i>
+          <a role="button" href="/libros/editar/{{ $item->id }}" class="mr-3">
+            <i class="fas fa-16px fa-pen"></i>
           </a>
+
+          {{-- <a href="{{ route('books.edit', $item) }}" class="text-indigo-600 hover:text-indigo-900" title="Editar">
+            <i class="fas fa-edit mr-2"></i>
+          </a> --}}
           {{-- <a href="{{ route('books.edit', $item->id) }}">
             <i class="fa fa-edit text-blue-600 mr-2"></i>
           </a> --}}

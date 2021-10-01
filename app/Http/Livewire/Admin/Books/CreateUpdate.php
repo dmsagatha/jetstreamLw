@@ -10,10 +10,17 @@ class CreateUpdate extends Component
   public $state = [];
   public $book, $bookId;
 
-  /* public function mount(Book $book)
+  public $action;
+  public $button;
+
+  public function mount()
   {
-    dd($book);
-  } */
+    if (!$this->book && $this->bookId) {
+      $this->book = Book::find($this->bookId);
+    }
+
+    // $this->button = create_button($this->action, "User");
+  }
 
   public function render()
   {
@@ -47,30 +54,29 @@ class CreateUpdate extends Component
     return redirect()->route('books.index');
   }
 
+  public function updateBook()
+  {
+    $this->resetErrorBag();
+    $this->validate();
+
+    Book::query()
+      ->where('id', $this->bookId)
+      ->update([
+        "name"   => $this->book->name,
+        "author" => $this->book->author,
+        "pages"  => $this->book->pages,
+      ]);
+
+    $this->emit('saved');
+
+    $this->emit('alertCreate', 'Registro actualizado satisfactoriamente.');
+
+    return redirect()->route('books.index');
+  }
+
   public function updated($propertyName)
   {
     // wire:model.debounce.50 - Bitfumes - 8 Laravel Livewire Real Time Validatio
     $this->validateOnly($propertyName);
   }
-
-  /* public $book = null;
-  public $name, $author, $pages;
-  
-  protected $listeners = [
-    'showModal' => 'openModal',
-    'showModalNewUser' => 'openModalNew',
-  ];
-
-  public function render()
-  {
-    return view('admin.books.create-update');
-  }
-
-  public function openModal(Book $book)
-  {
-    $this->book   = $book;
-    $this->name   = $book->name;
-    $this->author = $book->author;
-    $this->pages  = $book->pages;
-  } */
 }
