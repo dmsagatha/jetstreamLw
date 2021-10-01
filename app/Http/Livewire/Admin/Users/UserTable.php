@@ -16,7 +16,7 @@ class UserTable extends Component
   public $sortAsc   = false;
   public $userRole  = '';
 
-  public $showModal = 'hidden';
+  // public $showModal = 'hidden';
 
   /**
    * Escuchar el evento que va a actualizar la tabla

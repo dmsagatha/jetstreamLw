@@ -37,11 +37,12 @@ class CreateForm extends Component
   }
 
   protected $messages = [
-    'state.name.required'        => 'El campo nombre es obligatorio',
-    'state.user_id.required'     => 'El campo usuario es obligatorio.',
-    'state.date.required'        => 'El campo fecha es obligatorio.',
-    'state.description.required' => 'El campo descripción es obligatorio.',
-    'state.status.required'      => 'El campo estado es obligatorio.',
+    'state.name.required'        => 'El nombre es obligatorio',
+    'state.name.unique'          => 'El nombre ya ha sido registrado',
+    'state.user_id.required'     => 'El usuario es obligatorio.',
+    'state.date.required'        => 'El fecha es obligatorio.',
+    'state.description.required' => 'El descripción es obligatorio.',
+    'state.status.required'      => 'El estado es obligatorio.',
   ];
 
   public function createAppointment()
