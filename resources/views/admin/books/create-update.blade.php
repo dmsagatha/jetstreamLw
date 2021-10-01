@@ -1,6 +1,6 @@
 <div class="shadow overflow-hidden sm:rounded-md mt-20">
   <h2 class="text-gray-900 text-2xl font-semibold py-3">
-    Crear Libros
+    {{ $bookId ? 'Actualizar Libro' : 'Crear Libro' }}
   </h2>
 
   <div class="px-4 py-5 bg-white sm:p-6">
@@ -22,7 +22,9 @@
             <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
             </path>
           </svg>
-          <span><i class="fa fa-save mr-1"></i>{{ __('Save') }}</span>
+          <span><i class="fa fa-save mr-1"></i>
+            {{ isset($this->book->id) ? 'Actualizar' : 'Guardar'}}
+          </span>
         </x-button>
       </div>
     </form>
