@@ -9,6 +9,8 @@ use App\Http\Livewire\Admin\Categories\Categories;
 use App\Http\Livewire\Admin\Appointments\Appointments;
 use App\Http\Livewire\Admin\Appointments\CreateForm;
 use App\Http\Livewire\Admin\Appointments\UpdateForm;
+use App\Http\Livewire\Admin\Books\Books;
+use App\Http\Livewire\Admin\Books\CreateUpdate;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function ()
@@ -51,4 +53,9 @@ Route::group(['middleware' => 'auth:sanctum'], function ()
   Route::get('/citas', Appointments::class)->name('appointments');
   Route::get('citas/crear', CreateForm::class)->name('appointments.create');
   Route::get('citas/editar/{appointment}', UpdateForm::class)->name('appointments.edit');
+
+  // https://github.com/nyancodeid/laravel-8-stisla-jetstream
+  Route::get('/libros', Books::class)->name('books.index');
+  Route::view('/libros/crear', 'admin.books.create')->name('books.create');
+  Route::view('/libros/editar/{bookId}', 'admin.books.edit')->name('books.edit');
 });

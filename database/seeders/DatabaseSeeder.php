@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\Appointment;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Lesson;
@@ -10,6 +9,8 @@ use App\Models\Product;
 use App\Models\Section;
 use App\Models\Student;
 use App\Models\Category;
+use App\Models\Appointment;
+use App\Models\Book;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
@@ -18,6 +19,7 @@ class DatabaseSeeder extends Seeder
 {
   public function run()
   {
+    Book::query()->delete();
     Appointment::query()->delete();
     Product::query()->delete();
     Student::query()->delete();
@@ -68,5 +70,7 @@ class DatabaseSeeder extends Seeder
       ['name' => 'Equipo E', 'description' => 'Descripción E', 'date' => '2021-09-26'],
     ]); */
     Appointment::factory()->times(300)->create();
+
+    Book::factory(20)->create();
   }
 }

@@ -1,6 +1,6 @@
 <header class="fixed w-full bg-gray-800 text-gray-300 text-sm z-10">
   <div x-data="{ openNavbar: false }" class="relative w-full mx-auto px-2 sm:px-4 lg:px-8">
-    <div class="flex items-center justify-between h-16 md:justify-start py-3 md:space-x-10">
+    <div class="flex items-center justify-between h-16 md:justify-start py-3 md:space-x-2">
       <!-- Items Lado Izquierdo - flex items-center justify-start -->
       <div class="flex justify-start lg:w-0 lg:flex-1">
         <div class="inline-flex items-center">
@@ -36,7 +36,7 @@
           </a>
           <a href="{{ route('students') }}"
             class="flex items-center px-4 py-3 hover:bg-gray-100 text-gray-600 hover:text-semibold transition">
-            <i class="fas fa-users text-gray-600 mr-1"></i>Estudiantes
+            <i class="fas fa-user-graduate text-gray-600 mr-1"></i>Estudiantes
           </a>
           <a href="{{ route('products') }}"
             class="flex items-center px-4 py-3 hover:bg-gray-100 text-gray-600 hover:text-semibold transition">
@@ -44,15 +44,23 @@
           </a>
           <a href="{{ route('posts') }}"
             class="flex items-center px-4 py-3 hover:bg-gray-100 text-gray-600 hover:text-semibold transition">
-            <i class="fas fa-tags text-gray-600 mr-1"></i>Publicaciones
+            <i class="fas fa-mail-bulk text-gray-600 mr-1"></i>Publicaciones
           </a>
           <a href="{{ route('user.list') }}"
             class="flex items-center px-4 py-3 hover:bg-gray-100 text-gray-600 hover:text-semibold transition">
-            <i class="fas fa-tags text-gray-600 mr-1"></i>Usuaros
+            <i class="fas fa-users text-gray-600 mr-1"></i>Usuaros
           </a>
           <a href="{{ route('categories') }}"
             class="flex items-center px-4 py-3 hover:bg-gray-100 text-gray-600 hover:text-semibold transition">
-            <i class="fas fa-tags text-gray-600 mr-1"></i>Categorías
+            <i class="fab fa-accusoft text-gray-600 mr-1"></i>Categorías
+          </a>
+          <a href="{{ route('appointments') }}"
+            class="flex items-center px-4 py-3 hover:bg-gray-100 text-gray-600 hover:text-semibold transition">
+            <i class="fas fa-calendar-check text-gray-600 mr-1"></i>Programar Citas
+          </a>
+          <a href="{{ route('books.index') }}"
+            class="flex items-center px-4 py-3 hover:bg-gray-100 text-gray-600 hover:text-semibold transition">
+            <i class="fas fa-book text-gray-600 mr-1"></i>Libros
           </a>
           </div>
         </div><!-- Menú desplegable -->
@@ -62,44 +70,27 @@
       <!-- Items Lado Derecho - flex items-center justify-end -->
       <!-- Barra de Navegación -->
       <div class="flex flex-grow items-center justify-end">
-        <!-- nav
-          absolute: poner el nav ordenado (lo pone a la izquierda) y top-20
-          md:relative: para que aparezca el navbar horizontalmente
-          w-full: 100% tamaño (ancho) del nav
-          flex-grow y left-0: ocupe todo el ancho y este a la izquierda
-          items-center: alinear verticalmente
-          sm:w-auto: si que quiere central el nav
-        -->
         <nav :class="openNavbar ? 'show' : 'hidden'" class="absolute sm:relative sm:flex flex-grow items-center justify-end sm:flex-1 lg:w-0 sm:top-0 top-16 left-0 bg-gray-800 w-full py-2 px-2">
-          <!--
-            flex-col: en pequeño este en formato vertical
-            sm:flex-row: en grande este en formato horizontal
-            m-auto p-2 mx-2 mr-4 my-2 sm:my-0
-          -->
           <div class="flex flex-col sm:flex-row">
-            {{-- <a href="{{ route('categories') }}"
-              class="text-gray-300 hover:text-white py-1 sm:py-3 sm:mx-1 lg:mx-3 pl-1 align-middle border-b-2 border-gray-400 hover:border-gray-300 text-center">
-              Categorías
-            </a> --}}
-            <a href="{{ route('tags') }}"
-              class="text-gray-300 hover:text-white py-1 sm:py-3 sm:mx-1 lg:mx-3 pl-1 align-middle border-b-2 border-gray-400 hover:border-gray-300 text-center">
-              Etiquetas
-            </a>
             <a href="{{ route('products') }}"
-              class="text-gray-300 hover:text-white py-1 sm:py-3 sm:mx-1 lg:mx-3 pl-1 align-middle border-b-2 border-gray-400 hover:border-gray-300 text-center">
+            class="text-gray-300 hover:text-white py-1 sm:mx-1 lg:mx-3 pl-1 align-middle border-b-2 border-gray-400 hover:border-gray-300 md:text-center">
               Productos
             </a>
             <a href="{{ route('posts') }}"
-              class="text-gray-300 hover:text-white py-1 sm:py-3 sm:mx-1 lg:mx-3 pl-1 align-middle border-b-2 border-gray-400 hover:border-gray-300 text-center">
+            class="text-gray-300 hover:text-white py-1 sm:mx-1 lg:mx-3 pl-1 align-middle border-b-2 border-gray-400 hover:border-gray-300 md:text-center">
               Posts
             </a>
             <a href="{{ route('user.list') }}"
-              class="text-gray-300 hover:text-white py-1 sm:py-3 sm:mx-1 lg:mx-3 pl-1 align-middle border-b-2 border-gray-400 hover:border-gray-300 text-center {{ request()->is('usuarios/listado') ? 'active' : '' }}">
+            class="text-gray-300 hover:text-white py-1 sm:mx-1 lg:mx-3 pl-1 align-middle border-b-2 border-gray-400 hover:border-gray-300 md:text-center">
               Usuarios
             </a>
             <a href="{{ route('appointments') }}"
-              class="text-gray-300 hover:text-white py-1 sm:py-3 sm:mx-1 lg:mx-3 pl-1 align-middle border-b-2 border-gray-400 hover:border-gray-300 text-center {{ request()->is('appointments') ? 'active' : '' }}">
+            class="text-gray-300 hover:text-white py-1 sm:mx-1 lg:mx-3 pl-1 align-middle border-b-2 border-gray-400 hover:border-gray-300 md:text-center">
               Programar Citas
+            </a>
+            <a href="{{ route('books.index') }}"
+            class="text-gray-300 hover:text-white py-1 sm:mx-1 lg:mx-3 pl-1 align-middle border-b-2 border-gray-400 hover:border-gray-300 md:text-center">
+              Libros
             </a>
           </div>
         </nav>
