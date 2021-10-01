@@ -42,15 +42,18 @@
           {{ $item->author }}
         </td>
         <td class="px-6 py-4 text-sm font-medium">
-          <a href="{{ route('books.edit', $item->id) }}">
-            <i class="fa fa-edit text-blue-600 mr-2"></i>
+          <a href="{{ route('books.edit', $item) }}" class="text-indigo-600 hover:text-indigo-900" title="Editar">
+            <i class="fas fa-edit mr-2"></i>
           </a>
+          {{-- <a href="{{ route('books.edit', $item->id) }}">
+            <i class="fa fa-edit text-blue-600 mr-2"></i>
+          </a> --}}
           {{-- <a wire:click="edit({{ $item->id }})" href="#">
             <i class="fa fa-edit text-blue-600 mr-2"></i>
           </a> --}}
-          <a wire:click="showForm({{ $item->id }})" class="text-indigo-600 hover:text-indigo-900" href="#">
+          {{-- <a wire:click="showForm({{ $item->id }})" class="text-indigo-600 hover:text-indigo-900" href="#">
             Editar
-          </a>
+          </a> --}}
             | 
           <a href="" wire:click.prevent="confirmRemoval({{ $item->id }})" class="text-red-600 hover:text-red-900" title="Eliminar">
             <i class="fas fa-trash mr-2"></i>

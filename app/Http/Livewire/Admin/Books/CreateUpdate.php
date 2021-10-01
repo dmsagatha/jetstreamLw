@@ -8,7 +8,12 @@ use Livewire\Component;
 class CreateUpdate extends Component
 {
   public $state = [];
-  public $bookId;
+  public $book, $bookId;
+
+  public function mount(Book $book)
+  {
+    dd($book);
+  }
 
   public function render()
   {
