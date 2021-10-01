@@ -54,10 +54,8 @@ Route::group(['middleware' => 'auth:sanctum'], function ()
   Route::get('citas/crear', CreateForm::class)->name('appointments.create');
   Route::get('citas/editar/{appointment}', UpdateForm::class)->name('appointments.edit');
 
+  // http://stisla.test/
   Route::get('/libros', Books::class)->name('books.index');
-  // Route::get('/libros/crear', CreateUpdate::class)->name('books.create');
-
-
   Route::view('/libros/crear', 'admin.books.create')->name('books.create');
   Route::view('/libros/editar/{bookId}', 'admin.books.edit')->name('books.edit');
 });

@@ -4,6 +4,6 @@
   </x-slot>
 
   <div>
-    <livewire:admin.books.create-update action="updateBook" :bookId="request()->bookId" />
+    <livewire:admin.books.create-update action="save" :bookId="request()->bookId" />
   </div>
 </x-app-layout>

@@ -36,40 +36,25 @@ class CreateUpdate extends Component
     ];
   }
 
-  public function createBook()
+  public function save()
   {
-    $this->resetErrorBag();
     $this->validate();
 
-    Book::create($this->book);
-
-    $this->emit('alertCreate', 'Registro creado satisfactoriamente.');
-    $this->reset('book');    
-
-    return redirect()->route('books.index');
-  }
-
-  public function updateBook()
-  {
-    $this->resetErrorBag();
-    $this->validate();
-
-    Book::query()
-      ->where('id', $this->bookId)
-      ->update([
-        "name"   => $this->book->name,
-        "author" => $this->book->author,
-        "pages"  => $this->book->pages,
-      ]);
-
-    $this->emit('alertCreate', 'Registro actualizado satisfactoriamente.');
+    if (!is_null($this->bookId)) {
+      $this->book->save();
+      $this->emit('alertCreate', 'Registro actualizado satisfactoriamente.');
+    } else {
+      Book::create($this->book);
+      $this->emit('alertCreate', 'Registro creado satisfactoriamente.');
+      $this->reset('book');
+    }   
 
     return redirect()->route('books.index');
   }
 
   public function updated($propertyName)
   {
-    // wire:model.debounce.50 - Bitfumes - 8 Laravel Livewire Real Time Validatio
+    // wire:model.debounce.50 - Bitfumes - 8 Laravel Livewire Real Time Validation
     $this->validateOnly($propertyName);
   }
 }
