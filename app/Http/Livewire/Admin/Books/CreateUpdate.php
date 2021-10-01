@@ -7,7 +7,7 @@ use Livewire\Component;
 
 class CreateUpdate extends Component
 {
-  public $state = [];
+  // public $state = [];
   public $book, $bookId;
 
   public $action;
@@ -30,26 +30,21 @@ class CreateUpdate extends Component
   public function rules()
   {
     return [
-      'state.name'   => 'required|string|min:4|unique:books,name,' . $this->bookId,
-      'state.author' => 'required',
-      'state.pages'  => 'required',
+      'book.name'   => 'required|string|min:4|unique:books,name,' . $this->bookId,
+      'book.author' => 'required',
+      'book.pages'  => 'required',
     ];
   }
 
-  protected $messages = [
-    'state.name.required'   => 'El nombre es obligatorio.',
-    'state.name.unique'     => 'El nombre ya ha sido registrado',
-    'state.author.required' => 'El autor es obligatorio.',
-    'state.pages.required'  => 'El número de páginas es obligatorio.',
-  ];
-
   public function createBook()
   {
+    $this->resetErrorBag();
     $this->validate();
 
-    Book::create($this->state);
+    Book::create($this->book);
 
     $this->emit('alertCreate', 'Registro creado satisfactoriamente.');
+    $this->reset('book');    
 
     return redirect()->route('books.index');
   }
@@ -66,8 +61,6 @@ class CreateUpdate extends Component
         "author" => $this->book->author,
         "pages"  => $this->book->pages,
       ]);
-
-    $this->emit('saved');
 
     $this->emit('alertCreate', 'Registro actualizado satisfactoriamente.');
 

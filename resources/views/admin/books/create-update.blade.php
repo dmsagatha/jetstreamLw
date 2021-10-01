@@ -5,6 +5,7 @@
 
   <div class="px-4 py-5 bg-white sm:p-6">
     <form wire:submit.prevent="createBook">
+    {{-- <form :submit="$action"> --}}
       @include('admin.books._fields')
 
       <div class="px-2 py-3 bg-gray-50 text-center sm:px-3">
