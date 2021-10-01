@@ -7,7 +7,7 @@ use Livewire\Component;
 
 class CreateUpdate extends Component
 {
-  public $state;
+  public $state = [];
   public $bookId;
 
   public function render()

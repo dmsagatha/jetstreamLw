@@ -6,7 +6,7 @@
     </div>
   </div>
 
-  <div class="col-span-3 mt-8">
+  <div class="col-span-2 mt-8">
     <div class="relative">
       <x-form type="number" name="state.pages" label="N° de Páginas" />
       <x-error for="state.pages" />
