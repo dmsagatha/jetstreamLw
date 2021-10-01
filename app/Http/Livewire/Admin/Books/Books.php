@@ -46,16 +46,6 @@ class Books extends Component
 
     $this->dispatchBrowserEvent('deleted', ['message' => 'Registro eliminado satisfactoriamente!']);
   }
-
-  public function showForm(Book $book)
-  {
-    if ($book->name) {
-      $this->emit('showModal', $book);
-    } else {
-      $this->emit('showModalNew');
-    }
-    
-  }
   
   public function loadRecords()
   {

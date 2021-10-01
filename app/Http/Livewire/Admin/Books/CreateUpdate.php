@@ -10,10 +10,10 @@ class CreateUpdate extends Component
   public $state = [];
   public $book, $bookId;
 
-  public function mount(Book $book)
+  /* public function mount(Book $book)
   {
     dd($book);
-  }
+  } */
 
   public function render()
   {
