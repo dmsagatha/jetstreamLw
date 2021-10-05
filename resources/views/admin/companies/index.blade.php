@@ -9,7 +9,7 @@
 
   <x-table>
     <!-- Paginar, Buscar y Filtros -->
-    <div class="flex items-center justify-center text-sm text-gray-500 bg-white px-4 py-6 gap-x-2 border-t border-gray-200 sm:px-6">
+    <div class="flex items-center justify-center text-sm text-gray-500 bg-white px-4 py-6 gap-x-2 border-t border-gray-200 sm:px-6 z-50">
       <!-- Paginar -->
       <div class="flex flex-wrap items-center">
         <label for="perPage">Mostrar</label>
