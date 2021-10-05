@@ -8,22 +8,24 @@
         <div class="mt-2 text-sm text-gray-500">
           <div class="grid grid-cols-6 gap-4">
             <div class="col-span-6 sm:col-span-3">
-              <div class="relative mt-4">
-                <x-form type="text" name="name" label="Nombre" />
+              <div class="relative form-group mt-4">
+                <x-input type="text" name="name" id="name" wire:model.defer="name" />
+                <x-label for="name" class="required" value="Nombre" />
                 <x-error for="name" />
               </div>
             </div>
           
             <div class="col-span-6 sm:col-span-3">
-              <div class="relative mt-4">
-                <x-form type="email" name="email" label="Correo Electrónico" />
+              <div class="relative form-group mt-4">
+                <x-input type="email" name="email" id="email" wire:model.defer="email" />
+                <x-label for="email" class="required" value="Correo Electrónico" />
                 <x-error for="email" />
               </div>
             </div>
 
             <div class="col-span-6">
-              <div class="relative w-50">
-                <x-select-options label="Roles" name="role" :options="[
+              <div class="relative form-group w-50">
+                <x-select-options label="Roles" class="required" name="role" :options="[
                       'user' => 'Usuario',
                       'reviewer' => 'Revisor',
                       'admin' => 'Administrador'
@@ -38,15 +40,17 @@
 
             @if ($action == 'Crear')
               <div class="col-span-6 sm:col-span-3">
-                <div class="relative mt-6">
-                  <x-form type="password" name="password" label="Contraseña" />
+                <div class="relative form-group mt-6">
+                  <x-input type="password" name="password" id="password" wire:model.defer="password" />
+                  <x-label for="password" class="required" value="Contraseña" />
                 </div>
                 <x-error for="password" />
               </div>
             
               <div class="col-span-6 sm:col-span-3">
-                <div class="relative mt-6">
-                  <x-form type="password" name="password_confirmation" label="Confirmar contraseña" />
+                <div class="relative form-group mt-6">
+                  <x-input type="password" name="password_confirmation" id="password_confirmation" wire:model.defer="password_confirmation" />
+                  <x-label for="password_confirmation" class="required" value="Confirmar contraseña" />
                   <x-error for="password_confirmation" />
                 </div>
               </div>              

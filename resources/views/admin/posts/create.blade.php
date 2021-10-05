@@ -19,21 +19,21 @@
         <img src="{{ $image->temporaryUrl() }}" alt="" class="mb-4">
       @endif
 
-      <div class="relative mt-2">
-        <x-form type="text" name="title" label="Título" />
+      <div class="relative form-group mt-2">
+        <x-input type="text" name="title" id="title" wire:model.defer="title" />
+        <x-label for="title" class="required" value="Título" />
         <x-error for="title" />
       </div>
 
-      <div class="relative mt-12">
-        <x-jet-label value="Contenido" />
-        <textarea wire:model="content" class="w-full form-control" rows="6"></textarea>
-
-        <x-jet-input-error for="content" />
+      <div class="relative form-group mt-12">
+        <x-label for="content" class="required" value="Contenido" />
+        <textarea wire:model="content" class="w-full form-control" rows="4"></textarea>
+        <x-error for="content" />
       </div>
 
-      <div class="mb-4">
+      <div class="form-group mt-8">
         <x-jet-input type="file" wire:model="image" id="{{ $identifier }}" />
-        <x-jet-input-error for="image" />
+        <x-error for="image" />
       </div>
     </x-slot>
 
