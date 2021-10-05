@@ -1,9 +1,9 @@
 <div wire:init="loadRecords" class="max-w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
-  @section('title', 'Libros')
+  @section('title', 'Compañías')
 
   <x-slot name="header">
     <h2 class="font-semibold text-xl leading-tight">
-      Libros
+      Compañías
     </h2>
   </x-slot>
 
@@ -29,18 +29,19 @@
         <x-search name="search" label="Buscar término" />
         <div class="absolute right-0 top-0 mt-2 mr-2">
           @if ($search !== '')
-            <button wire:click="clearPage">
-              <i class="fa fa-eraser"></i>
-            </button>
+          <button wire:click="clearPage">
+            <i class="fa fa-eraser"></i>
+          </button>
           @else
-            <i class="fa fa-search h-6 w-6 text-gray-400"></i>
+          <i class="fa fa-search h-6 w-6 text-gray-400"></i>
           @endif
         </div>
       </div>
-      
+
       <!-- Botón Crear -->
       <div class="flex items-center">
-        <a href="{{ route('books.create') }}" class="inline-flex items-center justify-center px-4 py-2 bg-red-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-500 focus:outline-none focus:border-red-700 focus:ring focus:ring-red-200 active:bg-red-600 disabled:opacity-25 transition">
+        <a href="{{ route('companies.create') }}"
+          class="inline-flex items-center justify-center px-4 py-2 bg-red-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-500 focus:outline-none focus:border-red-700 focus:ring focus:ring-red-200 active:bg-red-600 disabled:opacity-25 transition">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
           </svg>
@@ -49,12 +50,13 @@
     </div>
     <!-- Paginar, Buscar y Crear con modal -->
 
-    @if (count($books))
-      @include('admin.books._table')
+    {{-- @include('admin.companies._table') --}}
+    @if (count($companies))
+      @include('admin.companies._table')
 
-      @if ($books->hasPages())
+      @if ($companies->hasPages())
         <div class="bg-white px-4 py-3 items-center justify-between border-t border-gray-200 sm:px-6">
-          {{ $books->links() }}
+          {{ $companies->links() }}
         </div>
       @endif
     @else

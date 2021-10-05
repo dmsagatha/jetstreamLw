@@ -62,6 +62,10 @@
             class="flex items-center px-4 py-3 hover:bg-gray-100 text-gray-600 hover:text-semibold transition">
             <i class="fas fa-book text-gray-600 mr-1"></i>Libros
           </a>
+          <a href="{{ route('companies.index') }}"
+            class="flex items-center px-4 py-3 hover:bg-gray-100 text-gray-600 hover:text-semibold transition">
+            <i class="far fa-building text-gray-600 mr-1"></i>Compañías
+          </a>
           </div>
         </div><!-- Menú desplegable -->
       </div>

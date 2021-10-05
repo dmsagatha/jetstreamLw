@@ -3,14 +3,15 @@
 use App\Http\Livewire\Admin\Tags;
 use App\Http\Livewire\Admin\Products;
 use App\Http\Livewire\Admin\Students;
+use App\Http\Livewire\Admin\Books\Books;
 use App\Http\Livewire\Admin\Posts\Posts;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Livewire\Admin\Categories\Categories;
-use App\Http\Livewire\Admin\Appointments\Appointments;
 use App\Http\Livewire\Admin\Appointments\CreateForm;
 use App\Http\Livewire\Admin\Appointments\UpdateForm;
-use App\Http\Livewire\Admin\Books\Books;
-use App\Http\Livewire\Admin\Books\CreateUpdate;
+use App\Http\Livewire\Admin\Appointments\Appointments;
+use App\Http\Controllers\Admin\CompanyController;
+use App\Http\Livewire\Admin\Companies\Index;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function ()
@@ -58,4 +59,9 @@ Route::group(['middleware' => 'auth:sanctum'], function ()
   Route::get('/libros', Books::class)->name('books.index');
   Route::view('/libros/crear', 'admin.books.create')->name('books.create');
   Route::view('/libros/editar/{bookId}', 'admin.books.edit')->name('books.edit');
+
+  // Compañías
+  Route::get('/empresas', Index::class)->name('companies.index');
+  Route::view('/empresas/crear', 'admin.companies.create')->name('companies.create');
+  Route::view('/empresas/editar/{companyId}', 'admin.companies.edit')->name('companies.edit');
 });
