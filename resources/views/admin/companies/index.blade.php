@@ -15,11 +15,9 @@
       <div class="flex flex-wrap items-center">
         <label for="perPage">Mostrar</label>
         <select wire:model="perPage" class="mx-2 form-control">
-          <option value="5">5</option>
-          <option value="10">10</option>
-          <option value="25">25</option>
-          <option value="50">50</option>
-          <option value="100">100</option>
+          @foreach($paginationOptions as $value)
+            <option value="{{ $value }}">{{ $value }}</option>
+          @endforeach
         </select>
 
         <span>registros</span>
