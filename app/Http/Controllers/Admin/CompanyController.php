@@ -18,6 +18,10 @@ class CompanyController extends Controller
     return view('admin.companies.create');
   }
 
+  public function store(Request $request)
+  {
+  }
+
   public function show(Company $company)
   {
     return view('admin.companies.show', compact('company'));
@@ -26,5 +30,13 @@ class CompanyController extends Controller
   public function edit(Company $company)
   {
     return view('admin.companies.edit', compact('company'));
+  }
+
+  public function update(Request $request, Company $company)
+  {
+  }
+
+  public function destroy(Company $company)
+  {
   }
 }
