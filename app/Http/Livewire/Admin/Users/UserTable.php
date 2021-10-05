@@ -15,14 +15,11 @@ class UserTable extends Component
   public $sortField = 'id';
   public $sortAsc   = false;
   public $userRole  = '';
-
-  // public $showModal = 'hidden';
-
+  
   /**
    * Escuchar el evento que va a actualizar la tabla
    */
   protected $listeners = [
-    // 'usersListUpdate' => 'render',
     'deleteUserList'  => 'deleteUser'
   ];
 

@@ -49,8 +49,7 @@ class Create extends Component
     }
     
     $this->user->update($values);
-
-    // $this->emit('usersListUpdate');
+    
     $this->emitTo('admin.users.user-table', 'render');
     $this->closeModal();
   }
@@ -72,7 +71,6 @@ class Create extends Component
 
     sleep(2);
     
-    // $this->emit('usersListUpdate');
     $this->emitTo('admin.users.user-table', 'render');
     $this->closeModal();
   }
