@@ -4,8 +4,9 @@
   </x-slot>
 
   <x-slot name="content">
-    <div class="relative mt-6">
-      <x-form type="text" name="category.name" label="Nombre" />
+    <div class="relative form-group mt-6">
+      <x-input type="text" name="category.name" id="category.name" wire:model.defer="category.name" />
+      <x-label for="category.name" class="required" value="Nombre" />
       <x-error for="category.name" />
     </div>
 
