@@ -7,12 +7,6 @@ use Livewire\Component;
 
 class CreateUpdate extends Component
 {
-  // public Company $company;
-
-  /* public function mount(Company $company)
-  {
-    $this->company = $company;
-  } */
   public $company, $companyId;
 
   public function mount()

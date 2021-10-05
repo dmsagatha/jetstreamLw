@@ -61,9 +61,6 @@ Route::group(['middleware' => 'auth:sanctum'], function ()
   Route::view('/libros/editar/{bookId}', 'admin.books.edit')->name('books.edit');
 
   // Compañías
-  /* Route::resource('empresas', CompanyController::class, ['except' => ['store', 'update', 'destroy']])
-      ->parameters(['empresas' => 'company'])
-      ->names('companies'); */
   Route::get('/empresas', Index::class)->name('companies.index');
   Route::view('/empresas/crear', 'admin.companies.create')->name('companies.create');
   Route::view('/empresas/editar/{companyId}', 'admin.companies.edit')->name('companies.edit');
