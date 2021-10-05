@@ -11,6 +11,7 @@ use App\Http\Livewire\Admin\Appointments\CreateForm;
 use App\Http\Livewire\Admin\Appointments\UpdateForm;
 use App\Http\Livewire\Admin\Appointments\Appointments;
 use App\Http\Controllers\Admin\CompanyController;
+use App\Http\Livewire\Admin\Companies\Index;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function ()
@@ -60,7 +61,9 @@ Route::group(['middleware' => 'auth:sanctum'], function ()
   Route::view('/libros/editar/{bookId}', 'admin.books.edit')->name('books.edit');
 
   // Compañías
-  Route::resource('empresas', CompanyController::class, ['except' => ['store', 'update', 'destroy']])
+  /* Route::resource('empresas', CompanyController::class, ['except' => ['store', 'update', 'destroy']])
       ->parameters(['empresas' => 'company'])
-      ->names('companies');
+      ->names('companies'); */
+  Route::get('/empresas', Index::class)->name('companies.index');
+  Route::view('/empresas/crear', 'admin.companies.create')->name('companies.create');
 });

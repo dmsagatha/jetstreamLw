@@ -152,8 +152,13 @@ return [
     */
 
   'attributes' => [
-    'book.name'   => 'nombre',
-    'book.author' => 'autor',
-    'book.pages'  => 'número de páginas',
+    'book.name'   => 'Nombre',
+    'book.author' => 'Autor',
+    'book.pages'  => 'Número de páginas',
+    'id'                     => 'ID',
+    'company_name'           => 'Nombre',
+    'company_address'        => 'Dirección',
+    'company_website'        => 'Website',
+    'company_email'          => 'Correo',
   ],
 ];
