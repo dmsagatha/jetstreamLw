@@ -27,6 +27,7 @@
         @include('shared._sort-icon', ['field' => 'company_email'])
       </th>
       <th scope="col" class="relative px-6 py-3">
+        <span class="sr-only">Edit</span>
       </th>
     </tr>
   </thead>
@@ -49,7 +50,13 @@
           {{ $item->company_email }}
         </td>
         <td class="px-6 py-4 text-sm font-medium">
-          Editar | Eliminar
+          <a href="{{ route('companies.edit', $item) }}" class="text-indigo-600 hover:text-indigo-900" title="Editar">
+            <i class="fas fa-edit mr-2"></i>
+          </a>
+          
+          <a href="" wire:click.prevent="confirmRemoval({{ $item->id }})" class="text-red-600 hover:text-red-900" title="Eliminar">
+            <i class="fas fa-trash mr-2"></i>
+          </a>
         </td>
       </tr>
     @endforeach

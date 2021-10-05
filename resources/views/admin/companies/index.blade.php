@@ -1,9 +1,9 @@
 <div wire:init="loadRecords" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-  @section('title', 'Empresas')
+  @section('title', 'Compañías')
 
   <x-slot name="header">
     <h2 class="font-semibold text-xl leading-tight">
-      Empresas
+      Compañías
     </h2>
   </x-slot>
 
