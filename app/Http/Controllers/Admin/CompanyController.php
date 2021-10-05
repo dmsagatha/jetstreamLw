@@ -10,7 +10,7 @@ class CompanyController extends Controller
 {
   public function index()
   {
-    return view('admin.companies.index');
+    return view('admin.companies.list');
   }
 
   public function create()
