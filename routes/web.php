@@ -65,5 +65,5 @@ Route::group(['middleware' => 'auth:sanctum'], function ()
   Route::view('/empresas/crear', 'admin.companies.create')->name('companies.create');
   Route::view('/empresas/editar/{companyId}', 'admin.companies.edit')->name('companies.edit');
 
-  Route::get('/persona', PeopleList::class)->name('people.index');
+  Route::get('/personas', PeopleList::class)->name('peoples.index');
 });

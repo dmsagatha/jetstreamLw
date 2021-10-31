@@ -34,7 +34,7 @@
         {{ $item->active }}
       </td>
       <td class="px-6 py-4 text-sm font-medium">
-        <a href="" class="text-indigo-600 hover:text-indigo-900" title="Editar">
+        <a href="" wire:click="edit({{ $item->id }})" class="text-indigo-600 hover:text-indigo-900" title="Editar">
           <i class="fas fa-edit mr-2"></i>
         </a>
 

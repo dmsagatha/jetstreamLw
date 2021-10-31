@@ -48,7 +48,6 @@ class CreateUpdate extends Component
 
   public function updated($propertyName)
   {
-    // wire:model.debounce.50 - Bitfumes - 8 Laravel Livewire Real Time Validation
     $this->validateOnly($propertyName);
   }
 }
