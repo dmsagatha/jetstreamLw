@@ -11,6 +11,7 @@ use App\Models\Student;
 use App\Models\Category;
 use App\Models\Appointment;
 use App\Models\Book;
+use App\Models\People;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
@@ -19,6 +20,7 @@ class DatabaseSeeder extends Seeder
 {
   public function run()
   {
+    People::query()->delete();
     Book::query()->delete();
     Appointment::query()->delete();
     Product::query()->delete();
@@ -61,16 +63,17 @@ class DatabaseSeeder extends Seeder
         'category_id' => $category->id,
       ]);
     });
-
-    /* DB::table('appointments')->insert([
-      ['name' => 'Equipo A', 'description' => 'Descripción A', 'date' => '2021-01-26'],
-      ['name' => 'Equipo B', 'description' => 'Descripción B', 'date' => '2021-03-26'],
-      ['name' => 'Equipo C', 'description' => 'Descripción C', 'date' => '2021-05-26'],
-      ['name' => 'Equipo D', 'description' => 'Descripción D', 'date' => '2021-07-26'],
-      ['name' => 'Equipo E', 'description' => 'Descripción E', 'date' => '2021-09-26'],
-    ]); */
+    
     Appointment::factory()->times(300)->create();
 
     Book::factory(20)->create();
+
+    DB::table('people')->insert([
+      ['name' => 'Persona A', 'active' => '1'],
+      ['name' => 'Persona B', 'active' => '0'],
+      ['name' => 'Persona C', 'active' => '1'],
+      ['name' => 'Persona D', 'active' => '0'],
+      ['name' => 'Persona E', 'active' => '1'],
+    ]);
   }
 }
