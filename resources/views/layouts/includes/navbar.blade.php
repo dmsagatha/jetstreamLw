@@ -92,9 +92,9 @@
             class="text-gray-300 hover:text-white py-1 sm:mx-1 lg:mx-3 pl-1 align-middle border-b-2 border-gray-400 hover:border-gray-300 md:text-center">
               Programar Citas
             </a>
-            <a href="{{ route('books.index') }}"
+            <a href="{{ route('peoples.index') }}"
             class="text-gray-300 hover:text-white py-1 sm:mx-1 lg:mx-3 pl-1 align-middle border-b-2 border-gray-400 hover:border-gray-300 md:text-center">
-              Libros
+              Personas
             </a>
           </div>
         </nav>
