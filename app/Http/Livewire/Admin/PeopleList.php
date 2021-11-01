@@ -16,6 +16,7 @@ class PeopleList extends Component
   public $sortAsc   = true;
   public $readyToLoad = false;
 
+  // Lista y Formulario
   public $typeForm = 'list';
   public $people, $peopleId, $name;
   public $active   = false;
@@ -35,7 +36,7 @@ class PeopleList extends Component
     $peoples = People::where('name', 'like', '%' . $this->search . '%')
         ->orderBy($this->sortField, $this->sortAsc ? 'desc' : 'asc')
         ->paginate($this->perPage);
-
+    
     return view('admin.peoples.index', compact('peoples'));
   }
 
@@ -49,15 +50,30 @@ class PeopleList extends Component
   public function create()
   {
     $this->typeForm = 'crud';
+    $this->clear();
   }
 
   public function edit($id)
   {
+    $this->clear();
     $model = People::find($id);
     $this->peopleId = $model->id;
-    $this->name     = $model->name;
-    $this->active   = $model->active;
+    $this->name = $model->name;
+    $this->active = $model->active;
     $this->typeForm = 'crud';
+  }
+
+  public function clear()
+  {
+    $this->peopleId = null;
+    $this->name = '';
+    $this->active = false;
+  }
+
+  public function cancel()
+  {
+    $this->clear();
+    $this->typeForm = "list";
   }
 
   public function save()
@@ -79,9 +95,19 @@ class PeopleList extends Component
         return redirect()->route('peoples.index');
     } else {
         $people = People::create($data);
+
         $this->emit('alertCreate', 'Registro creado satisfactoriamente.');
-        
-        return redirect()->route('peoples.index');
+
+        //$this->edit($people->id);
+        return redirect()->to('/personas');
+    }
+  }
+
+  public function changeActive($id)
+  {
+    if ($model = People::find($id)) {
+      $model->active = !$model->active;
+      $model->save();
     }
   }
 
@@ -105,26 +131,14 @@ class PeopleList extends Component
   {
     $this->validateOnly($propertyName);
   }
+
+  protected function updatingFilter()
+  {
+    $this->resetPage();
+  }
   
   public function loadRecords()
   {
     $this->readyToLoad = true;
-  }
-
-  public function clearPage()
-  {
-    $this->resetPage();
-    $this->reset();
-  }
-
-  public function sortBy($field)
-  {
-    if ($this->sortField === $field) {
-      $this->sortAsc = !$this->sortAsc;
-    } else {
-      $this->sortAsc = true;
-    }
-
-    $this->sortField = $field;
   }
 }

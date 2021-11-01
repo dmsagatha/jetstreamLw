@@ -24,19 +24,13 @@
   <tbody class="bg-white divide-y divide-gray-200 text-sm">
     @foreach ($peoples as $item)
     <tr>
-      <td class="px-6 py-4 text-center">
-        {{ $item->id }}
-      </td>
-      <td class="px-6 py-4">
-        {{ $item->name }}
-      </td>
-      <td class="px-6 py-4">
-        {{ $item->active }}
-      </td>
+      <td class="px-6 py-4 text-center">{{ $item->id }}</td>
+      <td class="px-6 py-4">{{ $item->name }}</td>
+      <td class="px-6 py-4">{{ $item->active }}</td>
       <td class="px-6 py-4 text-sm font-medium">
-        <a href="" wire:click="edit({{ $item->id }})" class="text-indigo-600 hover:text-indigo-900" title="Editar">
+        <button wire:click="edit({{ $item->id }})" class="text-indigo-600 hover:text-indigo-900" title="Editar">
           <i class="fas fa-edit mr-2"></i>
-        </a>
+        </button>
 
         <a href="" wire:click.prevent="confirmRemoval({{ $item->id }})" class="text-red-600 hover:text-red-900"
           title="Eliminar">
