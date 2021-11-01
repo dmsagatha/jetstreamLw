@@ -1001,6 +1001,9 @@ video {
 .mx-2{
     margin-left: 0.5rem;
     margin-right: 0.5rem}
+.-my-2{
+    margin-top: -0.5rem;
+    margin-bottom: -0.5rem}
 .mx-4{
     margin-left: 1rem;
     margin-right: 1rem}
@@ -1010,9 +1013,6 @@ video {
 .my-2{
     margin-top: 0.5rem;
     margin-bottom: 0.5rem}
-.-my-2{
-    margin-top: -0.5rem;
-    margin-bottom: -0.5rem}
 .ml-3{
     margin-left: 0.75rem}
 .-ml-px{
@@ -1063,6 +1063,16 @@ video {
     margin-right: 0.25rem}
 .mr-4{
     margin-right: 1rem}
+.-mt-px{
+    margin-top: -1px}
+.mt-14{
+    margin-top: 3.5rem}
+.mt-auto{
+    margin-top: auto}
+.mb-3{
+    margin-bottom: 0.75rem}
+.-ml-1{
+    margin-left: -0.25rem}
 .mr-6{
     margin-right: 1.5rem}
 .-ml-3{
@@ -1071,18 +1081,10 @@ video {
     margin-left: -1rem}
 .ml-5{
     margin-left: 1.25rem}
-.-mt-px{
-    margin-top: -1px}
-.mt-14{
-    margin-top: 3.5rem}
-.mt-12{
-    margin-top: 3rem}
-.mt-auto{
-    margin-top: auto}
-.-ml-1{
-    margin-left: -0.25rem}
 .mt-20{
     margin-top: 5rem}
+.mt-12{
+    margin-top: 3rem}
 .block{
     display: block}
 .inline-block{
@@ -1149,10 +1151,10 @@ video {
     width: 2.5rem}
 .w-20{
     width: 5rem}
-.w-24{
-    width: 6rem}
 .w-44{
     width: 11rem}
+.w-24{
+    width: 6rem}
 .w-11\/12{
     width: 91.666667%}
 .min-w-0{
@@ -1167,10 +1169,10 @@ video {
     max-width: 36rem}
 .max-w-6xl{
     max-width: 72rem}
-.max-w-screen-lg{
-    max-width: 1024px}
 .max-w-full{
     max-width: 100%}
+.max-w-screen-lg{
+    max-width: 1024px}
 .flex-1{
     flex: 1 1 0%}
 .flex-shrink-0{
@@ -1275,12 +1277,12 @@ video {
     border-bottom-width: calc(1px * var(--tw-divide-y-reverse))}
 .divide-dashed > :not([hidden]) ~ :not([hidden]){
     border-style: dashed}
-.divide-gray-200 > :not([hidden]) ~ :not([hidden]){
-    --tw-divide-opacity: 1;
-    border-color: rgba(229, 231, 235, var(--tw-divide-opacity))}
 .divide-gray-300 > :not([hidden]) ~ :not([hidden]){
     --tw-divide-opacity: 1;
     border-color: rgba(209, 213, 219, var(--tw-divide-opacity))}
+.divide-gray-200 > :not([hidden]) ~ :not([hidden]){
+    --tw-divide-opacity: 1;
+    border-color: rgba(229, 231, 235, var(--tw-divide-opacity))}
 .divide-gray-600 > :not([hidden]) ~ :not([hidden]){
     --tw-divide-opacity: 1;
     border-color: rgba(75, 85, 99, var(--tw-divide-opacity))}
@@ -1355,12 +1357,12 @@ video {
 .border-gray-400{
     --tw-border-opacity: 1;
     border-color: rgba(156, 163, 175, var(--tw-border-opacity))}
-.border-red-400{
-    --tw-border-opacity: 1;
-    border-color: rgba(248, 113, 113, var(--tw-border-opacity))}
 .border-red-300{
     --tw-border-opacity: 1;
     border-color: rgba(252, 165, 165, var(--tw-border-opacity))}
+.border-red-400{
+    --tw-border-opacity: 1;
+    border-color: rgba(248, 113, 113, var(--tw-border-opacity))}
 .bg-white{
     --tw-bg-opacity: 1;
     background-color: rgba(255, 255, 255, var(--tw-bg-opacity))}
@@ -1397,15 +1399,27 @@ video {
 .bg-gray-200{
     --tw-bg-opacity: 1;
     background-color: rgba(229, 231, 235, var(--tw-bg-opacity))}
-.bg-blue-500{
+.bg-black{
     --tw-bg-opacity: 1;
-    background-color: rgba(59, 130, 246, var(--tw-bg-opacity))}
+    background-color: rgba(0, 0, 0, var(--tw-bg-opacity))}
 .bg-gray-300{
     --tw-bg-opacity: 1;
     background-color: rgba(209, 213, 219, var(--tw-bg-opacity))}
+.bg-green-700{
+    --tw-bg-opacity: 1;
+    background-color: rgba(4, 120, 87, var(--tw-bg-opacity))}
+.bg-green-100{
+    --tw-bg-opacity: 1;
+    background-color: rgba(209, 250, 229, var(--tw-bg-opacity))}
+.bg-blue-400{
+    --tw-bg-opacity: 1;
+    background-color: rgba(96, 165, 250, var(--tw-bg-opacity))}
 .bg-green-500{
     --tw-bg-opacity: 1;
     background-color: rgba(16, 185, 129, var(--tw-bg-opacity))}
+.bg-blue-500{
+    --tw-bg-opacity: 1;
+    background-color: rgba(59, 130, 246, var(--tw-bg-opacity))}
 .bg-red-500{
     --tw-bg-opacity: 1;
     background-color: rgba(239, 68, 68, var(--tw-bg-opacity))}
@@ -1418,18 +1432,6 @@ video {
 .bg-green-50{
     --tw-bg-opacity: 1;
     background-color: rgba(236, 253, 245, var(--tw-bg-opacity))}
-.bg-green-700{
-    --tw-bg-opacity: 1;
-    background-color: rgba(4, 120, 87, var(--tw-bg-opacity))}
-.bg-black{
-    --tw-bg-opacity: 1;
-    background-color: rgba(0, 0, 0, var(--tw-bg-opacity))}
-.bg-green-100{
-    --tw-bg-opacity: 1;
-    background-color: rgba(209, 250, 229, var(--tw-bg-opacity))}
-.bg-blue-400{
-    --tw-bg-opacity: 1;
-    background-color: rgba(96, 165, 250, var(--tw-bg-opacity))}
 .bg-opacity-25{
     --tw-bg-opacity: 0.25}
 .bg-opacity-75{
@@ -1455,10 +1457,10 @@ video {
     padding: 0.5rem}
 .p-6{
     padding: 1.5rem}
-.p-4{
-    padding: 1rem}
 .p-3{
     padding: 0.75rem}
+.p-4{
+    padding: 1rem}
 .px-4{
     padding-left: 1rem;
     padding-right: 1rem}
@@ -1533,8 +1535,6 @@ video {
     padding-top: 2rem}
 .pb-20{
     padding-bottom: 5rem}
-.pt-3{
-    padding-top: 0.75rem}
 .text-left{
     text-align: left}
 .text-center{
@@ -1642,6 +1642,18 @@ video {
 .text-blue-300{
     --tw-text-opacity: 1;
     color: rgba(147, 197, 253, var(--tw-text-opacity))}
+.text-gray-200{
+    --tw-text-opacity: 1;
+    color: rgba(229, 231, 235, var(--tw-text-opacity))}
+.text-pink-400{
+    --tw-text-opacity: 1;
+    color: rgba(244, 114, 182, var(--tw-text-opacity))}
+.text-red-400{
+    --tw-text-opacity: 1;
+    color: rgba(248, 113, 113, var(--tw-text-opacity))}
+.text-red-700{
+    --tw-text-opacity: 1;
+    color: rgba(185, 28, 28, var(--tw-text-opacity))}
 .text-blue-500{
     --tw-text-opacity: 1;
     color: rgba(59, 130, 246, var(--tw-text-opacity))}
@@ -1660,18 +1672,15 @@ video {
 .text-green-800{
     --tw-text-opacity: 1;
     color: rgba(6, 95, 70, var(--tw-text-opacity))}
-.text-red-700{
+.text-green-700{
     --tw-text-opacity: 1;
-    color: rgba(185, 28, 28, var(--tw-text-opacity))}
-.text-gray-200{
+    color: rgba(4, 120, 87, var(--tw-text-opacity))}
+.text-red-800{
     --tw-text-opacity: 1;
-    color: rgba(229, 231, 235, var(--tw-text-opacity))}
-.text-pink-400{
+    color: rgba(153, 27, 27, var(--tw-text-opacity))}
+.text-yellow-800{
     --tw-text-opacity: 1;
-    color: rgba(244, 114, 182, var(--tw-text-opacity))}
-.text-red-400{
-    --tw-text-opacity: 1;
-    color: rgba(248, 113, 113, var(--tw-text-opacity))}
+    color: rgba(146, 64, 14, var(--tw-text-opacity))}
 .underline{
     text-decoration: underline}
 .antialiased{
@@ -7043,18 +7052,18 @@ span.flatpickr-weekday {
 .hover\:bg-gray-600:hover{
     --tw-bg-opacity: 1;
     background-color: rgba(75, 85, 99, var(--tw-bg-opacity))}
-.hover\:bg-blue-700:hover{
-    --tw-bg-opacity: 1;
-    background-color: rgba(29, 78, 216, var(--tw-bg-opacity))}
-.hover\:bg-gray-400:hover{
-    --tw-bg-opacity: 1;
-    background-color: rgba(156, 163, 175, var(--tw-bg-opacity))}
 .hover\:bg-green-600:hover{
     --tw-bg-opacity: 1;
     background-color: rgba(5, 150, 105, var(--tw-bg-opacity))}
+.hover\:bg-blue-700:hover{
+    --tw-bg-opacity: 1;
+    background-color: rgba(29, 78, 216, var(--tw-bg-opacity))}
 .hover\:bg-red-50:hover{
     --tw-bg-opacity: 1;
     background-color: rgba(254, 242, 242, var(--tw-bg-opacity))}
+.hover\:bg-gray-400:hover{
+    --tw-bg-opacity: 1;
+    background-color: rgba(156, 163, 175, var(--tw-bg-opacity))}
 .hover\:bg-opacity-20:hover{
     --tw-bg-opacity: 0.2}
 .hover\:text-gray-500:hover{
@@ -7072,15 +7081,15 @@ span.flatpickr-weekday {
 .hover\:text-gray-900:hover{
     --tw-text-opacity: 1;
     color: rgba(17, 24, 39, var(--tw-text-opacity))}
+.hover\:text-white:hover{
+    --tw-text-opacity: 1;
+    color: rgba(255, 255, 255, var(--tw-text-opacity))}
 .hover\:text-indigo-900:hover{
     --tw-text-opacity: 1;
     color: rgba(49, 46, 129, var(--tw-text-opacity))}
 .hover\:text-red-900:hover{
     --tw-text-opacity: 1;
     color: rgba(127, 29, 29, var(--tw-text-opacity))}
-.hover\:text-white:hover{
-    --tw-text-opacity: 1;
-    color: rgba(255, 255, 255, var(--tw-text-opacity))}
 .focus\:z-10:focus{
     z-index: 10}
 .focus\:border-2:focus{
@@ -7106,12 +7115,12 @@ span.flatpickr-weekday {
 .focus\:border-rose-600:focus{
     --tw-border-opacity: 1;
     border-color: rgba(225, 29, 72, var(--tw-border-opacity))}
-.focus\:border-indigo-500:focus{
-    --tw-border-opacity: 1;
-    border-color: rgba(99, 102, 241, var(--tw-border-opacity))}
 .focus\:border-green-900:focus{
     --tw-border-opacity: 1;
     border-color: rgba(6, 78, 59, var(--tw-border-opacity))}
+.focus\:border-indigo-500:focus{
+    --tw-border-opacity: 1;
+    border-color: rgba(99, 102, 241, var(--tw-border-opacity))}
 .focus\:bg-indigo-600:focus{
     --tw-bg-opacity: 1;
     background-color: rgba(79, 70, 229, var(--tw-bg-opacity))}
@@ -7162,15 +7171,15 @@ span.flatpickr-weekday {
 .focus\:ring-blue-200:focus{
     --tw-ring-opacity: 1;
     --tw-ring-color: rgba(191, 219, 254, var(--tw-ring-opacity))}
-.focus\:ring-indigo-500:focus{
-    --tw-ring-opacity: 1;
-    --tw-ring-color: rgba(99, 102, 241, var(--tw-ring-opacity))}
 .focus\:ring-green-300:focus{
     --tw-ring-opacity: 1;
     --tw-ring-color: rgba(110, 231, 183, var(--tw-ring-opacity))}
 .focus\:ring-blue-500:focus{
     --tw-ring-opacity: 1;
     --tw-ring-color: rgba(59, 130, 246, var(--tw-ring-opacity))}
+.focus\:ring-indigo-500:focus{
+    --tw-ring-opacity: 1;
+    --tw-ring-color: rgba(99, 102, 241, var(--tw-ring-opacity))}
 .focus\:ring-opacity-50:focus{
     --tw-ring-opacity: 0.5}
 .focus\:ring-offset-2:focus{
@@ -7261,6 +7270,8 @@ span.flatpickr-weekday {
         top: 0px}
     .sm\:col-span-4{
         grid-column: span 4 / span 4}
+    .sm\:col-span-2{
+        grid-column: span 2 / span 2}
     .sm\:col-span-3{
         grid-column: span 3 / span 3}
     .sm\:mx-0{
@@ -7370,10 +7381,10 @@ span.flatpickr-weekday {
         border-bottom-right-radius: 0.375rem}
     .sm\:p-6{
         padding: 1.5rem}
-    .sm\:p-4{
-        padding: 1rem}
     .sm\:p-0{
         padding: 0px}
+    .sm\:p-4{
+        padding: 1rem}
     .sm\:px-6{
         padding-left: 1.5rem;
         padding-right: 1.5rem}
@@ -7383,12 +7394,12 @@ span.flatpickr-weekday {
     .sm\:px-20{
         padding-left: 5rem;
         padding-right: 5rem}
-    .sm\:px-3{
-        padding-left: 0.75rem;
-        padding-right: 0.75rem}
     .sm\:px-4{
         padding-left: 1rem;
         padding-right: 1rem}
+    .sm\:px-3{
+        padding-left: 0.75rem;
+        padding-right: 0.75rem}
     .sm\:pt-0{
         padding-top: 0px}
     .sm\:pb-4{
@@ -7399,12 +7410,12 @@ span.flatpickr-weekday {
         text-align: right}
     .sm\:align-middle{
         vertical-align: middle}
-    .sm\:text-sm{
-        font-size: 0.875rem;
-        line-height: 1.25rem}
     .sm\:text-lg{
         font-size: 1.125rem;
-        line-height: 1.75rem}}
+        line-height: 1.75rem}
+    .sm\:text-sm{
+        font-size: 0.875rem;
+        line-height: 1.25rem}}
 @media (min-width: 768px){
     .md\:col-span-2{
         grid-column: span 2 / span 2}
