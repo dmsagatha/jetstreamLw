@@ -66,8 +66,8 @@ class PeopleList extends Component
   public function clear()
   {
     $this->peopleId = null;
-    $this->name = '';
-    $this->active = false;
+    $this->name     = '';
+    $this->active   = false;
   }
 
   public function cancel()

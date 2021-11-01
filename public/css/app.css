@@ -1672,6 +1672,15 @@ video {
 .text-green-800{
     --tw-text-opacity: 1;
     color: rgba(6, 95, 70, var(--tw-text-opacity))}
+.text-green-700{
+    --tw-text-opacity: 1;
+    color: rgba(4, 120, 87, var(--tw-text-opacity))}
+.text-red-800{
+    --tw-text-opacity: 1;
+    color: rgba(153, 27, 27, var(--tw-text-opacity))}
+.text-yellow-800{
+    --tw-text-opacity: 1;
+    color: rgba(146, 64, 14, var(--tw-text-opacity))}
 .underline{
     text-decoration: underline}
 .antialiased{

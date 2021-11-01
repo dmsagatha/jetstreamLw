@@ -27,9 +27,9 @@
         <td class="px-6 py-4 text-center">{{ $item->id }}</td>
         <td class="px-6 py-4">{{ $item->name }}</td>
         <td class="px-6 py-4">
-          {{-- <div wire:click="changeActive({{$people->id}})" style="cursor: pointer;">
-            <livewire:status-smile :status="$people->active" :wire:key="'status-people-'.(uniqid($people->id))">
-          </div> --}}
+          <div wire:click="changeActive({{ $item->id }})" style="cursor: pointer;">
+            <livewire:admin.status-smile :status="$item->active" :wire:key="'status-people-'.(uniqid($item->id))">
+          </div>
         </td>
         <td class="px-6 py-4 text-sm font-medium">
           <button wire:click="edit({{ $item->id }})" class="text-indigo-600 hover:text-indigo-900" title="Editar">
