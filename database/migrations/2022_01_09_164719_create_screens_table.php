@@ -16,6 +16,9 @@ class CreateScreensTable extends Migration
       $table->string('active');
       
       $table->foreignIdFor(Brand::class)->constrained();
+
+      // sortable
+      $table->unsignedBigInteger("sort")->nullable();
       $table->timestamps();
     });
   }

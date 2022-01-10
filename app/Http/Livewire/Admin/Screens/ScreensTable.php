@@ -32,12 +32,17 @@ class ScreensTable extends DataTableComponent
   /**
    * @var string
    */
-  public string $defaultSortColumn = "serial";
+  public string $defaultSortColumn = "sort";    // sortable
 
   /**
    * @var string
    */
   public string $defaultSortDirection = "asc";
+
+  /**
+   * @var bool
+   */
+  public bool $reorderEnabled = true;    // sortable
 
   /**
    * @var array|int[]
@@ -95,7 +100,7 @@ class ScreensTable extends DataTableComponent
         ->searchable(),
       Column::make('Actions', 'actions')
         ->addClass("w-24 md:w-auto")
-        /* ->format(function ($value, $column, $row) {
+      /* ->format(function ($value, $column, $row) {
           return view('admin.screens.actions')->withScreen($row);
         }), */
     ];
@@ -155,7 +160,7 @@ class ScreensTable extends DataTableComponent
     Screen::destroy($this->screenForDelete["id"]);
 
     $this->dispatchBrowserEvent("banner-message", [
-      "style" => "success",
+      "style"   => "success",
       "message" => sprintf("La pantalla %s ha sido eliminada", $this->screenForDelete["serial"]),
     ]);
 
@@ -174,7 +179,7 @@ class ScreensTable extends DataTableComponent
     $this->massiveDelete = null;
 
     $this->dispatchBrowserEvent('banner-message', [
-      'style' => 'success',
+      'style'   => 'success',
       'message' => sprintf("Se han eliminado %d pantallas", count($toDelete)),
     ]);
 
@@ -188,5 +193,18 @@ class ScreensTable extends DataTableComponent
   public function rowView(): string
   {
     return "admin.screens.row";
+  }
+
+  /**
+   *
+   * Optimizar con Curso Eloquent ORM Batch Update
+   *
+   * @param array $items
+   */
+  public function reorder(array $items): void
+  {
+    foreach ($items as $item) {
+      optional(Screen::find((int) $item['value']))->update(['sort' => (int) $item['order']]);
+    }
   }
 }
