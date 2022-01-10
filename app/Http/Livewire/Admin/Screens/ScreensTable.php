@@ -120,7 +120,7 @@ class ScreensTable extends DataTableComponent
         ->date([
           'max' => now()->format('Y-m-d')
         ]),
-      'active' => Filter::make('¿Disponible?')
+      'active' => Filter::make('Activo?')
         ->select([
           ''  => 'Todos',
           '1' => 'Sí',
