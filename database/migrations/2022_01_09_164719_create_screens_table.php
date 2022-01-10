@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Brand;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -12,8 +13,9 @@ class CreateScreensTable extends Migration
       $table->id();
       $table->string('serial')->unique();
       $table->string('size');
+      $table->string('active');
       
-      $table->foreignId('brand_id')->constrained();
+      $table->foreignIdFor(Brand::class)->constrained();
       $table->timestamps();
     });
   }

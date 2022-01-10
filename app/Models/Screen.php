@@ -11,7 +11,7 @@ class Screen extends Model
   use HasFactory;
 
   protected $fillable = [
-    'serial', 'size', 'brand_id'
+    'serial', 'size', 'brand_id', 'acive'
   ];
 
   public function brand(): belongsTo

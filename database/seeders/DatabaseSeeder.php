@@ -87,6 +87,6 @@ class DatabaseSeeder extends Seeder
       ['name' => 'Lenovo Group Ltd',  'slug' => 'Lenovo'],
     ]);
 
-    Screen::factory()->times(15)->create();
+    Screen::factory()->times(30)->create();
   }
 }
