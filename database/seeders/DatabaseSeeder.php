@@ -2,13 +2,14 @@
 
 namespace Database\Seeders;
 
+use App\Models\Screen;
+use App\Models\Brand;
+use App\Models\Peripheral;
 use App\Models\Book;
 use App\Models\Post;
 use App\Models\User;
-use App\Models\Brand;
 use App\Models\Lesson;
 use App\Models\People;
-use App\Models\Screen;
 use App\Models\Product;
 use App\Models\Section;
 use App\Models\Student;
@@ -23,6 +24,7 @@ class DatabaseSeeder extends Seeder
   public function run()
   {
     Screen::query()->delete();
+    Peripheral::query()->delete();
     Brand::query()->delete();
     People::query()->delete();
     Book::query()->delete();
@@ -87,6 +89,13 @@ class DatabaseSeeder extends Seeder
       ['name' => 'Lenovo Group Ltd',  'slug' => 'Lenovo'],
     ]);
 
-    Screen::factory()->times(30)->create();
+    // Screen::factory()->times(30)->create();
+
+    // Crear Periféricos (Cpu, Pantalla, Teclado, Puntero, Parlantes y Audifonos)
+    Peripheral::factory()->times(35)->create()->each(function ($peripheral) {
+        Screen::factory()->create(['peripheral_id' => $peripheral->id]);
+      /* if ($peripheral->per_type === 'screen') {
+      } */
+    });
   }
 }

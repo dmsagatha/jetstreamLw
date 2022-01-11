@@ -19,6 +19,11 @@ class Screen extends Model
     return $this->belongsTo(Brand::class, 'brand_id')->withDefault();
   }
 
+  public function peripheral(): belongsTo
+  {
+    return $this->belongsTo(Peripheral::class, 'peripheral_id');
+  }
+
   protected $dates = [
     'created_at',
     'updated_at',

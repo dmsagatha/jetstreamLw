@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Brand;
+use App\Models\Peripheral;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -16,6 +17,7 @@ class CreateScreensTable extends Migration
       $table->string('active');
       
       $table->foreignIdFor(Brand::class)->constrained();
+      $table->foreignIdFor(Peripheral::class)->constrained();
 
       // sortable
       $table->unsignedBigInteger("sort")->nullable();

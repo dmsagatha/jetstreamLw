@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Brand extends Model
 {
-  use HasFactory;
+  use HasFactory, Sluggable;
 
   protected $fillable = ['name', 'slug'];
 
