@@ -1,3 +1,15 @@
+@if ($columnSelect && $this->isColumnSelectEnabled('peripheral.inventory'))
+<x-livewire-tables::table.cell>
+  {{ $row->peripheral->inventory }}
+</x-livewire-tables::table.cell>
+@endif
+
+@if ($columnSelect && $this->isColumnSelectEnabled('peripheral.usersabs.name'))
+<x-livewire-tables::table.cell>
+  {{ $row->peripheral->usersabs->name }}
+</x-livewire-tables::table.cell>
+@endif
+
 @if ($columnSelect && $this->isColumnSelectEnabled('brand.slug'))
 <x-livewire-tables::table.cell>
   {{ $row->brand->slug }}

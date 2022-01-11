@@ -6,6 +6,8 @@ use Carbon\Carbon;
 use App\Models\Brand;
 use App\Models\Screen;
 use App\Exports\ScreensExport;
+use App\Models\Peripheral;
+use App\Models\User;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Database\Eloquent\Builder;
 use Rappasoft\LaravelLivewireTables\Views\Column;
@@ -75,6 +77,13 @@ class ScreensTable extends DataTableComponent
   public function columns(): array
   {
     return [
+      Column::make(__('Inventory'), 'peripheral.inventory')
+        ->sortable(function (Builder $query, string $direction) {
+          return $query->orderBy(Peripheral::select('inventory')->whereColumn('screens.peripheral_id', 'peripherals.id'), $direction);
+        })
+        ->searchable(),
+      Column::make(__('Responsable'), 'peripheral.usersabs.name')
+        ->searchable(),
       Column::make(__('Brand'), 'brand.slug')
         ->sortable(function (Builder $query, string $direction) {
           return $query->orderBy(Brand::select('slug')->whereColumn('screens.brand_id', 'brands.id'), $direction);
@@ -108,7 +117,7 @@ class ScreensTable extends DataTableComponent
 
   public function query(): Builder
   {
-    return Screen::with('brand:id,slug')
+    return Screen::with('brand:id,slug', 'peripheral:id,usersabs_id,inventory', 'peripheral.usersabs:id,name')
       ->when($this->getFilter('created_at'), fn (Builder $query, string $date) => $query->whereDate("created_at", $date))
       ->when($this->hasFilter('active'), fn (Builder $query) => $query->whereActive($this->getFilter('active')));
   }
