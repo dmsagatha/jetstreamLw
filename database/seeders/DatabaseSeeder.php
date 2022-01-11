@@ -2,24 +2,30 @@
 
 namespace Database\Seeders;
 
+use App\Models\Screen;
+use App\Models\Brand;
+use App\Models\Peripheral;
+use App\Models\Book;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Lesson;
+use App\Models\People;
 use App\Models\Product;
 use App\Models\Section;
 use App\Models\Student;
 use App\Models\Category;
 use App\Models\Appointment;
-use App\Models\Book;
-use App\Models\People;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class DatabaseSeeder extends Seeder
 {
   public function run()
   {
+    Screen::query()->delete();
+    Peripheral::query()->delete();
+    Brand::query()->delete();
     People::query()->delete();
     Book::query()->delete();
     Appointment::query()->delete();
@@ -75,5 +81,21 @@ class DatabaseSeeder extends Seeder
       ['name' => 'Persona D', 'active' => '0'],
       ['name' => 'Persona E', 'active' => '1'],
     ]);
+
+    DB::table('brands')->insert([
+      ['name' => 'Dell',              'slug' => 'Dell'],
+      ['name' => 'Hewlett Packard',   'slug' => 'HP'],
+      ['name' => 'Apple Inc',         'slug' => 'Mac'],
+      ['name' => 'Lenovo Group Ltd',  'slug' => 'Lenovo'],
+    ]);
+
+    // Screen::factory()->times(30)->create();
+
+    // Crear Periféricos (Cpu, Pantalla, Teclado, Puntero, Parlantes y Audifonos)
+    Peripheral::factory()->times(35)->create()->each(function ($peripheral) {
+        Screen::factory()->create(['peripheral_id' => $peripheral->id]);
+      /* if ($peripheral->per_type === 'screen') {
+      } */
+    });
   }
 }

@@ -95,5 +95,14 @@
   "results": "registros",
   "Create": "Crear",
   "Users": "Usuarios",
-  "Categories": "Categorías"
+  "Categories": "Categorías",
+  "Screens": "Pantallas",
+  "Brand": "Marca",
+  "Size": "Tamaño",
+  "Active": "Activo",
+  "Created": "Creado",
+  "Uptaded": "Actualizado",
+  "Actions": "Acciones",
+
+  "Inventory": "N° Inventario"
 }

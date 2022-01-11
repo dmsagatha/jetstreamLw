@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -29,6 +30,11 @@ class User extends Authenticatable
     'password',
     'profile_photo_path',
   ];
+
+  public function peripherals(): hasMany
+  {
+    return $this->hasMany(Peripheral::class, 'usersabs_id', 'id');
+  }
 
   /**
    * The attributes that should be hidden for arrays.

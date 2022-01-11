@@ -3,16 +3,17 @@
 use App\Http\Livewire\Admin\Tags;
 use App\Http\Livewire\Admin\Products;
 use App\Http\Livewire\Admin\Students;
+use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\Admin\PeopleList;
 use App\Http\Livewire\Admin\Books\Books;
 use App\Http\Livewire\Admin\Posts\Posts;
 use App\Http\Livewire\Admin\Companies\Index;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\ScreenController;
 use App\Http\Livewire\Admin\Categories\Categories;
 use App\Http\Livewire\Admin\Appointments\CreateForm;
 use App\Http\Livewire\Admin\Appointments\UpdateForm;
 use App\Http\Livewire\Admin\Appointments\Appointments;
-use App\Http\Livewire\Admin\PeopleList;
-use Illuminate\Support\Facades\Route;
 
 Route::get('/', function ()
 {
@@ -66,4 +67,10 @@ Route::group(['middleware' => 'auth:sanctum'], function ()
   Route::view('/empresas/editar/{companyId}', 'admin.companies.edit')->name('companies.edit');
 
   Route::get('/personas', PeopleList::class)->name('peoples.index');
+
+  // Route::resource('/pantallas', ScreenController::class)->only('index', 'edit');
+  Route::resource('pantallas', ScreenController::class)
+      ->only('index', 'edit')
+      ->parameters(['pantallas' => 'screen'])
+      ->names('screens');
 });
