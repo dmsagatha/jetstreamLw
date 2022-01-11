@@ -92,13 +92,13 @@ class ScreensTable extends DataTableComponent
         }) */
         ->sortable()
         ->addClass('w-24 md:w-auto'),
-      Column::make(__('Actulizado'), 'created_at')
+      Column::make(__('Created'), 'created_at')
         /* ->format(function ($value) {
           return Carbon::createFromFormat('Y-m-d H:i:s', $value)->format('d/m/Y');
         }) */
         ->sortable()
         ->searchable(),
-      Column::make('Actions', 'actions')
+      Column::make(__('Actions'), 'actions')
         ->addClass("w-24 md:w-auto")
       /* ->format(function ($value, $column, $row) {
           return view('admin.screens.actions')->withScreen($row);

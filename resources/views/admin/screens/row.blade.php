@@ -16,15 +16,15 @@
 </x-livewire-tables::table.cell>
 @endif
 
-@if ($columnSelect && $this->isColumnSelectEnabled('created_at'))
-<x-livewire-tables::table.cell>
-  {{ $row->created_at->format("d-m-Y") }}
-</x-livewire-tables::table.cell>
-@endif
-
 @if ($columnSelect && $this->isColumnSelectEnabled('active'))
 <x-livewire-tables::table.cell>
   @include("admin.datatables.active", ["peripheral" => $row])
+</x-livewire-tables::table.cell>
+@endif
+
+@if ($columnSelect && $this->isColumnSelectEnabled('created_at'))
+<x-livewire-tables::table.cell>
+  {{ $row->created_at->format("d-m-Y") }}
 </x-livewire-tables::table.cell>
 @endif
 
