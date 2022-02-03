@@ -38,6 +38,9 @@
       <th scope="col" class="relative px-6 py-3">
         <span class="sr-only">Acciones</span>
       </th>
+      <th scope="col" class="relative px-6 py-3">
+        <span class="sr-only">Dropdown</span>
+      </th>
     </tr>
   </thead>
   <tbody class="bg-white divide-y divide-gray-200 text-sm">
@@ -54,7 +57,7 @@
           </span>
         </td>
         <td class="px-6 py-4">{{ Str::limit($item->description, 50) }}</td>
-        <td class="px-6 py-4 text-sm font-medium">
+        <td class="px-6 py-4 text-sm font-medium inline-block">
           <a href="{{ route('appointments.edit', $item) }}" class="text-indigo-600 hover:text-indigo-900" title="Editar">
             <i class="fas fa-edit mr-2"></i>
           </a>
@@ -62,6 +65,27 @@
           <a href="" wire:click.prevent="confirmRemoval({{ $item->id }})" class="text-red-600 hover:text-red-900" title="Eliminar">
             <i class="fas fa-trash mr-2"></i>
           </a>
+        </td>
+        <td class="px-6 py-4 text-sm font-medium">
+          {{-- <div class="flex justify-end py-3 px-6 bg-gray-50 border-b">
+            <div>Menú</div>
+          </div> --}}
+
+          <button class="relative flex justify-center items-center bg-white border focus:outline-none shadow text-gray-600 rounded focus:ring ring-gray-200 group">
+            <p class="px-4">Acciones</p>
+            <span class="border-l p-2 hover:bg-gray-100">
+              <i class="fa fa-ellipsis-v text-2xl"></i>
+            </span>
+
+            <div class="absolute hidden group-focus:block top-full min-w-full w-max bg-white shadow-md mt-1 rounded">
+              <ul class="text-left border rounded">
+                <li class="px-4 py-1 hover:bg-gray-100 border-b">Menú 1</li>
+                <li class="px-4 py-1 hover:bg-gray-100 border-b">Menú 2</li>
+                <li class="px-4 py-1 hover:bg-gray-100 border-b">Menú 3</li>
+                <li class="px-4 py-1 hover:bg-gray-100">Menú 4</li>
+              </ul>
+            </div>
+          </button>
         </td>
       </tr>
     @endforeach

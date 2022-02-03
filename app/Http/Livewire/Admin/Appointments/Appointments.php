@@ -11,7 +11,7 @@ class Appointments extends Component
   use WithPagination;
 
   public $search    = '';
-  public $perPage   = '25';
+  public $perPage   = '5';
   public $sortField = 'id';
   public $sortAsc   = true;
 
