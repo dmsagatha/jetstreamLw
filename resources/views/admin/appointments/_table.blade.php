@@ -35,6 +35,9 @@
         Descripción
         @include('shared._sort-icon', ['field' => 'description'])
       </th>
+      {{-- <th scope="col" class="relative px-6 py-3">
+        <span class="sr-only">Acciones</span>
+      </th> --}}
       <th scope="col" class="relative px-6 py-3">
         <span class="sr-only">Acciones</span>
       </th>
@@ -54,14 +57,55 @@
           </span>
         </td>
         <td class="px-6 py-4">{{ Str::limit($item->description, 50) }}</td>
-        <td class="px-6 py-4 text-sm font-medium">
-          <a href="{{ route('appointments.edit', $item) }}" class="text-indigo-600 hover:text-indigo-900" title="Editar">
-            <i class="fas fa-edit mr-2"></i>
-          </a>
+        {{-- <td class="px-6 py-4 text-sm font-medium">
+          <div class="flex items-stretch">
+            <a href="{{ route('appointments.edit', $item) }}" class="text-indigo-600 hover:text-indigo-900" title="Editar">
+              <i class="fas fa-edit mr-2"></i>
+            </a>
 
-          <a href="" wire:click.prevent="confirmRemoval({{ $item->id }})" class="text-red-600 hover:text-red-900" title="Eliminar">
-            <i class="fas fa-trash mr-2"></i>
-          </a>
+            <a href="" wire:click.prevent="confirmRemoval({{ $item->id }})" class="text-red-600 hover:text-red-900" title="Eliminar">
+              <i class="fas fa-trash mr-2"></i>
+            </a>
+          </div>
+        </td> --}}
+        <td class="px-6 py-4 text-sm font-medium">
+          <div x-data="{ show: false }" @click.away="show = false" class="relative z-20">
+            <button @click="show = ! show" type="button" class="block h8 w-8 rounded">
+              <i class="fa fa-ellipsis-v text-xl"></i>
+            </button>
+            <div x-show="show" class="absolute right-0 mt-2 py-2 top-full min-w-full w-max bg-white rounded">
+              <a href="{{ route('appointments.edit', $item) }}" class="block px-4 py-2 text-gray-800 hover:bg-gray-300">
+                <i class="fas fa-edit text-blue-400 mr-2"></i>Editar
+              </a>
+              <a href="" wire:click.prevent="confirmRemoval({{ $item->id }})" class="block px-4 py-2 text-gray-800 hover:bg-gray-300" >
+                <i class="fas fa-trash text-red-400 mr-2"></i>Eliminar
+              </a>
+              <hr class="border-t border-gray-200 my-0">
+              <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-300">
+                <i class="fas fa-eye text-green-400 mr-2"></i>Mostrar
+              </a>
+            </div>
+          </div>
+
+          {{-- <button class="relative flex justify-center items-center bg-transparent border focus:outline-none shadow text-gray-600 rounded focus:ring ring-gray-200 z-20 group">
+            <i class="fa fa-ellipsis-v text-xl"></i>
+
+            <div class="absolute hidden group-focus:block right-0 top-full min-w-full w-max bg-gray-100 shadow-md mt-1 rounded">
+              <div class="text-left border rounded">
+                <a href="{{ route('appointments.edit', $item) }}" class="block px-4 py-1 hover:bg-gray-300 border-b">
+                  <i class="fas fa-edit text-blue-400 mr-2"></i>Editar
+                </a>
+
+                <a href="#" class="block px-4 py-1 hover:bg-gray-300 border-b">
+                  <i class="fas fa-eye text-green-400 mr-2"></i>Mostrar
+                </a>
+      
+                <a href="" wire:click.prevent="confirmRemoval({{ $item->id }})" class="block px-4 py-1 hover:bg-gray-300 border-b">
+                  <i class="fas fa-trash text-red-400 mr-2"></i>Eliminar
+                </a>
+              </div>
+            </div>
+          </button> --}}
         </td>
       </tr>
     @endforeach

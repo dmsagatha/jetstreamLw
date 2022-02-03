@@ -40,7 +40,8 @@ module.exports = {
   variants: {
     extend: {
       opacity: ['disabled'],
-      display: ['group-hover'],
+      // display: ['group-hover'],
+      display: ['group-focus'],
       visibility: ['group-hover']
     },
   },
