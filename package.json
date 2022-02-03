@@ -23,7 +23,6 @@
         "postcss": "^8.3.6",
         "postcss-import": "^14.0.1",
         "resolve-url-loader": "^4.0.0",
-        "sass": "^1.35.1",
         "sass-loader": "^12.1.0",
         "tailwindcss": "^2.2.9"
     },

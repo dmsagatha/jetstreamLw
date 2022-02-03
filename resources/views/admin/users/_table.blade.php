@@ -1,6 +1,9 @@
 <table class="min-w-full divide-y divide-gray-200">
   <thead class="bg-gray-50 text-sm-center text-sm font-bold align-middle">
     <tr>
+      <th scope="col" class="relative px-6 py-3">
+        <span class="sr-only">Edit</span>
+      </th>
       <th scope="col" wire:click.prevent="sortBy('id')"
         class="w-24 px-6 py-3 text-gray-500 uppercase tracking-wider cursor-pointer">
         ID
@@ -35,6 +38,34 @@
   <tbody class="bg-white divide-y divide-gray-200 text-sm">
     @foreach ($users as $item)
       <tr>
+        <td class="px-6 py-4">
+          <div class="flex justify-center p-12">
+            <!-- Dropdown -->
+            <div x-data="{ open: false }" class="relative">
+              <button x-on:click="open = true" class="block h-12 w-12 rounded-full overflow-hidden focus:outline-none">
+                <img class="h-full w-full object-cover" src="https://eu.ui-avatars.com/api/?name=John&size=1000" alt="avatar">
+              </button>
+              <!-- Dropdown Body -->
+              <div x-show.transition="open" x-on:click.away="open = false" class="absolute right-0 w-40 mt-2 py-2 bg-white border rounded shadow-xl">
+                <a href="#" class="transition-colors duration-200 block px-4 py-2 text-normal text-gray-900 rounded hover:bg-purple-500 hover:text-white" wire:click="showModal({{ $item->id }})">
+                  Editar
+                </a>
+                <a href="javascript:void(0)" class="transition-colors duration-200 block px-4 py-2 text-normal text-gray-900 rounded hover:bg-purple-500 hover:text-white" onclick="borrarUsuario({{ $item->id }})">
+                  Eliminar
+                </a>
+                <a href="#" class="transition-colors duration-200 block px-4 py-2 text-normal text-gray-900 rounded hover:bg-purple-500 hover:text-white">Settings</a>
+                <div class="py-2">
+                  <hr></hr>
+              </div>
+              <a href="#" class="transition-colors duration-200 block px-4 py-2 text-normal text-gray-900 rounded hover:bg-purple-500 hover:text-white">    
+                Logout
+              </a>
+            </div>
+            <!-- // Dropdown Body -->
+            </div>
+            <!-- // Dropdown -->
+          </div>
+        </td>
         <td class="px-6 py-4">
           <div class="text-sm text-gray-900">
             {{ $item->id }}
