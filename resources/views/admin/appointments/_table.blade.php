@@ -67,22 +67,15 @@
           </a>
         </td>
         <td class="px-6 py-4 text-sm font-medium">
-          {{-- <div class="flex justify-end py-3 px-6 bg-gray-50 border-b">
-            <div>Menú</div>
-          </div> --}}
+          <button class="relative flex justify-center items-center bg-transparent border focus:outline-none shadow text-gray-600 rounded focus:ring ring-gray-200 z-20 group">
+            <i class="fa fa-ellipsis-v text-xl"></i>
 
-          <button class="relative flex justify-center items-center bg-white border focus:outline-none shadow text-gray-600 rounded focus:ring ring-gray-200 group">
-            <p class="px-4">Acciones</p>
-            <span class="border-l p-2 hover:bg-gray-100">
-              <i class="fa fa-ellipsis-v text-2xl"></i>
-            </span>
-
-            <div class="absolute hidden group-focus:block top-full min-w-full w-max bg-white shadow-md mt-1 rounded">
+            <div class="absolute hidden group-focus:block top-full min-w-full w-max bg-gray-100 shadow-md mt-1 rounded">
               <ul class="text-left border rounded">
-                <li class="px-4 py-1 hover:bg-gray-100 border-b">Menú 1</li>
-                <li class="px-4 py-1 hover:bg-gray-100 border-b">Menú 2</li>
-                <li class="px-4 py-1 hover:bg-gray-100 border-b">Menú 3</li>
-                <li class="px-4 py-1 hover:bg-gray-100">Menú 4</li>
+                <li class="px-4 py-1 hover:bg-gray-300 border-b">Menú 1</li>
+                <li class="px-4 py-1 hover:bg-gray-300 border-b">Menú 2</li>
+                <li class="px-4 py-1 hover:bg-gray-300 border-b">Menú 3</li>
+                <li class="px-4 py-1 hover:bg-gray-300">Menú 4</li>
               </ul>
             </div>
           </button>
