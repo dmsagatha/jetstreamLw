@@ -70,13 +70,20 @@
           <button class="relative flex justify-center items-center bg-transparent border focus:outline-none shadow text-gray-600 rounded focus:ring ring-gray-200 z-20 group">
             <i class="fa fa-ellipsis-v text-xl"></i>
 
-            <div class="absolute hidden group-focus:block top-full min-w-full w-max bg-gray-100 shadow-md mt-1 rounded">
-              <ul class="text-left border rounded">
-                <li class="px-4 py-1 hover:bg-gray-300 border-b">Menú 1</li>
-                <li class="px-4 py-1 hover:bg-gray-300 border-b">Menú 2</li>
-                <li class="px-4 py-1 hover:bg-gray-300 border-b">Menú 3</li>
-                <li class="px-4 py-1 hover:bg-gray-300">Menú 4</li>
-              </ul>
+            <div class="absolute hidden group-focus:block right-0 top-full min-w-full w-max bg-gray-100 shadow-md mt-1 rounded">
+              <div class="text-left border rounded">
+                <a href="{{ route('appointments.edit', $item) }}" class="block px-4 py-1 hover:bg-gray-300 border-b">
+                  <i class="fas fa-edit text-blue-400 mr-2"></i>Editar
+                </a>
+
+                <a href="#" class="block px-4 py-1 hover:bg-gray-300 border-b">
+                  <i class="fas fa-eye text-green-400 mr-2"></i>Mostrar
+                </a>
+      
+                <a href="" wire:click.prevent="confirmRemoval({{ $item->id }})" class="block px-4 py-1 hover:bg-gray-300 border-b">
+                  <i class="fas fa-trash text-red-400 mr-2"></i>Eliminar
+                </a>
+              </div>
             </div>
           </button>
         </td>
