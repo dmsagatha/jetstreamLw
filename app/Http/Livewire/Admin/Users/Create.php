@@ -35,6 +35,27 @@ class Create extends Component
     return view('admin.users.create');
   }
 
+  public function store()
+  {
+    $requestUser = new RequestCreateUpdateUser();
+
+    $values = $this->validate($requestUser->rules($this->user), $requestUser->messages());
+
+    $user = new User;
+    $user->fill($values);
+
+    if ($values['profile_photo_path']) {
+      $user->profile_photo_path = $this->loadImage($values['profile_photo_path']);
+    }
+    $user->password = bcrypt($values['password']);
+    $user->save();
+
+    sleep(2);
+
+    $this->emitTo('admin.users.user-table', 'render');
+    $this->closeModal();
+  }
+
   public function update()
   {
     $requestUser = new RequestCreateUpdateUser();
@@ -49,27 +70,6 @@ class Create extends Component
     }
     
     $this->user->update($values);
-    
-    $this->emitTo('admin.users.user-table', 'render');
-    $this->closeModal();
-  }
-
-  public function store()
-  {
-    $requestUser = new RequestCreateUpdateUser();
-
-    $values = $this->validate($requestUser->rules($this->user), $requestUser->messages());
-    
-    $user = new User;
-    $user->fill($values);
-
-    if ($values['profile_photo_path']) {
-      $user->profile_photo_path = $this->loadImage($values['profile_photo_path']);
-    }
-    $user->password = bcrypt($values['password']);
-    $user->save();
-
-    sleep(2);
     
     $this->emitTo('admin.users.user-table', 'render');
     $this->closeModal();

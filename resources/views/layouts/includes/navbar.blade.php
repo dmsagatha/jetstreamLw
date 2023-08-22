@@ -32,48 +32,48 @@
           <div class="absolute w-44 left-0 top-full bg-white shadow-md invisible opacity-0 group-hover:opacity-100 group-hover:visible transition duration-300 z-50 divide-y divide-gray-300 divide-dashed overflow-hidden">
             <a href="{{ route('tags') }}"
             class="flex items-center px-4 py-3 hover:bg-gray-100 text-gray-600 hover:text-semibold transition">
-            <i class="fas fa-tags text-gray-600 mr-1"></i>Etiquetas
-          </a>
-          <a href="{{ route('students') }}"
-            class="flex items-center px-4 py-3 hover:bg-gray-100 text-gray-600 hover:text-semibold transition">
-            <i class="fas fa-user-graduate text-gray-600 mr-1"></i>Estudiantes
-          </a>
-          <a href="{{ route('products') }}"
-            class="flex items-center px-4 py-3 hover:bg-gray-100 text-gray-600 hover:text-semibold transition">
-            <i class="fab fa-product-hunt text-gray-600 mr-1"></i>Productos
-          </a>
-          <a href="{{ route('posts') }}"
-            class="flex items-center px-4 py-3 hover:bg-gray-100 text-gray-600 hover:text-semibold transition">
-            <i class="fas fa-mail-bulk text-gray-600 mr-1"></i>Publicaciones
-          </a>
-          <a href="{{ route('user.list') }}"
-            class="flex items-center px-4 py-3 hover:bg-gray-100 text-gray-600 hover:text-semibold transition">
-            <i class="fas fa-users text-gray-600 mr-1"></i>Usuaros
-          </a>
-          <a href="{{ route('categories') }}"
-            class="flex items-center px-4 py-3 hover:bg-gray-100 text-gray-600 hover:text-semibold transition">
-            <i class="fab fa-accusoft text-gray-600 mr-1"></i>Categorías
-          </a>
-          <a href="{{ route('appointments') }}"
-            class="flex items-center px-4 py-3 hover:bg-gray-100 text-gray-600 hover:text-semibold transition">
-            <i class="fas fa-calendar-check text-gray-600 mr-1"></i>Programar Citas
-          </a>
-          <a href="{{ route('books.index') }}"
-            class="flex items-center px-4 py-3 hover:bg-gray-100 text-gray-600 hover:text-semibold transition">
-            <i class="fas fa-book text-gray-600 mr-1"></i>Libros
-          </a>
-          <a href="{{ route('companies.index') }}"
-            class="flex items-center px-4 py-3 hover:bg-gray-100 text-gray-600 hover:text-semibold transition">
-            <i class="far fa-building text-gray-600 mr-1"></i>Compañías
-          </a>
-          <a href="{{ route('peoples.index') }}"
-            class="flex items-center px-4 py-3 hover:bg-gray-100 text-gray-600 hover:text-semibold transition">
-            <i class="far fa-building text-gray-600 mr-1"></i>Personas
-          </a>
-          <a href="{{ route('screens.index') }}"
-            class="flex items-center px-4 py-3 hover:bg-gray-100 text-gray-600 hover:text-semibold transition">
-            <i class="far fa-building text-gray-600 mr-1"></i>Pantallas
-          </a>
+              <i class="fas fa-tags text-gray-600 mr-1"></i>Etiquetas
+            </a>
+            <a href="{{ route('students') }}"
+              class="flex items-center px-4 py-3 hover:bg-gray-100 text-gray-600 hover:text-semibold transition">
+              <i class="fas fa-user-graduate text-gray-600 mr-1"></i>Estudiantes
+            </a>
+            <a href="{{ route('products') }}"
+              class="flex items-center px-4 py-3 hover:bg-gray-100 text-gray-600 hover:text-semibold transition">
+              <i class="fab fa-product-hunt text-gray-600 mr-1"></i>Productos
+            </a>
+            <a href="{{ route('posts') }}"
+              class="flex items-center px-4 py-3 hover:bg-gray-100 text-gray-600 hover:text-semibold transition">
+              <i class="fas fa-mail-bulk text-gray-600 mr-1"></i>Publicaciones
+            </a>
+            <a href="{{ route('user.list') }}"
+              class="flex items-center px-4 py-3 hover:bg-gray-100 text-gray-600 hover:text-semibold transition">
+              <i class="fas fa-users text-gray-600 mr-1"></i>Usuaros
+            </a>
+            <a href="{{ route('categories') }}"
+              class="flex items-center px-4 py-3 hover:bg-gray-100 text-gray-600 hover:text-semibold transition">
+              <i class="fab fa-accusoft text-gray-600 mr-1"></i>Categorías
+            </a>
+            <a href="{{ route('appointments') }}"
+              class="flex items-center px-4 py-3 hover:bg-gray-100 text-gray-600 hover:text-semibold transition">
+              <i class="fas fa-calendar-check text-gray-600 mr-1"></i>Programar Citas
+            </a>
+            <a href="{{ route('books.index') }}"
+              class="flex items-center px-4 py-3 hover:bg-gray-100 text-gray-600 hover:text-semibold transition">
+              <i class="fas fa-book text-gray-600 mr-1"></i>Libros
+            </a>
+            <a href="{{ route('companies.index') }}"
+              class="flex items-center px-4 py-3 hover:bg-gray-100 text-gray-600 hover:text-semibold transition">
+              <i class="far fa-building text-gray-600 mr-1"></i>Compañías
+            </a>
+            <a href="{{ route('peoples.index') }}"
+              class="flex items-center px-4 py-3 hover:bg-gray-100 text-gray-600 hover:text-semibold transition">
+              <i class="far fa-building text-gray-600 mr-1"></i>Personas
+            </a>
+            <a href="{{ route('screens.index') }}"
+              class="flex items-center px-4 py-3 hover:bg-gray-100 text-gray-600 hover:text-semibold transition">
+              <i class="far fa-building text-gray-600 mr-1"></i>Pantallas
+            </a>
           </div>
         </div><!-- Menú desplegable -->
       </div>
